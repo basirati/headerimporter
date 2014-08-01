@@ -1,0 +1,218 @@
+
+import java_cup.runtime.*;
+import java.util.ArrayList;
+
+parser code {:
+   
+	public CodeGenerator cg = new CodeGenerator();
+
+    public void report_error(String message, Object info) {
+   
+       
+        StringBuilder m = new StringBuilder("Error");
+   
+        if (info instanceof java_cup.runtime.Symbol) {
+     
+            java_cup.runtime.Symbol s = ((java_cup.runtime.Symbol) info);
+
+            if (s.left >= 0) {                
+                       m.append(" in line "+(s.left+1));   
+     
+                if (s.right >= 0)                    
+                       m.append(", column "+(s.right+1));
+            }
+        }
+   
+        m.append(" : "+message);
+   
+        System.err.println(m);
+    }
+   
+    public void report_fatal_error(String message, Object info) {
+        report_error(message, info);
+        System.exit(1);
+    }
+:};
+   
+
+
+terminal		LBRACKET, RBRACKET, DOTS, SHARP, NO_CARE, PRE_ID, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ;
+
+terminal Integer	NUMBER;
+terminal String		ID;
+   
+non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, value, defin, _struct, st_body, func, ident_funcpointer;
+   
+	expr_list	::=	expr_list expr_part
+				|
+				expr_part
+				;
+
+   
+	expr_part	::= 	expr SEMI
+				|
+				sharp_s
+				;
+
+
+
+	expr	::= 	EXTERN func:f
+			{: 
+			parser.cg.declareFunc();
+			System.out.println(f); 
+			:}
+			|
+			EXTERN defin:d
+			{:
+			parser.cg.declareVar();
+			System.out.println(d+";"); 
+			:}
+			|
+			TYPEDEF defin:d2
+			{:
+			parser.cg.declareTypedef_var();
+			System.out.println("typedef "+ d2 +";"); 
+			:}
+			|
+			TYPEDEF STRUCT LQ st_body:s RQ ID:i
+			{:
+			parser.cg.declareTypedef_struct();
+			System.out.println("typedef "+ s + " " + i + ";"); 
+			:}
+			|
+			_struct:s
+			{:
+			parser.cg.declareStruct();
+			System.out.println(s); 
+			:}
+			;
+
+	func	::=	ident:e ID:e2 LPAREN 
+			{: 
+			parser.cg.f.setReturn_type(e);
+			parser.cg.f.setID(e2);
+			:}						
+			params:p RPAREN
+			{: 
+			parser.cg.f.pushParam(p);
+			RESULT = e + " " + e2 + "(" + p + ");"; 
+			:} 
+			;
+	
+
+	_struct	::=	STRUCT ID:i LQ st_body:s RQ
+			{: 
+			parser.cg.s.addName(i);
+			RESULT = "struct " + i + "{" + "\n" + s + "\n" + "};"; 
+			:}
+			;
+	
+	st_body	::=	defin:d SEMI
+			{: RESULT = d + ";"; :}
+			|
+			st_body:s defin:d2 SEMI
+			{: RESULT = s + "\n" + d2 + ";" ; :}
+			;
+	
+	defin	::=	ident:i ID:i2
+			{: 
+			parser.cg.dec.push(i);
+			parser.cg.dec.push(i2);
+			RESULT = i + " " + i2; 
+			:}
+			|
+			ident:i3 ID:i4 LBRACKET value:v RBRACKET
+			{: 
+			parser.cg.dec.push(i3);
+			parser.cg.dec.push(i4);
+			parser.cg.dec.push("["+v+"]");
+			RESULT = i3 + " " + i4 + "[" + v + "]"; 
+			:}
+			|
+			ident:i5 ID:i6 LBRACKET RBRACKET
+			{: 
+			parser.cg.dec.push(i5);
+			parser.cg.dec.push(i6);
+			parser.cg.dec.push("[]");
+			RESULT = i5 + " " + i6 + "[]"; 
+			:}
+			|
+			ident:i7 LPAREN STAR ID:i8 RPAREN LPAREN params:ps RPAREN
+			{: 
+			parser.cg.dec.push(i7);
+			parser.cg.dec.push(i8);
+			parser.cg.dec.push("(" + ps + ")");
+			RESULT = i7 + " (*" + i8 + ")(" + ps + ")"; 
+			:}
+			;
+
+	
+
+	sharp_s	::=	SHARP ID
+			|
+			sharp_s value
+			|
+			sharp_s NO_CARE
+			;
+
+
+	value	::=	ID
+			|
+			NUMBER
+			;
+	
+
+	params	::=	ident: p
+			{: 
+			RESULT = p; 
+			:}
+			|
+			ident:p2 COMMA params:ps
+			{: 
+			RESULT = p2 + " , " + ps; 
+			:}
+			|
+			ident:p3 COMMA DOTS
+			{:
+			 RESULT = p3; 
+			:}
+			|
+			ident_funcpointer:p4
+			{: RESULT = p4; :}
+			|
+			ident_funcpointer:p5 COMMA params:ps2
+			{: RESULT = p5 + " , " + ps2; :}
+			|
+			{: RESULT = ""; :}
+			;
+
+	ident_funcpointer ::=
+			ident:p4 LPAREN params:ps2 RPAREN
+			{:
+			 RESULT = p4+"("+ps2+")"; 
+			:}
+			;
+
+	ident	::=	ID:i
+			{: RESULT = i; :}
+			|			
+			PRE_ID:i ID:i2
+			{: RESULT = i + " " + i2; :}
+			|
+			PRE_ID:i PRE_ID:i2 ID:i3
+			{: RESULT = i + " " + i2 + " " + i3; :}
+			|
+			ident:i STAR
+			{: RESULT = i + "*"; :}
+			|
+			ident:i LBRACKET RBRACKET
+			{: RESULT = i + "[]"; :}			
+			|
+			ident:i LPAREN STAR RPAREN
+			{: RESULT = i + " (*)"; :}
+			|
+			STRUCT ID:i STAR
+			{: RESULT = "struct " + i + "*"; :}
+			;
+			
+
