@@ -4,7 +4,7 @@ public class Main {
   static public void main(String argv[]) {    
     /* Start the parser */
     try {
-      parser p = new parser(new Lexer(new FileReader("test.txt")));
+      parser p = new parser(new Lexer(new FileReader("STDIO.H")));
       Object result = p.parse().value;
       //System.out.println(result);
       System.out.println("..............................................");
