@@ -102,7 +102,7 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
 
 	_struct	::=	STRUCT ID:i LQ st_body:s RQ
 			{: 
-			parser.cg.s.addName(i);
+			parser.cg.s.setName(i);
 			RESULT = "struct " + i + "{" + "\n" + s + "\n" + "};"; 
 			:}
 			;
