@@ -13,7 +13,24 @@ public class CodeGenerator {
     private ArrayList<func_decl> functions = new ArrayList<func_decl>();
     private ArrayList<struct_decl> structs = new ArrayList<struct_decl>();
     private ArrayList<var_decl> vars = new ArrayList<var_decl>();
-    private ArrayList<vartypedef_decl> vts = new ArrayList<vartypedef_decl>();
+    private ArrayList<vartypedef_decl> typedef_vars = new ArrayList<vartypedef_decl>();
+
+
+    public ArrayList<func_decl> getFunctions() {
+        return functions;
+    }
+
+    public ArrayList<struct_decl> getStructs() {
+        return structs;
+    }
+
+    public ArrayList<var_decl> getVars() {
+        return vars;
+    }
+
+    public ArrayList<vartypedef_decl> getTypedef_vars() {
+        return typedef_vars;
+    }
 
     public void declareFunc()
     {
@@ -34,7 +51,7 @@ public class CodeGenerator {
         vartypedef_decl v = new vartypedef_decl();
         v.setDef(dec.getType());
         v.setAs(dec.getID());
-        vts.add(v);
+        typedef_vars.add(v);
         dec = new var_decl();
     }
 
@@ -43,6 +60,7 @@ public class CodeGenerator {
         struct_decl sd = new struct_decl();
         sd.setName(id);
         sd.setDecs(dec);
+        sd.as_typedef = true;
         structs.add(sd);
         dec = new var_decl();
     }
@@ -72,7 +90,7 @@ public class CodeGenerator {
         for (var_decl v: vars)
             System.out.println(v.getType() + " " + v.getID() + v.getQ());
         System.out.println("TYPEDEF VARS...");
-        for (vartypedef_decl v: vts)
+        for (vartypedef_decl v: typedef_vars)
             System.out.println(v.getDef() + "->" + v.getAs());
     }
 }

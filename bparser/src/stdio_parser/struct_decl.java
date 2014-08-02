@@ -5,7 +5,7 @@ package stdio_parser;
  */
 public class struct_decl {
     private String name = "";
-
+    public boolean as_typedef = false;
     public var_decl getDecs() {
         return decs;
     }
