@@ -57,34 +57,19 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
 
 
 	expr	::= 	EXTERN func:f
-			{: 
-			parser.cg.declareFunc();
-			System.out.println(f); 
-			:}
+			{: parser.cg.declareFunc(); :}
 			|
 			EXTERN defin:d
-			{:
-			parser.cg.declareVar();
-			System.out.println(d+";"); 
-			:}
+			{: parser.cg.declareVar(); :}
 			|
 			TYPEDEF defin:d2
-			{:
-			parser.cg.declareTypedef_var();
-			System.out.println("typedef "+ d2 +";"); 
-			:}
+			{: parser.cg.declareTypedef_var(); :}
 			|
 			TYPEDEF STRUCT LQ st_body:s RQ ID:i
-			{:
-			parser.cg.declareTypedef_struct();
-			System.out.println("typedef "+ s + " " + i + ";"); 
-			:}
+			{: parser.cg.declareTypedef_struct(); :}
 			|
 			_struct:s
-			{:
-			parser.cg.declareStruct();
-			System.out.println(s); 
-			:}
+			{: parser.cg.declareStruct(); :}
 			;
 
 	func	::=	ident:e ID:e2 LPAREN 
@@ -118,6 +103,7 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
 			{: 
 			parser.cg.dec.push(i);
 			parser.cg.dec.push(i2);
+			parser.cg.dec.push("");
 			RESULT = i + " " + i2; 
 			:}
 			|
@@ -156,9 +142,11 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
 			;
 
 
-	value	::=	ID
+	value	::=	ID:i
+			{: RESULT = i; :}
 			|
-			NUMBER
+			NUMBER:n
+			{: RESULT = n; :}
 			;
 	
 

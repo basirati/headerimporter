@@ -66,7 +66,7 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
 			{: parser.cg.declareTypedef_var(); :}
 			|
 			TYPEDEF STRUCT LQ st_body:s RQ ID:i
-			{: parser.cg.declareTypedef_struct(); :}
+			{: parser.cg.declareTypedef_struct(i); :}
 			|
 			_struct:s
 			{: parser.cg.declareStruct(); :}
@@ -103,6 +103,7 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
 			{: 
 			parser.cg.dec.push(i);
 			parser.cg.dec.push(i2);
+			parser.cg.dec.push("");
 			RESULT = i + " " + i2; 
 			:}
 			|
@@ -141,9 +142,11 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
 			;
 
 
-	value	::=	ID
+	value	::=	ID:i
+			{: RESULT = i; :}
 			|
-			NUMBER
+			NUMBER:n
+			{: RESULT = n; :}
 			;
 	
 
