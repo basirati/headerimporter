@@ -68,7 +68,7 @@ public class CodeGenerator {
         }
         System.out.println("VARIABLES...");
         for (var_decl v: vars)
-            System.out.println(v.toString());
+            System.out.println(v.getType() + " " + v.getID() + v.getQ());
         System.out.println("TYPEDEF VARS...");
         for (vartypedef_decl v: vts)
             System.out.println(v.getDef() + "->" + v.getAs());

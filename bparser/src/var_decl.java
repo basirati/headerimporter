@@ -11,7 +11,7 @@ public class var_decl {
     }
     public String getType()
     {
-        try { return (String) stack.get(2); }
+        try { return (String) stack.get(0); }
         catch (Exception e) { return ""; }
     }
     public String getID()
@@ -22,7 +22,7 @@ public class var_decl {
 
     public String getQ()
     {
-        try { return (String) stack.get(0); }
+        try { return (String) stack.get(2); }
         catch (Exception e) { return ""; }
     }
 
