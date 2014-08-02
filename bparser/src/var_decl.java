@@ -11,24 +11,19 @@ public class var_decl {
     }
     public String getType()
     {
-        if (!stack.empty())
-            return (String) stack.get(0);
-        else return "";
+        try { return (String) stack.get(2); }
+        catch (Exception e) { return ""; }
     }
     public String getID()
     {
-        if (stack.size() > 1)
-            return (String) stack.get(1);
-        else
-            return "";
+        try { return (String) stack.get(1); }
+        catch (Exception e) { return ""; }
     }
 
     public String getQ()
     {
-        String s = "";
-        for (int i = 2; i < stack.size(); i++)
-            s = s + stack.get(i);
-        return s;
+        try { return (String) stack.get(0); }
+        catch (Exception e) { return ""; }
     }
 
     public String toString()

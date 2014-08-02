@@ -104,7 +104,14 @@ typedef void *va_list;
 #define	stderr	(&_iob[2])
 #endif	/* __STDC__ */
 
-typedef struct  /* needs to be binary-compatible with old versions */
+struct ASB
+{
+int i;
+int j;
+char* b;
+};
+
+typedef struct /* needs to be binary-compatible with old versions */
 {
 #ifdef _STDIO_REVERSE
 	unsigned char	*_ptr;	/* next character from/to here in buffer */

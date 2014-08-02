@@ -5,7 +5,16 @@ import java.util.ArrayList;
  */
 public class struct_decl {
     private String name = "";
-    private ArrayList<var_decl> vars = new ArrayList<var_decl>();
+
+    public var_decl getDecs() {
+        return decs;
+    }
+
+    public void setDecs(var_decl decs) {
+        this.decs = decs;
+    }
+
+    private var_decl decs = new var_decl();
 
     public String getName() {
         return name;
@@ -15,13 +24,6 @@ public class struct_decl {
         this.name = name;
     }
 
-    public ArrayList<var_decl> getVars() {
-        return vars;
-    }
-
-    public void setVars(ArrayList<var_decl> vars) {
-        this.vars = vars;
-    }
 
 
 }

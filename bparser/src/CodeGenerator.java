@@ -21,7 +21,7 @@ public class CodeGenerator {
 
     public void declareStruct()
     {
-        s.setVars(vars);
+        s.setDecs(dec);
         structs.add(s);
         s = new struct_decl();
         dec = new var_decl();
@@ -36,9 +36,13 @@ public class CodeGenerator {
         dec = new var_decl();
     }
 
-    public void declareTypedef_struct()
+    public void declareTypedef_struct(String id)
     {
-
+        struct_decl sd = new struct_decl();
+        sd.setName(id);
+        sd.setDecs(dec);
+        structs.add(sd);
+        dec = new var_decl();
     }
 
     public void declareVar()
@@ -57,8 +61,11 @@ public class CodeGenerator {
             System.out.println(f.getReturn_type() + " " + f.getID() + "(" + p + ")");
         }
         System.out.println("STRUCTS...");
-        for (struct_decl s: structs)
+        for (struct_decl s: structs) {
             System.out.println(s.getName());
+            System.out.println(s.getDecs().toString());
+            System.out.println("---");
+        }
         System.out.println("VARIABLES...");
         for (var_decl v: vars)
             System.out.println(v.toString());
