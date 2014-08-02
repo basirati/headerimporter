@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependenciesRoot>
+  <dependency className="stdioImporter.runtime.Test" file="Test.java">
+    <classNode dependClassName="stdio_parser.CodeGenerator" />
+  </dependency>
+</dependenciesRoot>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debugInfo>
+  <root nodeRef="r:0a61a9e7-a709-43f0-abe2-8e147f2ba2c1(stdioImporter.runtime)/447598945184559922">
+    <nodeInfo nodeId="447598945184563892" fileName="Test.java" startLine="8" startPosition="0" endLine="9" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.FieldDeclaration" propertyString="cg" />
+    <unitInfo nodeId="447598945184559922" fileName="Test.java" startLine="7" startPosition="0" endLine="10" endPosition="0" unitName="stdioImporter.runtime.Test" />
+  </root>
+</debugInfo>
+
