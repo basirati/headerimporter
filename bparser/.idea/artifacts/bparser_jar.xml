@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="bparser:jar">
+  <artifact type="jar" build-on-make="true" name="bparser:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/bparser_jar</output-path>
     <root id="archive" name="bparser.jar">
       <element id="module-output" name="bparser" />
