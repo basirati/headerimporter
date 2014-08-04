@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies version="2" modelHash="-6wwl3ic76grq6d0hkpcijqv3afl2gqw">
+<dependencies version="2" modelHash="ebaludjmza0j32wwx9ui4fgnqqh1i6e">
+  <dep model="r:00000000-0000-4000-0000-011c895902cd(jetbrains.mps.baseLanguage.generator.java.main@generator)" hash="303xz1b2lyseld0axia86q3lpvucmq6" />
   <dep model="r:b4d7d620-6723-4aa2-856b-118497e84e9e(jetbrains.mps.baseLanguage.generator.java.strings@generator)" hash="b4ewbuz42qcbg1awca5bacgi0vopxqt" />
-  <common hash="-3msqmw4hmhvtbvv8cro9pxfan5miorf" dependsOnNodes="true">
+  <dep model="r:f04c1476-2f91-4f59-be13-c8e009abebee(jetbrains.mps.baseLanguageInternal.generator.template.main@generator)" hash="a8elw7fctzg6sg8fe36u9gzu42axhdb" />
+  <common hash="-7tjhdeijxwvx06go1uqpoq564kbceyp" dependsOnNodes="true">
     <dep model="r:b4d7d620-6723-4aa2-856b-118497e84e9e(jetbrains.mps.baseLanguage.generator.java.strings@generator)" />
   </common>
-  <source id="447598945184559922" name="Test" hash="-90qyb0ggh1rkmvgzem2eiikqyvlklpq">
-    <file name="Test.java" />
+  <source id="3764438981860010834" name="ParserAdapter" hash="8lwt0dnuphvi1wfyam23vs1pu7948jq">
+    <dep model="r:00000000-0000-4000-0000-011c895902cd(jetbrains.mps.baseLanguage.generator.java.main@generator)" />
+    <dep model="r:b4d7d620-6723-4aa2-856b-118497e84e9e(jetbrains.mps.baseLanguage.generator.java.strings@generator)" />
+    <dep model="r:f04c1476-2f91-4f59-be13-c8e009abebee(jetbrains.mps.baseLanguageInternal.generator.template.main@generator)" />
+    <file name="ParserAdapter.java" />
+  </source>
+  <source id="3764438981860208468" name="Importer" hash="6miozmecf5smfsuvtjhew2svdkgfc2d">
+    <file name="Importer.java" />
   </source>
 </dependencies>
 

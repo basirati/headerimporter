@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
-  <dependency className="stdioImporter.runtime.Test" file="Test.java">
+  <dependency className="stdioImporter.runtime.Importer" file="Importer.java">
+    <classNode dependClassName="java.lang.Exception" />
+    <classNode dependClassName="java.lang.System" />
+  </dependency>
+  <dependency className="stdioImporter.runtime.ParserAdapter" file="ParserAdapter.java">
+    <classNode dependClassName="java.io.Reader" />
+    <classNode dependClassName="java.lang.Exception" />
+    <classNode dependClassName="java.lang.System" />
+    <classNode dependClassName="java_cup.Lexer" />
     <classNode dependClassName="stdio_parser.CodeGenerator" />
+    <classNode dependClassName="stdio_parser.parser" />
   </dependency>
 </dependenciesRoot>
 
