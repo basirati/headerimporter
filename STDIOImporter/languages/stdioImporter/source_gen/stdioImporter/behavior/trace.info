@@ -4,24 +4,24 @@
   <unitInfo fileName="ImportConfig_BehaviorDescriptor.java" startLine="7" startPosition="0" endLine="16" endPosition="0" unitName="stdioImporter.behavior.ImportConfig_BehaviorDescriptor" />
   <unitInfo fileName="ImportConfigs_BehaviorDescriptor.java" startLine="7" startPosition="0" endLine="16" endPosition="0" unitName="stdioImporter.behavior.ImportConfigs_BehaviorDescriptor" />
   <root nodeRef="r:56c48711-bf46-4489-b509-90d3acd252dc(stdioImporter.behavior)/3873900481303667258">
-    <nodeInfo nodeId="3873900481303708175" fileName="ImportConfig_Behavior.java" startLine="13" startPosition="77" endLine="14" endPosition="63" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="3873900481303737990" fileName="ImportConfig_Behavior.java" startLine="17" startPosition="80" endLine="18" endPosition="41" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="3873900481303667258" fileName="ImportConfig_Behavior.java" startLine="10" startPosition="0" endLine="12" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" propertyString="init#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-    <nodeInfo nodeId="3873900481303667258" fileName="ImportConfig_Behavior.java" startLine="13" startPosition="0" endLine="16" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" propertyString="call_getFileName_3873900481303667412#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
-    <nodeInfo nodeId="3873900481303667258" fileName="ImportConfig_Behavior.java" startLine="17" startPosition="0" endLine="20" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" propertyString="call_performImport_3873900481303708928#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-    <scopeInfo nodeId="3873900481303667411" fileName="ImportConfig_Behavior.java" startLine="10" startPosition="43" endLine="10" endPosition="43" />
-    <scopeInfo nodeId="3873900481303667415" fileName="ImportConfig_Behavior.java" startLine="13" startPosition="77" endLine="14" endPosition="63" />
-    <scopeInfo nodeId="3873900481303708931" fileName="ImportConfig_Behavior.java" startLine="17" startPosition="80" endLine="18" endPosition="41" />
-    <scopeInfo nodeId="3873900481303667258" fileName="ImportConfig_Behavior.java" startLine="10" startPosition="0" endLine="12" endPosition="0">
+    <nodeInfo nodeId="3873900481303708175" fileName="ImportConfig_Behavior.java" startLine="14" startPosition="77" endLine="15" endPosition="63" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+    <nodeInfo nodeId="1686749032425514944" fileName="ImportConfig_Behavior.java" startLine="18" startPosition="80" endLine="19" endPosition="153" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+    <nodeInfo nodeId="3873900481303667258" fileName="ImportConfig_Behavior.java" startLine="11" startPosition="0" endLine="13" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" propertyString="init#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+    <nodeInfo nodeId="3873900481303667258" fileName="ImportConfig_Behavior.java" startLine="14" startPosition="0" endLine="17" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" propertyString="call_getFileName_3873900481303667412#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+    <nodeInfo nodeId="3873900481303667258" fileName="ImportConfig_Behavior.java" startLine="18" startPosition="0" endLine="21" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" propertyString="call_performImport_3873900481303708928#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+    <scopeInfo nodeId="3873900481303667411" fileName="ImportConfig_Behavior.java" startLine="11" startPosition="43" endLine="11" endPosition="43" />
+    <scopeInfo nodeId="3873900481303667415" fileName="ImportConfig_Behavior.java" startLine="14" startPosition="77" endLine="15" endPosition="63" />
+    <scopeInfo nodeId="3873900481303708931" fileName="ImportConfig_Behavior.java" startLine="18" startPosition="80" endLine="19" endPosition="153" />
+    <scopeInfo nodeId="3873900481303667258" fileName="ImportConfig_Behavior.java" startLine="11" startPosition="0" endLine="13" endPosition="0">
       <varInfo nodeId="3873900481303667258" varName="thisNode" />
     </scopeInfo>
-    <scopeInfo nodeId="3873900481303667258" fileName="ImportConfig_Behavior.java" startLine="13" startPosition="0" endLine="16" endPosition="0">
+    <scopeInfo nodeId="3873900481303667258" fileName="ImportConfig_Behavior.java" startLine="14" startPosition="0" endLine="17" endPosition="0">
       <varInfo nodeId="3873900481303667258" varName="thisNode" />
     </scopeInfo>
-    <scopeInfo nodeId="3873900481303667258" fileName="ImportConfig_Behavior.java" startLine="17" startPosition="0" endLine="20" endPosition="0">
+    <scopeInfo nodeId="3873900481303667258" fileName="ImportConfig_Behavior.java" startLine="18" startPosition="0" endLine="21" endPosition="0">
       <varInfo nodeId="3873900481303667258" varName="thisNode" />
     </scopeInfo>
-    <unitInfo nodeId="3873900481303667258" fileName="ImportConfig_Behavior.java" startLine="9" startPosition="0" endLine="21" endPosition="0" unitName="stdioImporter.behavior.ImportConfig_Behavior" />
+    <unitInfo nodeId="3873900481303667258" fileName="ImportConfig_Behavior.java" startLine="10" startPosition="0" endLine="22" endPosition="0" unitName="stdioImporter.behavior.ImportConfig_Behavior" />
   </root>
 </debugInfo>
 

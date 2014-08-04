@@ -12,9 +12,11 @@ public class ParserAdapter {
     parser p = new parser(new Lexer(r));
     try {
       p.parse();
+      return p.cg;
     } catch (Exception e) {
       System.out.println("Parser failed to parse: " + e.getMessage());
+      return null;
     }
-    return p.cg;
+    // <node> 
   }
 }

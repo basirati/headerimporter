@@ -33,8 +33,17 @@
       <node role="body" roleId="tpee.1068580123135" type="tpee.StatementList" typeId="tpee.1068580123136" id="3873900481303708931" nodeInfo="sn">
         <node role="statement" roleId="tpee.1068581517665" type="tpee.ExpressionStatement" typeId="tpee.1068580123155" id="1686749032425514944" nodeInfo="nn">
           <node role="expression" roleId="tpee.1068580123156" type="tpee.StaticMethodCall" typeId="tpee.1081236700937" id="1686749032425514963" nodeInfo="nn">
-            <link role="baseMethodDeclaration" roleId="tpee.1068499141037" targetNodeId="y402.3873900481303775804" resolveInfo="toImport" />
+            <link role="baseMethodDeclaration" roleId="tpee.1068499141037" targetNodeId="y402.3873900481303775804" resolveInfo="doImport" />
             <link role="classConcept" roleId="tpee.1144433194310" targetNodeId="y402.3764438981860208468" resolveInfo="Importer" />
+            <node role="actualArgument" roleId="tpee.1068499141038" type="tpee.DotExpression" typeId="tpee.1197027756228" id="1125784125118491597" nodeInfo="nn">
+              <node role="operand" roleId="tpee.1197027771414" type="1i04.ThisNodeExpression" typeId="1i04.1225194691553" id="1125784125118491458" nodeInfo="nn" />
+              <node role="operation" roleId="tpee.1197027833540" type="tp25.SLinkAccess" typeId="tp25.1138056143562" id="1125784125118492557" nodeInfo="nn">
+                <link role="link" roleId="tp25.1138056516764" targetNodeId="tyg9.3873900481303386046" />
+              </node>
+            </node>
+            <node role="actualArgument" roleId="tpee.1068499141038" type="1i04.LocalBehaviorMethodCall" typeId="1i04.6496299201655527393" id="1125784125118492761" nodeInfo="nn">
+              <link role="baseMethodDeclaration" roleId="tpee.1068499141037" targetNodeId="3873900481303667412" resolveInfo="getFileName" />
+            </node>
           </node>
         </node>
       </node>

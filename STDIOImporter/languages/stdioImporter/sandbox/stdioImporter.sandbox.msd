@@ -10,5 +10,8 @@
     <usedLanguage>ceab5195-25ea-4f22-9b92-103b95ca8c0c(jetbrains.mps.lang.core)</usedLanguage>
     <usedLanguage>4552c9e5-a342-4299-8de1-338d8e5679fc(stdioImporter)</usedLanguage>
   </usedLanguages>
+  <usedDevKits>
+    <usedDevKit>0ca77142-1eea-4b14-b369-69bdaa1c44fb(com.mbeddr.analyses.core)</usedDevKit>
+  </usedDevKits>
 </solution>
 
