@@ -4,35 +4,27 @@ package stdioImporter.runtime;
 
 import org.jetbrains.mps.openapi.model.SNode;
 import stdio_parser.CodeGenerator;
-import java.io.FileReader;
-import java.io.File;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import stdio_parser.var_decl;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 
 public class Importer {
   public static boolean doImport(SNode module, String filename) {
     try {
-      CodeGenerator cg = ParserAdapter.Parse(new FileReader(new File(filename)));
-      SNode gcd = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.GlobalConstantDeclaration", null);
-      SNode nl = SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.NumberLiteral", null);
-      if (cg == null) {
-        SPropertyOperations.set(nl, "value", "khali");
-      } else {
-        SPropertyOperations.set(nl, "value", cg.getVars().get(0).getID());
+      CodeGenerator cg = ParserAdapter.Parse(filename);
+      for (var_decl v : ListSequence.fromList(cg.getVars())) {
+        SNode gvd = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.GlobalVariableDeclaration", null);
+        SNode type = Typer.buildType(v.getType(), null);
+        SLinkOperations.setTarget(gvd, "type", type, true);
+        SPropertyOperations.set(gvd, "name", v.getID());
+        ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(gvd);
+
       }
-      SLinkOperations.setTarget(gcd, "value", nl, true);
-      SPropertyOperations.set(gcd, "name", "ine");
-      ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(gcd);
+
 
     } catch (Exception e) {
-      SNode gcd = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.GlobalConstantDeclaration", null);
-      SNode nl = SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.NumberLiteral", null);
-      SPropertyOperations.set(nl, "value", "rid");
-      SLinkOperations.setTarget(gcd, "value", nl, true);
-      SPropertyOperations.set(gcd, "name", e.getMessage());
-      ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(gcd);
       return false;
     }
     return true;

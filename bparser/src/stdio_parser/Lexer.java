@@ -8,7 +8,7 @@ import java_cup.runtime.*;
  * <a href="http://www.jflex.de/">JFlex</a> 1.5.1
  * from the specification file <tt>mylcalc.flex</tt>
  */
-class Lexer implements Scanner {
+public class Lexer implements Scanner {
 
   /** This character denotes the end of file */
   public static final int YYEOF = -1;
@@ -292,7 +292,7 @@ class Lexer implements Scanner {
    *
    * @param   in  the java.io.Reader to read input from.
    */
-  Lexer(java.io.Reader in) {
+  public Lexer(java.io.Reader in) {
     this.zzReader = in;
   }
 
@@ -302,7 +302,7 @@ class Lexer implements Scanner {
    *
    * @param   in  the java.io.Inputstream to read input from.
    */
-  Lexer(java.io.InputStream in) {
+  public Lexer(java.io.InputStream in) {
     this(new java.io.InputStreamReader
              (in, java.nio.charset.Charset.forName("UTF-8")));
   }

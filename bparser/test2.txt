@@ -1,6 +1,6 @@
 extern int i;
 extern int j;
-extern char* b;
+extern char b;
 
 
 extern	unsigned char	*_ptr;	/* next character from/to here in buffer */

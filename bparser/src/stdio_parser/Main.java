@@ -11,6 +11,8 @@ public class Main {
       //System.out.println(result);
       System.out.println("..............................................");
       p.cg.showDeclarations();
+        //for (var_decl v: p.cg.getVars())
+        //    System.out.println(p.cg.getVars().get(0).getID());
     } catch (Exception e) {
       e.printStackTrace();
     }
