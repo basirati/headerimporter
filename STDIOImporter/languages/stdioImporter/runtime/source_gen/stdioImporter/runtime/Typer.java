@@ -7,13 +7,35 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 
 public class Typer {
   private static Map<String, SNode> types = MapSequence.fromMap(new HashMap<String, SNode>());
 
-  public static SNode buildType(String type, Iterable<SNode> typedefs) {
-    return MapSequence.fromMap(Typer.getTypes()).get(type);
+  public SNode buildType(String type, Iterable<SNode> typedefs) {
+    return this.getType(type);
   }
+
+
+
+  private SNode getType(String type) {
+    if (type.equals("int")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.IntType", null);
+    } else if (type.equals("unsigned int")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.UnsignedIntType", null);
+    } else if (type.equals("char")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.CharType", null);
+    } else if (type.equals("unsigned char")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.UnsignedCharType", null);
+    } else if (type.equals("int*")) {
+      SNode p = SConceptOperations.createNewNode("com.mbeddr.core.pointers.structure.PointerType", null);
+      SLinkOperations.setTarget(p, "baseType", SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.IntType", null), true);
+      return p;
+    }
+    return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.VoidType", null);
+  }
+
+
 
   private static Map<String, SNode> getTypes() {
     if (MapSequence.fromMap(Typer.types).isEmpty()) {

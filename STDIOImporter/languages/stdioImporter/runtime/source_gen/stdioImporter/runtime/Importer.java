@@ -14,12 +14,15 @@ public class Importer {
   public static boolean doImport(SNode module, String filename) {
     try {
       CodeGenerator cg = ParserAdapter.Parse(filename);
+      Typer typer = new Typer();
       for (var_decl v : ListSequence.fromList(cg.getVars())) {
         SNode gvd = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.GlobalVariableDeclaration", null);
-        SNode type = Typer.buildType(v.getType(), null);
-        SLinkOperations.setTarget(gvd, "type", type, true);
+        SLinkOperations.setTarget(gvd, "type", typer.buildType(v.getType(), null), true);
         SPropertyOperations.set(gvd, "name", v.getID());
+        SNode cm = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.CommentModuleContent", null);
+        SPropertyOperations.set(cm, "comment", "[" + v.getID() + "] --> [" + v.getType() + "]");
         ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(gvd);
+        ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(cm);
 
       }
 
