@@ -9,7 +9,6 @@
   <import index="tpck" modelUID="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" version="0" implicit="yes" />
   <import index="x27k" modelUID="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" version="9" implicit="yes" />
   <import index="mj1l" modelUID="r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)" version="30" implicit="yes" />
-  <import index="yq40" modelUID="r:152b3fc0-83a1-4bab-a8cd-565eb8483785(com.mbeddr.core.pointers.structure)" version="4" implicit="yes" />
   <root type="tyg9.ImportConfigs" typeId="tyg9.3873900481303386058" id="1125784125118189173" nodeInfo="ng">
     <node role="configs" roleId="tyg9.3873900481303386059" type="tyg9.ImportConfig" typeId="tyg9.3873900481303370769" id="1125784125118210640" nodeInfo="ng">
       <property name="filename" nameId="tyg9.3873900481303385554" value="/home/basirati/Desktop/impo/bparser/test2.txt" />
@@ -18,94 +17,6 @@
   </root>
   <root type="x27k.ExternalModule" typeId="x27k.6116558314501417921" id="1125784125118190149" nodeInfo="ng">
     <property name="name" nameId="tpck.1169194664001" value="Test" />
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.GlobalVariableDeclaration" typeId="x27k.6610873504380335822" id="2771001628964147033" nodeInfo="ng">
-      <property name="name" nameId="tpck.1169194664001" value="i" />
-      <node role="type" roleId="mj1l.318113533128716676" type="yq40.PointerType" typeId="yq40.279446265608459824" id="2771001628964147034" nodeInfo="ng">
-        <property name="volatile" nameId="mj1l.2941277002448691247" value="false" />
-        <property name="const" nameId="mj1l.2941277002445651368" value="false" />
-        <node role="baseType" roleId="yq40.2963921683065158286" type="mj1l.IntType" typeId="mj1l.8860443239512128108" id="2771001628964147035" nodeInfo="ng">
-          <property name="volatile" nameId="mj1l.2941277002448691247" value="false" />
-          <property name="const" nameId="mj1l.2941277002445651368" value="false" />
-        </node>
-      </node>
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.CommentModuleContent" typeId="x27k.2877808180148899328" id="2771001628964147036" nodeInfo="ng">
-      <property name="comment" nameId="x27k.2877808180148899333" value="[i] --&gt; [int*]" />
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.GlobalVariableDeclaration" typeId="x27k.6610873504380335822" id="2771001628964147037" nodeInfo="ng">
-      <property name="name" nameId="tpck.1169194664001" value="j" />
-      <node role="type" roleId="mj1l.318113533128716676" type="yq40.PointerType" typeId="yq40.279446265608459824" id="2771001628964147038" nodeInfo="ng">
-        <property name="volatile" nameId="mj1l.2941277002448691247" value="false" />
-        <property name="const" nameId="mj1l.2941277002445651368" value="false" />
-        <node role="baseType" roleId="yq40.2963921683065158286" type="mj1l.IntType" typeId="mj1l.8860443239512128108" id="2771001628964147039" nodeInfo="ng">
-          <property name="volatile" nameId="mj1l.2941277002448691247" value="false" />
-          <property name="const" nameId="mj1l.2941277002445651368" value="false" />
-        </node>
-      </node>
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.CommentModuleContent" typeId="x27k.2877808180148899328" id="2771001628964147040" nodeInfo="ng">
-      <property name="comment" nameId="x27k.2877808180148899333" value="[j] --&gt; [int*]" />
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.GlobalVariableDeclaration" typeId="x27k.6610873504380335822" id="2771001628964147041" nodeInfo="ng">
-      <property name="name" nameId="tpck.1169194664001" value="b" />
-      <node role="type" roleId="mj1l.318113533128716676" type="mj1l.CharType" typeId="mj1l.1664480272136207708" id="2771001628964147042" nodeInfo="ng">
-        <property name="volatile" nameId="mj1l.2941277002448691247" value="false" />
-        <property name="const" nameId="mj1l.2941277002445651368" value="false" />
-      </node>
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.CommentModuleContent" typeId="x27k.2877808180148899328" id="2771001628964147043" nodeInfo="ng">
-      <property name="comment" nameId="x27k.2877808180148899333" value="[b] --&gt; [char]" />
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.GlobalVariableDeclaration" typeId="x27k.6610873504380335822" id="2771001628964147044" nodeInfo="ng">
-      <property name="name" nameId="tpck.1169194664001" value="_ptr" />
-      <node role="type" roleId="mj1l.318113533128716676" type="mj1l.UnsignedCharType" typeId="mj1l.8463282783691492716" id="2771001628964147045" nodeInfo="ng">
-        <property name="volatile" nameId="mj1l.2941277002448691247" value="false" />
-        <property name="const" nameId="mj1l.2941277002445651368" value="false" />
-      </node>
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.CommentModuleContent" typeId="x27k.2877808180148899328" id="2771001628964147046" nodeInfo="ng">
-      <property name="comment" nameId="x27k.2877808180148899333" value="[_ptr] --&gt; [unsigned char]" />
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.GlobalVariableDeclaration" typeId="x27k.6610873504380335822" id="2771001628964147047" nodeInfo="ng">
-      <property name="name" nameId="tpck.1169194664001" value="_cnt" />
-      <node role="type" roleId="mj1l.318113533128716676" type="mj1l.IntType" typeId="mj1l.8860443239512128108" id="2771001628964147048" nodeInfo="ng">
-        <property name="volatile" nameId="mj1l.2941277002448691247" value="false" />
-        <property name="const" nameId="mj1l.2941277002445651368" value="false" />
-      </node>
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.CommentModuleContent" typeId="x27k.2877808180148899328" id="2771001628964147049" nodeInfo="ng">
-      <property name="comment" nameId="x27k.2877808180148899333" value="[_cnt] --&gt; [int]" />
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.GlobalVariableDeclaration" typeId="x27k.6610873504380335822" id="2771001628964147050" nodeInfo="ng">
-      <property name="name" nameId="tpck.1169194664001" value="_base" />
-      <node role="type" roleId="mj1l.318113533128716676" type="mj1l.UnsignedCharType" typeId="mj1l.8463282783691492716" id="2771001628964147051" nodeInfo="ng">
-        <property name="volatile" nameId="mj1l.2941277002448691247" value="false" />
-        <property name="const" nameId="mj1l.2941277002445651368" value="false" />
-      </node>
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.CommentModuleContent" typeId="x27k.2877808180148899328" id="2771001628964147052" nodeInfo="ng">
-      <property name="comment" nameId="x27k.2877808180148899333" value="[_base] --&gt; [unsigned char]" />
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.GlobalVariableDeclaration" typeId="x27k.6610873504380335822" id="2771001628964147053" nodeInfo="ng">
-      <property name="name" nameId="tpck.1169194664001" value="_flag" />
-      <node role="type" roleId="mj1l.318113533128716676" type="mj1l.UnsignedCharType" typeId="mj1l.8463282783691492716" id="2771001628964147054" nodeInfo="ng">
-        <property name="volatile" nameId="mj1l.2941277002448691247" value="false" />
-        <property name="const" nameId="mj1l.2941277002445651368" value="false" />
-      </node>
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.CommentModuleContent" typeId="x27k.2877808180148899328" id="2771001628964147055" nodeInfo="ng">
-      <property name="comment" nameId="x27k.2877808180148899333" value="[_flag] --&gt; [unsigned char]" />
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.GlobalVariableDeclaration" typeId="x27k.6610873504380335822" id="2771001628964147056" nodeInfo="ng">
-      <property name="name" nameId="tpck.1169194664001" value="_file" />
-      <node role="type" roleId="mj1l.318113533128716676" type="mj1l.UnsignedCharType" typeId="mj1l.8463282783691492716" id="2771001628964147057" nodeInfo="ng">
-        <property name="volatile" nameId="mj1l.2941277002448691247" value="false" />
-        <property name="const" nameId="mj1l.2941277002445651368" value="false" />
-      </node>
-    </node>
-    <node role="contents" roleId="x27k.6437088627575722833" type="x27k.CommentModuleContent" typeId="x27k.2877808180148899328" id="2771001628964147058" nodeInfo="ng">
-      <property name="comment" nameId="x27k.2877808180148899333" value="[_file] --&gt; [unsigned char]" />
-    </node>
   </root>
   <root type="mj1l.TypeSizeConfiguration" typeId="mj1l.3335993110369795380" id="1125784125118547263" nodeInfo="ng">
     <node role="pointerDiffType" roleId="mj1l.3813668170744198630" type="mj1l.UnsignedInt32tType" typeId="mj1l.8463282783691618450" id="1125784125118547311" nodeInfo="ng">

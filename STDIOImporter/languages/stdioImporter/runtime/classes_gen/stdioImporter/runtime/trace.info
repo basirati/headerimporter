@@ -77,68 +77,62 @@
     <unitInfo nodeId="3764438981860208468" fileName="Importer.java" startLine="13" startPosition="0" endLine="36" endPosition="0" unitName="stdioImporter.runtime.Importer" />
   </root>
   <root nodeRef="r:0a61a9e7-a709-43f0-abe2-8e147f2ba2c1(stdioImporter.runtime)/5652833161528197691">
-    <nodeInfo nodeId="7182798170353890102" fileName="Typer.java" startLine="13" startPosition="0" endLine="14" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" propertyString="types" />
-    <nodeInfo nodeId="2771001628963943263" fileName="Typer.java" startLine="15" startPosition="65" endLine="16" endPosition="30" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="2771001628963706352" fileName="Typer.java" startLine="22" startPosition="29" endLine="23" endPosition="101" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="2771001628963710396" fileName="Typer.java" startLine="24" startPosition="45" endLine="25" endPosition="109" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="2771001628963716442" fileName="Typer.java" startLine="26" startPosition="37" endLine="27" endPosition="102" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="2771001628963717953" fileName="Typer.java" startLine="28" startPosition="46" endLine="29" endPosition="110" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="2771001628964098772" fileName="Typer.java" startLine="30" startPosition="37" endLine="31" endPosition="105" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="2771001628964102229" fileName="Typer.java" startLine="31" startPosition="105" endLine="32" endPosition="142" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="2771001628964117762" fileName="Typer.java" startLine="32" startPosition="142" endLine="33" endPosition="15" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="2771001628963907782" fileName="Typer.java" startLine="34" startPosition="5" endLine="35" endPosition="100" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="7182798170354328040" fileName="Typer.java" startLine="41" startPosition="53" endLine="42" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="7182798170354435568" fileName="Typer.java" startLine="42" startPosition="0" endLine="43" endPosition="139" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170354452982" fileName="Typer.java" startLine="43" startPosition="139" endLine="44" endPosition="156" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170354494607" fileName="Typer.java" startLine="44" startPosition="156" endLine="45" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="7182798170354459230" fileName="Typer.java" startLine="45" startPosition="0" endLine="46" endPosition="141" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170354460221" fileName="Typer.java" startLine="46" startPosition="141" endLine="47" endPosition="158" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170354466614" fileName="Typer.java" startLine="47" startPosition="158" endLine="48" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="7182798170354468055" fileName="Typer.java" startLine="48" startPosition="0" endLine="49" endPosition="141" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170354472276" fileName="Typer.java" startLine="49" startPosition="141" endLine="50" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="7182798170354471240" fileName="Typer.java" startLine="50" startPosition="0" endLine="51" endPosition="144" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170354476859" fileName="Typer.java" startLine="51" startPosition="144" endLine="52" endPosition="146" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170354478534" fileName="Typer.java" startLine="52" startPosition="146" endLine="53" endPosition="146" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170354477771" fileName="Typer.java" startLine="53" startPosition="146" endLine="54" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="7182798170354484234" fileName="Typer.java" startLine="54" startPosition="0" endLine="55" endPosition="143" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170354491953" fileName="Typer.java" startLine="55" startPosition="143" endLine="56" endPosition="160" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170354491964" fileName="Typer.java" startLine="56" startPosition="160" endLine="57" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="7182798170354486881" fileName="Typer.java" startLine="57" startPosition="0" endLine="58" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="7182798170354488458" fileName="Typer.java" startLine="58" startPosition="0" endLine="59" endPosition="153" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170354495493" fileName="Typer.java" startLine="59" startPosition="153" endLine="60" endPosition="155" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170354496620" fileName="Typer.java" startLine="60" startPosition="155" endLine="61" endPosition="155" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170354507426" fileName="Typer.java" startLine="61" startPosition="155" endLine="62" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="7182798170354506300" fileName="Typer.java" startLine="62" startPosition="0" endLine="63" endPosition="140" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170354891981" fileName="Typer.java" startLine="63" startPosition="140" endLine="64" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="7182798170354895227" fileName="Typer.java" startLine="64" startPosition="0" endLine="65" endPosition="143" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="2809963487653429486" fileName="Typer.java" startLine="65" startPosition="143" endLine="66" endPosition="145" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7182798170353944707" fileName="Typer.java" startLine="67" startPosition="5" endLine="68" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="7182798170353945054" fileName="Typer.java" startLine="68" startPosition="0" endLine="69" endPosition="23" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="2771001628963944622" fileName="Typer.java" startLine="15" startPosition="0" endLine="18" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="buildType#(Ljava/lang/String;Ljava/lang/Iterable;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-    <nodeInfo nodeId="2771001628963694843" fileName="Typer.java" startLine="21" startPosition="38" endLine="34" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="2771001628963905664" fileName="Typer.java" startLine="21" startPosition="0" endLine="37" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="getType#(Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-    <nodeInfo nodeId="7182798170353877155" fileName="Typer.java" startLine="40" startPosition="48" endLine="67" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="7182798170353877098" fileName="Typer.java" startLine="40" startPosition="0" endLine="71" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" propertyString="getTypes#()Ljava/util/Map;" />
-    <scopeInfo nodeId="5652833161528287431" fileName="Typer.java" startLine="15" startPosition="65" endLine="16" endPosition="30" />
-    <scopeInfo nodeId="2771001628963694844" fileName="Typer.java" startLine="22" startPosition="29" endLine="23" endPosition="101" />
-    <scopeInfo nodeId="2771001628963708403" fileName="Typer.java" startLine="24" startPosition="45" endLine="25" endPosition="109" />
-    <scopeInfo nodeId="2771001628963711174" fileName="Typer.java" startLine="26" startPosition="37" endLine="27" endPosition="102" />
-    <scopeInfo nodeId="2771001628963711495" fileName="Typer.java" startLine="28" startPosition="46" endLine="29" endPosition="110" />
-    <scopeInfo nodeId="2771001628963944622" fileName="Typer.java" startLine="15" startPosition="0" endLine="18" endPosition="0">
+    <nodeInfo nodeId="2771001628963943263" fileName="Typer.java" startLine="10" startPosition="65" endLine="11" endPosition="30" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+    <nodeInfo nodeId="2771001628964230285" fileName="Typer.java" startLine="16" startPosition="38" endLine="17" endPosition="40" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+    <nodeInfo nodeId="3801081104254300830" fileName="Typer.java" startLine="18" startPosition="29" endLine="19" endPosition="54" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+    <nodeInfo nodeId="2771001628964423939" fileName="Typer.java" startLine="20" startPosition="5" endLine="21" endPosition="20" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+    <nodeInfo nodeId="2771001628964385951" fileName="Typer.java" startLine="24" startPosition="62" endLine="25" endPosition="107" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+    <nodeInfo nodeId="2771001628964389561" fileName="Typer.java" startLine="25" startPosition="107" endLine="26" endPosition="65" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+    <nodeInfo nodeId="2771001628964395396" fileName="Typer.java" startLine="27" startPosition="69" endLine="28" endPosition="25" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+    <nodeInfo nodeId="2771001628964404993" fileName="Typer.java" startLine="28" startPosition="25" endLine="29" endPosition="103" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+    <nodeInfo nodeId="2771001628964406445" fileName="Typer.java" startLine="29" startPosition="103" endLine="30" endPosition="63" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+    <nodeInfo nodeId="3801081104254298255" fileName="Typer.java" startLine="31" startPosition="5" endLine="32" endPosition="17" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+    <nodeInfo nodeId="2771001628964341610" fileName="Typer.java" startLine="36" startPosition="33" endLine="37" endPosition="101" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+    <nodeInfo nodeId="2771001628964341927" fileName="Typer.java" startLine="38" startPosition="49" endLine="39" endPosition="109" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+    <nodeInfo nodeId="2771001628964342562" fileName="Typer.java" startLine="40" startPosition="41" endLine="41" endPosition="102" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+    <nodeInfo nodeId="2771001628964343449" fileName="Typer.java" startLine="42" startPosition="50" endLine="43" endPosition="110" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+    <nodeInfo nodeId="2771001628964345045" fileName="Typer.java" startLine="44" startPosition="5" endLine="45" endPosition="16" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+    <nodeInfo nodeId="2771001628963944622" fileName="Typer.java" startLine="10" startPosition="0" endLine="13" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="buildType#(Ljava/lang/String;Ljava/lang/Iterable;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+    <nodeInfo nodeId="2771001628964372946" fileName="Typer.java" startLine="17" startPosition="40" endLine="20" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
+    <nodeInfo nodeId="2771001628964348319" fileName="Typer.java" startLine="26" startPosition="65" endLine="31" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.ForStatement" />
+    <nodeInfo nodeId="2771001628963905664" fileName="Typer.java" startLine="16" startPosition="0" endLine="23" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="getType#(Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+    <nodeInfo nodeId="2771001628963694843" fileName="Typer.java" startLine="35" startPosition="38" endLine="44" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
+    <nodeInfo nodeId="3801081104254275070" fileName="Typer.java" startLine="24" startPosition="0" endLine="34" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="makePointerType#(Ljava/lang/String;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+    <nodeInfo nodeId="2771001628964340253" fileName="Typer.java" startLine="35" startPosition="0" endLine="47" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="mapType#(Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+    <scopeInfo nodeId="5652833161528287431" fileName="Typer.java" startLine="10" startPosition="65" endLine="11" endPosition="30" />
+    <scopeInfo nodeId="2771001628964372949" fileName="Typer.java" startLine="18" startPosition="29" endLine="19" endPosition="54" />
+    <scopeInfo nodeId="2771001628963694844" fileName="Typer.java" startLine="36" startPosition="33" endLine="37" endPosition="101" />
+    <scopeInfo nodeId="2771001628963708403" fileName="Typer.java" startLine="38" startPosition="49" endLine="39" endPosition="109" />
+    <scopeInfo nodeId="2771001628963711174" fileName="Typer.java" startLine="40" startPosition="41" endLine="41" endPosition="102" />
+    <scopeInfo nodeId="2771001628963711495" fileName="Typer.java" startLine="42" startPosition="50" endLine="43" endPosition="110" />
+    <scopeInfo nodeId="2771001628963944622" fileName="Typer.java" startLine="10" startPosition="0" endLine="13" endPosition="0">
       <varInfo nodeId="5652833161528301139" varName="type" />
       <varInfo nodeId="5652833161528293406" varName="typedefs" />
     </scopeInfo>
-    <scopeInfo nodeId="2771001628964018688" fileName="Typer.java" startLine="30" startPosition="37" endLine="33" endPosition="15">
-      <varInfo nodeId="2771001628964098775" varName="p" />
+    <scopeInfo nodeId="2771001628964348322" fileName="Typer.java" startLine="27" startPosition="69" endLine="30" endPosition="63">
+      <varInfo nodeId="2771001628964395399" varName="temp" />
     </scopeInfo>
-    <scopeInfo nodeId="2771001628963905667" fileName="Typer.java" startLine="21" startPosition="38" endLine="35" endPosition="100" />
-    <scopeInfo nodeId="2771001628963905664" fileName="Typer.java" startLine="21" startPosition="0" endLine="37" endPosition="0">
+    <scopeInfo nodeId="2771001628963905667" fileName="Typer.java" startLine="16" startPosition="38" endLine="21" endPosition="20">
+      <varInfo nodeId="2771001628964230288" varName="nodetype" />
+    </scopeInfo>
+    <scopeInfo nodeId="2771001628964348319" fileName="Typer.java" startLine="26" startPosition="65" endLine="31" endPosition="5">
+      <varInfo nodeId="2771001628964348325" varName="i" />
+    </scopeInfo>
+    <scopeInfo nodeId="2771001628963905664" fileName="Typer.java" startLine="16" startPosition="0" endLine="23" endPosition="0">
       <varInfo nodeId="2771001628963912342" varName="type" />
     </scopeInfo>
-    <scopeInfo nodeId="7182798170353877158" fileName="Typer.java" startLine="41" startPosition="53" endLine="66" endPosition="145" />
-    <scopeInfo nodeId="7182798170353877102" fileName="Typer.java" startLine="40" startPosition="48" endLine="69" endPosition="23" />
-    <scopeInfo nodeId="7182798170353877098" fileName="Typer.java" startLine="40" startPosition="0" endLine="71" endPosition="0" />
-    <unitInfo nodeId="5652833161528197691" fileName="Typer.java" startLine="12" startPosition="0" endLine="75" endPosition="0" unitName="stdioImporter.runtime.Typer" />
+    <scopeInfo nodeId="3801081104254275073" fileName="Typer.java" startLine="24" startPosition="62" endLine="32" endPosition="17">
+      <varInfo nodeId="2771001628964271184" varName="ptype" />
+    </scopeInfo>
+    <scopeInfo nodeId="3801081104254275070" fileName="Typer.java" startLine="24" startPosition="0" endLine="34" endPosition="0">
+      <varInfo nodeId="3801081104254276093" varName="basetype" />
+      <varInfo nodeId="3801081104254295063" varName="type" />
+    </scopeInfo>
+    <scopeInfo nodeId="2771001628964340256" fileName="Typer.java" startLine="35" startPosition="38" endLine="45" endPosition="16" />
+    <scopeInfo nodeId="2771001628964340253" fileName="Typer.java" startLine="35" startPosition="0" endLine="47" endPosition="0">
+      <varInfo nodeId="2771001628964340504" varName="type" />
+    </scopeInfo>
+    <unitInfo nodeId="5652833161528197691" fileName="Typer.java" startLine="9" startPosition="0" endLine="52" endPosition="0" unitName="stdioImporter.runtime.Typer" />
   </root>
 </debugInfo>
 
