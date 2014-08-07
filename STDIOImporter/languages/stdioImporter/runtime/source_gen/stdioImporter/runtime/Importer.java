@@ -15,29 +15,29 @@ import stdio_parser.vartypedef_decl;
 public class Importer {
 
 
-  private SNode makeFuncPointer(func_decl v) {
+  private SNode makeFuncPointer(func_decl v, Iterable<SNode> typedefs) {
     // badan in if then else ro bebar to buildType ke object begire asan 
     SNode frt = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.FunctionRefType", null);
     Typer typer = new Typer();
-    SLinkOperations.setTarget(frt, "returnType", typer.buildType((String) v.getReturn_type(), null), true);
+    SLinkOperations.setTarget(frt, "returnType", typer.buildType((String) v.getReturn_type(), typedefs), true);
     for (Object p : v.getParams()) {
       if (p instanceof func_decl) {
-        ListSequence.fromList(SLinkOperations.getTargets(frt, "argTypes", true)).addElement(this.makeFuncPointer((func_decl) p));
+        ListSequence.fromList(SLinkOperations.getTargets(frt, "argTypes", true)).addElement(this.makeFuncPointer((func_decl) p, typedefs));
       } else {
-        ListSequence.fromList(SLinkOperations.getTargets(frt, "argTypes", true)).addElement(typer.buildType((String) p, null));
+        ListSequence.fromList(SLinkOperations.getTargets(frt, "argTypes", true)).addElement(typer.buildType((String) p, typedefs));
       }
     }
     return frt;
   }
 
-  private SNode makeVar(var_decl v) {
+  private SNode makeVar(var_decl v, Iterable<SNode> typedefs) {
     SNode gvd = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.GlobalVariableDeclaration", null);
     Typer typer = new Typer();
     if (v.getQ() instanceof func_decl) {
-      SLinkOperations.setTarget(gvd, "type", this.makeFuncPointer((func_decl) v.getQ()), true);
+      SLinkOperations.setTarget(gvd, "type", this.makeFuncPointer((func_decl) v.getQ(), typedefs), true);
       SPropertyOperations.set(gvd, "name", v.getID());
     } else {
-      SLinkOperations.setTarget(gvd, "type", typer.buildType(v.getType(), null), true);
+      SLinkOperations.setTarget(gvd, "type", typer.buildType(v.getType(), typedefs), true);
       SPropertyOperations.set(gvd, "name", v.getID());
     }
     return gvd;
@@ -48,28 +48,32 @@ public class Importer {
       CodeGenerator cg = ParserAdapter.Parse(filename);
       Typer typer = new Typer();
       Importer imp = new Importer();
-      for (var_decl v : ListSequence.fromList(cg.getVars())) {
-        ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(imp.makeVar(v));
-      }
-
       for (vartypedef_decl td : ListSequence.fromList(cg.getTypedef_vars())) {
         SNode tdef = SConceptOperations.createNewNode("com.mbeddr.core.udt.structure.TypeDef", null);
         SPropertyOperations.set(tdef, "name", td.getAs());
-        SLinkOperations.setTarget(tdef, "original", typer.buildType(td.getDef(), null), true);
+        SLinkOperations.setTarget(tdef, "original", typer.buildType(td.getDef(), ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).ofType(SNode.class)), true);
+
         ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(tdef);
       }
+
+      for (var_decl v : ListSequence.fromList(cg.getVars())) {
+        ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(imp.makeVar(v, ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).ofType(SNode.class)));
+      }
+
+
+
 
       for (func_decl f : ListSequence.fromList(cg.getFunctions())) {
         SNode fp = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.FunctionPrototype", null);
         SPropertyOperations.set(fp, "name", f.getID());
-        SLinkOperations.setTarget(fp, "type", typer.buildType((String) f.getReturn_type(), null), true);
+        SLinkOperations.setTarget(fp, "type", typer.buildType((String) f.getReturn_type(), ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).ofType(SNode.class)), true);
         int n = 0;
         for (Object p : f.getParams()) {
           SNode arg = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.Argument", null);
           SPropertyOperations.set(arg, "name", "p" + n++);
           if (p instanceof func_decl) {
           } else {
-            SLinkOperations.setTarget(arg, "type", typer.buildType(((String) p), null), true);
+            SLinkOperations.setTarget(arg, "type", typer.buildType(((String) p), ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).ofType(SNode.class)), true);
           }
           ListSequence.fromList(SLinkOperations.getTargets(fp, "arguments", true)).addElement(arg);
         }
