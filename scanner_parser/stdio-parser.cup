@@ -76,10 +76,10 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
 			{: 
 			parser.cg.f.setReturn_type(e);
 			parser.cg.f.setID(e2);
+			parser.cg.paramsowner = parser.cg.f;
 			:}						
 			params:p RPAREN
 			{: 
-			parser.cg.f.pushParam(p);
 			RESULT = e + " " + e2 + "(" + p + ");"; 
 			:} 
 			;
@@ -123,11 +123,22 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
 			RESULT = i5 + " " + i6 + "[]"; 
 			:}
 			|
-			ident:i7 LPAREN STAR ID:i8 RPAREN LPAREN params:ps RPAREN
+			ident:i7 LPAREN STAR ID:i8 RPAREN LPAREN
 			{: 
-			parser.cg.dec.push(i7);
+			parser.cg.dec.push(i7+"*");
 			parser.cg.dec.push(i8);
-			parser.cg.dec.push("(" + ps + ")");
+			func_decl funcp = new func_decl();
+			funcp.setID(i8);
+			funcp.setReturn_type(i7+"*");
+			parser.cg.params_owners.push(parser.cg.paramsowner);
+			parser.cg.paramsowner = funcp;  
+			:}
+			params:ps RPAREN
+			{:
+			func_decl funcp = parser.cg.paramsowner;
+			funcp.pointer = true;
+			parser.cg.dec.push(funcp);
+			parser.cg.paramsowner = parser.cg.params_owners.pop();
 			RESULT = i7 + " (*" + i8 + ")(" + ps + ")"; 
 			:}
 			;
@@ -152,32 +163,52 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
 
 	params	::=	ident: p
 			{: 
+			parser.cg.paramsowner.pushParam(p);
 			RESULT = p; 
 			:}
 			|
 			ident:p2 COMMA params:ps
 			{: 
+			parser.cg.paramsowner.pushParam(p2);
 			RESULT = p2 + " , " + ps; 
 			:}
 			|
 			ident:p3 COMMA DOTS
 			{:
+			parser.cg.paramsowner.pushParam(p3);
 			 RESULT = p3; 
 			:}
 			|
 			ident_funcpointer:p4
-			{: RESULT = p4; :}
+			{:
+			parser.cg.paramsowner.pushParam(p4);
+			RESULT = p4; 
+			:}
 			|
 			ident_funcpointer:p5 COMMA params:ps2
-			{: RESULT = p5 + " , " + ps2; :}
+			{: 
+			parser.cg.paramsowner.pushParam(p5);
+			RESULT = p5 + " , " + ps2; 
+			:}
 			|
 			{: RESULT = ""; :}
 			;
 
 	ident_funcpointer ::=
-			ident:p4 LPAREN params:ps2 RPAREN
+			ident:p4 LPAREN 
 			{:
-			 RESULT = p4+"("+ps2+")"; 
+			func_decl funcp = new func_decl();
+			funcp.pointer = true;
+			funcp.setID((String) p4);
+			parser.cg.params_owners.push(parser.cg.paramsowner);
+			parser.cg.paramsowner = funcp;  
+			:}
+			params:ps2 RPAREN
+			{:
+			func_decl funcp = parser.cg.paramsowner;
+			funcp.pointer = true;
+			parser.cg.paramsowner = parser.cg.params_owners.pop();
+			RESULT = funcp;
 			:}
 			;
 
