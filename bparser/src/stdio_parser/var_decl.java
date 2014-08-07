@@ -22,10 +22,10 @@ public class var_decl {
         catch (Exception e) { return ""; }
     }
 
-    public String getQ()
+    public Object getQ()
     {
-        try { return (String) stack.get(2); }
-        catch (Exception e) { return ""; }
+        try { return stack.get(2); }
+        catch (Exception e) { return null; }
     }
 
     public String toString()

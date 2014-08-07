@@ -9,3 +9,14 @@ extern	int		_cnt;	/* number of available characters in buffer */
 extern	unsigned char****	_base;	/* the buffer */
 extern	unsigned char	_flag;	/* the state of the stream */
 extern	unsigned char	_file;
+
+extern char *fgets(char *, int, int *);
+extern int fprintf(int *, char *);
+
+extern int (*length)(int*, char*, char);
+
+typedef int             MYint;
+typedef char             MYchar;
+
+
+
