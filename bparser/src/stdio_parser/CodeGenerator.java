@@ -12,6 +12,7 @@ public class CodeGenerator {
     public struct_decl s = new struct_decl();
     public var_decl dec = new var_decl();
 
+    public ArrayList<def_expr> defines = new ArrayList<def_expr>();
     private ArrayList<func_decl> functions = new ArrayList<func_decl>();
     private ArrayList<struct_decl> structs = new ArrayList<struct_decl>();
     private ArrayList<var_decl> vars = new ArrayList<var_decl>();
@@ -44,10 +45,9 @@ public class CodeGenerator {
 
     public void declareStruct()
     {
-        s.setDecs(dec);
         structs.add(s);
         s = new struct_decl();
-        dec = new var_decl();
+        //dec = new var_decl();
     }
 
     public void declareTypedef_var()
@@ -63,10 +63,9 @@ public class CodeGenerator {
     {
         struct_decl sd = new struct_decl();
         sd.setName(id);
-        sd.setDecs(dec);
         sd.as_typedef = true;
         structs.add(sd);
-        dec = new var_decl();
+        //dec = new var_decl();
     }
 
     public void declareVar()
@@ -83,9 +82,10 @@ public class CodeGenerator {
         }
         System.out.println("STRUCTS...");
         for (struct_decl s: structs) {
-            System.out.println(s.getName());
-            System.out.println(s.getDecs().toString());
-            System.out.println("---");
+            System.out.println(s.getName() + " {");
+            for (var_decl v : s.getDecs())
+                System.out.println(v.toString());
+            System.out.println("}");
         }
         System.out.println("VARIABLES...");
         for (var_decl v: vars) {
@@ -99,5 +99,18 @@ public class CodeGenerator {
         System.out.println("TYPEDEF VARS...");
         for (vartypedef_decl v: typedef_vars)
             System.out.println(v.getDef() + "->" + v.getAs());
+        System.out.println("DEFINES...");
+        for (def_expr d: defines) {
+            String exp = "";
+            if (d.exp instanceof  Integer)
+            {
+                Integer i = (Integer) d.exp;
+                exp = i.toString();
+            }
+            else
+            exp = (String) d.exp;
+
+            System.out.println((String) d.ID + "->" + exp);
+        }
     }
 }

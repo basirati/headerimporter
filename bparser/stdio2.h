@@ -360,9 +360,9 @@ extern int	pclose();
 #if	defined(__EXTENSIONS__) || defined(_REENTRANT) || \
 	    (_POSIX_C_SOURCE - 0 >= 199506L)
 #ifdef	__STDC__
-#define	getc_unlocked(p)	(--(p)->_cnt < 0 \
-					? __filbuf(p) \
-					: (int)*(p)->_ptr++)
+
+#define	getc_unlocked(p)	(--(p)->_cnt < 0 ? __filbuf(p) : (int)*(p)->_ptr++)
+
 #define	putc_unlocked(x, p)	(--(p)->_cnt < 0 \
 					? __flsbuf((unsigned char) (x), (p)) \
 					: (int)(*(p)->_ptr++ = (x)))

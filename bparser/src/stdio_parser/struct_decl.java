@@ -1,20 +1,24 @@
 package stdio_parser;
 
+import java.util.Stack;
+
 /**
  * Created by basirati on 8/1/14.
  */
 public class struct_decl {
     private String name = "";
     public boolean as_typedef = false;
-    public var_decl getDecs() {
+    private Stack<var_decl> decs = new Stack<var_decl>();
+
+    public Stack<var_decl> getDecs() {
         return decs;
     }
 
-    public void setDecs(var_decl decs) {
-        this.decs = decs;
+    public void addMember(var_decl dec) {
+        this.decs.push(dec);
     }
 
-    private var_decl decs = new var_decl();
+
 
     public String getName() {
         return name;

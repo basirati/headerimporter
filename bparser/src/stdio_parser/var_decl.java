@@ -31,8 +31,13 @@ public class var_decl {
     public String toString()
     {
         String s = "";
-        while (!stack.empty())
-            s = s + (String) stack.pop() + " ";
+        while (!stack.empty()) {
+            try {
+                s = s + (String) stack.pop() + " ";
+            } catch (Exception e){}
+
+
+        }
         return s;
     }
 }

@@ -2,6 +2,8 @@ extern int* i;
 extern int** j;
 extern char* b;
 
+typedef int             MYint;
+typedef char             MYchar;
 
 extern	unsigned char	**_ptr;	/* next character from/to here in buffer */
 extern	int		_cnt;	/* number of available characters in buffer */
@@ -10,8 +12,17 @@ extern	unsigned char****	_base;	/* the buffer */
 extern	unsigned char	_flag;	/* the state of the stream */
 extern	unsigned char	_file;
 
-extern char *fgets(char *, int, FILE *);
+extern char *fgets(char *, MYint, int *);
 extern int fprintf(int *, char *);
+
+extern int (*length)(int*, char*, char, int);
+
+extern MYchar asb(MYint*);
+
+extern MYint as;
+
+
+
 
 
 
