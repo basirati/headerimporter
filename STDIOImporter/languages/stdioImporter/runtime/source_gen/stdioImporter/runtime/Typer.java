@@ -54,6 +54,18 @@ public class Typer {
       return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.CharType", null);
     } else if (type.startsWith("unsigned char")) {
       return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.UnsignedCharType", null);
+    } else if (type.startsWith("void")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.VoidType", null);
+    } else if (type.startsWith("int8_t")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.Int8tType", null);
+    } else if (type.startsWith("int16_t")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.Int16tType", null);
+    } else if (type.startsWith("int32_t")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.Int32tType", null);
+    } else if (type.startsWith("float")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.FloatType", null);
+    } else if (type.startsWith("double")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.DoubleType", null);
     }
     return null;
   }
