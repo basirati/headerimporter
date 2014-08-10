@@ -134,9 +134,9 @@ extern int setvbuf(FILE *, char *, int, int);
 extern int sprintf(char *, char *);
 extern int sscanf(char *, char *);
 extern int ungetc(char, FILE *);
-extern int vfprintf(FILE *, char *, va_list);
-extern int vprintf(char *, va_list);
-extern int vsprintf(char *, char *, va_list);
+//extern int vfprintf(FILE *, char *, va_list);
+//extern int vprintf(char *, va_list);
+//extern int vsprintf(char *, char *, va_list);
 
 #ifdef EXTENSIONS
 
@@ -151,9 +151,9 @@ extern int setfuncs(FILE *, int *, int *, const int *, int);
 extern int snprintf(char *, int, char *);
 extern FILE *stropen(char *, char *);
 extern FILE *strnopen(char *, int, char *);
-extern char *vsaprintf(char *, va_list);
+//extern char *vsaprintf(char *, va_list);
 extern FILE _iob[];
-extern char *bozboz(char *, va_list);
+//extern char *bozboz(char *, va_list);
 extern int asbasb();
 extern char** boz;
 extern char[][][][] x;

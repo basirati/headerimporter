@@ -1,5 +1,6 @@
 #define BUFSIZ 512
 
+#typedef int*** FILE;
 
 struct _iobuf
 	{
@@ -13,7 +14,7 @@ struct _iobuf
     int (*functionPtr)(int,int);
 	char *_base;
 	int _bufsiz;
-	//////////////////short _flag;
+	//short _flag;
 	int asb[10];
 	double myArray[10];
 	int _file;
@@ -21,8 +22,6 @@ struct _iobuf
 	char _tinybuf;		/* used when _IONBF */
 	char *_filename;
 	};
-
-#define FILE struct _iobuf
 
 
 
@@ -105,9 +104,9 @@ extern int setvbuf(FILE *, char *, int, int);
 extern int sprintf(char *, char *);
 extern int sscanf(char *, char *);
 extern int ungetc(char, FILE *);
-extern int vfprintf(FILE *, char *, va_list);
-extern int vprintf(char *, va_list);
-extern int vsprintf(char *, char *, va_list);
+//extern int vfprintf(FILE *, char *, va_list);
+//extern int vprintf(char *, va_list);
+//extern int vsprintf(char *, char *, va_list);
 
 
 extern void fabort(FILE *);
@@ -121,10 +120,7 @@ extern int setfuncs(FILE *, int *, int *, const int *, int);
 extern int snprintf(char *, int, char *);
 extern FILE *stropen(char *, char *);
 extern FILE *strnopen(char *, int, char *);
-extern char *vsaprintf(char *, va_list);
-extern FILE _iob[];
-extern char *bozboz(char *, va_list);
-extern int asbasb();
+//extern char *vsaprintf(char *, va_list);
 extern char** boz;
 extern char[][][][] x;
 

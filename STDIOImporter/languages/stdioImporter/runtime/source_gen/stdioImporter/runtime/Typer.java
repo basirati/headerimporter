@@ -46,10 +46,23 @@ public class Typer {
   }
 
   private SNode mapType(String type) {
+    if (type.startsWith("const")) {
+      type = type.substring(6);
+    }
     if (type.startsWith("int")) {
       return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.IntType", null);
     } else if (type.startsWith("unsigned int")) {
       return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.UnsignedIntType", null);
+    } else if (type.startsWith("unsigned long")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.UnsignedLongType", null);
+    } else if (type.startsWith("long int")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.LongType", null);
+    } else if (type.startsWith("long double")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.LongDoubleType", null);
+    } else if (type.startsWith("short")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.ShortType", null);
+    } else if (type.startsWith("unsigned short")) {
+      return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.UnsignedShortType", null);
     } else if (type.startsWith("char")) {
       return SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.CharType", null);
     } else if (type.startsWith("unsigned char")) {

@@ -18,7 +18,7 @@ import stdio_parser.struct_decl;
 public class Importer {
 
 
-  private SNode makeFuncPointer(func_decl v, Iterable<SNode> typedefs) {
+  public SNode makeFuncPointer(func_decl v, Iterable<SNode> typedefs) {
     // badan in if then else ro bebar to buildType ke object begire asan 
     SNode frt = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.FunctionRefType", null);
     Typer typer = new Typer();
@@ -33,7 +33,7 @@ public class Importer {
     return frt;
   }
 
-  private SNode makeVar(var_decl v, Iterable<SNode> typedefs) {
+  public SNode makeVar(var_decl v, Iterable<SNode> typedefs) {
     Typer typer = new Typer();
     if (v.getQ() instanceof func_decl) {
       return this.makeFuncPointer((func_decl) v.getQ(), typedefs);
@@ -48,9 +48,14 @@ public class Importer {
   public static boolean doImport(SNode module, String filename) {
     try {
       CodeGenerator cg = ParserAdapter.Parse(filename);
+      if (cg == null) {
+        return false;
+      }
       Typer typer = new Typer();
       Importer imp = new Importer();
-      // importing typedefs 
+
+
+      // importing typedefs ............................ 
       for (vartypedef_decl td : ListSequence.fromList(cg.getTypedef_vars())) {
         SNode tdef = SConceptOperations.createNewNode("com.mbeddr.core.udt.structure.TypeDef", null);
         SPropertyOperations.set(tdef, "name", td.getAs());
@@ -58,7 +63,7 @@ public class Importer {
 
         ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(tdef);
       }
-      // importing defines 
+      // importing defines .............................. 
       for (def_expr df : ListSequence.fromList(cg.defines)) {
         SNode gcd = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.GlobalConstantDeclaration", null);
         SPropertyOperations.set(gcd, "name", ((String) df.ID));
@@ -72,7 +77,7 @@ public class Importer {
         }
         ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(gcd);
       }
-      // importing structs 
+      // importing structs ................................ 
       {
         Iterator<struct_decl> s_it = ListSequence.fromList(cg.getStructs()).iterator();
         struct_decl s_var;
@@ -95,7 +100,7 @@ public class Importer {
         }
       }
 
-      // importing global variables 
+      // importing global variables ............................. 
       for (var_decl v : ListSequence.fromList(cg.getVars())) {
         SNode gvd = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.GlobalVariableDeclaration", null);
         SPropertyOperations.set(gvd, "name", v.getID());
@@ -103,7 +108,7 @@ public class Importer {
         ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(gvd);
       }
 
-      // importing functions' prototypes 
+      // importing functions' prototypes ...................... 
       for (func_decl f : ListSequence.fromList(cg.getFunctions())) {
         SNode fp = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.FunctionPrototype", null);
         SPropertyOperations.set(fp, "name", f.getID());
@@ -113,6 +118,7 @@ public class Importer {
           SNode arg = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.Argument", null);
           SPropertyOperations.set(arg, "name", "p" + n++);
           if (p instanceof func_decl) {
+            SLinkOperations.setTarget(arg, "type", imp.makeFuncPointer(((func_decl) p), ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).ofType(SNode.class)), true);
           } else {
             SLinkOperations.setTarget(arg, "type", typer.buildType(((String) p), ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).ofType(SNode.class)), true);
           }

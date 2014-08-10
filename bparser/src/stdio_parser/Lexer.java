@@ -10,7 +10,7 @@ import java_cup.runtime.*;
  * on 8/10/14 2:03 PM from the specification file
  * <tt>stdio-scanner.flex</tt>
  */
-class Lexer implements Scanner {
+public class Lexer implements Scanner {
 
   /** This character denotes the end of file */
   public static final int YYEOF = -1;
@@ -299,7 +299,7 @@ class Lexer implements Scanner {
    *
    * @param   in  the java.io.Reader to read input from.
    */
-  Lexer(java.io.Reader in) {
+  public Lexer(java.io.Reader in) {
     this.zzReader = in;
   }
 
@@ -309,7 +309,7 @@ class Lexer implements Scanner {
    *
    * @param   in  the java.io.Inputstream to read input from.
    */
-  Lexer(java.io.InputStream in) {
+  public Lexer(java.io.InputStream in) {
     this(new java.io.InputStreamReader(in));
   }
 

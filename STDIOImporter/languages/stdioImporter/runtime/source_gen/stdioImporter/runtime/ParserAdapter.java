@@ -6,8 +6,6 @@ import stdio_parser.CodeGenerator;
 import stdio_parser.parser;
 import stdio_parser.Lexer;
 import java.io.FileReader;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import stdio_parser.var_decl;
 
 public class ParserAdapter {
   public static CodeGenerator Parse(String filename) {
@@ -16,16 +14,8 @@ public class ParserAdapter {
       p.parse();
       return p.cg;
     } catch (Exception e) {
-      CodeGenerator cg = new CodeGenerator();
-      for (StackTraceElement s : Sequence.fromIterable(Sequence.fromArray(e.getStackTrace()))) {
-        var_decl v = new var_decl();
-        v.push(s.toString());
-        v.push(s.toString());
-        v.push(s.toString());
-        cg.getVars().add(v);
-      }
-      return cg;
+      System.out.println("ERROR in Parsing");
     }
-    // <node> 
+    return null;
   }
 }

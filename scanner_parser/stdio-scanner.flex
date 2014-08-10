@@ -59,18 +59,14 @@ SPACING = [ \t\r\f] | {NEWLINE}
   . | \\\"          {tmpString.append(yytext());}
 }
 
-<SHARPY>{
-  {NEWLINE}         {yybegin(YYINITIAL);}
-  .                 {}
-}
+
 <YYINITIAL> {
    
     
 	\/\/		{ yybegin(MONO_COMMENT); }
 	\/\*		{ yybegin(MULTI_COMMENT); }
 	
-	\#		{ yybegin(SHARPY); }
-
+	
 	";"		{ return symbol(sym.SEMI); }
    
 
@@ -87,7 +83,8 @@ SPACING = [ \t\r\f] | {NEWLINE}
 	","		{return symbol(sym.COMMA); }
 
 
-
+	"#define"	{ return symbol(sym.DEFINE); }
+	
 	"extern"	{ return symbol(sym.EXTERN); }
 	"typedef"	{ return symbol(sym.TYPEDEF); }
 	"struct"	{ return symbol(sym.STRUCT); }
@@ -114,4 +111,4 @@ SPACING = [ \t\r\f] | {NEWLINE}
 }
 
 
-[^]                    { return symbol(sym.NO_CARE); }
+[^]                    { }

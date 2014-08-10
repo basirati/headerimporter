@@ -36,12 +36,14 @@ parser code {:
    
 
 
-terminal		LBRACKET, RBRACKET, DOTS, SHARP, NO_CARE, PRE_ID, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ;
+terminal		DEFINE, LBRACKET, RBRACKET, DOTS, PRE_ID, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ;
 
 terminal Integer	NUMBER;
 terminal String		ID;
    
-non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, value, defin, _struct, st_body, func, ident_funcpointer;
+non terminal Object     def_exp, expr_list, expr_part, expr, params, ident, value, defin, _struct, st_body, func, ident_funcpointer;
+non terminal Integer	val_int;
+non terminal String	val_str;
    
 	expr_list	::=	expr_list expr_part
 				|
@@ -51,9 +53,26 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
    
 	expr_part	::= 	expr SEMI
 				|
-				sharp_s
+				DEFINE def_exp
 				;
 
+	def_exp	::=	ID:i value:v
+			{:
+			def_expr dx = new def_expr();
+			dx.ID = i;
+			dx.exp = v;
+			parser.cg.defines.add(dx);
+			:}
+			|
+			ID:i STRUCT val_str:v
+			{:
+			def_expr dx = new def_expr();
+			dx.ID = i;
+			dx.exp = v;
+			dx.isStruct = true;
+			parser.cg.defines.add(dx);
+			:}			
+			;
 
 
 	expr	::= 	EXTERN func:f
@@ -93,10 +112,18 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
 			;
 	
 	st_body	::=	defin:d SEMI
-			{: RESULT = d + ";"; :}
+			{:
+			parser.cg.s.addMember(parser.cg.dec);
+		        parser.cg.dec = new var_decl(); 
+			RESULT = d + ";"; 
+			:}
 			|
 			st_body:s defin:d2 SEMI
-			{: RESULT = s + "\n" + d2 + ";" ; :}
+			{:
+			parser.cg.s.addMember(parser.cg.dec);
+		        parser.cg.dec = new var_decl();  
+			RESULT = s + "\n" + d2 + ";" ; 
+			:}
 			;
 	
 	defin	::=	ident:i ID:i2
@@ -145,19 +172,26 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
 
 	
 
-	sharp_s	::=	SHARP ID
+
+	value	::=	val_str:v
+			{: RESULT = v; :}
 			|
-			sharp_s value
-			|
-			sharp_s NO_CARE
+			val_int:v
+			{: RESULT = v; :}
 			;
 
-
-	value	::=	ID:i
+	val_str	::=	ID:i
 			{: RESULT = i; :}
-			|
-			NUMBER:n
+			;
+			
+	val_int	::=	NUMBER:n
 			{: RESULT = n; :}
+			|
+			LPAREN val_int:v RPAREN
+			{: RESULT = v; :}
+			|
+			MINUS val_int:v
+			{: RESULT = -v; :}
 			;
 	
 
@@ -195,11 +229,11 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
 			;
 
 	ident_funcpointer ::=
-			ident:p4 LPAREN 
+			ident:p4 LPAREN STAR RPAREN LPAREN 
 			{:
 			func_decl funcp = new func_decl();
 			funcp.pointer = true;
-			funcp.setID((String) p4);
+			funcp.setReturn_type(p4);
 			parser.cg.params_owners.push(parser.cg.paramsowner);
 			parser.cg.paramsowner = funcp;  
 			:}
@@ -227,11 +261,8 @@ non terminal Object     expr_list, expr_part, expr, params, ident, sharp_s, valu
 			ident:i LBRACKET RBRACKET
 			{: RESULT = i + "[]"; :}			
 			|
-			ident:i LPAREN STAR RPAREN
-			{: RESULT = i + " (*)"; :}
-			|
-			STRUCT ID:i STAR
-			{: RESULT = "struct " + i + "*"; :}
+			STRUCT ID:i
+			{: RESULT = "struct " + i; :}
 			;
 			
 
