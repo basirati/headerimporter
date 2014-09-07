@@ -51,12 +51,15 @@ struct _iobuf
 #define _NFILE 3	/* not used; only for compatibility */
 
 extern FILE _iob[];
+extern int bita[10][9][][][1];
 
 //////////#define stdin (&_iob[0])
 //////////#define stdout (&_iob[1])
 //////////#define stderr (&_iob[2])
 
+/////////#define getc(fp) ((fp)->_cnt-- > 0 ? (*(fp)->_ptr++ & 0377) : _filbuf(fp))
 
+////////#define putc(c, fp) ((fp)->_cnt-- > 0 ? (*(fp)->_ptr++ = (c)) : _flsbuf(c, fp))
 
 
 extern FILE *fdopen();

@@ -6,38 +6,48 @@ import java.util.Stack;
  * Created by basirati on 8/1/14.
  */
 public class var_decl {
-    private Stack<Object> stack = new Stack<Object>();
-    public void push(Object o)
-    {
-        stack.push(o);
-    }
-    public String getType()
-    {
-        try { return (String) stack.get(0); }
-        catch (Exception e) { return ""; }
-    }
-    public String getID()
-    {
-        try { return (String) stack.get(1); }
-        catch (Exception e) { return ""; }
+    String type = "";
+    String ID = "";
+    String array = "";
+    func_decl funcpointer = null;
+
+    public func_decl getFuncpointer() {
+        return funcpointer;
     }
 
-    public Object getQ()
-    {
-        try { return stack.get(2); }
-        catch (Exception e) { return null; }
+    public void setFuncpointer(func_decl funcpointer) {
+        this.funcpointer = funcpointer;
+    }
+
+    public String getArray() {
+        return array;
+    }
+
+    public void addArray(int n) {
+        if (n > 0)
+            this.array = this.array + "[" + n + "]";
+        else
+            this.array = this.array + "[]";
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     public String toString()
     {
-        String s = "";
-        while (!stack.empty()) {
-            try {
-                s = s + (String) stack.pop() + " ";
-            } catch (Exception e){}
-
-
-        }
-        return s;
+        return getType() + " " + getID() + getArray();
     }
 }

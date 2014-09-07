@@ -71,7 +71,7 @@ non terminal String	val_str;
 			dx.exp = v;
 			dx.isStruct = true;
 			parser.cg.defines.add(dx);
-			:}			
+			:}
 			;
 
 
@@ -126,7 +126,7 @@ non terminal String	val_str;
 			:}
 			;
 	
-	defin	::=	ident:i ID:i2
+	defin ::=	ident:i ID:i2
 			{: 
 			parser.cg.dec.push(i);
 			parser.cg.dec.push(i2);
@@ -233,7 +233,7 @@ non terminal String	val_str;
 			{:
 			func_decl funcp = new func_decl();
 			funcp.pointer = true;
-			funcp.setReturn_type = p4;
+			funcp.setReturn_type(p4);
 			parser.cg.params_owners.push(parser.cg.paramsowner);
 			parser.cg.paramsowner = funcp;  
 			:}

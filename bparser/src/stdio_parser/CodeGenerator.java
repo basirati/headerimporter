@@ -8,9 +8,9 @@ import java.util.Stack;
  */
 public class CodeGenerator {
     public String mode;
-    public func_decl f = new func_decl();
-    public struct_decl s = new struct_decl();
-    public var_decl dec = new var_decl();
+    public func_decl func = new func_decl();
+    public struct_decl struct = new struct_decl();
+    public var_decl var = new var_decl();
 
     public ArrayList<def_expr> defines = new ArrayList<def_expr>();
     private ArrayList<func_decl> functions = new ArrayList<func_decl>();
@@ -39,24 +39,24 @@ public class CodeGenerator {
 
     public void declareFunc()
     {
-        functions.add(f);
-        f = new func_decl();
+        functions.add(func);
+        func = new func_decl();
     }
 
     public void declareStruct()
     {
-        structs.add(s);
-        s = new struct_decl();
-        //dec = new var_decl();
+        structs.add(struct);
+        struct = new struct_decl();
+        //var = new var_decl();
     }
 
     public void declareTypedef_var()
     {
         vartypedef_decl v = new vartypedef_decl();
-        v.setDef(dec.getType());
-        v.setAs(dec.getID());
+        v.setDef(var.getType());
+        v.setAs(var.getID());
         typedef_vars.add(v);
-        dec = new var_decl();
+        var = new var_decl();
     }
 
     public void declareTypedef_struct(String id)
@@ -65,13 +65,13 @@ public class CodeGenerator {
         sd.setName(id);
         sd.as_typedef = true;
         structs.add(sd);
-        //dec = new var_decl();
+        //var = new var_decl();
     }
 
     public void declareVar()
     {
-        vars.add(dec);
-        dec = new var_decl();
+        vars.add(var);
+        var = new var_decl();
     }
 
     public void showDeclarations()
@@ -90,10 +90,10 @@ public class CodeGenerator {
         System.out.println("VARIABLES...");
         for (var_decl v: vars) {
             String q = "";
-            if (v.getQ() instanceof func_decl)
-                q = "(" + ((func_decl) v.getQ()).paramsToString() + ")";
+            if (v.getFuncpointer() != null)
+                q = "(" + v.getFuncpointer().paramsToString() + ")";
             else
-                q = (String) v.getQ();
+                q = v.getArray();
             System.out.println(v.getType() + " " + v.getID() + q);
         }
         System.out.println("TYPEDEF VARS...");

@@ -59,18 +59,14 @@ SPACING = [ \t\r\f] | {NEWLINE}
   . | \\\"          {tmpString.append(yytext());}
 }
 
-<SHARPY>{
-  {NEWLINE}         {yybegin(YYINITIAL);}
-  .                 {}
-}
+
 <YYINITIAL> {
    
     
 	\/\/		{ yybegin(MONO_COMMENT); }
 	\/\*		{ yybegin(MULTI_COMMENT); }
 	
-	\#		{ yybegin(SHARPY); }
-
+	
 	";"		{ return symbol(sym.SEMI); }
    
 
@@ -84,10 +80,13 @@ SPACING = [ \t\r\f] | {NEWLINE}
 	"*"		{ return symbol(sym.STAR); }
 	"("		{ return symbol(sym.LPAREN); }
 	")"		{ return symbol(sym.RPAREN); }
-	","		{return symbol(sym.COMMA); }
+	","		{ return symbol(sym.COMMA); }
+	"&"		{ return symbol(sym.AMPERSAND); }
+	"_"		{ return symbol(sym.UNDERSCORE); } 
 
 
-
+	"#define"	{ return symbol(sym.DEFINE); }
+	
 	"extern"	{ return symbol(sym.EXTERN); }
 	"typedef"	{ return symbol(sym.TYPEDEF); }
 	"struct"	{ return symbol(sym.STRUCT); }
@@ -96,8 +95,12 @@ SPACING = [ \t\r\f] | {NEWLINE}
 	"["		{ return symbol(sym.LBRACKET); }
 	"]"		{ return symbol(sym.RBRACKET); }
 	
-	"unsigned"	{ return symbol(sym.PRE_ID, new String(yytext())); }
-	"const"		{ return symbol(sym.PRE_ID, new String(yytext())); }
+	"signed"	{ return symbol(sym.UN_SIGNED); }
+	"unsigned"	{ return symbol(sym.UN_SIGNED); }
+	"const"		{ return symbol(sym.CONST); }
+	"long"		{ return symbol(sym.LONG); }
+	"short"		{ return symbol(sym.SHORT); }
+	
 
 	 \"		{tmpString = new StringBuilder();
 			tmpString.append('"');
@@ -111,4 +114,4 @@ SPACING = [ \t\r\f] | {NEWLINE}
 }
 
 
-[^]                    { return symbol(sym.NO_CARE); }
+[^]                    { }

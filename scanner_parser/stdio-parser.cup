@@ -36,27 +36,44 @@ parser code {:
    
 
 
-terminal		DEFINE, LBRACKET, RBRACKET, DOTS, PRE_ID, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ;
+terminal		DEFINE, LBRACKET, RBRACKET, DOTS, SEMI, PRE_ID, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ, UNDERSCORE, SHORT, LONG, UN_SIGNED, CONST, AMPERSAND;
 
 terminal Integer	NUMBER;
 terminal String		ID;
    
-non terminal Object     def_exp, expr_list, expr_part, expr, params, ident, value, defin, _struct, st_body, func, ident_funcpointer;
+non terminal Object     def_body, program, code_part, params, value, defin, st_body, func, ident_funcpointer;
 non terminal Integer	val_int;
-non terminal String	val_str;
+non terminal String	type, pre_type, val_str;
    
-	expr_list	::=	expr_list expr_part
+	program	::=	program code_part
 				|
-				expr_part
+				code_part
 				;
 
    
-	expr_part	::= 	expr SEMI
-				|
-				DEFINE def_exp
-				;
+	code_part ::= 	EXTERN func:f SEMI
+			{: parser.cg.declareFunc(); :}
+			|
+			EXTERN defin:d SEMI
+			{: parser.cg.declareVar(); :}
+			|
+			TYPEDEF defin:d2 SEMI
+			{: parser.cg.declareTypedef_var(); :}
+			|
+			TYPEDEF STRUCT LQ st_body:s RQ ID:i SEMI
+			{: parser.cg.declareTypedef_struct(i); :}
+			|
+			STRUCT ID:i LQ st_body:s RQ SEMI
+			{: 
+			parser.cg.struct.setName(i);
+			parser.cg.declareStruct(); 
+			:}
+			|
+			DEFINE def_body
+			;
 
-	def_exp	::=	ID:i value:v
+
+	def_body	::=	ID:i value:v
 			{:
 			def_expr dx = new def_expr();
 			dx.ID = i;
@@ -71,31 +88,16 @@ non terminal String	val_str;
 			dx.exp = v;
 			dx.isStruct = true;
 			parser.cg.defines.add(dx);
-			:}			
+			:}
 			;
 
+	
 
-	expr	::= 	EXTERN func:f
-			{: parser.cg.declareFunc(); :}
-			|
-			EXTERN defin:d
-			{: parser.cg.declareVar(); :}
-			|
-			TYPEDEF defin:d2
-			{: parser.cg.declareTypedef_var(); :}
-			|
-			TYPEDEF STRUCT LQ st_body:s RQ ID:i
-			{: parser.cg.declareTypedef_struct(i); :}
-			|
-			_struct:s
-			{: parser.cg.declareStruct(); :}
-			;
-
-	func	::=	ident:e ID:e2 LPAREN 
+	func	::=	type:e ID:e2 LPAREN 
 			{: 
-			parser.cg.f.setReturn_type(e);
-			parser.cg.f.setID(e2);
-			parser.cg.paramsowner = parser.cg.f;
+			parser.cg.func.setReturn_type(e);
+			parser.cg.func.setID(e2);
+			parser.cg.paramsowner = parser.cg.func;
 			:}						
 			params:p RPAREN
 			{: 
@@ -104,56 +106,39 @@ non terminal String	val_str;
 			;
 	
 
-	_struct	::=	STRUCT ID:i LQ st_body:s RQ
-			{: 
-			parser.cg.s.setName(i);
-			RESULT = "struct " + i + "{" + "\n" + s + "\n" + "};"; 
+	st_body	::=	defin SEMI
+			{:
+			parser.cg.struct.addMember(parser.cg.var);
+		        parser.cg.var = new var_decl(); 
+			:}
+			|
+			st_body:s defin SEMI
+			{:
+			parser.cg.struct.addMember(parser.cg.var);
+		        parser.cg.var = new var_decl();  
 			:}
 			;
 	
-	st_body	::=	defin:d SEMI
+	defin ::=	type:i ID:i2
+			{: 
+			parser.cg.var.setType(i);
+			parser.cg.var.setID(i2);
+			:}
+			|
+			defin LBRACKET RBRACKET
 			{:
-			parser.cg.s.addMember(parser.cg.dec);
-		        parser.cg.dec = new var_decl(); 
-			RESULT = d + ";"; 
+			parser.cg.var.addArray(0);
 			:}
-			|
-			st_body:s defin:d2 SEMI
+			| 
+			defin LBRACKET NUMBER:n RBRACKET
 			{:
-			parser.cg.s.addMember(parser.cg.dec);
-		        parser.cg.dec = new var_decl();  
-			RESULT = s + "\n" + d2 + ";" ; 
-			:}
-			;
-	
-	defin	::=	ident:i ID:i2
-			{: 
-			parser.cg.dec.push(i);
-			parser.cg.dec.push(i2);
-			parser.cg.dec.push("");
-			RESULT = i + " " + i2; 
+			parser.cg.var.addArray(n);
 			:}
 			|
-			ident:i3 ID:i4 LBRACKET value:v RBRACKET
+			type:i7 LPAREN STAR ID:i8 RPAREN LPAREN
 			{: 
-			parser.cg.dec.push(i3);
-			parser.cg.dec.push(i4);
-			parser.cg.dec.push("["+v+"]");
-			RESULT = i3 + " " + i4 + "[" + v + "]"; 
-			:}
-			|
-			ident:i5 ID:i6 LBRACKET RBRACKET
-			{: 
-			parser.cg.dec.push(i5);
-			parser.cg.dec.push(i6);
-			parser.cg.dec.push("[]");
-			RESULT = i5 + " " + i6 + "[]"; 
-			:}
-			|
-			ident:i7 LPAREN STAR ID:i8 RPAREN LPAREN
-			{: 
-			parser.cg.dec.push(i7+"*");
-			parser.cg.dec.push(i8);
+			parser.cg.var.setType(i7+"*");
+			parser.cg.var.setID(i8);
 			func_decl funcp = new func_decl();
 			funcp.setID(i8);
 			funcp.setReturn_type(i7+"*");
@@ -164,9 +149,8 @@ non terminal String	val_str;
 			{:
 			func_decl funcp = parser.cg.paramsowner;
 			funcp.pointer = true;
-			parser.cg.dec.push(funcp);
+			parser.cg.var.setFuncpointer(funcp);
 			parser.cg.paramsowner = parser.cg.params_owners.pop();
-			RESULT = i7 + " (*" + i8 + ")(" + ps + ")"; 
 			:}
 			;
 
@@ -195,41 +179,35 @@ non terminal String	val_str;
 			;
 	
 
-	params	::=	ident: p
+	params	::=	type: p
 			{: 
 			parser.cg.paramsowner.pushParam(p);
-			RESULT = p; 
 			:}
 			|
-			ident:p2 COMMA params:ps
+			type:p2 COMMA params:ps
 			{: 
 			parser.cg.paramsowner.pushParam(p2);
-			RESULT = p2 + " , " + ps; 
 			:}
 			|
-			ident:p3 COMMA DOTS
+			type:p3 COMMA DOTS
 			{:
 			parser.cg.paramsowner.pushParam(p3);
-			 RESULT = p3; 
 			:}
 			|
 			ident_funcpointer:p4
 			{:
 			parser.cg.paramsowner.pushParam(p4);
-			RESULT = p4; 
 			:}
 			|
 			ident_funcpointer:p5 COMMA params:ps2
 			{: 
 			parser.cg.paramsowner.pushParam(p5);
-			RESULT = p5 + " , " + ps2; 
 			:}
 			|
-			{: RESULT = ""; :}
 			;
 
 	ident_funcpointer ::=
-			ident:p4 LPAREN STAR RPAREN LPAREN 
+			type:p4 LPAREN STAR RPAREN LPAREN 
 			{:
 			func_decl funcp = new func_decl();
 			funcp.pointer = true;
@@ -246,23 +224,22 @@ non terminal String	val_str;
 			:}
 			;
 
-	ident	::=	ID:i
-			{: RESULT = i; :}
-			|			
-			PRE_ID:i ID:i2
-			{: RESULT = i + " " + i2; :}
-			|
-			PRE_ID:i PRE_ID:i2 ID:i3
-			{: RESULT = i + " " + i2 + " " + i3; :}
-			|
-			ident:i STAR
-			{: RESULT = i + "*"; :}
-			|
-			ident:i LBRACKET RBRACKET
-			{: RESULT = i + "[]"; :}			
-			|
-			STRUCT ID:i
-			{: RESULT = "struct " + i; :}
-			;
-			
+
+
+	pre_type::=	ID:i {: RESULT=i; :}
+			| SHORT {: RESULT="short"; :}
+			| LONG {: RESULT="long"; :}
+			| LONG LONG {: RESULT="long long"; :}
+			| STRUCT ID:i {: RESULT= "struct " + i; :}
+			| UN_SIGNED pre_type:p {: RESULT="signed" + " " + p; :} 
+			| CONST pre_type:p {: RESULT="const" + p; :} ;
+
+	type	::=	pre_type:p {: RESULT=p; :}
+			| type:t LBRACKET RBRACKET {: RESULT=t + "[]"; :}
+			| type:t LBRACKET NUMBER:n RBRACKET {: RESULT=t + "[" + n + "]"; :}
+			| type:t STAR {: RESULT=t + "*"; :};
+	
+
+
+
 

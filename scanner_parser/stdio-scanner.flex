@@ -80,7 +80,9 @@ SPACING = [ \t\r\f] | {NEWLINE}
 	"*"		{ return symbol(sym.STAR); }
 	"("		{ return symbol(sym.LPAREN); }
 	")"		{ return symbol(sym.RPAREN); }
-	","		{return symbol(sym.COMMA); }
+	","		{ return symbol(sym.COMMA); }
+	"&"		{ return symbol(sym.AMPERSAND); }
+	"_"		{ return symbol(sym.UNDERSCORE); } 
 
 
 	"#define"	{ return symbol(sym.DEFINE); }
@@ -93,10 +95,11 @@ SPACING = [ \t\r\f] | {NEWLINE}
 	"["		{ return symbol(sym.LBRACKET); }
 	"]"		{ return symbol(sym.RBRACKET); }
 	
-	"unsigned"	{ return symbol(sym.PRE_ID, new String(yytext())); }
-	"const"		{ return symbol(sym.PRE_ID, new String(yytext())); }
-	"long"		{ return symbol(sym.PRE_ID, new String(yytext())); }
-	"short"		{ return symbol(sym.PRE_ID, new String(yytext())); }
+	"signed"	{ return symbol(sym.UN_SIGNED, new String(yytext())); }
+	"unsigned"	{ return symbol(sym.UN_SIGNED, new String(yytext())); }
+	"const"		{ return symbol(sym.CONST); }
+	"long"		{ return symbol(sym.LONG); }
+	"short"		{ return symbol(sym.SHORT); }
 	
 
 	 \"		{tmpString = new StringBuilder();
