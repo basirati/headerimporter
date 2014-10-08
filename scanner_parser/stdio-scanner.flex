@@ -28,7 +28,7 @@ import java_cup.runtime.*;
 
 NUM = [0-9]+
 ALPHA = [a-zA-Z_]
-ALPHA_NUM = {ALPHA}|[0-9]
+ALPHA_NUM = {ALPHA}|[0-9]|["_"]
 IDENT = {ALPHA}({ALPHA_NUM})*
 
 
@@ -69,20 +69,40 @@ SPACING = [ \t\r\f] | {NEWLINE}
 	
 	";"		{ return symbol(sym.SEMI); }
    
-
 	"..."		{ return symbol(sym.DOTS); }
 
-	
+
+	"||"		{ return symbol(sym.OR); }
+	"&&"		{ return symbol(sym.AND); }
+	"!="		{ return symbol(sym.NOTEQUAL); }
+	"=="		{ return symbol(sym.EQUAL); }	
+	"<="		{ return symbol(sym.LE); }	
+	">="		{ return symbol(sym.GE); }	
+	">>"		{ return symbol(sym.GG); }
+	"<<"		{ return symbol(sym.LL); }	
+	"--"		{ return symbol(sym.MM); }
+	"++"		{ return symbol(sym.PP); }
+	"->"		{ return symbol(sym.PREF); }
+	"="		{ return symbol(sym.ASSIGN); }
+	"~"		{ return symbol(sym.TILDE); }	
+	"!"		{ return symbol(sym.BARDOT); }
+	"?"		{ return symbol(sym.QUESTIONMARK); }	
+	">"		{ return symbol(sym.GREATER); }
+	"<"		{ return symbol(sym.LESS); }
+	"^"		{ return symbol(sym.HAT); }
+	"."		{ return symbol(sym.DOT); }
 	"+"		{ return symbol(sym.PLUS); }
 	"-"		{ return symbol(sym.MINUS); }
 	"/"		{ return symbol(sym.DIVIDE); }
-	
+	"%"		{ return symbol(sym.PERCENT); }
 	"*"		{ return symbol(sym.STAR); }
 	"("		{ return symbol(sym.LPAREN); }
 	")"		{ return symbol(sym.RPAREN); }
 	","		{ return symbol(sym.COMMA); }
 	"&"		{ return symbol(sym.AMPERSAND); }
-	"_"		{ return symbol(sym.UNDERSCORE); } 
+	"|"		{ return symbol(sym.BAR); }
+	":"		{ return symbol(sym.COLON); }
+
 
 
 	"#define"	{ return symbol(sym.DEFINE); }
@@ -90,8 +110,6 @@ SPACING = [ \t\r\f] | {NEWLINE}
 	"extern"	{ return symbol(sym.EXTERN); }
 	"typedef"	{ return symbol(sym.TYPEDEF); }
 	"struct"	{ return symbol(sym.STRUCT); }
-	"{"		{ return symbol(sym.LQ); }
-	"}"		{ return symbol(sym.RQ); }
 	"["		{ return symbol(sym.LBRACKET); }
 	"]"		{ return symbol(sym.RBRACKET); }
 	
