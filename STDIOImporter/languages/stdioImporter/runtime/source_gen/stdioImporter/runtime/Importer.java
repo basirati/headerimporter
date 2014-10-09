@@ -35,8 +35,8 @@ public class Importer {
 
   public SNode makeVar(var_decl v, Iterable<SNode> typedefs) {
     Typer typer = new Typer();
-    if (v.getQ() instanceof func_decl) {
-      return this.makeFuncPointer((func_decl) v.getQ(), typedefs);
+    if (v.getFuncpointer() != null) {
+      return this.makeFuncPointer(v.getFuncpointer(), typedefs);
     } else {
       return typer.buildType(v.getType(), typedefs);
     }
@@ -85,6 +85,8 @@ public class Importer {
           s_var = s_it.next();
           SNode sd = SConceptOperations.createNewNode("com.mbeddr.core.udt.structure.StructDeclaration", null);
           SPropertyOperations.set(sd, "name", s_var.getName());
+          ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(sd);
+          SNode sdi = SConceptOperations.createNewNode("com.mbeddr.core.udt.structure.StructInitExpression", null);
           {
             Iterator<var_decl> dec_it = ListSequence.fromList(s_var.getDecs()).iterator();
             var_decl dec_var;
@@ -92,11 +94,13 @@ public class Importer {
               dec_var = dec_it.next();
               SNode nt = SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.Type", null);
               nt = imp.makeVar(dec_var, ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).ofType(SNode.class));
-              // <node> 
+              SNode mm = SConceptOperations.createNewNode("com.mbeddr.core.udt.structure.Member", null);
+              SLinkOperations.setTarget(mm, "type", nt, true);
+              SPropertyOperations.set(mm, "name", dec_var.getID());
+              ListSequence.fromList(SLinkOperations.getTargets(sd, "members", true)).addElement(mm);
 
             }
           }
-          ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(sd);
         }
       }
 

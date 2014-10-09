@@ -41,7 +41,7 @@ terminal		DEFINE, LBRACKET, RBRACKET, ASSIGN, DOT, DOTS, BAR, BARDOT, GREATER, L
 terminal Integer	NUMBER;
 terminal String		ID;
    
-non terminal Object     def_body, program, code_part, params, defin, st_body, func, ident_funcpointer, exp, func_call, args, Ar2, B2, LogicalS, exp2, exp3, macro, macro_params;
+non terminal Object     def_body, program, code_part, params, defin, st_body, func, ident_funcpointer, exp, func_call, args, Ar2, B2, LogicalS, exp2, exp3, macro, macro_params, def_value, exp3L, pre_opd;
 non terminal String	type, pre_type;
    
 	program	::=	program code_part
@@ -72,13 +72,10 @@ non terminal String	type, pre_type;
 			;
 
 
-	def_body	::= ID:i exp3
-			{:
-			def_expr dx = new def_expr();
-			dx.ID = i;
-			//dx.exp = v;
-			parser.cg.defines.add(dx);
-			:}
+	def_body	::=
+			ID def_value
+			|
+			ID macro exp3 
 			|
 			ID:i STRUCT ID:v
 			{:
@@ -89,31 +86,42 @@ non terminal String	type, pre_type;
 			parser.cg.defines.add(dx);
 			:}
 			;
+	def_value ::=	NUMBER | PLUS def_value | MINUS def_value | AMPERSAND def_value | STAR def_value
+			| BARDOT def_value | LPAREN def_value RPAREN;
+
 	
 	exp ::=		NUMBER | ID | func_call
 			| exp LBRACKET exp2 RBRACKET | exp DOT func_call | exp DOT ID
 			| exp PREF func_call | exp PREF ID
 			| exp MM | exp PP | LPAREN exp RPAREN;
+
 	exp2 ::=	MINUS exp2 | LPAREN MINUS exp2 RPAREN| PLUS exp2 | LPAREN PLUS exp2 RPAREN 
 			| PP exp2 | LPAREN PP exp2 RPAREN | MM exp2 | LPAREN MM exp2 RPAREN 
 			| STAR exp2 | LPAREN STAR exp2 RPAREN | AMPERSAND exp2 | LPAREN AMPERSAND exp2 RPAREN
 			| TILDE exp2 | LPAREN TILDE exp2 RPAREN | exp;
 	
+	exp3L ::=	LPAREN exp2 Ar2 exp3 RPAREN
+			| LPAREN exp2 B2 exp3 RPAREN
+			| LPAREN exp2 LogicalS exp2 QUESTIONMARK exp3 COLON exp3 RPAREN
+			| LPAREN BARDOT exp2 QUESTIONMARK exp3 COLON exp3 RPAREN
+			| LPAREN exp2 QUESTIONMARK exp3 COLON exp3 RPAREN;
+
 	exp3 ::=	exp2 Ar2 exp3 | LPAREN exp2 Ar2 exp3 RPAREN
 			| exp2 B2 exp3 | LPAREN exp2 B2 exp3 RPAREN
 			| exp2 LogicalS exp2 QUESTIONMARK exp3 COLON exp3 | LPAREN exp2 LogicalS exp2 QUESTIONMARK exp3 COLON exp3 RPAREN
 			| BARDOT exp2 QUESTIONMARK exp3 COLON exp3 | LPAREN BARDOT exp2 QUESTIONMARK exp3 COLON exp3 RPAREN
 			| exp2 QUESTIONMARK exp3 COLON exp3 | LPAREN exp2 QUESTIONMARK exp3 COLON exp3 RPAREN
-			| exp2;
+			| TILDE exp3L | AMPERSAND exp3L | STAR exp3L | MM exp3L | PP exp3L | PLUS exp3L | MINUS exp3L
+			|exp2;
 
 	Ar2 ::=		ASSIGN | DIVIDE | PERCENT | PLUS | MINUS;
 	B2 ::=		LL | GG | HAT | BAR | AMPERSAND;
 	LogicalS ::=	LESS | LE | GREATER | GE | EQUAL | NOTEQUAL | AND | OR; 
-	func_call ::=	ID LPAREN args RPAREN;
-	args ::=	args COMMA exp3| exp3 | ;
+	func_call ::=	ID LPAREN args RPAREN | ID LPAREN RPAREN;
+	args ::=	args COMMA exp3| exp3;
 
-	macro_params ::=LPAREN RPAREN | LPAREN ID RPAREN | LPAREN ID macro | ;		
-	macro ::=	ID | macro COMMA | macro RPAREN;
+	macro_params ::=macro_params COMMA ID | ID;		
+	macro ::=	LPAREN macro_params RPAREN | LPAREN RPAREN;
 
 	func	::=	type:e ID:e2 LPAREN 
 			{: 

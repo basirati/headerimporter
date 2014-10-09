@@ -36,7 +36,7 @@ IDENT = {ALPHA}({ALPHA_NUM})*
 NEWLINE = \n | \u2028 | \u2029 | \u000B | \u000C | \u0085
 SPACING = [ \t\r\f] | {NEWLINE}
 
-%xstates MULTI_COMMENT, MONO_COMMENT, STRING, SHARPY
+%xstates MULTI_COMMENT, MONO_COMMENT, STRING
 
    
 %%
@@ -98,6 +98,8 @@ SPACING = [ \t\r\f] | {NEWLINE}
 	"*"		{ return symbol(sym.STAR); }
 	"("		{ return symbol(sym.LPAREN); }
 	")"		{ return symbol(sym.RPAREN); }
+	"{"		{ return symbol(sym.LQ); }
+	"}"		{ return symbol(sym.RQ); }
 	","		{ return symbol(sym.COMMA); }
 	"&"		{ return symbol(sym.AMPERSAND); }
 	"|"		{ return symbol(sym.BAR); }
@@ -105,8 +107,8 @@ SPACING = [ \t\r\f] | {NEWLINE}
 
 
 
+
 	"#define"	{ return symbol(sym.DEFINE); }
-	
 	"extern"	{ return symbol(sym.EXTERN); }
 	"typedef"	{ return symbol(sym.TYPEDEF); }
 	"struct"	{ return symbol(sym.STRUCT); }
@@ -128,7 +130,7 @@ SPACING = [ \t\r\f] | {NEWLINE}
 	
 	{IDENT}		{ return symbol(sym.ID, new String(yytext()));}
 
-	{SPACING}       { /* just skip what was found, do nothing */ }   
+	{SPACING}       { /* skipping */ }   
 }
 
 
