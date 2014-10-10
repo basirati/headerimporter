@@ -36,13 +36,19 @@ parser code {:
    
 
 
-terminal		DEFINE, LBRACKET, RBRACKET, ASSIGN, DOT, DOTS, BAR, BARDOT, GREATER, LESS, GG, LL, PREF, MM, PP, GE, LE, AND, OR, NOTEQUAL, EQUAL, COLON, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ, PERCENT, HAT, QUESTIONMARK, SHORT, LONG, UN_SIGNED, CONST, AMPERSAND, TILDE;
+terminal		DEFINE, LBRACKET, RBRACKET, ASSIGN, DOT, DOTS, BAR, BARDOT, GREATER, LESS, GG, LL, PREF, MM, PP, GE, LE, AND, OR, NOTEQUAL, EQUAL, COLON, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ, PERCENT, HAT, QUESTIONMARK, SHORT, LONG, UN_SIGNED, CONST, AMPERSAND, TILDE, CHAR, INT, SINT, LINT, LLONG, LLINT, FLOAT, DOUBLE, LDOUBLE;
 
 terminal Integer	NUMBER;
 terminal String		ID;
    
 non terminal Object     def_body, program, code_part, params, defin, st_body, func, ident_funcpointer, exp, func_call, args, Ar2, B2, LogicalS, exp2, exp3, macro, macro_params, def_value, exp3L;
-non terminal String	type, pre_type;
+non terminal String	type, pre_type, c_type;
+
+precedence left PP, MM, LPAREN, RPAREN, LBRACKET, DOT, PREF,
+	BARDOT, TILDE, STAR, AMPERSAND, DIVIDE, PERCENT, PLUS, MINUS, LL, GG, LESS, LE, GREATER, GE, EQUAL, NOTEQUAL,
+	BAR, AND, OR, QUESTIONMARK;
+precedence left MINUS, PLUS, ID;
+
    
 	program	::=	program code_part
 				|
@@ -73,7 +79,13 @@ non terminal String	type, pre_type;
 
 
 	def_body	::=
-			ID def_value
+			ID:i def_value:v
+			{: 
+			def_expr dx = new def_expr();
+			dx.ID = i;
+			dx.exp = v;
+			parser.cg.defines.add(dx);
+			:}
 			|
 			ID macro exp3 
 			|
@@ -86,14 +98,17 @@ non terminal String	type, pre_type;
 			parser.cg.defines.add(dx);
 			:}
 			;
-	def_value ::=	NUMBER | PLUS def_value | MINUS def_value | AMPERSAND def_value | STAR def_value
-			| BARDOT def_value | LPAREN def_value RPAREN;
+	def_value ::=	NUMBER:n {: RESULT=n; :} | PLUS def_value:d {: RESULT= "+" + d; :} | MINUS def_value:d {: RESULT= "-"+d; :}
+			| AMPERSAND def_value:d {: RESULT= "&"+d; :}| STAR def_value:d {: RESULT= "*"+d; :}
+			| BARDOT def_value:d {: RESULT= "!"+d; :}| LPAREN def_value:d RPAREN {: RESULT= "("+d+")"; :};
 
 	
-	exp ::=		NUMBER | ID | func_call
-			| exp LBRACKET exp2 RBRACKET | exp DOT func_call | exp DOT ID
-			| exp PREF func_call | exp PREF ID
-			| exp MM | exp PP | LPAREN exp RPAREN;
+	exp ::=		NUMBER:n {: RESULT= n; :}| ID:i {: RESULT= i; :}| func_call:f {: RESULT= f; :}
+			| exp:e LBRACKET exp2:e2 RBRACKET {: RESULT= e+"["+e2+"]" :}| exp:e DOT func_call:f {: RESULT= e+"."+f; :} 
+			| exp:e DOT ID:i {: RESULT= e+"."+i; :}
+			| exp:e PREF func_call:f {: RESULT= e+"->"+f; :}| exp:e PREF ID:i {: RESULT= e+"->"+f; :}
+			| exp:e MM {: RESULT= e+"--"; :} | exp:e PP {: RESULT= e+"++"; :} 
+			| LPAREN exp:e RPAREN {: RESULT= "("+e+")"; :};
 
 	exp2 ::=	MINUS exp2 | LPAREN MINUS exp2 RPAREN| PLUS exp2 | LPAREN PLUS exp2 RPAREN 
 			| PP exp2 | LPAREN PP exp2 RPAREN | MM exp2 | LPAREN MM exp2 RPAREN 
@@ -108,11 +123,14 @@ non terminal String	type, pre_type;
 
 	exp3 ::=	exp2 Ar2 exp3 | LPAREN exp2 Ar2 exp3 RPAREN
 			| exp2 B2 exp3 | LPAREN exp2 B2 exp3 RPAREN
-			| exp2 LogicalS exp2 QUESTIONMARK exp3 COLON exp3 | LPAREN exp2 LogicalS exp2 QUESTIONMARK exp3 COLON exp3 RPAREN
+			| exp2 LogicalS exp3 | | LPAREN exp2 LogicalS exp3 RPAREN
+			| exp3 LogicalS exp3L QUESTIONMARK exp3 COLON exp3 | LPAREN exp3 LogicalS exp3L QUESTIONMARK exp3 COLON exp3 RPAREN
+			| exp3 LogicalS exp2 QUESTIONMARK exp3 COLON exp3 | LPAREN exp3 LogicalS exp2 QUESTIONMARK exp3 COLON exp3 RPAREN
 			| BARDOT exp2 QUESTIONMARK exp3 COLON exp3 | LPAREN BARDOT exp2 QUESTIONMARK exp3 COLON exp3 RPAREN
-			| exp2 QUESTIONMARK exp3 COLON exp3 | LPAREN exp2 QUESTIONMARK exp3 COLON exp3 RPAREN
+			| exp3 QUESTIONMARK exp3 COLON exp3 | LPAREN exp3 QUESTIONMARK exp3 COLON exp3 RPAREN
 			| TILDE exp3L | AMPERSAND exp3L | STAR exp3L | MM exp3L | PP exp3L | PLUS exp3L | MINUS exp3L
 			|exp2;
+
 
 	Ar2 ::=		ASSIGN | DIVIDE | PERCENT | PLUS | MINUS;
 	B2 ::=		LL | GG | HAT | BAR | AMPERSAND;
@@ -233,18 +251,23 @@ non terminal String	type, pre_type;
 
 
 
-	pre_type::=	ID:i {: RESULT=i; :}
+	c_type ::=	CHAR {: RESULT= "char"; :}| INT {: RESULT= "int"; :}
+			| SINT {: RESULT= "short int"; :}| LINT {: RESULT= "long int"; :} 
 			| SHORT {: RESULT="short"; :}
-			| LONG {: RESULT="long"; :}
-			| LONG LONG {: RESULT="long long"; :}
+			| LONG {: RESULT="long"; :} | LLONG {: RESULT= "long long"; :}| LLINT {: RESULT= "long long int"; :}
+			| FLOAT {: RESULT= "float"; :}| DOUBLE {: RESULT= "double"; :}| LDOUBLE {: RESULT= "long double"; :};
+			
+	pre_type::=	c_type:c {: RESULT= c; :}| ID:i {: RESULT= i; :}
 			| STRUCT ID:i {: RESULT= "struct " + i; :}
-			| UN_SIGNED pre_type:p {: RESULT="signed" + " " + p; :} 
-			| CONST pre_type:p {: RESULT="const" + p; :} ;
+			| UN_SIGNED:u pre_type:p {: RESULT= u + " " + p; :} 
+			| CONST pre_type:p {: RESULT="const " + p; :};
+			
 
-	type	::=	pre_type:p {: RESULT=p; :}
+	type::=		pre_type:p {: RESULT= p; :}
 			| type:t LBRACKET RBRACKET {: RESULT=t + "[]"; :}
 			| type:t LBRACKET NUMBER:n RBRACKET {: RESULT=t + "[" + n + "]"; :}
 			| type:t STAR {: RESULT=t + "*"; :};
+
 	
 
 

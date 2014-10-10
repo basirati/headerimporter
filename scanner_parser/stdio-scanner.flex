@@ -65,6 +65,10 @@ SPACING = [ \t\r\f] | {NEWLINE}
     
 	\/\/		{ yybegin(MONO_COMMENT); }
 	\/\*		{ yybegin(MULTI_COMMENT); }
+	"#ifdef"	{ yybegin(MONO_COMMENT); }
+	"#ifndef"	{ yybegin(MONO_COMMENT); }
+	"#else"		{ yybegin(MONO_COMMENT); }
+	"#endif"	{ yybegin(MONO_COMMENT); }
 	
 	
 	";"		{ return symbol(sym.SEMI); }
@@ -118,8 +122,19 @@ SPACING = [ \t\r\f] | {NEWLINE}
 	"signed"	{ return symbol(sym.UN_SIGNED, new String(yytext())); }
 	"unsigned"	{ return symbol(sym.UN_SIGNED, new String(yytext())); }
 	"const"		{ return symbol(sym.CONST); }
-	"long"		{ return symbol(sym.LONG); }
+	
+	"char"		{ return symbol(sym.CHAR); }
 	"short"		{ return symbol(sym.SHORT); }
+	"short int"	{ return symbol(sym.SINT); }
+	"int"		{ return symbol(sym.INT); }
+	"long int"	{ return symbol(sym.LINT); }
+	"long long"	{ return symbol(sym.LLONG); }
+	"long long int"	{ return symbol(sym.LLINT); }
+	"long"		{ return symbol(sym.LONG); }
+	"float"		{ return symbol(sym.FLOAT); }
+	"double"	{ return symbol(sym.DOUBLE); }
+	"long double"	{ return symbol(sym.LDOUBLE); }
+
 	
 
 	 \"		{tmpString = new StringBuilder();

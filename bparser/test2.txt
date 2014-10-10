@@ -1,16 +1,16 @@
 #define BUFSIZ 512
 
-/////#ifndef FILE
+#ifdef FILE
 
 struct _iobuf
 	{
-///#ifdef pdp11		/* really #ifdef oldunix */
+#ifdef pdp11		/* really #ifdef oldunix */
 	char *_ptr;
 	int _cnt;
-///#else
+#else
 	int _cnt;
 	char *_ptr;
-///#endif
+#endif
 	char *_base;
 	int _bufsiz;
 	short _flag;
@@ -31,7 +31,7 @@ struct _iobuf
 
 #define FILE struct _iobuf
 
-///#endif
+#endif
 
 #define EOF (-1)
 
@@ -48,9 +48,9 @@ struct _iobuf
 #define _IOFPTR	02000	/* I/O functions take _fptr instead of _file */
 #define _IOSTFN	04000	/* filename statically allocated (don't free) */
 
-///#ifndef NULL
+#ifndef NULL
 #define NULL 0
-////#endif
+#endif
 
 #define SEEK_SET	0
 #define SEEK_CUR	1
@@ -67,15 +67,15 @@ extern FILE _iob[];
 #define getc(fp) ((fp)->_cnt-- > 0 ? (*(fp)->_ptr++ & 0377) : \
 					_filbuf(fp))
 
-///#ifndef PUTCLBUF
+#ifndef PUTCLBUF
 
 #define putc(c, fp) ((fp)->_cnt-- > 0 ? (*(fp)->_ptr++ = (c)) : _flsbuf(c, fp))
 
-////#else
+#else
 
-//////////////////////////#define putc(c, fp) ((fp)->_cnt-- > 0 ? ((*(fp)->_ptr = (c)) == '\n' && ((fp)->_flag & _IOLBF) ? _flsbuf(*(fp)->_ptr, fp) : *(fp)->_ptr++) 	: _flsbuf(c, fp))
+/////////////#define putc(c, fp) ((fp)->_cnt-- > 0 ? ((*(fp)->_ptr = (c)) == 8 && ((fp)->_flag & _IOLBF) ? _flsbuf(*(fp)->_ptr, fp) : *(fp)->_ptr++) 	: _flsbuf(c, fp))
 
-/////#endif
+#endif
 
 #define getchar() getc(stdin)
 #define putchar(c) putc(c, stdout)
@@ -87,27 +87,27 @@ extern FILE _iob[];
 #define fileno(fp) ((fp)->_file)
 #define _fileptr(fp) ((fp)->_fptr)
 
-////#ifndef __STDC__
+#ifndef __STDC__
 
 extern FILE *fdopen();
 extern char *fgets();
 extern FILE *fopen();
 extern FILE *freopen();
-////////////////////////////extern long int ftell();
-extern char *gets();
+extern long int ftell();
+extern const char *gets();
 
-////////#ifdef EXTENSIONS
+#ifdef EXTENSIONS
 
 extern char *saprintf();
 extern FILE *stropen();
 extern FILE *strnopen();
 extern char *vsaprintf();
 
-////#endif
+#endif
 
-////#else
+#else
 
-////////#include <stdarg.h>		/* for va_list */
+//////#include <stdarg.h>		/* for va_list */
 
 extern int fclose(FILE *);
 extern FILE *fdopen(int, char *);
@@ -121,8 +121,8 @@ extern int fputs(char *, FILE *);
 extern int fread(char *, unsigned int, int, FILE *);
 extern FILE *freopen(char *, char *, FILE *);
 extern int fscanf(FILE *, char *, ...);
-////////////////////////////////////extern int fseek(FILE *, long int, int);
-///////////////////////////extern long int ftell(FILE *);
+extern int fseek(FILE *, long int, int);
+extern long int ftell(FILE *);
 extern int fwrite(char *, unsigned int, int, FILE *);
 extern char *gets(char *);
 /* getw? */
@@ -142,7 +142,7 @@ extern int vfprintf(FILE *, char *, va_list);
 extern int vprintf(char *, va_list);
 extern int vsprintf(char *, char *, va_list);
 
-///////#ifdef EXTENSIONS
+#ifdef EXTENSIONS
 
 extern void fabort(FILE *);
 extern int fdclose(FILE *);
@@ -151,12 +151,12 @@ extern int putpad(FILE *, char *, int, int, int);
 extern char *saprintf(char *, ...);
 extern int scanfiles(int (*)());
 extern int seterrfn(FILE *, int (*)());
-/////////////////////////extern int setfuncs(FILE *, int (*)(), int (*)(), long int (*)(), int (*)());
+extern int setfuncs(FILE *, int (*)(), int (*)(), long int (*)(), int (*)());
 extern int snprintf(char *, int, char *, ...);
 extern FILE *stropen(char *, char *);
 extern FILE *strnopen(char *, int, char *);
 extern char *vsaprintf(char *, va_list);
 
-///////#endif
+#endif
 
-///////#endif
+#endif
