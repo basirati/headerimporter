@@ -73,7 +73,7 @@ extern FILE _iob[];
 
 #else
 
-/////////////#define putc(c, fp) ((fp)->_cnt-- > 0 ? ((*(fp)->_ptr = (c)) == 8 && ((fp)->_flag & _IOLBF) ? _flsbuf(*(fp)->_ptr, fp) : *(fp)->_ptr++) 	: _flsbuf(c, fp))
+/////////////#define putc(c, fp) ((fp)->_cnt-- > 0 ? ((*(fp)->_ptr = (c)) ==  && ((fp)->_flag & _IOLBF) ? _flsbuf(*(fp)->_ptr, fp) : *(fp)->_ptr++) 	: _flsbuf(c, fp))
 
 #endif
 
