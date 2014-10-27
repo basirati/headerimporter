@@ -65,17 +65,29 @@ public class Importer {
       }
       // importing defines .............................. 
       for (def_expr df : ListSequence.fromList(cg.defines)) {
-        SNode gcd = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.GlobalConstantDeclaration", null);
-        SPropertyOperations.set(gcd, "name", ((String) df.ID));
         if (df.exp instanceof Integer) {
+          SNode gcd = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.GlobalConstantDeclaration", null);
+          SPropertyOperations.set(gcd, "name", ((String) df.ID));
           SNode val = SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.NumberLiteral", null);
           SPropertyOperations.set(val, "value", ((Integer) df.exp).toString());
           SLinkOperations.setTarget(gcd, "value", val, true);
+          ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(gcd);
         } else {
-          SNode val = typer.buildType(((String) df.exp), ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).ofType(SNode.class));
-          SLinkOperations.setTarget(gcd, "type", val, true);
+          if (df.isStruct) {
+            SNode tdef = SConceptOperations.createNewNode("com.mbeddr.core.udt.structure.TypeDef", null);
+            SPropertyOperations.set(tdef, "name", (String) df.ID);
+            SLinkOperations.setTarget(tdef, "original", typer.buildType((String) df.exp, ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).ofType(SNode.class)), true);
+
+            ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(tdef);
+          } else {
+            SNode val = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.StaticMemoryLocation", null);
+            SPropertyOperations.set(val, "name", (String) df.ID);
+            SNode exp = SConceptOperations.createNewNode("com.mbeddr.core.pointers.structure.StringLiteral", null);
+            SPropertyOperations.set(exp, "value", (String) df.exp);
+            SLinkOperations.setTarget(val, "value", exp, true);
+            ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(val);
+          }
         }
-        ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(gcd);
       }
       // importing structs ................................ 
       {

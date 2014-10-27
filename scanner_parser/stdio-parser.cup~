@@ -41,11 +41,10 @@ terminal		DEFINE, LBRACKET, RBRACKET, ASSIGN, DOT, DOTS, BAR, BARDOT, GREATER, L
 terminal Integer	NUMBER;
 terminal String		ID;
    
-non terminal Object     def_body, program, code_part, params, defin, st_body, func, ident_funcpointer, exp, func_call, args, Ar2, B2, LogicalS, exp2, exp3, macro, macro_params, def_value, exp3L;
+non terminal Object     def_body, program, code_part, params, defin, st_body, func, ident_funcpointer, exp, func_call, args, Ar2, B2, LogicalS, macro_params, def_val;
 non terminal String	type, pre_type, c_type;
 
 precedence left ASSIGN;
-precedence left ID;
 precedence left QUESTIONMARK, COLON;
 precedence left AND, OR;
 precedence left	BAR, HAT;
@@ -55,11 +54,11 @@ precedence left PLUS, MINUS;
 precedence left DIVIDE, PERCENT;
 precedence left STAR, AMPERSAND;
 precedence left BARDOT, TILDE;
-precedence left LPAREN, RPAREN;
 precedence left DOT, PREF;
 precedence left LBRACKET, RBRACKET;
 precedence left PP, MM;
-
+precedence left LPAREN, RPAREN;
+precedence left ID;
    
 	program	::=	program code_part
 				|
@@ -90,7 +89,7 @@ precedence left PP, MM;
 
 
 	def_body	::=
-			ID:i def_value:v
+			ID:i def_val:v
 			{: 
 			def_expr dx = new def_expr();
 			dx.ID = i;
@@ -98,7 +97,12 @@ precedence left PP, MM;
 			parser.cg.defines.add(dx);
 			:}
 			|
-			ID macro exp3 
+			ID:i LPAREN macro_params RPAREN exp:v
+			def_expr dx = new def_expr();
+			dx.ID = i;
+			dx.exp = v;
+			parser.cg.defines.add(dx);
+			
 			|
 			ID:i STRUCT ID:v
 			{:
@@ -109,40 +113,56 @@ precedence left PP, MM;
 			parser.cg.defines.add(dx);
 			:}
 			;
-	def_value ::=	NUMBER:n {: RESULT=n; :} | PLUS def_value:d {: RESULT= "+" + d; :} | MINUS def_value:d {: RESULT= "-"+d; :}
-			| AMPERSAND def_value:d {: RESULT= "&"+d; :}| STAR def_value:d {: RESULT= "*"+d; :}
-			| BARDOT def_value:d {: RESULT= "!"+d; :}| LPAREN def_value:d RPAREN {: RESULT= "("+d+")"; :};
-
 	
-	exp ::=		NUMBER:n {: RESULT= n; :}| ID:i {: RESULT= i; :}| func_call:f {: RESULT= f; :}
-			| exp:e LBRACKET exp2:e2 RBRACKET {: RESULT= e+"["+e2+"]"; :}| exp:e DOT func_call:f {: RESULT= e+"."+f; :} 
-			| exp:e DOT ID:i {: RESULT= e+"."+i; :}
-			| exp:e PREF func_call:f {: RESULT= e+"->"+f; :}| exp:e PREF ID:i {: RESULT= e+"->"+i; :}
-			| exp:e MM {: RESULT= e+"--"; :} | exp:e PP {: RESULT= e+"++"; :} 
-			| LPAREN exp:e RPAREN {: RESULT= "("+e+")"; :};
-
-	exp2 ::=	MINUS exp2 | LPAREN MINUS exp2 RPAREN| PLUS exp2 | LPAREN PLUS exp2 RPAREN 
-			| PP exp2 | LPAREN PP exp2 RPAREN | MM exp2 | LPAREN MM exp2 RPAREN 
-			| STAR exp2 | LPAREN STAR exp2 RPAREN | AMPERSAND exp2 | LPAREN AMPERSAND exp2 RPAREN
-			| TILDE exp2 | LPAREN TILDE exp2 RPAREN | exp;
+	def_val ::=	NUMBER:n {: RESULT = n; :} | func_call:f {: RESULT = f; :} 
+			| def_val:d LBRACKET exp:e RBRACKET {: RESULT = d+"["+e+"]"; :}  | def_val:d DOT func_call:f {: RESULT = d+"."+f; :} 
+			| def_val:d DOT ID:i {: RESULT = d+"."+i; :} 
+			| def_val:d PREF func_call:f {: RESULT = d+"->"+f; :} | def_val:d PREF ID:i {: RESULT = d+"->"+i; :} 
+			| def_val:d PP {: RESULT = d+"++"; :} | def_val:d MM {: RESULT = d+"--"; :} 
+			| MINUS exp:e {: RESULT = "-"+e; :} | PLUS exp:e {: RESULT = "+"+e; :} 
+			| PP exp:e {: RESULT = "++"+e; :} | MM exp:e {: RESULT = "++"+e; :} 
+			| STAR exp:e {: RESULT = "*"+e; :} | AMPERSAND exp:e {: RESULT = "&"+e; :} 
+			| def_val:d Ar2:o exp:e {: RESULT = d + " " + e + " " + o; :} 
+			| def_val:d B2:o exp:e {: RESULT = d + " " + e + " " + o; :} 
+			| def_val:d LogicalS:o exp:e {: RESULT = d + " " + e + " " + o; :} 
+			| def_val:d QUESTIONMARK exp:e1 COLON exp:e2 {: RESULT = " ? "+d+" "+e1+" "+e2; :} 
+			| BARDOT exp:e {: RESULT = "!"+e; :} 
+			| TILDE exp:e {: RESULT = "~"+e; :} 
+			| LPAREN def_val:d RPAREN {: RESULT = "("+d+")"; :} 
+			;
 	
+	exp ::=		NUMBER:n {: RESULT = n; :} | ID:i {: RESULT = i; :} | func_call:f {: RESULT = f; :}
+			| exp:e LBRACKET exp:e2 RBRACKET {: RESULT = e+"["+e2+"]"; :} | exp:e DOT func_call:f {: RESULT = e+"."+f; :}
+			| exp:e DOT ID:i {: RESULT = e+"."+i; :}
+			| exp:e PREF func_call:f {: RESULT = e+"->"+f; :} | exp:e PREF ID:i {: RESULT = e+"->"+i; :}
+			| exp:e PP {: RESULT = e+"++"; :} | exp:e MM {: RESULT = e+"--"; :}
+			| MINUS exp:e {: RESULT = "-"+e; :} | PLUS exp:e {: RESULT = ""+e; :}
+			| PP exp:e {: RESULT = "++"+e; :} | MM exp:e {: RESULT = "--"+e; :}
+			| STAR exp:e {: RESULT = "*"+e; :} | AMPERSAND exp:e {: RESULT = "&"+e; :}
+			| exp:e Ar2:o exp:e2 {: RESULT = e + " " + e2 + " " + o; :}
+			| exp:e B2:o exp:e2 {: RESULT = e + " " + e2 + " " + o; :}
+			| exp:e LogicalS:o exp:e2 {: RESULT = e + " " + e2 + " " + o; :}
+			| exp:e QUESTIONMARK exp:e1 COLON exp:e2 {: RESULT = " ? " + e + " " + e1 +" "+e2; :}
+			| BARDOT exp:e {: RESULT = "!"+e; :}
+			| TILDE exp:e {: RESULT = "~"+e; :}
+			| LPAREN exp:e RPAREN {: RESULT = "("+e+")"; :}
+			;
 
-	exp3 ::=	exp3 Ar2 exp3
-			| exp3 B2 exp3
-			| exp3 LogicalS exp3
-			| exp3 QUESTIONMARK exp3 COLON exp3
-			| BARDOT exp3
-			| LPAREN exp3 RPAREN
-			| exp2;
-
-	Ar2 ::=		ASSIGN | DIVIDE | PERCENT | PLUS | MINUS;
-	B2 ::=		LL | GG | HAT | BAR | AMPERSAND;
-	LogicalS ::=	LESS | LE | GREATER | GE | EQUAL | NOTEQUAL | AND | OR; 
+	Ar2 ::=		ASSIGN {: RESULT = "="; :} | DIVIDE {: RESULT = "/"; :} | PERCENT {: RESULT = "%"; :} 
+			| PLUS {: RESULT = "+"; :} | MINUS {: RESULT = "-"; :}
+			;
+	B2 ::=		LL {: RESULT = "<<"; :} | GG {: RESULT = ">>"; :} 
+			| HAT {: RESULT = "^"; :} | BAR {: RESULT = "|"; :} | AMPERSAND {: RESULT = "&"; :}
+			;
+	LogicalS ::=	LESS {: RESULT = "<"; :} | LE {: RESULT = "<="; :} 
+			| GREATER {: RESULT = ">"; :} | GE {: RESULT = ">="; :} 
+			| EQUAL {: RESULT = "=="; :} | NOTEQUAL {: RESULT = "!="; :} 
+			| AND {: RESULT = "&&"; :} | OR {: RESULT = "||"; :}
+			; 
 	func_call ::=	ID LPAREN args RPAREN | ID LPAREN RPAREN;
-	args ::=	args COMMA exp3| exp3;
+	args ::=	args COMMA exp| exp;
 
-	macro_params ::=macro_params COMMA ID | ID;		
-	macro ::=	LPAREN macro_params RPAREN | LPAREN RPAREN;
+	macro_params ::=macro_params COMMA ID| ID | ;
 
 	func	::=	type:e ID:e2 LPAREN 
 			{: 
