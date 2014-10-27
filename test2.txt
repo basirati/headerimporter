@@ -60,12 +60,11 @@ struct _iobuf
 
 extern FILE _iob[];
 
-///#define stdin (&_iob[0])
-///#define stdout (&_iob[1])
-///#define stderr (&_iob[2])
+#define stdin (&_iob[0])
+#define stdout (&_iob[1])
 
-#define getc(fp) ((fp)->_cnt-- > 0 ? (*(fp)->_ptr++ & 0377) : \
-					_filbuf(fp))
+#define stderr (&_iob[2])
+#define getc(fp) ((fp)->_cnt-- > 0 ? (*(fp)->_ptr++ & 0377) : _filbuf(fp))
 
 #ifndef PUTCLBUF
 
@@ -73,7 +72,8 @@ extern FILE _iob[];
 
 #else
 
-/////////////#define putc(c, fp) ((fp)->_cnt-- > 0 ? ((*(fp)->_ptr = (c)) ==  && ((fp)->_flag & _IOLBF) ? _flsbuf(*(fp)->_ptr, fp) : *(fp)->_ptr++) 	: _flsbuf(c, fp))
+
+#define putc(c, fp) ((fp)->_cnt-- > 0 ? ((*(fp)->_ptr-c) == '\n' && ((fp)->_flag & _IOLBF) ? _flsbuf(*(fp)->_ptr, fp) : *(fp)->_ptr++) : _flsbuf(c, fp))
 
 #endif
 
