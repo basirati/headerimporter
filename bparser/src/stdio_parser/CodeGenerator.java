@@ -7,110 +7,127 @@ import java.util.Stack;
  * Created by basirati on 8/1/14.
  */
 public class CodeGenerator {
-    public String mode;
-    public func_decl func = new func_decl();
-    public struct_decl struct = new struct_decl();
-    public var_decl var = new var_decl();
 
-    public ArrayList<def_expr> defines = new ArrayList<def_expr>();
-    private ArrayList<func_decl> functions = new ArrayList<func_decl>();
-    private ArrayList<struct_decl> structs = new ArrayList<struct_decl>();
-    private ArrayList<var_decl> vars = new ArrayList<var_decl>();
-    private ArrayList<vartypedef_decl> typedef_vars = new ArrayList<vartypedef_decl>();
+    public Function func = new Function();
+    public Struct struct = new Struct();
+    public Variable var = new Variable();
 
-    public Stack<func_decl> params_owners = new Stack<func_decl>();
-    public func_decl paramsowner = null;
+    //public ConditionalBlock conditionalBlock = new ConditionalBlock();
+    public boolean block = false;
 
-    public ArrayList<func_decl> getFunctions() {
-        return functions;
+    public ArrayList<Declaration> declarations = new ArrayList<Declaration>();
+    //public ArrayList<Define> defines = new ArrayList<Define>();
+    //private ArrayList<Function> functions = new ArrayList<Function>();
+    //private ArrayList<Struct> structs = new ArrayList<Struct>();
+    //private ArrayList<Variable> vars = new ArrayList<Variable>();
+    //private ArrayList<Typedef> typedef_vars = new ArrayList<Typedef>();
+
+    public Stack<Function> params_owners = new Stack<Function>();
+    public Function paramsowner = null;
+
+    public Stack<ConditionalBlock> conditionalBlocks = new Stack<ConditionalBlock>();
+
+    void addDeclaration(Declaration declaration)
+    {
+        if (block)
+            try {
+                conditionalBlocks.peek().addDeclaration(declaration);
+            } catch (Exception e) {}
+        else
+            declarations.add(declaration);
     }
 
-    public ArrayList<struct_decl> getStructs() {
-        return structs;
-    }
+    public void declareDefine(String id, Object params, Object exp, boolean isStruct)
+    {
+        Define dx = new Define();
+        dx.setID(id);
+        dx.setExp(exp);
+        dx.setParams(exp);
+        dx.isStruct = isStruct;
 
-    public ArrayList<var_decl> getVars() {
-        return vars;
-    }
-
-    public ArrayList<vartypedef_decl> getTypedef_vars() {
-        return typedef_vars;
+        this.addDeclaration(dx);
     }
 
     public void declareFunc()
     {
-        functions.add(func);
-        func = new func_decl();
+        this.addDeclaration(func);
+        func = new Function();
     }
 
     public void declareStruct()
     {
-        structs.add(struct);
-        struct = new struct_decl();
-        //var = new var_decl();
+        this.addDeclaration(struct);
+        struct = new Struct();
     }
 
     public void declareTypedef_var()
     {
-        vartypedef_decl v = new vartypedef_decl();
-        v.setDef(var.getType());
+        Typedef v = new Typedef();
+        v.setID(var.getType());
         v.setAs(var.getID());
-        typedef_vars.add(v);
-        var = new var_decl();
+        this.addDeclaration(v);
+        var = new Variable();
     }
 
     public void declareTypedef_struct(String id)
     {
-        struct_decl sd = new struct_decl();
-        sd.setName(id);
+        Struct sd = new Struct();
+        sd.setID(id);
         sd.as_typedef = true;
-        structs.add(sd);
-        //var = new var_decl();
+        this.addDeclaration(sd);
     }
 
     public void declareVar()
     {
-        vars.add(var);
-        var = new var_decl();
+        this.addDeclaration(var);
+        var = new Variable();
     }
 
     public void showDeclarations()
     {
-        System.out.println("FUNCTIONS...");
-        for (func_decl f: functions) {
-            System.out.println(f.getReturn_type() + " " + f.getID() + "(" + f.paramsToString() + ")");
-        }
-        System.out.println("STRUCTS...");
-        for (struct_decl s: structs) {
-            System.out.println(s.getName() + " {");
-            for (var_decl v : s.getDecs())
-                System.out.println(v.toString());
-            System.out.println("}");
-        }
-        System.out.println("VARIABLES...");
-        for (var_decl v: vars) {
-            String q = "";
-            if (v.getFuncpointer() != null)
-                q = "(" + v.getFuncpointer().paramsToString() + ")";
-            else
-                q = v.getArray();
-            System.out.println(v.getType() + " " + v.getID() + q);
-        }
-        System.out.println("TYPEDEF VARS...");
-        for (vartypedef_decl v: typedef_vars)
-            System.out.println(v.getDef() + "->" + v.getAs());
-        System.out.println("DEFINES...");
-        for (def_expr d: defines) {
-            String exp = "";
-            if (d.exp instanceof  Integer)
-            {
-                Integer i = (Integer) d.exp;
-                exp = i.toString();
+        for (Declaration dd : declarations) {
+            if (dd instanceof Function) {
+                Function f = (Function) dd;
+                System.out.print("FUNCTION: ");
+                System.out.println(f.getReturn_type() + " " + f.getID() + "(" + f.paramsToString() + ")");
             }
-            else
-            exp = (String) d.exp;
 
-            System.out.println((String) d.ID + "->" + exp);
+            if (dd instanceof Struct) {
+                Struct s = (Struct) dd;
+                System.out.print("STRUCT: ");
+                System.out.println(s.getID() + " {");
+                for (Variable v : s.getDecs())
+                    System.out.println(v.toString());
+                System.out.println("}");
+            }
+            if (dd instanceof Variable) {
+                Variable v = (Variable) dd;
+
+                String q = "";
+                if (v.getFuncpointer() != null)
+                    q = "(" + v.getFuncpointer().paramsToString() + ")";
+                else
+                    q = v.getArray();
+                System.out.print("VARIABLE: ");
+                System.out.println(v.getType() + " " + v.getID() + q);
+            }
+            if (dd instanceof Typedef) {
+                Typedef v = (Typedef) dd;
+                System.out.print("TYPEDEF: ");
+                System.out.println(v.getID() + "->" + v.getAs());
+            }
+            if (dd instanceof Define) {
+                Define d = (Define) dd;
+                System.out.print("DEFINE: ");
+                String exp = "";
+                if (d.exp instanceof Integer) {
+                    Integer i = (Integer) d.exp;
+                    exp = i.toString();
+                } else
+                    exp = (String) d.exp;
+
+                System.out.println((String) d.ID + "->" + exp);
+            }
         }
     }
 }

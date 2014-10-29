@@ -1,7 +1,8 @@
 package stdio_parser;
 
 import java.io.*;
-   
+import java.util.ArrayList;
+
 public class Main {
   static public void main(String argv[]) {    
     /* Start the parser */
@@ -11,7 +12,6 @@ public class Main {
       //System.out.println(result);
       System.out.println("..............................................");
       p.cg.showDeclarations();
-
 
     } catch (Exception e) {
       e.printStackTrace();

@@ -32,5 +32,9 @@
       <link role="target" roleId="tpce.1071599976176" targetNodeId="3873900481303370769" resolveInfo="ImportConfig" />
     </node>
   </root>
+  <root type="tpce.ConceptDeclaration" typeId="tpce.1071489090640" id="6765740111390699621" nodeInfo="ig">
+    <link role="extends" roleId="tpce.1071489389519" targetNodeId="tpck.1133920641626" resolveInfo="BaseConcept" />
+    <node role="implements" roleId="tpce.1169129564478" type="tpce.InterfaceConceptReference" typeId="tpce.1169127622168" id="6765740111390718397" nodeInfo="ig" />
+  </root>
 </model>
 

@@ -36,7 +36,7 @@ parser code {:
    
 
 
-terminal		DEFINE, LBRACKET, RBRACKET, ASSIGN, DOT, DOTS, BAR, BARDOT, GREATER, LESS, GG, LL, PREF, MM, PP, GE, LE, AND, OR, NOTEQUAL, EQUAL, COLON, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ, PERCENT, HAT, QUESTIONMARK, SHORT, LONG, UN_SIGNED, CONST, AMPERSAND, TILDE, CHAR, INT, SINT, LINT, LLONG, LLINT, FLOAT, DOUBLE, LDOUBLE;
+terminal		DEFINE, LBRACKET, RBRACKET, ASSIGN, DOT, DOTS, BAR, BARDOT, GREATER, LESS, GG, LL, PREF, MM, PP, GE, LE, AND, OR, NOTEQUAL, EQUAL, COLON, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ, PERCENT, HAT, QUESTIONMARK, SHORT, LONG, UN_SIGNED, CONST, AMPERSAND, TILDE, CHAR, INT, SINT, LINT, LLONG, LLINT, FLOAT, DOUBLE, LDOUBLE, PLUSEQ, MINUSEQ, STAREQ, DIVIDEQ, PERCENTEQ, LLEQ, GGEQ, AMPERSANDEQ, HATEQ, BAREQ, IFDEF, IFNDEF, ELSE, ENDIF;
 
 terminal Integer	NUMBER;
 terminal String		ID;
@@ -44,7 +44,7 @@ terminal String		ID;
 non terminal Object     def_body, program, code_part, params, defin, st_body, func, ident_funcpointer, exp, func_call, args, Ar2, B2, LogicalS, macro_params, def_val;
 non terminal String	type, pre_type, c_type;
 
-precedence left ASSIGN;
+precedence left ASSIGN, PLUSEQ, MINUSEQ, STAREQ, DIVIDEQ, PERCENTEQ, LLEQ, GGEQ, AMPERSANDEQ, HATEQ, BAREQ;
 precedence left QUESTIONMARK, COLON;
 precedence left AND, OR;
 precedence left	BAR, HAT;
@@ -80,7 +80,7 @@ precedence left ID;
 			|
 			STRUCT ID:i LQ st_body:s RQ SEMI
 			{: 
-			parser.cg.struct.setName(i);
+			parser.cg.struct.setID(i);
 			parser.cg.declareStruct(); 
 			:}
 			|
@@ -91,27 +91,17 @@ precedence left ID;
 	def_body	::=
 			ID:i def_val:v
 			{: 
-			def_expr dx = new def_expr();
-			dx.ID = i;
-			dx.exp = v;
-			parser.cg.defines.add(dx);
+			parser.cg.declareDefine(i, "", v, false);
 			:}
 			|
-			ID:i LPAREN macro_params RPAREN exp:v
+			ID:i LPAREN macro_params:m RPAREN exp:e
 			{:
-			def_expr dx = new def_expr();
-			dx.ID = i;
-			dx.exp = v;
-			parser.cg.defines.add(dx);
+			parser.cg.declareDefine(i, "("+m+")", e, false);
 			:}
 			|
 			ID:i STRUCT ID:v
 			{:
-			def_expr dx = new def_expr();
-			dx.ID = i;
-			dx.exp = v;
-			dx.isStruct = true;
-			parser.cg.defines.add(dx);
+			parser.cg.declareDefine(i, "", v, true);			
 			:}
 			;
 	
@@ -151,6 +141,11 @@ precedence left ID;
 
 	Ar2 ::=		ASSIGN {: RESULT = "="; :} | DIVIDE {: RESULT = "/"; :} | PERCENT {: RESULT = "%"; :} 
 			| PLUS {: RESULT = "+"; :} | MINUS {: RESULT = "-"; :}
+			| AMPERSAND ASSIGN {: RESULT = "&="; :}
+			| PLUSEQ {: RESULT = "+="; :} | MINUSEQ {: RESULT = "-="; :}
+			| STAREQ {: RESULT = "*="; :} | DIVIDEQ {: RESULT = "/="; :}
+			| PERCENTEQ {: RESULT = "%="; :} | LLEQ {: RESULT = "<<="; :} | GGEQ {: RESULT = ">>="; :} 
+			| AMPERSANDEQ {: RESULT = "&="; :} | HATEQ {: RESULT = "^="; :} | BAREQ {: RESULT = "|="; :}
 			;
 	B2 ::=		LL {: RESULT = "<<"; :} | GG {: RESULT = ">>"; :} 
 			| HAT {: RESULT = "^"; :} | BAR {: RESULT = "|"; :} | AMPERSAND {: RESULT = "&"; :}
@@ -160,10 +155,10 @@ precedence left ID;
 			| EQUAL {: RESULT = "=="; :} | NOTEQUAL {: RESULT = "!="; :} 
 			| AND {: RESULT = "&&"; :} | OR {: RESULT = "||"; :}
 			; 
-	func_call ::=	ID LPAREN args RPAREN | ID LPAREN RPAREN;
-	args ::=	args COMMA exp| exp;
+	func_call ::=	ID:i LPAREN args:a RPAREN {:RESULT = i+"("+a+")"; :}| ID:i LPAREN RPAREN {:RESULT = i+"()"; :};
+	args ::=	args:a COMMA exp:e {:RESULT = a+","+e; :}| exp:e {:RESULT = e; :};
 
-	macro_params ::=macro_params COMMA ID| ID | ;
+	macro_params ::=macro_params:m COMMA ID:i {:RESULT = m+","+i; :}| ID:i {:RESULT = i; :} | {:RESULT = ""; :};
 
 	func	::=	type:e ID:e2 LPAREN 
 			{: 
@@ -181,13 +176,13 @@ precedence left ID;
 	st_body	::=	defin SEMI
 			{:
 			parser.cg.struct.addMember(parser.cg.var);
-		        parser.cg.var = new var_decl(); 
+		        parser.cg.var = new Variable(); 
 			:}
 			|
 			st_body:s defin SEMI
 			{:
 			parser.cg.struct.addMember(parser.cg.var);
-		        parser.cg.var = new var_decl();  
+		        parser.cg.var = new Variable();  
 			:}
 			;
 	
@@ -211,7 +206,7 @@ precedence left ID;
 			{: 
 			parser.cg.var.setType(i7+"*");
 			parser.cg.var.setID(i8);
-			func_decl funcp = new func_decl();
+			Function funcp = new Function();
 			funcp.setID(i8);
 			funcp.setReturn_type(i7+"*");
 			parser.cg.params_owners.push(parser.cg.paramsowner);
@@ -219,7 +214,7 @@ precedence left ID;
 			:}
 			params:ps RPAREN
 			{:
-			func_decl funcp = parser.cg.paramsowner;
+			Function funcp = parser.cg.paramsowner;
 			funcp.pointer = true;
 			parser.cg.var.setFuncpointer(funcp);
 			parser.cg.paramsowner = parser.cg.params_owners.pop();
@@ -258,7 +253,7 @@ precedence left ID;
 	ident_funcpointer ::=
 			type:p4 LPAREN STAR RPAREN LPAREN 
 			{:
-			func_decl funcp = new func_decl();
+			Function funcp = new Function();
 			funcp.pointer = true;
 			funcp.setReturn_type(p4);
 			parser.cg.params_owners.push(parser.cg.paramsowner);
@@ -266,7 +261,7 @@ precedence left ID;
 			:}
 			params:ps2 RPAREN
 			{:
-			func_decl funcp = parser.cg.paramsowner;
+			Function funcp = parser.cg.paramsowner;
 			funcp.pointer = true;
 			parser.cg.paramsowner = parser.cg.params_owners.pop();
 			RESULT = funcp;

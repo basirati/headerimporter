@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies version="2" modelHash="1czryhyg6gvbtzskmg4p8emzh7i8bha">
+<dependencies version="2" modelHash="5pihczt2i0ayn4uba78fnr9soci4ab7">
   <dep model="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" hash="5sdbpqxziyuazpb9j1p4zdk6bnvbn49" />
   <dep model="r:00000000-0000-4000-0000-011c89590293(jetbrains.mps.lang.structure.generator_new.baseLanguage@generator)" hash="-5mgxduek28h3ywdzzsk4capaz4hgjm0" />
   <dep model="r:00000000-0000-4000-0000-011c895902cd(jetbrains.mps.baseLanguage.generator.java.main@generator)" hash="303xz1b2lyseld0axia86q3lpvucmq6" />
@@ -8,6 +8,7 @@
   <common hash="-3dc992ccnvosunipco7naqph5azydj9" dependsOnNodes="true">
     <dep root="3873900481303370769" />
     <dep root="3873900481303386058" />
+    <dep root="6765740111390699621" />
     <dep model="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <dep model="r:00000000-0000-4000-0000-011c89590293(jetbrains.mps.lang.structure.generator_new.baseLanguage@generator)" />
     <dep model="r:00000000-0000-4000-0000-011c895902cd(jetbrains.mps.baseLanguage.generator.java.main@generator)" />
@@ -17,5 +18,6 @@
   </common>
   <source id="3873900481303370769" name="ImportConfig" hash="50ju4zpyiezhkxy25db02vfe3ebqcj2" />
   <source id="3873900481303386058" name="ImportConfigs" hash="-2xkuqxcro6i2rwl4b1l6q6ho3x0k5hn" />
+  <source id="6765740111390699621" hash="-4jv7dku4zuxpvh0ir0va4lpu9c65oj" />
 </dependencies>
 

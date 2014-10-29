@@ -65,16 +65,24 @@ SPACING = [ \t\r\f] | {NEWLINE}
     
 	\/\/		{ yybegin(MONO_COMMENT); }
 	\/\*		{ yybegin(MULTI_COMMENT); }
-	"#ifdef"	{ yybegin(MONO_COMMENT); }
-	"#ifndef"	{ yybegin(MONO_COMMENT); }
-	"#else"		{ yybegin(MONO_COMMENT); }
-	"#endif"	{ yybegin(MONO_COMMENT); }
+	
 	
 	
 	";"		{ return symbol(sym.SEMI); }
    
 	"..."		{ return symbol(sym.DOTS); }
 
+
+	"+="		{ return symbol(sym.PLUSEQ); }
+	"-="		{ return symbol(sym.MINUSEQ); }
+	"*="		{ return symbol(sym.STAREQ); }
+	"/="		{ return symbol(sym.DIVIDEQ); }
+	"%="		{ return symbol(sym.PERCENTEQ); }
+	"<<="		{ return symbol(sym.LLEQ); }
+	">>="		{ return symbol(sym.GGEQ); }
+	"&="		{ return symbol(sym.AMPERSANDEQ); }
+	"^="		{ return symbol(sym.HATEQ); }
+	"|="		{ return symbol(sym.BAREQ); }
 
 	"||"		{ return symbol(sym.OR); }
 	"&&"		{ return symbol(sym.AND); }
@@ -113,6 +121,11 @@ SPACING = [ \t\r\f] | {NEWLINE}
 
 
 	"#define"	{ return symbol(sym.DEFINE); }
+	"#ifdef"	{ return symbol(sym.IFDEF); }
+	"#ifndef"	{ return symbol(sym.IFNDEF); }
+	"#else"		{ return symbol(sym.ELSE); }
+	"#endif"	{ return symbol(sym.ENDIF); }
+
 	"extern"	{ return symbol(sym.EXTERN); }
 	"typedef"	{ return symbol(sym.TYPEDEF); }
 	"struct"	{ return symbol(sym.STRUCT); }

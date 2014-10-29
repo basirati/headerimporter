@@ -1,6 +1,6 @@
 #define BUFSIZ 512
 
-#ifdef FILE
+#ifndef FILE
 
 struct _iobuf
 	{
@@ -62,8 +62,8 @@ extern FILE _iob[];
 
 #define stdin (&_iob[0])
 #define stdout (&_iob[1])
-
 #define stderr (&_iob[2])
+
 #define getc(fp) ((fp)->_cnt-- > 0 ? (*(fp)->_ptr++ & 0377) : _filbuf(fp))
 
 #ifndef PUTCLBUF
@@ -72,23 +72,14 @@ extern FILE _iob[];
 
 #else
 
-#define boz(s) (*(fp)->_ptr = (c))
-
-#define asb(x)  (*(fp)->_ptr = (c)) == '\n' && ((fp)->_flag & _IOLBF)
-                (*(fp)->_ptr (c) =) n ((fp)->_flag _IOLBF &) && ==
-
-
-
-#define asb(x) (*(fp)->_ptr = (c)) == '\n' && ((fp)->_flag & _IOLBF)
-
-#define putc(c, fp) ((fp)->_cnt-- > 0 ? ((*(fp)->_ptr-c) == '\n' && ((fp)->_flag & _IOLBF) ? _flsbuf(*(fp)->_ptr, fp) : *(fp)->_ptr++) : _flsbuf(c, fp))
+#define putc(c, fp) ((fp)->_cnt-- > 0 ? ((*(fp)->_ptr = (c)) == '\n' && ((fp)->_flag & _IOLBF) ? _flsbuf(*(fp)->_ptr, fp) : *(fp)->_ptr++) : _flsbuf(c, fp))
 
 #endif
 
 #define getchar() getc(stdin)
 #define putchar(c) putc(c, stdout)
 
-#define clearerr(fp) ((fp)->_flag = (fp)->_flag & (_IOEOF | _IOERR))
+#define clearerr(fp) ((fp)->_flag &= ~(_IOEOF | _IOERR))
 #define feof(fp) ((fp)->_flag & _IOEOF)
 #define ferror(fp) ((fp)->_flag & _IOERR)
 
@@ -102,7 +93,7 @@ extern char *fgets();
 extern FILE *fopen();
 extern FILE *freopen();
 extern long int ftell();
-extern const char *gets();
+extern char *gets();
 
 #ifdef EXTENSIONS
 
@@ -115,7 +106,7 @@ extern char *vsaprintf();
 
 #else
 
-//////#include <stdarg.h>		/* for va_list */
+/////#include <stdarg.h>		/* for va_list */
 
 extern int fclose(FILE *);
 extern FILE *fdopen(int, char *);
@@ -153,7 +144,7 @@ extern int vsprintf(char *, char *, va_list);
 #ifdef EXTENSIONS
 
 extern void fabort(FILE *);
-extern int fdclose(FILE *);#endif
+extern int fdclose(FILE *);
 extern int flushall(void);
 extern int putpad(FILE *, char *, int, int, int);
 extern char *saprintf(char *, ...);
@@ -167,3 +158,4 @@ extern char *vsaprintf(char *, va_list);
 
 #endif
 
+#endif

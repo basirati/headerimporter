@@ -9,7 +9,7 @@
   <dep model="r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)" hash="-8z73tx2nml9xagbxlfmq60ehji8q3f5" />
   <dep model="r:b4d7d620-6723-4aa2-856b-118497e84e9e(jetbrains.mps.baseLanguage.generator.java.strings@generator)" hash="b4ewbuz42qcbg1awca5bacgi0vopxqt" />
   <dep model="r:f04c1476-2f91-4f59-be13-c8e009abebee(jetbrains.mps.baseLanguageInternal.generator.template.main@generator)" hash="a8elw7fctzg6sg8fe36u9gzu42axhdb" />
-  <dep model="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)" hash="1czryhyg6gvbtzskmg4p8emzh7i8bha" />
+  <dep model="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)" hash="5pihczt2i0ayn4uba78fnr9soci4ab7" />
   <common hash="2edlcb9vtb11k2lcjsmv5pam4n1zcte" dependsOnNodes="true">
     <dep root="7351843451284674642" />
     <dep root="7351843451284678922" />

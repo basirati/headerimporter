@@ -7,7 +7,7 @@
   <dep model="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" hash="-4jez4he6csz7bx6v3ekoxsqv5lfep93" />
   <dep model="r:b4d7d620-6723-4aa2-856b-118497e84e9e(jetbrains.mps.baseLanguage.generator.java.strings@generator)" hash="b4ewbuz42qcbg1awca5bacgi0vopxqt" />
   <dep model="r:f04c1476-2f91-4f59-be13-c8e009abebee(jetbrains.mps.baseLanguageInternal.generator.template.main@generator)" hash="a8elw7fctzg6sg8fe36u9gzu42axhdb" />
-  <dep model="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)" hash="1czryhyg6gvbtzskmg4p8emzh7i8bha" />
+  <dep model="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)" hash="5pihczt2i0ayn4uba78fnr9soci4ab7" />
   <common hash="-braez1211bji6wy399oea1edpbtj7qm" dependsOnNodes="true">
     <dep root="4200119016361204925" />
     <dep root="4200119016361366244" />

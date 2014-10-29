@@ -16,10 +16,12 @@ public class BehaviorAspectDescriptor implements jetbrains.mps.smodel.runtime.Be
         return new ImportConfig_BehaviorDescriptor();
       case 1:
         return new ImportConfigs_BehaviorDescriptor();
+      case 2:
+        return new null_BehaviorDescriptor();
       default:
         return BehaviorAspectInterpreted.getInstance().getDescriptor(fqName);
     }
   }
 
-  private static String[] stringSwitchCases_846f5o_a0a0b = new String[]{"stdioImporter.structure.ImportConfig", "stdioImporter.structure.ImportConfigs"};
+  private static String[] stringSwitchCases_846f5o_a0a0b = new String[]{"stdioImporter.structure.ImportConfig", "stdioImporter.structure.ImportConfigs", "stdioImporter.structure.null"};
 }

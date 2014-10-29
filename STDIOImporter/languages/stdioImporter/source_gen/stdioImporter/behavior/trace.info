@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <debugInfo>
-  <unitInfo fileName="BehaviorAspectDescriptor.java" startLine="9" startPosition="0" endLine="26" endPosition="0" unitName="stdioImporter.behavior.BehaviorAspectDescriptor" />
+  <unitInfo fileName="BehaviorAspectDescriptor.java" startLine="9" startPosition="0" endLine="28" endPosition="0" unitName="stdioImporter.behavior.BehaviorAspectDescriptor" />
   <unitInfo fileName="ImportConfig_BehaviorDescriptor.java" startLine="7" startPosition="0" endLine="16" endPosition="0" unitName="stdioImporter.behavior.ImportConfig_BehaviorDescriptor" />
   <unitInfo fileName="ImportConfigs_BehaviorDescriptor.java" startLine="7" startPosition="0" endLine="16" endPosition="0" unitName="stdioImporter.behavior.ImportConfigs_BehaviorDescriptor" />
+  <unitInfo fileName="null_BehaviorDescriptor.java" startLine="7" startPosition="0" endLine="16" endPosition="0" unitName="stdioImporter.behavior.null_BehaviorDescriptor" />
   <root nodeRef="r:56c48711-bf46-4489-b509-90d3acd252dc(stdioImporter.behavior)/3873900481303667258">
     <nodeInfo nodeId="3873900481303708175" fileName="ImportConfig_Behavior.java" startLine="14" startPosition="77" endLine="15" endPosition="63" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
     <nodeInfo nodeId="1686749032425514944" fileName="ImportConfig_Behavior.java" startLine="18" startPosition="80" endLine="19" endPosition="153" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
