@@ -8,13 +8,13 @@ import java.util.Stack;
 public class Struct extends Declaration{
 
     public boolean as_typedef = false;
-    private Stack<Variable> decs = new Stack<Variable>();
+    private Stack<Declaration> decs = new Stack<Declaration>();
 
-    public Stack<Variable> getDecs() {
+    public Stack<Declaration> getDecs() {
         return decs;
     }
 
-    public void addMember(Variable dec) {
+    public void addMember(Declaration dec) {
         this.decs.push(dec);
     }
 

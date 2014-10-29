@@ -106,7 +106,7 @@ extern char *vsaprintf();
 
 #else
 
-/////#include <stdarg.h>		/* for va_list */
+#include <stdarg.h>		/* for va_list */
 
 extern int fclose(FILE *);
 extern FILE *fdopen(int, char *);

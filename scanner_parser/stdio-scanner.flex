@@ -126,6 +126,7 @@ SPACING = [ \t\r\f] | {NEWLINE}
 	"#else"		{ return symbol(sym.ELSE); }
 	"#endif"	{ return symbol(sym.ENDIF); }
 
+	"#include"	{ return symbol(sym.INCLUDE); }
 	"extern"	{ return symbol(sym.EXTERN); }
 	"typedef"	{ return symbol(sym.TYPEDEF); }
 	"struct"	{ return symbol(sym.STRUCT); }

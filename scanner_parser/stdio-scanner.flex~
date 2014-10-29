@@ -121,10 +121,10 @@ SPACING = [ \t\r\f] | {NEWLINE}
 
 
 	"#define"	{ return symbol(sym.DEFINE); }
-	"#ifdef"	{ return symbol(sym.IFDEF);; }
-	"#ifndef"	{ return symbol(sym.IFNDEF);; }
-	"#else"		{ return symbol(sym.ELSE);; }
-	"#endif"	{ return symbol(sym.ENDIF);; }
+	"#ifdef"	{ return symbol(sym.IFDEF); }
+	"#ifndef"	{ return symbol(sym.IFNDEF); }
+	"#else"		{ return symbol(sym.ELSE); }
+	"#endif"	{ return symbol(sym.ENDIF); }
 
 	"extern"	{ return symbol(sym.EXTERN); }
 	"typedef"	{ return symbol(sym.TYPEDEF); }

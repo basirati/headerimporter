@@ -13,7 +13,8 @@ public class CodeGenerator {
     public Variable var = new Variable();
 
     //public ConditionalBlock conditionalBlock = new ConditionalBlock();
-    public boolean block = false;
+    public boolean structflag = false;
+    public boolean structblock = false;
 
     public ArrayList<Declaration> declarations = new ArrayList<Declaration>();
     //public ArrayList<Define> defines = new ArrayList<Define>();
@@ -29,12 +30,23 @@ public class CodeGenerator {
 
     void addDeclaration(Declaration declaration)
     {
-        if (block)
-            try {
-                conditionalBlocks.peek().addDeclaration(declaration);
-            } catch (Exception e) {}
+        if (!conditionalBlocks.empty())
+            conditionalBlocks.peek().addDeclaration(declaration);
         else
             declarations.add(declaration);
+    }
+
+    public void declareConditionalBlock()
+    {
+        try {
+            ConditionalBlock cb = conditionalBlocks.pop();
+            if (structflag && cb.inStruct) {
+                this.struct.addMember(cb);
+                this.structblock = false;
+            }
+            else
+                this.addDeclaration(cb);
+        } catch (Exception e) {}
     }
 
     public void declareDefine(String id, Object params, Object exp, boolean isStruct)
@@ -57,6 +69,7 @@ public class CodeGenerator {
     public void declareStruct()
     {
         this.addDeclaration(struct);
+        structflag = false;
         struct = new Struct();
     }
 
@@ -85,7 +98,23 @@ public class CodeGenerator {
 
     public void showDeclarations()
     {
+        this.showDeclarations(declarations);
+    }
+
+    void showDeclarations(ArrayList<Declaration> declarations)
+    {
         for (Declaration dd : declarations) {
+            if (dd instanceof ConditionalBlock)
+            {
+                ConditionalBlock cb = (ConditionalBlock) dd;
+                System.out.println("IF(NOT): " + cb.getID() + ">>>>>>>>>>>>>>>>>>>>");
+                this.showDeclarations(cb.getBlock(true));
+                System.out.println("-------------------------");
+                this.showDeclarations(cb.getBlock(false));
+                System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+
+            }
+
             if (dd instanceof Function) {
                 Function f = (Function) dd;
                 System.out.print("FUNCTION: ");
@@ -96,8 +125,17 @@ public class CodeGenerator {
                 Struct s = (Struct) dd;
                 System.out.print("STRUCT: ");
                 System.out.println(s.getID() + " {");
-                for (Variable v : s.getDecs())
-                    System.out.println(v.toString());
+                for (Declaration v : s.getDecs()) {
+                    if (v instanceof ConditionalBlock) {
+                        System.out.println("........................");
+                        this.showDeclarations(((ConditionalBlock) v).getBlock(true));
+                        System.out.println("- - - - - - - - - - - - - ");
+                        this.showDeclarations(((ConditionalBlock) v).getBlock(false));
+                        System.out.println("+ + + + + + + + + + + + ");
+                    }
+                    else
+                        System.out.println(v.toString());
+                }
                 System.out.println("}");
             }
             if (dd instanceof Variable) {
@@ -128,6 +166,8 @@ public class CodeGenerator {
 
                 System.out.println((String) d.ID + "->" + exp);
             }
+            if (dd instanceof Include)
+                System.out.println("INCLUDE: " + dd.getID());
         }
     }
 }
