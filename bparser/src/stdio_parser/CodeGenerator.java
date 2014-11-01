@@ -12,16 +12,11 @@ public class CodeGenerator {
     public Struct struct = new Struct();
     public Variable var = new Variable();
 
-    //public ConditionalBlock conditionalBlock = new ConditionalBlock();
     public boolean structflag = false;
     public boolean structblock = false;
 
     public ArrayList<Declaration> declarations = new ArrayList<Declaration>();
-    //public ArrayList<Define> defines = new ArrayList<Define>();
-    //private ArrayList<Function> functions = new ArrayList<Function>();
-    //private ArrayList<Struct> structs = new ArrayList<Struct>();
-    //private ArrayList<Variable> vars = new ArrayList<Variable>();
-    //private ArrayList<Typedef> typedef_vars = new ArrayList<Typedef>();
+
 
     public Stack<Function> params_owners = new Stack<Function>();
     public Function paramsowner = null;
