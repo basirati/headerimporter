@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies version="2" modelHash="-3jr76ayeob4oh1w7lylrn20coiymmmm">
+<dependencies version="2" modelHash="-cq5ghp6fguz44ij5xnx2izwyghz1ajz">
   <dep model="f:java_stub#6354ebe7-c22a-4a0f-ac54-50b52ab9b065#java.io(JDK/java.io@java_stub)" />
   <dep model="f:java_stub#6354ebe7-c22a-4a0f-ac54-50b52ab9b065#java.lang(JDK/java.lang@java_stub)" />
   <dep model="f:java_stub#8865b7a8-5271-43d3-884c-6fd1d9cfdd34#org.jetbrains.mps.openapi.model(MPS.OpenAPI/org.jetbrains.mps.openapi.model@java_stub)" />
@@ -12,8 +12,8 @@
   <dep model="r:b4d7d620-6723-4aa2-856b-118497e84e9e(jetbrains.mps.baseLanguage.generator.java.strings@generator)" hash="b4ewbuz42qcbg1awca5bacgi0vopxqt" />
   <dep model="r:c3548bac-30eb-4a2a-937c-0111d5697309(jetbrains.mps.lang.smodel.generator.smodelAdapter)" hash="e5zswcvgdspmt039m3gg97emcadi0ez" />
   <dep model="r:f04c1476-2f91-4f59-be13-c8e009abebee(jetbrains.mps.baseLanguageInternal.generator.template.main@generator)" hash="a8elw7fctzg6sg8fe36u9gzu42axhdb" />
-  <dep model="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)" hash="5pihczt2i0ayn4uba78fnr9soci4ab7" />
-  <common hash="-4rxq8wrqapbjilc0mg6ang0k891jwpg" dependsOnNodes="true">
+  <dep model="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)" hash="9dzcw28ogt5lryp2xu06egahjkc16qx" />
+  <common hash="-dpgvsawvdph859w6b21dc5a8eiuc6xx" dependsOnNodes="true">
     <dep root="3873900481303667258" />
     <dep model="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" />
     <dep model="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
@@ -25,9 +25,8 @@
     <file name="BehaviorAspectDescriptor.java" />
     <file name="ImportConfig_BehaviorDescriptor.java" />
     <file name="ImportConfigs_BehaviorDescriptor.java" />
-    <file name="null_BehaviorDescriptor.java" />
   </common>
-  <source id="3873900481303667258" name="ImportConfig_Behavior" hash="-2et1d3ghrl8v71mqd7iasem9n863qfd">
+  <source id="3873900481303667258" name="ImportConfig_Behavior" hash="ce76agbvbxldbpori2nbm3fmt3vhcg6">
     <dep model="f:java_stub#6354ebe7-c22a-4a0f-ac54-50b52ab9b065#java.io(JDK/java.io@java_stub)" />
     <dep model="f:java_stub#6354ebe7-c22a-4a0f-ac54-50b52ab9b065#java.lang(JDK/java.lang@java_stub)" />
     <dep model="f:java_stub#8865b7a8-5271-43d3-884c-6fd1d9cfdd34#org.jetbrains.mps.openapi.model(MPS.OpenAPI/org.jetbrains.mps.openapi.model@java_stub)" />

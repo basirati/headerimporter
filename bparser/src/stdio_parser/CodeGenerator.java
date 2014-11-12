@@ -11,6 +11,7 @@ public class CodeGenerator {
     public Function func = new Function();
     public Struct struct = new Struct();
     public Variable var = new Variable();
+    public Define define  = new Define();
 
     public boolean structflag = false;
     public boolean structblock = false;
@@ -44,15 +45,10 @@ public class CodeGenerator {
         } catch (Exception e) {}
     }
 
-    public void declareDefine(String id, Object params, Object exp, boolean isStruct)
+    public void declareDefine()
     {
-        Define dx = new Define();
-        dx.setID(id);
-        dx.setExp(exp);
-        dx.setParams(exp);
-        dx.isStruct = isStruct;
-
-        this.addDeclaration(dx);
+        this.addDeclaration(define);
+        define = new Define();
     }
 
     public void declareFunc()
@@ -159,7 +155,7 @@ public class CodeGenerator {
                 } else
                     exp = (String) d.exp;
 
-                System.out.println((String) d.ID + "->" + exp);
+                System.out.println((String) d.ID + d.getParams()  + "  ----->>>>  " + exp);
             }
             if (dd instanceof Include)
                 System.out.println("INCLUDE: " + dd.getID());

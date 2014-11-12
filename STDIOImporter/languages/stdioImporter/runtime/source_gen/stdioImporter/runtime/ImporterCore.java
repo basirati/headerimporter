@@ -21,7 +21,9 @@ public class ImporterCore {
   private Typer typer = new Typer();
   private SNode module;
   private boolean condition = true;
-
+  private int ifdef = 0;
+  public SNode varS;
+  private VariabilityImporter vimporter = new VariabilityImporter();
 
 
   private SNode makeFuncPointer(Function v) {
@@ -71,7 +73,10 @@ public class ImporterCore {
       } else if (dec instanceof ConditionalBlock) {
         // importing conditional blocks ...................... 
         ConditionalBlock cb = (ConditionalBlock) dec;
+        ifdef++;
         this.addDeclarations(cb.getBlock(condition), module);
+        this.addDeclarations(cb.getBlock(!(condition)), module);
+        ifdef--;
       }
 
     }
@@ -87,12 +92,21 @@ public class ImporterCore {
       SLinkOperations.setTarget(mm, "type", nt, true);
       SPropertyOperations.set(mm, "name", dec.getID());
       ListSequence.fromList(SLinkOperations.getTargets(sd, "members", true)).addElement(mm);
+      if (ifdef > 0) {
+        vimporter.addPresenceConditionToSMember(mm);
+      }
+
     } else if (dec instanceof ConditionalBlock) {
       ConditionalBlock cb = (ConditionalBlock) dec;
+      ifdef++;
       for (Declaration blockdec : ListSequence.fromList(cb.getBlock(this.condition))) {
         this.addStructMember(sd, blockdec);
       }
+      for (Declaration blockdec : ListSequence.fromList(cb.getBlock(!(this.condition)))) {
+        this.addStructMember(sd, blockdec);
+      }
 
+      ifdef--;
     }
   }
 
@@ -102,6 +116,9 @@ public class ImporterCore {
     SNode sd = SConceptOperations.createNewNode("com.mbeddr.core.udt.structure.StructDeclaration", null);
     SPropertyOperations.set(sd, "name", s.getID());
     ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(sd);
+    if (ifdef > 0) {
+      vimporter.addPresenceCondition(sd);
+    }
     {
       Iterator<Declaration> dec_it = ListSequence.fromList(s.getDecs()).iterator();
       Declaration dec_var;
@@ -118,8 +135,12 @@ public class ImporterCore {
     SNode tdef = SConceptOperations.createNewNode("com.mbeddr.core.udt.structure.TypeDef", null);
     SPropertyOperations.set(tdef, "name", td.getID());
     SLinkOperations.setTarget(tdef, "original", typer.buildType(td.getAs(), module), true);
-
     ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(tdef);
+    if (ifdef > 0) {
+      vimporter.addPresenceCondition(tdef);
+    }
+
+
   }
 
 
@@ -132,6 +153,10 @@ public class ImporterCore {
       SPropertyOperations.set(val, "value", ((Integer) df.getExp()).toString());
       SLinkOperations.setTarget(gcd, "value", val, true);
       ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(gcd);
+      if (ifdef > 0) {
+        vimporter.addPresenceCondition(gcd);
+      }
+
     } else {
       if (df.isStruct) {
         SNode tdef = SConceptOperations.createNewNode("com.mbeddr.core.udt.structure.TypeDef", null);
@@ -139,6 +164,24 @@ public class ImporterCore {
         SLinkOperations.setTarget(tdef, "original", typer.buildType((String) df.getExp(), module), true);
 
         ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(tdef);
+        if (ifdef > 0) {
+          vimporter.addPresenceCondition(tdef);
+        }
+
+      } else if (!(df.getParams().isEmpty())) {
+        SNode macro = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.GlobalConstantFunctionDeclaration", null);
+        for (String param : df.getParams()) {
+          if (param != "") {
+            SNode arg = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.GlobalConstantFunctionArgument", null);
+            SPropertyOperations.set(arg, "name", param);
+            ListSequence.fromList(SLinkOperations.getTargets(macro, "arguments", true)).addElement(arg);
+          }
+        }
+        SPropertyOperations.set(macro, "name", df.getID());
+        ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(macro);
+        if (ifdef > 0) {
+          vimporter.addPresenceCondition(macro);
+        }
       } else {
         SNode val = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.StaticMemoryLocation", null);
         SPropertyOperations.set(val, "name", df.getID());
@@ -146,6 +189,10 @@ public class ImporterCore {
         SPropertyOperations.set(exp, "value", (String) df.getExp());
         SLinkOperations.setTarget(val, "value", exp, true);
         ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(val);
+        if (ifdef > 0) {
+          vimporter.addPresenceCondition(val);
+        }
+
       }
     }
   }
@@ -157,6 +204,10 @@ public class ImporterCore {
     SPropertyOperations.set(gvd, "name", v.getID());
     SLinkOperations.setTarget(gvd, "type", this.makeVar(v), true);
     ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(gvd);
+    if (ifdef > 0) {
+      vimporter.addPresenceCondition(gvd);
+    }
+
   }
 
 
@@ -177,6 +228,10 @@ public class ImporterCore {
       ListSequence.fromList(SLinkOperations.getTargets(fp, "arguments", true)).addElement(arg);
     }
     ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(fp);
+    if (ifdef > 0) {
+      vimporter.addPresenceCondition(fp);
+    }
+
   }
 
 
