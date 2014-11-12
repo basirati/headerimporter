@@ -88,7 +88,11 @@ precedence left ID;
 			parser.cg.declareStruct();
 			:}
 			|
-			DEFINE def_body
+			DEFINE ID:i def_body
+			{:
+			parser.cg.define.setID(i);
+			parser.cg.declareDefine();
+			:}
 			|
 			ConditionKeys
 			|
@@ -127,19 +131,20 @@ precedence left ID;
 
 
 	def_body	::=
-			ID:i def_val:v
+			def_val:v
 			{: 
-			parser.cg.declareDefine(i, "", v, false);
+			parser.cg.define.setExp(v);
 			:}
 			|
-			ID:i LPAREN macro_params:m RPAREN exp:e
+			LPAREN macro_params:m RPAREN exp:e
 			{:
-			parser.cg.declareDefine(i, "("+m+")", e, false);
+			parser.cg.define.setExp(e);
 			:}
 			|
-			ID:i STRUCT ID:v
+			STRUCT ID:v
 			{:
-			parser.cg.declareDefine(i, "", v, true);			
+			parser.cg.define.setExp(v);
+			parser.cg.define.isStruct = true;
 			:}
 			;
 	
@@ -196,7 +201,10 @@ precedence left ID;
 	func_call ::=	ID:i LPAREN args:a RPAREN {:RESULT = i+"("+a+")"; :}| ID:i LPAREN RPAREN {:RESULT = i+"()"; :};
 	args ::=	args:a COMMA exp:e {:RESULT = a+","+e; :}| exp:e {:RESULT = e; :};
 
-	macro_params ::=macro_params:m COMMA ID:i {:RESULT = m+","+i; :}| ID:i {:RESULT = i; :} | {:RESULT = ""; :};
+	macro_params ::=macro_params:m COMMA ID:i 
+			{: parser.cg.define.addParam(i); :}
+			| ID:i {: parser.cg.define.addParam(i); :} 
+			| {: parser.cg.define.addParam(""); :};
 
 	func	::=	type:e ID:e2 LPAREN 
 			{: 

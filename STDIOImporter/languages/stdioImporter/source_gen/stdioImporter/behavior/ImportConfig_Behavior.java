@@ -16,6 +16,6 @@ public class ImportConfig_Behavior {
   }
 
   public static boolean call_performImport_3873900481303708928(SNode thisNode) {
-    return Importer.doImport(SLinkOperations.getTarget(thisNode, "module", false), ImportConfig_Behavior.call_getFileName_3873900481303667412(thisNode));
+    return Importer.doImport(SLinkOperations.getTarget(thisNode, "module", false), ImportConfig_Behavior.call_getFileName_3873900481303667412(thisNode), SLinkOperations.getTarget(thisNode, "variabilitys", false));
   }
 }

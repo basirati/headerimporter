@@ -7,6 +7,8 @@
   </models>
   <sourcePath />
   <usedLanguages>
+    <usedLanguage>017fba0e-af15-4a23-b0a8-02b5c1141e75(com.mbeddr.cc.var.annotations)</usedLanguage>
+    <usedLanguage>e401b447-8019-4ccd-a72c-bfb0230f5782(com.mbeddr.cc.var.fm)</usedLanguage>
     <usedLanguage>ceab5195-25ea-4f22-9b92-103b95ca8c0c(jetbrains.mps.lang.core)</usedLanguage>
     <usedLanguage>4552c9e5-a342-4299-8de1-338d8e5679fc(stdioImporter)</usedLanguage>
   </usedLanguages>

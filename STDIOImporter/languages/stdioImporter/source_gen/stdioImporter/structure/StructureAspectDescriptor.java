@@ -13,10 +13,8 @@ public class StructureAspectDescriptor implements jetbrains.mps.smodel.runtime.S
 
   public ConceptDescriptor getDescriptor(String conceptFqName) {
     switch (Arrays.binarySearch(stringSwitchCases_1htk8d_a0a0b, conceptFqName)) {
-      case 2:
-        return new ConceptDescriptorBuilder("stdioImporter.structure.null").super_("jetbrains.mps.lang.core.structure.BaseConcept").parents("jetbrains.mps.lang.core.structure.BaseConcept").create();
       case 0:
-        return new ConceptDescriptorBuilder("stdioImporter.structure.ImportConfig").super_("jetbrains.mps.lang.core.structure.BaseConcept").parents("jetbrains.mps.lang.core.structure.BaseConcept").properties("filename").references("module").create();
+        return new ConceptDescriptorBuilder("stdioImporter.structure.ImportConfig").super_("jetbrains.mps.lang.core.structure.BaseConcept").parents("jetbrains.mps.lang.core.structure.BaseConcept").properties("filename").references("module", "variabilitys").create();
       case 1:
         return new ConceptDescriptorBuilder("stdioImporter.structure.ImportConfigs").super_("jetbrains.mps.lang.core.structure.BaseConcept").parents("jetbrains.mps.lang.core.structure.BaseConcept").children(new String[]{"configs"}, new boolean[]{true}).create();
       default:
@@ -24,5 +22,5 @@ public class StructureAspectDescriptor implements jetbrains.mps.smodel.runtime.S
     }
   }
 
-  private static String[] stringSwitchCases_1htk8d_a0a0b = new String[]{"stdioImporter.structure.ImportConfig", "stdioImporter.structure.ImportConfigs", "stdioImporter.structure.null"};
+  private static String[] stringSwitchCases_1htk8d_a0a0b = new String[]{"stdioImporter.structure.ImportConfig", "stdioImporter.structure.ImportConfigs"};
 }

@@ -1,11 +1,13 @@
 package stdio_parser;
 
+import java.util.Stack;
+
 /**
  * Created by basirati on 8/10/14.
  */
 public class Define extends Declaration{
     Object exp;
-    Object params;
+    Stack<String> params = new Stack<String>();
 
     public Object getExp() {
         return exp;
@@ -15,13 +17,11 @@ public class Define extends Declaration{
         this.exp = exp;
     }
 
-    public Object getParams() {
+    public Stack<String> getParams() {
         return params;
     }
+    public void addParam(String s) { params.push(s); }
 
-    public void setParams(Object params) {
-        this.params = params;
-    }
 
     public boolean isStruct = false;
 }

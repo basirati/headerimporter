@@ -7,7 +7,6 @@
     <classNode dependClassName="jetbrains.mps.smodel.runtime.interpreted.BehaviorAspectInterpreted" />
     <classNode dependClassName="stdioImporter.behavior.ImportConfig_BehaviorDescriptor" />
     <classNode dependClassName="stdioImporter.behavior.ImportConfigs_BehaviorDescriptor" />
-    <classNode dependClassName="stdioImporter.behavior.null_BehaviorDescriptor" />
     <classNode extendsClassName="jetbrains.mps.smodel.runtime.BehaviorAspectDescriptor" />
   </dependency>
   <dependency className="stdioImporter.behavior.ImportConfig_Behavior" file="ImportConfig_Behavior.java">
@@ -24,12 +23,6 @@
     <classNode extendsClassName="jetbrains.mps.smodel.runtime.impl.CompiledBehaviorDescriptor" />
   </dependency>
   <dependency className="stdioImporter.behavior.ImportConfigs_BehaviorDescriptor" file="ImportConfigs_BehaviorDescriptor.java">
-    <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
-    <classNode dependClassName="jetbrains.mps.lang.core.behavior.BaseConcept_BehaviorDescriptor" />
-    <classNode extendsClassName="jetbrains.mps.smodel.runtime.impl.CompiledBehaviorDescriptor" />
-  </dependency>
-  <dependency className="stdioImporter.behavior.null_BehaviorDescriptor" file="null_BehaviorDescriptor.java">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="jetbrains.mps.lang.core.behavior.BaseConcept_BehaviorDescriptor" />
