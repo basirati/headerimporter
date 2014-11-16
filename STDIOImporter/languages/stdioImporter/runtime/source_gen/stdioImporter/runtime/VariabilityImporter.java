@@ -56,20 +56,51 @@ public class VariabilityImporter {
 
 
 
-  public void addPresenceCondition(SNode content) {
+  public void addPresenceCondition(SNode content, SNode feature) {
     SNode fc = SConceptOperations.createNewNode("com.mbeddr.cc.var.annotations.structure.FeatureCondition", null);
     SNode pc = SConceptOperations.createNewNode("com.mbeddr.cc.var.annotations.structure.PresenceCondition", null);
+    SNode fr = SConceptOperations.createNewNode("com.mbeddr.cc.var.fm.structure.FeatureRef", null);
+    SLinkOperations.setTarget(fr, "feature", feature, false);
+    SLinkOperations.setTarget(fc, "expr", fr, true);
     SLinkOperations.setTarget(pc, "condition", fc, true);
     AttributeOperations.setAttribute(content, new IAttributeDescriptor.NodeAttribute("com.mbeddr.core.base.structure.VisibilityControllingAttribute"), pc);
   }
 
 
 
-  public void addPresenceConditionToSMember(SNode content) {
+  public void addPresenceConditionToSMember(SNode content, SNode feature) {
     SNode fc = SConceptOperations.createNewNode("com.mbeddr.cc.var.annotations.structure.FeatureCondition", null);
     SNode pc = SConceptOperations.createNewNode("com.mbeddr.cc.var.annotations.structure.PresenceCondition", null);
+    SNode fr = SConceptOperations.createNewNode("com.mbeddr.cc.var.fm.structure.FeatureRef", null);
+    SLinkOperations.setTarget(fr, "feature", feature, false);
+    SLinkOperations.setTarget(fc, "expr", fr, true);
     SLinkOperations.setTarget(pc, "condition", fc, true);
     AttributeOperations.setAttribute(content, new IAttributeDescriptor.NodeAttribute("com.mbeddr.core.base.structure.VisibilityControllingAttribute"), pc);
+  }
+
+
+
+  private SNode findFeature(SNode feature, String name) {
+    for (SNode f : ListSequence.fromList(SLinkOperations.getTargets(feature, "children", true))) {
+      if (SPropertyOperations.getString(f, "name").equals(name)) {
+        return f;
+      }
+      if (ListSequence.fromList(SLinkOperations.getTargets(f, "children", true)).count() > 0) {
+        SNode fcandidate = this.findFeature(f, name);
+        if (fcandidate != null) {
+          return fcandidate;
+        }
+      }
+    }
+    return null;
+  }
+
+
+
+  public SNode getFeaturebyName(SNode vs, String name) {
+    SNode fm;
+    fm = (SNode) ListSequence.fromList(SLinkOperations.getTargets(vs, "contents", true)).getElement(0);
+    return this.findFeature(SLinkOperations.getTarget(fm, "root", true), name);
   }
 
 

@@ -40,6 +40,8 @@ public class Importer {
       vimporter.addVariabilitys(vs, cg.declarations);
 
 
+      // <node> 
+
       // adding VariabilitySupport file to imports 
       boolean importcheck = true;
       for (SNode file : ListSequence.fromList(SLinkOperations.getTargets(module, "imports", true))) {
@@ -55,6 +57,7 @@ public class Importer {
 
       // adding parsed header to mps file 
       ImporterCore core = new ImporterCore();
+      core.varS = vs;
       core.addDeclarations(cg.declarations, module);
 
     } catch (Exception e) {
