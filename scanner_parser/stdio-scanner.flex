@@ -31,7 +31,7 @@ ALPHA = [a-zA-Z_]
 ALPHA_NUM = {ALPHA}|[0-9]|["_"]
 IDENT = {ALPHA}({ALPHA_NUM})*
 
-
+DEFINE = (#define)[ \t\r\f](.*)
 
 NEWLINE = \n | \u2028 | \u2029 | \u000B | \u000C | \u0085
 SPACING = [ \t\r\f] | {NEWLINE}
@@ -40,6 +40,10 @@ SPACING = [ \t\r\f] | {NEWLINE}
 
    
 %%
+
+
+
+
 
 <MONO_COMMENT> {
   {NEWLINE}         {yybegin(YYINITIAL);}
@@ -120,7 +124,7 @@ SPACING = [ \t\r\f] | {NEWLINE}
 
 
 
-	"#define"	{ return symbol(sym.DEFINE); }
+	{DEFINE}	{ return symbol(sym.DEFINE, new String(yytext())); }
 	"#ifdef"	{ return symbol(sym.IFDEF); }
 	"#ifndef"	{ return symbol(sym.IFNDEF); }
 	"#else"		{ return symbol(sym.ELSE); }

@@ -8,15 +8,24 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.behaviour.BehaviorReflection;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 
 public class Importer {
-
-
-  public static boolean doImport(SNode module, String filename, SNode vs) {
+  public static boolean doImport(SNode module, String filename, String folder) {
     try {
+      String fileaddr = "";
+      if (folder.endsWith("/")) {
+        fileaddr = folder + filename;
+      } else {
+        fileaddr = folder + "/" + filename;
+      }
+
       // parsing the header file into a java class 
-      CodeGenerator cg = ParserAdapter.Parse(filename);
+      CodeGenerator cg = ParserAdapter.Parse(fileaddr);
       if (cg == null) {
         return false;
       }
@@ -24,23 +33,36 @@ public class Importer {
       // adding header file refrence to mps file 
       boolean headercheck = true;
       for (SNode headerfile : ListSequence.fromList(SLinkOperations.getTargets(module, "descriptors", true))) {
-        if (SPropertyOperations.getString(headerfile, "path").equals("\"" + filename + "\"")) {
+        if (SPropertyOperations.getString(headerfile, "path").equals("\"" + filename + "\"") || SPropertyOperations.getString(headerfile, "path").equals("<" + filename + ">")) {
           headercheck = false;
         }
       }
       if (headercheck) {
         SNode header = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.HeaderDescriptor", null);
-        SPropertyOperations.set(header, "path", "\"" + filename + "\"");
+        SPropertyOperations.set(header, "path", "<" + filename + ">");
         ListSequence.fromList(SLinkOperations.getTargets(module, "descriptors", true)).addElement(header);
       }
+
+      // creating Variability support file 
+      SNode vs = null;
+      String VSname = "IFDEFVariability";
+      for (SNode file : ListSequence.fromList(SModelOperations.getRoots(SNodeOperations.getModel(module), "com.mbeddr.cc.var.fm.structure.VariabilitySupport"))) {
+        if (SPropertyOperations.getString(file, "name").equals(VSname)) {
+          vs = file;
+        }
+      }
+      if (vs == null) {
+        vs = SConceptOperations.createNewNode("com.mbeddr.cc.var.fm.structure.VariabilitySupport", null);
+        SPropertyOperations.set(vs, "name", VSname);
+        SModelOperations.addRootNode(SNodeOperations.getModel(module), vs);
+      }
+
 
       // Importing into VariabilitySupport file 
       VariabilityImporter vimporter = new VariabilityImporter();
       SLinkOperations.getTargets(vs, "contents", true).clear();
       vimporter.addVariabilitys(vs, cg.declarations);
 
-
-      // <node> 
 
       // adding VariabilitySupport file to imports 
       boolean importcheck = true;
@@ -59,6 +81,14 @@ public class Importer {
       ImporterCore core = new ImporterCore();
       core.varS = vs;
       core.addDeclarations(cg.declarations, module);
+
+      // adding variant mode to mps file 
+      SNodeOperations.deleteNode(AttributeOperations.getAttribute(module, new IAttributeDescriptor.NodeAttribute("com.mbeddr.cc.var.annotations.structure.FeatureModelConfiguration")));
+      SNode fmc = SConceptOperations.createNewNode("com.mbeddr.cc.var.annotations.structure.FeatureModelConfiguration", null);
+      SLinkOperations.setTarget(fmc, "featureModel", (SNode) ListSequence.fromList(SLinkOperations.getTargets(vs, "contents", true)).getElement(0), false);
+      SLinkOperations.setTarget(fmc, "configModel", (SNode) ListSequence.fromList(SLinkOperations.getTargets(vs, "contents", true)).getElement(1), false);
+      AttributeOperations.setAttribute(module, new IAttributeDescriptor.NodeAttribute("com.mbeddr.cc.var.annotations.structure.FeatureModelConfiguration"), fmc);
+
 
     } catch (Exception e) {
       return false;

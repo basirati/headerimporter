@@ -23,7 +23,7 @@ import java.util.Iterator;
 public class ImporterCore {
   private Typer typer = new Typer();
   private SNode module;
-  private boolean condition = true;
+  private Deque<Boolean> conditions = DequeSequence.fromDeque(new LinkedList<Boolean>());
   private Deque<SNode> feature_stack = DequeSequence.fromDeque(new LinkedList<SNode>());
   public SNode varS;
   private VariabilityImporter vimporter = new VariabilityImporter();
@@ -77,8 +77,12 @@ public class ImporterCore {
         // importing conditional blocks ...................... 
         ConditionalBlock cb = (ConditionalBlock) dec;
         DequeSequence.fromDeque(feature_stack).pushElement(vimporter.getFeaturebyName(varS, cb.getID()));
-        this.addDeclarations(cb.getBlock(condition), module);
-        this.addDeclarations(cb.getBlock(!(condition)), module);
+        DequeSequence.fromDeque(conditions).pushElement(true);
+        this.addDeclarations(cb.getBlock(DequeSequence.fromDeque(conditions).peekElement()), module);
+        DequeSequence.fromDeque(conditions).popElement();
+        DequeSequence.fromDeque(conditions).pushElement(false);
+        this.addDeclarations(cb.getBlock(DequeSequence.fromDeque(conditions).peekElement()), module);
+        DequeSequence.fromDeque(conditions).popElement();
         DequeSequence.fromDeque(feature_stack).popElement();
       }
 
@@ -89,25 +93,29 @@ public class ImporterCore {
 
   private void addStructMember(SNode sd, Declaration dec) {
     if (dec instanceof Variable) {
-      SNode nt = SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.Type", null);
+      SNode nt;
       nt = this.makeVar((Variable) dec);
       SNode mm = SConceptOperations.createNewNode("com.mbeddr.core.udt.structure.Member", null);
       SLinkOperations.setTarget(mm, "type", nt, true);
       SPropertyOperations.set(mm, "name", dec.getID());
       ListSequence.fromList(SLinkOperations.getTargets(sd, "members", true)).addElement(mm);
       if (DequeSequence.fromDeque(feature_stack).count() > 0) {
-        vimporter.addPresenceConditionToSMember(mm, DequeSequence.fromDeque(feature_stack).peekElement());
+        vimporter.addPresenceConditionToSMember(mm, DequeSequence.fromDeque(feature_stack).peekElement(), DequeSequence.fromDeque(conditions).peekElement());
       }
 
     } else if (dec instanceof ConditionalBlock) {
       ConditionalBlock cb = (ConditionalBlock) dec;
       DequeSequence.fromDeque(feature_stack).pushElement(vimporter.getFeaturebyName(varS, cb.getID()));
-      for (Declaration blockdec : ListSequence.fromList(cb.getBlock(this.condition))) {
+      DequeSequence.fromDeque(conditions).pushElement(true);
+      for (Declaration blockdec : ListSequence.fromList(cb.getBlock(DequeSequence.fromDeque(conditions).peekElement()))) {
         this.addStructMember(sd, blockdec);
       }
-      for (Declaration blockdec : ListSequence.fromList(cb.getBlock(!(this.condition)))) {
+      DequeSequence.fromDeque(conditions).popElement();
+      DequeSequence.fromDeque(conditions).pushElement(false);
+      for (Declaration blockdec : ListSequence.fromList(cb.getBlock(DequeSequence.fromDeque(conditions).peekElement()))) {
         this.addStructMember(sd, blockdec);
       }
+      DequeSequence.fromDeque(conditions).popElement();
       DequeSequence.fromDeque(feature_stack).popElement();
     }
   }
@@ -119,7 +127,7 @@ public class ImporterCore {
     SPropertyOperations.set(sd, "name", s.getID());
     ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(sd);
     if (DequeSequence.fromDeque(feature_stack).count() > 0) {
-      vimporter.addPresenceCondition(sd, DequeSequence.fromDeque(feature_stack).peekElement());
+      vimporter.addPresenceCondition(sd, DequeSequence.fromDeque(feature_stack).peekElement(), DequeSequence.fromDeque(conditions).peekElement());
     }
     {
       Iterator<Declaration> dec_it = ListSequence.fromList(s.getDecs()).iterator();
@@ -139,7 +147,7 @@ public class ImporterCore {
     SLinkOperations.setTarget(tdef, "original", typer.buildType(td.getAs(), module), true);
     ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(tdef);
     if (DequeSequence.fromDeque(feature_stack).count() > 0) {
-      vimporter.addPresenceCondition(tdef, DequeSequence.fromDeque(feature_stack).peekElement());
+      vimporter.addPresenceCondition(tdef, DequeSequence.fromDeque(feature_stack).peekElement(), DequeSequence.fromDeque(conditions).peekElement());
     }
 
 
@@ -156,7 +164,7 @@ public class ImporterCore {
       SLinkOperations.setTarget(gcd, "value", val, true);
       ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(gcd);
       if (DequeSequence.fromDeque(feature_stack).count() > 0) {
-        vimporter.addPresenceCondition(gcd, DequeSequence.fromDeque(feature_stack).peekElement());
+        vimporter.addPresenceCondition(gcd, DequeSequence.fromDeque(feature_stack).peekElement(), DequeSequence.fromDeque(conditions).peekElement());
       }
 
     } else {
@@ -167,7 +175,7 @@ public class ImporterCore {
 
         ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(tdef);
         if (DequeSequence.fromDeque(feature_stack).count() > 0) {
-          vimporter.addPresenceCondition(tdef, DequeSequence.fromDeque(feature_stack).peekElement());
+          vimporter.addPresenceCondition(tdef, DequeSequence.fromDeque(feature_stack).peekElement(), DequeSequence.fromDeque(conditions).peekElement());
         }
 
       } else if (!(df.getParams().isEmpty())) {
@@ -182,7 +190,7 @@ public class ImporterCore {
         SPropertyOperations.set(macro, "name", df.getID());
         ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(macro);
         if (DequeSequence.fromDeque(feature_stack).count() > 0) {
-          vimporter.addPresenceCondition(macro, DequeSequence.fromDeque(feature_stack).peekElement());
+          vimporter.addPresenceCondition(macro, DequeSequence.fromDeque(feature_stack).peekElement(), DequeSequence.fromDeque(conditions).peekElement());
         }
       } else {
         SNode val = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.StaticMemoryLocation", null);
@@ -192,7 +200,7 @@ public class ImporterCore {
         SLinkOperations.setTarget(val, "value", exp, true);
         ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(val);
         if (DequeSequence.fromDeque(feature_stack).count() > 0) {
-          vimporter.addPresenceCondition(val, DequeSequence.fromDeque(feature_stack).peekElement());
+          vimporter.addPresenceCondition(val, DequeSequence.fromDeque(feature_stack).peekElement(), DequeSequence.fromDeque(conditions).peekElement());
         }
 
       }
@@ -207,7 +215,7 @@ public class ImporterCore {
     SLinkOperations.setTarget(gvd, "type", this.makeVar(v), true);
     ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(gvd);
     if (DequeSequence.fromDeque(feature_stack).count() > 0) {
-      vimporter.addPresenceCondition(gvd, DequeSequence.fromDeque(feature_stack).peekElement());
+      vimporter.addPresenceCondition(gvd, DequeSequence.fromDeque(feature_stack).peekElement(), DequeSequence.fromDeque(conditions).peekElement());
     }
 
   }
@@ -231,7 +239,7 @@ public class ImporterCore {
     }
     ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(fp);
     if (DequeSequence.fromDeque(feature_stack).count() > 0) {
-      vimporter.addPresenceCondition(fp, DequeSequence.fromDeque(feature_stack).peekElement());
+      vimporter.addPresenceCondition(fp, DequeSequence.fromDeque(feature_stack).peekElement(), DequeSequence.fromDeque(conditions).peekElement());
     }
 
   }

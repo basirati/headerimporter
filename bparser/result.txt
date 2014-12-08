@@ -1,1 +1,1 @@
-extern int seterrfn(FILE *, int (*)());
+#define nkmmmmmmmmmmmm475643653ethrd/.';;;kl

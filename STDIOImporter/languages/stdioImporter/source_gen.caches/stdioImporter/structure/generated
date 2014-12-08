@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies version="2" modelHash="9dzcw28ogt5lryp2xu06egahjkc16qx">
+<dependencies version="2" modelHash="6i4l5tjsa1jr93zttvw0j1efw9nqm1x">
   <dep model="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" hash="5sdbpqxziyuazpb9j1p4zdk6bnvbn49" />
   <dep model="r:00000000-0000-4000-0000-011c89590293(jetbrains.mps.lang.structure.generator_new.baseLanguage@generator)" hash="-5mgxduek28h3ywdzzsk4capaz4hgjm0" />
   <dep model="r:00000000-0000-4000-0000-011c895902cd(jetbrains.mps.baseLanguage.generator.java.main@generator)" hash="303xz1b2lyseld0axia86q3lpvucmq6" />
   <dep model="r:b4d7d620-6723-4aa2-856b-118497e84e9e(jetbrains.mps.baseLanguage.generator.java.strings@generator)" hash="b4ewbuz42qcbg1awca5bacgi0vopxqt" />
   <dep model="r:f04c1476-2f91-4f59-be13-c8e009abebee(jetbrains.mps.baseLanguageInternal.generator.template.main@generator)" hash="a8elw7fctzg6sg8fe36u9gzu42axhdb" />
-  <common hash="-6uwnbp9nl01gtzqzh3gxfds3lm5gs0o" dependsOnNodes="true">
+  <common hash="-3ag3t4fnahdwmyn8hfi7qqt39xkjt28" dependsOnNodes="true">
     <dep root="3873900481303370769" />
     <dep root="3873900481303386058" />
     <dep model="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
@@ -15,7 +15,7 @@
     <dep model="r:f04c1476-2f91-4f59-be13-c8e009abebee(jetbrains.mps.baseLanguageInternal.generator.template.main@generator)" />
     <file name="StructureAspectDescriptor.java" />
   </common>
-  <source id="3873900481303370769" name="ImportConfig" hash="9up3s50wfaxebilublsdx80cu4p5n8" />
+  <source id="3873900481303370769" name="ImportConfig" hash="a5jfraze0mez6rdjhb0g2af546ajl5f" />
   <source id="3873900481303386058" name="ImportConfigs" hash="-2xkuqxcro6i2rwl4b1l6q6ho3x0k5hn" />
 </dependencies>
 

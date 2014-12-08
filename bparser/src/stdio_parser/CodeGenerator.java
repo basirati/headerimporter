@@ -47,6 +47,7 @@ public class CodeGenerator {
 
     public void declareDefine()
     {
+        define.declareIt();
         this.addDeclaration(define);
         define = new Define();
     }
@@ -155,7 +156,7 @@ public class CodeGenerator {
                 } else
                     exp = (String) d.exp;
 
-                System.out.println((String) d.ID + d.getParams()  + "  ----->>>>  " + exp);
+                System.out.println(d.getID() + "{" + d.getParams() + "}" + "---->>>>  " + exp);
             }
             if (dd instanceof Include)
                 System.out.println("INCLUDE: " + dd.getID());
