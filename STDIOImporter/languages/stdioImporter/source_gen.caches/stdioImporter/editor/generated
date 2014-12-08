@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies version="2" modelHash="-4z5hx3vjsrdkeh8w73no1fggq5g0psl">
+<dependencies version="2" modelHash="4fwbyxb8efvdb6aqvfpy2t37qcibkad">
   <dep model="f:java_stub#1ed103c3-3aa6-49b7-9c21-6765ee11f224#jetbrains.mps.nodeEditor.cellLayout(MPS.Editor/jetbrains.mps.nodeEditor.cellLayout@java_stub)" />
   <dep model="f:java_stub#1ed103c3-3aa6-49b7-9c21-6765ee11f224#jetbrains.mps.nodeEditor.cells(MPS.Editor/jetbrains.mps.nodeEditor.cells@java_stub)" />
   <dep model="f:java_stub#1ed103c3-3aa6-49b7-9c21-6765ee11f224#jetbrains.mps.openapi.editor.descriptor(MPS.Editor/jetbrains.mps.openapi.editor.descriptor@java_stub)" />
   <dep model="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" hash="5sdbpqxziyuazpb9j1p4zdk6bnvbn49" />
-  <dep model="r:00000000-0000-4000-0000-011c8959029f(jetbrains.mps.lang.editor.generator.baseLanguage.template.main@generator)" hash="dvksi61j24fmhd0h75zsyzt1d5rw8vh" />
+  <dep model="r:00000000-0000-4000-0000-011c8959029f(jetbrains.mps.lang.editor.generator.baseLanguage.template.main@generator)" hash="86959aj3hruza3jrem733b02sp73xb0" />
   <dep model="r:00000000-0000-4000-0000-011c895902cd(jetbrains.mps.baseLanguage.generator.java.main@generator)" hash="303xz1b2lyseld0axia86q3lpvucmq6" />
   <dep model="r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)" hash="-8z73tx2nml9xagbxlfmq60ehji8q3f5" />
   <dep model="r:b4d7d620-6723-4aa2-856b-118497e84e9e(jetbrains.mps.baseLanguage.generator.java.strings@generator)" hash="b4ewbuz42qcbg1awca5bacgi0vopxqt" />
   <dep model="r:f04c1476-2f91-4f59-be13-c8e009abebee(jetbrains.mps.baseLanguageInternal.generator.template.main@generator)" hash="a8elw7fctzg6sg8fe36u9gzu42axhdb" />
-  <dep model="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)" hash="9dzcw28ogt5lryp2xu06egahjkc16qx" />
+  <dep model="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)" hash="6i4l5tjsa1jr93zttvw0j1efw9nqm1x" />
   <common hash="2edlcb9vtb11k2lcjsmv5pam4n1zcte" dependsOnNodes="true">
     <dep root="7351843451284674642" />
     <dep root="7351843451284678922" />
@@ -22,7 +22,7 @@
     <dep model="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)" />
     <file name="EditorAspectDescriptorImpl.java" />
   </common>
-  <source id="7351843451284674642" name="ImportConfig_Editor" hash="8bayzsew2zfb3fzoyahc16te0nau18j">
+  <source id="7351843451284674642" name="ImportConfig_Editor" hash="e0parfa1f1ul4oawwtn1z2dlti1e49r">
     <dep model="f:java_stub#1ed103c3-3aa6-49b7-9c21-6765ee11f224#jetbrains.mps.nodeEditor.cells(MPS.Editor/jetbrains.mps.nodeEditor.cells@java_stub)" />
     <dep model="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <dep model="r:00000000-0000-4000-0000-011c8959029f(jetbrains.mps.lang.editor.generator.baseLanguage.template.main@generator)" />

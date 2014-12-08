@@ -47,7 +47,19 @@ public class Typer {
       }
     }
 
-    return this.mapType(type);
+    if (this.mapType(type) != null) {
+      return this.mapType(type);
+    } else {
+      SNode tdef = SConceptOperations.createNewNode("com.mbeddr.core.udt.structure.TypeDef", null);
+      SPropertyOperations.set(tdef, "name", type);
+      SNode pt = SConceptOperations.createNewNode("com.mbeddr.core.pointers.structure.PointerType", null);
+      SLinkOperations.setTarget(pt, "baseType", SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.VoidType", null), true);
+      SLinkOperations.setTarget(tdef, "original", pt, true);
+      ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(tdef);
+      SNode tdt = SConceptOperations.createNewNode("com.mbeddr.core.udt.structure.TypeDefType", null);
+      SLinkOperations.setTarget(tdt, "typeDef", tdef, false);
+      return tdt;
+    }
   }
 
 

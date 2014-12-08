@@ -88,9 +88,10 @@ precedence left ID;
 			parser.cg.declareStruct();
 			:}
 			|
-			DEFINE ID:i def_body
+			DEFINE:d
 			{:
-			parser.cg.define.setID(i);
+			parser.cg.define.setExp(d);
+			parser.cg.define.setID("");
 			parser.cg.declareDefine();
 			:}
 			|
@@ -129,82 +130,6 @@ precedence left ID;
 			:}
 			;	
 
-
-	def_body	::=
-			def_val:v
-			{: 
-			parser.cg.define.setExp(v);
-			:}
-			|
-			LPAREN macro_params:m RPAREN exp:e
-			{:
-			parser.cg.define.setExp(e);
-			:}
-			|
-			STRUCT ID:v
-			{:
-			parser.cg.define.setExp(v);
-			parser.cg.define.isStruct = true;
-			:}
-			;
-	
-	def_val ::=	NUMBER:n {: RESULT = n; :} | func_call:f {: RESULT = f; :} 
-			| def_val:d LBRACKET exp:e RBRACKET {: RESULT = d+"["+e+"]"; :}  | def_val:d DOT func_call:f {: RESULT = d+"."+f; :} 
-			| def_val:d DOT ID:i {: RESULT = d+"."+i; :} 
-			| def_val:d PREF func_call:f {: RESULT = d+"->"+f; :} | def_val:d PREF ID:i {: RESULT = d+"->"+i; :} 
-			| def_val:d PP {: RESULT = d+"++"; :} | def_val:d MM {: RESULT = d+"--"; :} 
-			| MINUS exp:e {: RESULT = "-"+e; :} | PLUS exp:e {: RESULT = "+"+e; :} 
-			| PP exp:e {: RESULT = "++"+e; :} | MM exp:e {: RESULT = "++"+e; :} 
-			| STAR exp:e {: RESULT = "*"+e; :} | AMPERSAND exp:e {: RESULT = "&"+e; :} 
-			| def_val:d Ar2:o exp:e {: RESULT = d + " " + e + " " + o; :} 
-			| def_val:d B2:o exp:e {: RESULT = d + " " + e + " " + o; :} 
-			| def_val:d LogicalS:o exp:e {: RESULT = d + " " + e + " " + o; :} 
-			| def_val:d QUESTIONMARK exp:e1 COLON exp:e2 {: RESULT = " ? "+d+" "+e1+" "+e2; :} 
-			| BARDOT exp:e {: RESULT = "!"+e; :} 
-			| TILDE exp:e {: RESULT = "~"+e; :} 
-			| LPAREN def_val:d RPAREN {: RESULT = "("+d+")"; :} 
-			;
-	
-	exp ::=		NUMBER:n {: RESULT = n; :} | ID:i {: RESULT = i; :} | func_call:f {: RESULT = f; :}
-			| exp:e LBRACKET exp:e2 RBRACKET {: RESULT = e+"["+e2+"]"; :} | exp:e DOT func_call:f {: RESULT = e+"."+f; :}
-			| exp:e DOT ID:i {: RESULT = e+"."+i; :}
-			| exp:e PREF func_call:f {: RESULT = e+"->"+f; :} | exp:e PREF ID:i {: RESULT = e+"->"+i; :}
-			| exp:e PP {: RESULT = e+"++"; :} | exp:e MM {: RESULT = e+"--"; :}
-			| MINUS exp:e {: RESULT = "-"+e; :} | PLUS exp:e {: RESULT = ""+e; :}
-			| PP exp:e {: RESULT = "++"+e; :} | MM exp:e {: RESULT = "--"+e; :}
-			| STAR exp:e {: RESULT = "*"+e; :} | AMPERSAND exp:e {: RESULT = "&"+e; :}
-			| exp:e Ar2:o exp:e2 {: RESULT = e + " " + e2 + " " + o; :}
-			| exp:e B2:o exp:e2 {: RESULT = e + " " + e2 + " " + o; :}
-			| exp:e LogicalS:o exp:e2 {: RESULT = e + " " + e2 + " " + o; :}
-			| exp:e QUESTIONMARK exp:e1 COLON exp:e2 {: RESULT = " ? " + e + " " + e1 +" "+e2; :}
-			| BARDOT exp:e {: RESULT = "!"+e; :}
-			| TILDE exp:e {: RESULT = "~"+e; :}
-			| LPAREN exp:e RPAREN {: RESULT = "("+e+")"; :}
-			;
-
-	Ar2 ::=		ASSIGN {: RESULT = "="; :} | DIVIDE {: RESULT = "/"; :} | PERCENT {: RESULT = "%"; :} 
-			| PLUS {: RESULT = "+"; :} | MINUS {: RESULT = "-"; :}
-			| AMPERSAND ASSIGN {: RESULT = "&="; :}
-			| PLUSEQ {: RESULT = "+="; :} | MINUSEQ {: RESULT = "-="; :}
-			| STAREQ {: RESULT = "*="; :} | DIVIDEQ {: RESULT = "/="; :}
-			| PERCENTEQ {: RESULT = "%="; :} | LLEQ {: RESULT = "<<="; :} | GGEQ {: RESULT = ">>="; :} 
-			| AMPERSANDEQ {: RESULT = "&="; :} | HATEQ {: RESULT = "^="; :} | BAREQ {: RESULT = "|="; :}
-			;
-	B2 ::=		LL {: RESULT = "<<"; :} | GG {: RESULT = ">>"; :} 
-			| HAT {: RESULT = "^"; :} | BAR {: RESULT = "|"; :} | AMPERSAND {: RESULT = "&"; :}
-			;
-	LogicalS ::=	LESS {: RESULT = "<"; :} | LE {: RESULT = "<="; :} 
-			| GREATER {: RESULT = ">"; :} | GE {: RESULT = ">="; :} 
-			| EQUAL {: RESULT = "=="; :} | NOTEQUAL {: RESULT = "!="; :} 
-			| AND {: RESULT = "&&"; :} | OR {: RESULT = "||"; :}
-			; 
-	func_call ::=	ID:i LPAREN args:a RPAREN {:RESULT = i+"("+a+")"; :}| ID:i LPAREN RPAREN {:RESULT = i+"()"; :};
-	args ::=	args:a COMMA exp:e {:RESULT = a+","+e; :}| exp:e {:RESULT = e; :};
-
-	macro_params ::=macro_params:m COMMA ID:i 
-			{: parser.cg.define.addParam(i); :}
-			| ID:i {: parser.cg.define.addParam(i); :} 
-			| {: parser.cg.define.addParam(""); :};
 
 	func	::=	type:e ID:e2 LPAREN 
 			{: 

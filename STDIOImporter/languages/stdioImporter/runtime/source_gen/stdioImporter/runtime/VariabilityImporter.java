@@ -36,6 +36,21 @@ public class VariabilityImporter {
 
 
 
+  private void addConfigModel(SNode vs) {
+    SNode fm = (SNode) ListSequence.fromList(SLinkOperations.getTargets(vs, "contents", true)).getElement(0);
+    SNode cm = SConceptOperations.createNewNode("com.mbeddr.cc.var.fm.structure.ConfigurationModel", null);
+    SPropertyOperations.set(cm, "name", "allFeatures");
+    SLinkOperations.setTarget(cm, "configures", fm, false);
+    for (SNode f : ListSequence.fromList(SLinkOperations.getTargets(SLinkOperations.getTarget(fm, "root", true), "children", true))) {
+      SNode sf = SConceptOperations.createNewNode("com.mbeddr.cc.var.fm.structure.SelectedFeature", null);
+      SLinkOperations.setTarget(sf, "feature", f, false);
+      ListSequence.fromList(SLinkOperations.getTargets(SLinkOperations.getTarget(cm, "rootFeature", true), "children", true)).addElement(sf);
+    }
+    ListSequence.fromList(SLinkOperations.getTargets(vs, "contents", true)).addElement(cm);
+  }
+
+
+
   private SNode checkFeatureAvailability(SNode feature, String name) {
     for (SNode f : ListSequence.fromList(SLinkOperations.getTargets(feature, "children", true))) {
       if (SPropertyOperations.getString(f, "name").equals(name)) {
@@ -52,24 +67,68 @@ public class VariabilityImporter {
     SPropertyOperations.set(fm, "name", "IFDEFS");
     this.addToVariability(SLinkOperations.getTarget(fm, "root", true), declarations);
     ListSequence.fromList(SLinkOperations.getTargets(vs, "contents", true)).addElement(fm);
+    this.addConfigModel(vs);
   }
 
 
 
-  public void addPresenceCondition(SNode content) {
+  public void addPresenceCondition(SNode content, SNode feature, boolean condition) {
     SNode fc = SConceptOperations.createNewNode("com.mbeddr.cc.var.annotations.structure.FeatureCondition", null);
     SNode pc = SConceptOperations.createNewNode("com.mbeddr.cc.var.annotations.structure.PresenceCondition", null);
+    SNode fr = SConceptOperations.createNewNode("com.mbeddr.cc.var.fm.structure.FeatureRef", null);
+    SLinkOperations.setTarget(fr, "feature", feature, false);
+    if (!(condition)) {
+      SNode notexpr = SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.NotExpression", null);
+      SLinkOperations.setTarget(notexpr, "expression", fr, true);
+      SLinkOperations.setTarget(fc, "expr", notexpr, true);
+    } else {
+      SLinkOperations.setTarget(fc, "expr", fr, true);
+    }
     SLinkOperations.setTarget(pc, "condition", fc, true);
     AttributeOperations.setAttribute(content, new IAttributeDescriptor.NodeAttribute("com.mbeddr.core.base.structure.VisibilityControllingAttribute"), pc);
   }
 
 
 
-  public void addPresenceConditionToSMember(SNode content) {
+  public void addPresenceConditionToSMember(SNode content, SNode feature, boolean condition) {
     SNode fc = SConceptOperations.createNewNode("com.mbeddr.cc.var.annotations.structure.FeatureCondition", null);
     SNode pc = SConceptOperations.createNewNode("com.mbeddr.cc.var.annotations.structure.PresenceCondition", null);
+    SNode fr = SConceptOperations.createNewNode("com.mbeddr.cc.var.fm.structure.FeatureRef", null);
+    SLinkOperations.setTarget(fr, "feature", feature, false);
+    if (!(condition)) {
+      SNode notexpr = SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.NotExpression", null);
+      SLinkOperations.setTarget(notexpr, "expression", fr, true);
+      SLinkOperations.setTarget(fc, "expr", notexpr, true);
+    } else {
+      SLinkOperations.setTarget(fc, "expr", fr, true);
+    }
     SLinkOperations.setTarget(pc, "condition", fc, true);
     AttributeOperations.setAttribute(content, new IAttributeDescriptor.NodeAttribute("com.mbeddr.core.base.structure.VisibilityControllingAttribute"), pc);
+  }
+
+
+
+  private SNode findFeature(SNode feature, String name) {
+    for (SNode f : ListSequence.fromList(SLinkOperations.getTargets(feature, "children", true))) {
+      if (SPropertyOperations.getString(f, "name").equals(name)) {
+        return f;
+      }
+      if (ListSequence.fromList(SLinkOperations.getTargets(f, "children", true)).count() > 0) {
+        SNode fcandidate = this.findFeature(f, name);
+        if (fcandidate != null) {
+          return fcandidate;
+        }
+      }
+    }
+    return null;
+  }
+
+
+
+  public SNode getFeaturebyName(SNode vs, String name) {
+    SNode fm;
+    fm = (SNode) ListSequence.fromList(SLinkOperations.getTargets(vs, "contents", true)).getElement(0);
+    return this.findFeature(SLinkOperations.getTarget(fm, "root", true), name);
   }
 
 

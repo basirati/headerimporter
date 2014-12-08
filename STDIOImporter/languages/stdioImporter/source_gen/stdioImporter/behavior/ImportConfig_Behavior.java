@@ -15,7 +15,11 @@ public class ImportConfig_Behavior {
     return SPropertyOperations.getString(thisNode, "filename");
   }
 
+  public static String call_getContainingFolder_233004638652596833(SNode thisNode) {
+    return SPropertyOperations.getString(thisNode, "containingfolder");
+  }
+
   public static boolean call_performImport_3873900481303708928(SNode thisNode) {
-    return Importer.doImport(SLinkOperations.getTarget(thisNode, "module", false), ImportConfig_Behavior.call_getFileName_3873900481303667412(thisNode), SLinkOperations.getTarget(thisNode, "variabilitys", false));
+    return Importer.doImport(SLinkOperations.getTarget(thisNode, "module", false), ImportConfig_Behavior.call_getFileName_3873900481303667412(thisNode), ImportConfig_Behavior.call_getContainingFolder_233004638652596833(thisNode));
   }
 }
