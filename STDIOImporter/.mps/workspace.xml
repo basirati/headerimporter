@@ -28,7 +28,7 @@
       <list>
         <TabState>
           <option name="title" value="Console" />
-          <option name="history" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;model modelUID=&quot;r:13f31719-90e0-4c49-a9b1-93b2c7b72bf1(TempModel_242154722191)&quot;&gt;&#10;  &lt;persistence version=&quot;8&quot; /&gt;&#10;  &lt;language namespace=&quot;de1ad86d-6e50-4a02-b306-d4d17f64c375(jetbrains.mps.console.base)&quot; /&gt;&#10;  &lt;language namespace=&quot;f26691d2-0def-4c06-aec6-2cb90c4af0a4(jetbrains.mps.console.scripts)&quot; /&gt;&#10;  &lt;language namespace=&quot;1a8554c4-eb84-43ba-8c34-6f0d90c6e75a(jetbrains.mps.console.blCommand)&quot; /&gt;&#10;  &lt;language namespace=&quot;a5e4de53-46a3-44da-aab3-68fdf1c34ed0(jetbrains.mps.console.ideCommands)&quot; /&gt;&#10;  &lt;language namespace=&quot;995a7394-7f76-4b8b-a929-c53448708106(jetbrains.mps.console.internalCommands)&quot; /&gt;&#10;  &lt;devkit namespace=&quot;fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)&quot; /&gt;&#10;  &lt;import index=&quot;eynw&quot; modelUID=&quot;r:359b1d2b-77c4-46df-9bf2-b25cbea32254(jetbrains.mps.console.base.structure)&quot; version=&quot;1&quot; /&gt;&#10;  &lt;import index=&quot;z2sp&quot; modelUID=&quot;r:e712f353-5c3c-4288-adce-87c956a52ffb(jetbrains.mps.console.scripts.structure)&quot; version=&quot;0&quot; /&gt;&#10;  &lt;import index=&quot;3xdn&quot; modelUID=&quot;r:935ba0ee-7291-4caa-a807-d76e8fc69391(jetbrains.mps.console.blCommand.structure)&quot; version=&quot;3&quot; /&gt;&#10;  &lt;import index=&quot;caxt&quot; modelUID=&quot;r:135a606f-0376-4c5c-9ab8-4030f051a062(jetbrains.mps.console.ideCommands.structure)&quot; version=&quot;-1&quot; /&gt;&#10;  &lt;import index=&quot;wns9&quot; modelUID=&quot;r:90445206-a973-4c1d-b760-30e5c77b7497(jetbrains.mps.console.internalCommands.structure)&quot; version=&quot;-1&quot; /&gt;&#10;  &lt;import index=&quot;tpck&quot; modelUID=&quot;r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)&quot; version=&quot;0&quot; implicit=&quot;yes&quot; /&gt;&#10;  &lt;root type=&quot;eynw.ConsoleRoot&quot; typeId=&quot;eynw.1583916890557930028&quot; id=&quot;4324965303108133678&quot; nodeInfo=&quot;ng&quot;&gt;&#10;    &lt;node role=&quot;history&quot; roleId=&quot;eynw.1583916890557930415&quot; type=&quot;eynw.History&quot; typeId=&quot;eynw.757553790980850366&quot; id=&quot;5652833161527446399&quot; nodeInfo=&quot;ng&quot; /&gt;&#10;    &lt;node role=&quot;commandHolder&quot; roleId=&quot;eynw.1583916890557930417&quot; type=&quot;eynw.CommandHolder&quot; typeId=&quot;eynw.351968380916615243&quot; id=&quot;4324965303108133679&quot; nodeInfo=&quot;ng&quot;&gt;&#10;      &lt;property name=&quot;name&quot; nameId=&quot;tpck.1169194664001&quot; value=&quot;CommandHolder&quot; /&gt;&#10;    &lt;/node&gt;&#10;  &lt;/root&gt;&#10;&lt;/model&gt;&#10;&#10;" />
+          <option name="history" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;model modelUID=&quot;r:e97d3b78-7a0d-4efc-9a41-34d3ba611990(TempModel_13924780406813)&quot;&gt;&#10;  &lt;persistence version=&quot;8&quot; /&gt;&#10;  &lt;language namespace=&quot;de1ad86d-6e50-4a02-b306-d4d17f64c375(jetbrains.mps.console.base)&quot; /&gt;&#10;  &lt;language namespace=&quot;f26691d2-0def-4c06-aec6-2cb90c4af0a4(jetbrains.mps.console.scripts)&quot; /&gt;&#10;  &lt;language namespace=&quot;1a8554c4-eb84-43ba-8c34-6f0d90c6e75a(jetbrains.mps.console.blCommand)&quot; /&gt;&#10;  &lt;language namespace=&quot;a5e4de53-46a3-44da-aab3-68fdf1c34ed0(jetbrains.mps.console.ideCommands)&quot; /&gt;&#10;  &lt;language namespace=&quot;995a7394-7f76-4b8b-a929-c53448708106(jetbrains.mps.console.internalCommands)&quot; /&gt;&#10;  &lt;devkit namespace=&quot;fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)&quot; /&gt;&#10;  &lt;import index=&quot;eynw&quot; modelUID=&quot;r:359b1d2b-77c4-46df-9bf2-b25cbea32254(jetbrains.mps.console.base.structure)&quot; version=&quot;1&quot; /&gt;&#10;  &lt;import index=&quot;z2sp&quot; modelUID=&quot;r:e712f353-5c3c-4288-adce-87c956a52ffb(jetbrains.mps.console.scripts.structure)&quot; version=&quot;0&quot; /&gt;&#10;  &lt;import index=&quot;3xdn&quot; modelUID=&quot;r:935ba0ee-7291-4caa-a807-d76e8fc69391(jetbrains.mps.console.blCommand.structure)&quot; version=&quot;3&quot; /&gt;&#10;  &lt;import index=&quot;caxt&quot; modelUID=&quot;r:135a606f-0376-4c5c-9ab8-4030f051a062(jetbrains.mps.console.ideCommands.structure)&quot; version=&quot;-1&quot; /&gt;&#10;  &lt;import index=&quot;wns9&quot; modelUID=&quot;r:90445206-a973-4c1d-b760-30e5c77b7497(jetbrains.mps.console.internalCommands.structure)&quot; version=&quot;-1&quot; /&gt;&#10;  &lt;import index=&quot;tpck&quot; modelUID=&quot;r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)&quot; version=&quot;0&quot; implicit=&quot;yes&quot; /&gt;&#10;  &lt;root type=&quot;eynw.ConsoleRoot&quot; typeId=&quot;eynw.1583916890557930028&quot; id=&quot;6334559703411551642&quot; nodeInfo=&quot;ng&quot;&gt;&#10;    &lt;node role=&quot;history&quot; roleId=&quot;eynw.1583916890557930415&quot; type=&quot;eynw.History&quot; typeId=&quot;eynw.757553790980850366&quot; id=&quot;5652833161527446399&quot; nodeInfo=&quot;ng&quot; /&gt;&#10;    &lt;node role=&quot;commandHolder&quot; roleId=&quot;eynw.1583916890557930417&quot; type=&quot;eynw.CommandHolder&quot; typeId=&quot;eynw.351968380916615243&quot; id=&quot;6334559703411551643&quot; nodeInfo=&quot;ng&quot;&gt;&#10;      &lt;property name=&quot;name&quot; nameId=&quot;tpck.1169194664001&quot; value=&quot;CommandHolder&quot; /&gt;&#10;    &lt;/node&gt;&#10;  &lt;/root&gt;&#10;&lt;/model&gt;&#10;&#10;" />
         </TabState>
       </list>
     </option>
@@ -58,10 +58,10 @@
                   <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                     <property name="hasNonTrivialSelection" value="false" />
                     <property name="caretXRelative" value="0" />
-                    <property name="caretX" value="31" />
+                    <property name="caretX" value="33" />
                     <property name="sideSelectDirection" value="NONE" />
                     <cellInfo cellId="Constant_7h2wce_a" cellNumber="0" isInList="false">
-                      <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/77868341121390590" />
+                      <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411855871" />
                     </cellInfo>
                   </stackElement>
                 </selectionStack>
@@ -69,47 +69,71 @@
                 <folded />
                 <enabledHints />
               </memento>
-              <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/4324965303108175767" viewPositionX="0" viewPositionY="0" useCustomHints="true">
+              <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411856677" viewPositionX="0" viewPositionY="0">
                 <selectionStack />
                 <errorLabels />
                 <folded />
-                <enabledHints>
-                  <enabledHintsElement enabledHintsAttribute="com.mbeddr.core.base.editor.presentationMode.presentationMode" />
-                </enabledHints>
+                <enabledHints />
               </inspectorMemento>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test" pinned="false" current="true" current-in-tab="true">
-        <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/Test">
+      <file leaf-file-name="IFDEFVariability" pinned="false" current="false" current-in-tab="false">
+        <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/IFDEFVariability">
           <provider selected="true" editor-type-id="MPSFileEditor">
             <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-              <memento viewPositionX="0" viewPositionY="2284" useCustomHints="true">
+              <memento viewPositionX="0" viewPositionY="0">
                 <selectionStack>
                   <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                     <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretXRelative" value="8" />
-                    <property name="caretX" value="215" />
+                    <property name="caretXRelative" value="4" />
+                    <property name="caretX" value="39" />
                     <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="Constant_txkidc_g0" cellNumber="0" isInList="false">
-                      <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/4324965303108175767" />
+                    <cellInfo cellId="IANC_property_name" cellNumber="0" isInList="false">
+                      <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411833795" />
                     </cellInfo>
                   </stackElement>
                 </selectionStack>
                 <errorLabels />
                 <folded />
-                <enabledHints>
-                  <enabledHintsElement enabledHintsAttribute="com.mbeddr.core.base.editor.presentationMode.presentationMode" />
-                </enabledHints>
+                <enabledHints />
               </memento>
-              <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/4324965303108175767" viewPositionX="0" viewPositionY="0" useCustomHints="true">
+              <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411856677" viewPositionX="0" viewPositionY="0">
                 <selectionStack />
                 <errorLabels />
                 <folded />
-                <enabledHints>
-                  <enabledHintsElement enabledHintsAttribute="com.mbeddr.core.base.editor.presentationMode.presentationMode" />
-                </enabledHints>
+                <enabledHints />
+              </inspectorMemento>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BuildConfiguration (s.sandbox)" pinned="false" current="true" current-in-tab="true">
+        <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/BuildConfiguration (s.sandbox)">
+          <provider selected="true" editor-type-id="MPSFileEditor">
+            <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
+              <memento viewPositionX="0" viewPositionY="0">
+                <selectionStack>
+                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                    <property name="hasNonTrivialSelection" value="false" />
+                    <property name="caretXRelative" value="54" />
+                    <property name="caretX" value="105" />
+                    <property name="sideSelectDirection" value="NONE" />
+                    <cellInfo cellId="property_name" cellNumber="0" isInList="false">
+                      <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411856677" />
+                    </cellInfo>
+                  </stackElement>
+                </selectionStack>
+                <errorLabels />
+                <folded />
+                <enabledHints />
+              </memento>
+              <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411856677" viewPositionX="0" viewPositionY="0">
+                <selectionStack />
+                <errorLabels />
+                <folded />
+                <enabledHints />
               </inspectorMemento>
             </state>
           </provider>
@@ -123,10 +147,10 @@
                 <selectionStack>
                   <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                     <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretXRelative" value="60" />
-                    <property name="caretX" value="127" />
+                    <property name="caretXRelative" value="58" />
+                    <property name="caretX" value="246" />
                     <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_filename" cellNumber="0" isInList="false">
+                    <cellInfo cellId="property_name" cellNumber="0" isInList="false">
                       <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/1125784125118210640" />
                     </cellInfo>
                   </stackElement>
@@ -135,14 +159,73 @@
                 <folded />
                 <enabledHints />
               </memento>
-              <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/4324965303108175767" viewPositionX="0" viewPositionY="0" useCustomHints="true">
+              <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411856677" viewPositionX="0" viewPositionY="0">
                 <selectionStack />
                 <errorLabels />
                 <folded />
-                <enabledHints>
-                  <enabledHintsElement enabledHintsAttribute="com.mbeddr.core.base.editor.presentationMode.presentationMode" />
-                </enabledHints>
+                <enabledHints />
               </inspectorMemento>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newOne" pinned="false" current="false" current-in-tab="false">
+        <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/newOne">
+          <provider selected="true" editor-type-id="MPSFileEditor">
+            <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
+              <memento viewPositionX="0" viewPositionY="0">
+                <selectionStack>
+                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                    <property name="hasNonTrivialSelection" value="false" />
+                    <property name="caretXRelative" value="58" />
+                    <property name="caretX" value="93" />
+                    <property name="sideSelectDirection" value="NONE" />
+                    <cellInfo cellId="IANC_property_name" cellNumber="0" isInList="false">
+                      <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411833398" />
+                    </cellInfo>
+                  </stackElement>
+                </selectionStack>
+                <errorLabels />
+                <folded />
+                <enabledHints />
+              </memento>
+              <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411856677" viewPositionX="0" viewPositionY="0">
+                <selectionStack />
+                <errorLabels />
+                <folded />
+                <enabledHints />
+              </inspectorMemento>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImportConfig" pinned="false" current="false" current-in-tab="false">
+        <entry file="mps://node://stdioImporter/stdioImporter.structure/ImportConfig">
+          <provider selected="true" editor-type-id="MPSFileEditor">
+            <state class="jetbrains.mps.ide.editorTabs.TabbedEditor$TabbedEditorState">
+              <memento viewPositionX="0" viewPositionY="0">
+                <selectionStack>
+                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                    <property name="hasNonTrivialSelection" value="false" />
+                    <property name="caretXRelative" value="4" />
+                    <property name="caretX" value="185" />
+                    <property name="sideSelectDirection" value="NONE" />
+                    <cellInfo cellId="Constant_lnae77_b0" cellNumber="0" isInList="false">
+                      <node node_reference="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)/233004638652571827" />
+                    </cellInfo>
+                  </stackElement>
+                </selectionStack>
+                <errorLabels />
+                <folded />
+                <enabledHints />
+              </memento>
+              <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411856677" viewPositionX="0" viewPositionY="0">
+                <selectionStack />
+                <errorLabels />
+                <folded />
+                <enabledHints />
+              </inspectorMemento>
+              <node node_ref="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)/3873900481303370769" />
             </state>
           </provider>
         </entry>
@@ -180,10 +263,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1301" />
-    <option name="height" value="744" />
+    <option name="x" value="-2" />
+    <option name="y" value="-3" />
+    <option name="width" value="1604" />
+    <option name="height" value="872" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -223,6 +306,7 @@
                     <option name="timeoutForAnAnalysis" value="600" />
                     <option name="usedPreprocessor" value="VCC" />
                     <option name="rebuildModelsBeforeAnalysis" value="true" />
+                    <option name="runMakeBeforeAnalysis" value="false" />
                     <option name="sliceFormula" value="true" />
                     <option name="unwindingDepth" value="10" />
                     <option name="unwindingAssertions" value="false" />
@@ -441,6 +525,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="FileSystem" />
+      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -455,6 +541,28 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="Project">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="stdioImporter">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Empty">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Project">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="stdioImporter">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="stdioImporter.structure">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -481,10 +589,18 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Empty">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Project">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="FileSystem" />
-      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -646,7 +762,7 @@
     <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
+    <frame x="-2" y="-3" width="1604" height="872" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Search" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -654,18 +770,18 @@
       <window_info id="Variabiity Consistency Verification" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Node Info" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="27" side_tool="false" content_ui="tabs" />
       <window_info id="Usages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Supertypes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Diagram Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Supertypes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26962963" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Migration" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Model Checker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Tree" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Bookmarks" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Generation Tracer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34710088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27599487" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="RefactoringView" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
@@ -676,8 +792,8 @@
       <window_info id="Typechecker State" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="21" side_tool="false" content_ui="tabs" />
       <window_info id="Typesystem Trace" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Visualization" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependencies Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="22" side_tool="false" content_ui="tabs" />
       <window_info id="mbeddr TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="23" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependencies Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="22" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Verification (CBMC)" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35809806" sideWeight="0.48848292" order="24" side_tool="false" content_ui="tabs" x="76" y="344" width="1280" height="160" />
@@ -721,24 +837,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/IFDEFVariability">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
     <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/importer">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
@@ -763,37 +861,6 @@
           <memento viewPositionX="0" viewPositionY="0">
             <selectionStack />
             <errorLabels />
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/Test">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/7748965338870837801" />
-              </errorLabel>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/7748965338870837623" />
-              </errorLabel>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/7748965338870837648" />
-              </errorLabel>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/7748965338870837637" />
-              </errorLabel>
-            </errorLabels>
             <folded />
             <enabledHints />
           </memento>
@@ -842,37 +909,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/Test">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/8457321741451879033" />
-              </errorLabel>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/8457321741451878869" />
-              </errorLabel>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/8457321741451878855" />
-              </errorLabel>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/8457321741451878880" />
-              </errorLabel>
-            </errorLabels>
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
     <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/importer">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
@@ -915,55 +951,6 @@
           <memento viewPositionX="0" viewPositionY="0">
             <selectionStack />
             <errorLabels />
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/IFDEFVariability">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/Test">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/8457321741451879033" />
-              </errorLabel>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/8457321741451878869" />
-              </errorLabel>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/8457321741451878855" />
-              </errorLabel>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/8457321741451878880" />
-              </errorLabel>
-            </errorLabels>
             <folded />
             <enabledHints />
           </memento>
@@ -1048,55 +1035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/IFDEFVariability">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/Test">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/8457321741451879033" />
-              </errorLabel>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/8457321741451878869" />
-              </errorLabel>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/8457321741451878855" />
-              </errorLabel>
-              <errorLabel errorText="" cellId="empty_type" cellNumber="0" isInList="false">
-                <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/8457321741451878880" />
-              </errorLabel>
-            </errorLabels>
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
     <entry file="mps://node://stdioImporter.runtime/stdioImporter.runtime/Importer">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
@@ -1169,42 +1107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/IFDEFVariability">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/Test">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
     <entry file="mps://node://stdioImporter.runtime/stdioImporter.runtime/Importer">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
@@ -1259,42 +1161,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/IFDEFVariability">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/Test">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
     <entry file="mps://node://stdioImporter.runtime/stdioImporter.runtime/Importer">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
@@ -1332,24 +1198,6 @@
       </provider>
     </entry>
     <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/ImportConfigs">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/IFDEFVariability">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
           <memento viewPositionX="0" viewPositionY="0">
@@ -1570,35 +1418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="mps://node://stdioImporter/stdioImporter.structure/ImportConfig">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editorTabs.TabbedEditor$TabbedEditorState">
-          <memento viewPositionX="0" viewPositionY="0">
-            <selectionStack>
-              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretXRelative" value="8" />
-                <property name="caretX" value="587" />
-                <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="Constant_arlg9k_c0" cellNumber="0" isInList="false">
-                  <node node_reference="r:56c48711-bf46-4489-b509-90d3acd252dc(stdioImporter.behavior)/233004638652677514" />
-                </cellInfo>
-              </stackElement>
-            </selectionStack>
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento currentlyEditedNode="r:56c48711-bf46-4489-b509-90d3acd252dc(stdioImporter.behavior)/233004638652677514" viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </inspectorMemento>
-          <node node_ref="r:56c48711-bf46-4489-b509-90d3acd252dc(stdioImporter.behavior)/3873900481303667258" />
-        </state>
-      </provider>
-    </entry>
     <entry file="mps://node://stdioImporter/stdioImporter.structure/ImportConfigs">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editorTabs.TabbedEditor$TabbedEditorState">
@@ -1664,10 +1483,10 @@
               <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                 <property name="hasNonTrivialSelection" value="false" />
                 <property name="caretXRelative" value="0" />
-                <property name="caretX" value="31" />
+                <property name="caretX" value="33" />
                 <property name="sideSelectDirection" value="NONE" />
                 <cellInfo cellId="Constant_7h2wce_a" cellNumber="0" isInList="false">
-                  <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/77868341121390590" />
+                  <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411855871" />
                 </cellInfo>
               </stackElement>
             </selectionStack>
@@ -1675,65 +1494,7 @@
             <folded />
             <enabledHints />
           </memento>
-          <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/4324965303108175767" viewPositionX="0" viewPositionY="0" useCustomHints="true">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints>
-              <enabledHintsElement enabledHintsAttribute="com.mbeddr.core.base.editor.presentationMode.presentationMode" />
-            </enabledHints>
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/BuildConfiguration (s.sandbox)">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="0">
-            <selectionStack>
-              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretXRelative" value="92" />
-                <property name="caretX" value="390" />
-                <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="property_name_1" cellNumber="0" isInList="false">
-                  <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/4726950676304184761" />
-                </cellInfo>
-              </stackElement>
-            </selectionStack>
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/4726950676304099717" viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/IFDEFVariability">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="52">
-            <selectionStack>
-              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretXRelative" value="64" />
-                <property name="caretX" value="111" />
-                <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="property_name" cellNumber="0" isInList="false">
-                  <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/4726950676304162877" />
-                </cellInfo>
-              </stackElement>
-            </selectionStack>
-            <errorLabels />
-            <folded />
-            <enabledHints />
-          </memento>
-          <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/4726950676304162877" viewPositionX="0" viewPositionY="0">
+          <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411856677" viewPositionX="0" viewPositionY="0">
             <selectionStack />
             <errorLabels />
             <folded />
@@ -1807,10 +1568,10 @@
             <selectionStack>
               <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                 <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretXRelative" value="60" />
-                <property name="caretX" value="127" />
+                <property name="caretXRelative" value="58" />
+                <property name="caretX" value="246" />
                 <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="property_filename" cellNumber="0" isInList="false">
+                <cellInfo cellId="property_name" cellNumber="0" isInList="false">
                   <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/1125784125118210640" />
                 </cellInfo>
               </stackElement>
@@ -1819,13 +1580,11 @@
             <folded />
             <enabledHints />
           </memento>
-          <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/4324965303108175767" viewPositionX="0" viewPositionY="0" useCustomHints="true">
+          <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411856677" viewPositionX="0" viewPositionY="0">
             <selectionStack />
             <errorLabels />
             <folded />
-            <enabledHints>
-              <enabledHintsElement enabledHintsAttribute="com.mbeddr.core.base.editor.presentationMode.presentationMode" />
-            </enabledHints>
+            <enabledHints />
           </inspectorMemento>
         </state>
       </provider>
@@ -1858,34 +1617,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/Test">
+    <entry file="mps://node://stdioImporter/stdioImporter.structure/ImportConfig">
       <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento viewPositionX="0" viewPositionY="2284" useCustomHints="true">
+        <state class="jetbrains.mps.ide.editorTabs.TabbedEditor$TabbedEditorState">
+          <memento viewPositionX="0" viewPositionY="0">
             <selectionStack>
               <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                 <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretXRelative" value="8" />
-                <property name="caretX" value="215" />
+                <property name="caretXRelative" value="4" />
+                <property name="caretX" value="185" />
                 <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="Constant_txkidc_g0" cellNumber="0" isInList="false">
-                  <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/4324965303108175767" />
+                <cellInfo cellId="Constant_lnae77_b0" cellNumber="0" isInList="false">
+                  <node node_reference="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)/233004638652571827" />
                 </cellInfo>
               </stackElement>
             </selectionStack>
             <errorLabels />
             <folded />
-            <enabledHints>
-              <enabledHintsElement enabledHintsAttribute="com.mbeddr.core.base.editor.presentationMode.presentationMode" />
-            </enabledHints>
+            <enabledHints />
           </memento>
-          <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/4324965303108175767" viewPositionX="0" viewPositionY="0" useCustomHints="true">
+          <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411856677" viewPositionX="0" viewPositionY="0">
             <selectionStack />
             <errorLabels />
             <folded />
-            <enabledHints>
-              <enabledHintsElement enabledHintsAttribute="com.mbeddr.core.base.editor.presentationMode.presentationMode" />
-            </enabledHints>
+            <enabledHints />
+          </inspectorMemento>
+          <node node_ref="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)/3873900481303370769" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/newOne">
+      <provider selected="true" editor-type-id="MPSFileEditor">
+        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
+          <memento viewPositionX="0" viewPositionY="0">
+            <selectionStack>
+              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                <property name="hasNonTrivialSelection" value="false" />
+                <property name="caretXRelative" value="58" />
+                <property name="caretX" value="93" />
+                <property name="sideSelectDirection" value="NONE" />
+                <cellInfo cellId="IANC_property_name" cellNumber="0" isInList="false">
+                  <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411833398" />
+                </cellInfo>
+              </stackElement>
+            </selectionStack>
+            <errorLabels />
+            <folded />
+            <enabledHints />
+          </memento>
+          <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411856677" viewPositionX="0" viewPositionY="0">
+            <selectionStack />
+            <errorLabels />
+            <folded />
+            <enabledHints />
+          </inspectorMemento>
+        </state>
+      </provider>
+    </entry>
+    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/IFDEFVariability">
+      <provider selected="true" editor-type-id="MPSFileEditor">
+        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
+          <memento viewPositionX="0" viewPositionY="0">
+            <selectionStack>
+              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                <property name="hasNonTrivialSelection" value="false" />
+                <property name="caretXRelative" value="4" />
+                <property name="caretX" value="39" />
+                <property name="sideSelectDirection" value="NONE" />
+                <cellInfo cellId="IANC_property_name" cellNumber="0" isInList="false">
+                  <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411833795" />
+                </cellInfo>
+              </stackElement>
+            </selectionStack>
+            <errorLabels />
+            <folded />
+            <enabledHints />
+          </memento>
+          <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411856677" viewPositionX="0" viewPositionY="0">
+            <selectionStack />
+            <errorLabels />
+            <folded />
+            <enabledHints />
+          </inspectorMemento>
+        </state>
+      </provider>
+    </entry>
+    <entry file="mps://node://stdioImporter.sandbox/stdioImporter.sandbox/BuildConfiguration (s.sandbox)">
+      <provider selected="true" editor-type-id="MPSFileEditor">
+        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
+          <memento viewPositionX="0" viewPositionY="0">
+            <selectionStack>
+              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                <property name="hasNonTrivialSelection" value="false" />
+                <property name="caretXRelative" value="54" />
+                <property name="caretX" value="105" />
+                <property name="sideSelectDirection" value="NONE" />
+                <cellInfo cellId="property_name" cellNumber="0" isInList="false">
+                  <node node_reference="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411856677" />
+                </cellInfo>
+              </stackElement>
+            </selectionStack>
+            <errorLabels />
+            <folded />
+            <enabledHints />
+          </memento>
+          <inspectorMemento currentlyEditedNode="r:9170e8ec-2d5a-4608-8f86-cdc24f14796e(stdioImporter.sandbox)/6334559703411856677" viewPositionX="0" viewPositionY="0">
+            <selectionStack />
+            <errorLabels />
+            <folded />
+            <enabledHints />
           </inspectorMemento>
         </state>
       </provider>

@@ -5,9 +5,9 @@
 
 int32_t  main(int32_t argc, char *(argv[])) 
 {
-  printf("asb");
-  printf("\n");
   
+  
+  printf("hello");
   
   return 0;
 }
