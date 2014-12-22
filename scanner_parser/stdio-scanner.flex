@@ -26,12 +26,22 @@ import java_cup.runtime.*;
     public StringBuilder tmpString;
 %}
 
+SPACE = [ \t\r\f]
 NUM = [0-9]+
 ALPHA = [a-zA-Z_]
 ALPHA_NUM = {ALPHA}|[0-9]|["_"]
 IDENT = {ALPHA}({ALPHA_NUM})*
 
-DEFINE = (#define)[ \t\r\f](.*)
+DEFINE = (#define){SPACE}(.*)
+IF = (#)({SPACE})*(if){SPACE}(.*)
+IFDEF = (#)({SPACE})*(ifdef){SPACE}(.*)
+IFNDEF = (#)({SPACE})*(ifndef){SPACE}(.*)
+UNDEF = (#)({SPACE})*(undef){SPACE}(.*)
+
+COMP = (__){IDENT}
+
+
+
 
 NEWLINE = \n | \u2028 | \u2029 | \u000B | \u000C | \u0085
 SPACING = [ \t\r\f] | {NEWLINE}
@@ -120,17 +130,18 @@ SPACING = [ \t\r\f] | {NEWLINE}
 	"&"		{ return symbol(sym.AMPERSAND); }
 	"|"		{ return symbol(sym.BAR); }
 	":"		{ return symbol(sym.COLON); }
-
+	"#"		{ return symbol(sym.SHARP); }
 
 
 
 	{DEFINE}	{ return symbol(sym.DEFINE, new String(yytext())); }
-	"#ifdef"	{ return symbol(sym.IFDEF); }
-	"#ifndef"	{ return symbol(sym.IFNDEF); }
-	"#else"		{ return symbol(sym.ELSE); }
-	"#endif"	{ return symbol(sym.ENDIF); }
+	{IF}		{ return symbol(sym.IF, new String(yytext())); }
+	{IFDEF}		{ return symbol(sym.IFDEF, new String(yytext())); }
+	{IFNDEF}	{ return symbol(sym.IFNDEF, new String(yytext())); }
+	"else"		{ return symbol(sym.ELSE); }
+	"endif"		{ return symbol(sym.ENDIF); }
 
-	"#include"	{ return symbol(sym.INCLUDE); }
+	"include"	{ return symbol(sym.INCLUDE); }
 	"extern"	{ return symbol(sym.EXTERN); }
 	"typedef"	{ return symbol(sym.TYPEDEF); }
 	"struct"	{ return symbol(sym.STRUCT); }

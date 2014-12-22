@@ -7,7 +7,8 @@ public class Main {
   static public void main(String argv[]) {    
     /* Start the parser */
     try {
-      parser p = new parser(new Lexer(new FileReader("test2.txt")));
+      parser p = new parser(new Lexer(new FileReader("test.txt")));
+      //parser p = new parser(new Lexer(new FileReader("test.txt")));
       p.parse();
 
       System.out.println("..............................................");

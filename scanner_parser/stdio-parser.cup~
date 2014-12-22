@@ -3,40 +3,32 @@ import java_cup.runtime.*;
 import java.util.ArrayList;
 
 parser code {:
-   
 	public CodeGenerator cg = new CodeGenerator();
-
-    public void report_error(String message, Object info) {
+	public void report_error(String message, Object info) {
+		StringBuilder m = new StringBuilder("Error");
+		if (info instanceof java_cup.runtime.Symbol) {
+			java_cup.runtime.Symbol s = ((java_cup.runtime.Symbol) info);
+			if (s.left >= 0) {                
+				m.append(" in line "+(s.left+1));   
+				if (s.right >= 0)                    
+					m.append(", column "+(s.right+1));
+			}
+		}
    
-       
-        StringBuilder m = new StringBuilder("Error");
+        	m.append(" : "+message);
    
-        if (info instanceof java_cup.runtime.Symbol) {
-     
-            java_cup.runtime.Symbol s = ((java_cup.runtime.Symbol) info);
-
-            if (s.left >= 0) {                
-                       m.append(" in line "+(s.left+1));   
-     
-                if (s.right >= 0)                    
-                       m.append(", column "+(s.right+1));
-            }
-        }
-   
-        m.append(" : "+message);
-   
-        System.err.println(m);
-    }
-   
-    public void report_fatal_error(String message, Object info) {
-        report_error(message, info);
-        System.exit(1);
+        	System.err.println(m);
+    	}
+	
+	public void report_fatal_error(String message, Object info) {
+	report_error(message, info);
+	System.exit(0);
     }
 :};
    
 
 
-terminal		DEFINE, LBRACKET, RBRACKET, ASSIGN, DOT, DOTS, BAR, BARDOT, GREATER, LESS, GG, LL, PREF, MM, PP, GE, LE, AND, OR, NOTEQUAL, EQUAL, COLON, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ, PERCENT, HAT, QUESTIONMARK, SHORT, LONG, UN_SIGNED, CONST, AMPERSAND, TILDE, CHAR, INT, SINT, LINT, LLONG, LLINT, FLOAT, DOUBLE, LDOUBLE, PLUSEQ, MINUSEQ, STAREQ, DIVIDEQ, PERCENTEQ, LLEQ, GGEQ, AMPERSANDEQ, HATEQ, BAREQ, IFDEF, IFNDEF, ELSE, ENDIF, INCLUDE;
+terminal		SHARPIF, SHARP, DEFINE, LBRACKET, RBRACKET, ASSIGN, DOT, DOTS, BAR, BARDOT, GREATER, LESS, GG, LL, PREF, MM, PP, GE, LE, AND, OR, NOTEQUAL, EQUAL, COLON, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ, PERCENT, HAT, QUESTIONMARK, SHORT, LONG, UN_SIGNED, CONST, AMPERSAND, TILDE, CHAR, INT, SINT, LINT, LLONG, LLINT, FLOAT, DOUBLE, LDOUBLE, PLUSEQ, MINUSEQ, STAREQ, DIVIDEQ, PERCENTEQ, LLEQ, GGEQ, AMPERSANDEQ, HATEQ, BAREQ, IFDEF, IFNDEF, ELSE, ENDIF, INCLUDE;
 
 terminal Integer	NUMBER;
 terminal String		ID;
@@ -66,7 +58,12 @@ precedence left ID;
 				;
 
    
-	code_part ::= 	EXTERN func:f SEMI
+	code_part ::= 	SHARPIF: s
+			{:
+			System.out.println("aaaaaaa{" + s + "}");
+			:}
+			|
+			EXTERN func:f SEMI
 			{: parser.cg.declareFunc(); :}
 			|
 			EXTERN definition:d SEMI
@@ -88,8 +85,9 @@ precedence left ID;
 			parser.cg.declareStruct();
 			:}
 			|
-			DEFINE
+			DEFINE:d
 			{:
+			parser.cg.define.setExp(d);
 			parser.cg.define.setID("");
 			parser.cg.declareDefine();
 			:}
