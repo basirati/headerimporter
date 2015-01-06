@@ -7,7 +7,6 @@ import java.util.Stack;
  */
 public class Struct extends Declaration{
 
-    public boolean as_typedef = false;
     private Stack<Declaration> decs = new Stack<Declaration>();
 
     public Stack<Declaration> getDecs() {

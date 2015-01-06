@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class ConditionalBlock extends Declaration{
     boolean condition = true;
+    boolean positive = true;
     public boolean inStruct = false;
     ArrayList<Declaration> true_block = new ArrayList<Declaration>();
     ArrayList<Declaration> false_block = new ArrayList<Declaration>();

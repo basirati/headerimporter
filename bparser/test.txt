@@ -1,21 +1,9 @@
-#if defined __USE_ISOC99 && !defined __USE_GNU \
-    && (!defined __LDBL_COMPAT || !defined __REDIRECT) \
-    && (defined __STRICT_ANSI__ || defined __USE_XOPEN2K)
-# ifdef __REDIRECT
-/* For strict ISO C99 or POSIX compliance disallow %as, %aS and %a[
-   GNU extension which conflicts with valid %a followed by letter
-   s, S or [.  */
-extern int __REDIRECT (fscanf, (FILE *__restrict __stream,
-				const char *__restrict __format, ...),
-		       __isoc99_fscanf) __wur;
-extern int __REDIRECT (scanf, (const char *__restrict __format, ...),
-		       __isoc99_scanf) __wur;
-extern int __REDIRECT_NTH (sscanf, (const char *__restrict __s,
-				    const char *__restrict __format, ...),
-			   __isoc99_sscanf);
-# else
-extern int __isoc99_fscanf (FILE *__restrict __stream,
-			    const char *__restrict __format, ...) __wur;
-extern int __isoc99_scanf (const char *__restrict __format, ...) __wur;
-extern int __isoc99_sscanf (const char *__restrict __s,
-			    const char *__restrict __format, ...) __THROW;
+extern int fdclose(FILE *);
+extern int flushall(void);
+extern int putpad(FILE *, char *, int, int, int);
+extern char *saprintf(char *, ...);
+extern int scanfiles(int (*)());
+extern int seterrfn(FILE *, int (*)());
+extern int setfuncs(FILE *, int (*)(), int (*)(), long int (*)(), int (*)());
+extern int snprintf(char *, int, char *, ...);
+extern FILE *stropen(char *, char *);

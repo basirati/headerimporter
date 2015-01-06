@@ -1,4 +1,3 @@
-
 import java_cup.runtime.*;
 import java.util.ArrayList;
 
@@ -28,104 +27,82 @@ parser code {:
    
 
 
-terminal		SHARPIF, SHARP, DEFINE, LBRACKET, RBRACKET, ASSIGN, DOT, DOTS, BAR, BARDOT, GREATER, LESS, GG, LL, PREF, MM, PP, GE, LE, AND, OR, NOTEQUAL, EQUAL, COLON, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ, PERCENT, HAT, QUESTIONMARK, SHORT, LONG, UN_SIGNED, CONST, AMPERSAND, TILDE, CHAR, INT, SINT, LINT, LLONG, LLINT, FLOAT, DOUBLE, LDOUBLE, PLUSEQ, MINUSEQ, STAREQ, DIVIDEQ, PERCENTEQ, LLEQ, GGEQ, AMPERSANDEQ, HATEQ, BAREQ, IFDEF, IFNDEF, ELSE, ENDIF, INCLUDE;
+terminal		IF, SHARP, DEFINE, LBRACKET, RBRACKET, ASSIGN, DOT, DOTS, BAR, BARDOT, GREATER, LESS, GG, LL, PREF, MM, PP, GE, LE, AND, OR, NOTEQUAL, EQUAL, COLON, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ, PERCENT, HAT, QUESTIONMARK, SHORT, LONG, UN_SIGNED, CONST, AMPERSAND, TILDE, CHAR, INT, SINT, LINT, LLONG, LLINT, FLOAT, DOUBLE, LDOUBLE, PLUSEQ, MINUSEQ, STAREQ, DIVIDEQ, PERCENTEQ, LLEQ, GGEQ, AMPERSANDEQ, HATEQ, BAREQ, IFDEF, IFNDEF, ELSE, ENDIF, INCLUDE, COMPWORD;
 
 terminal Integer	NUMBER;
 terminal String		ID;
    
-non terminal Object     def_body, program, code_part, params, definition, struct_body, func, ident_funcpointer, exp, func_call, args, Ar2, B2, LogicalS, macro_params, def_val, ConditionKeys;
+non terminal Object     pre_process_step, def_body, program, code_part, params, struct_body, func, ident_funcpointer, expression, func_call, args, Ar2, B2, LogicalS, macro_params, def_val, general_declaration, struct_declaration, typedef_declaration, var_declaration, function_declaration, parameter, newtype;
 non terminal String	type, pre_type, c_type;
 
-precedence left ASSIGN, PLUSEQ, MINUSEQ, STAREQ, DIVIDEQ, PERCENTEQ, LLEQ, GGEQ, AMPERSANDEQ, HATEQ, BAREQ;
-precedence left QUESTIONMARK, COLON;
-precedence left AND, OR;
-precedence left	BAR, HAT;
-precedence left LESS, LE, GREATER, GE, EQUAL, NOTEQUAL;
-precedence left LL, GG;
-precedence left PLUS, MINUS;
-precedence left DIVIDE, PERCENT;
+precedence left COMPWORD;
 precedence left STAR, AMPERSAND;
-precedence left BARDOT, TILDE;
-precedence left DOT, PREF;
 precedence left LBRACKET, RBRACKET;
-precedence left PP, MM;
 precedence left LPAREN, RPAREN;
 precedence left ID;
    
-	program	::=	program code_part
-				|
-				code_part
-				;
-
-   
-	code_part ::= 	SHARPIF: s
-			{:
-			System.out.println("aaaaaaa{" + s + "}");
-			:}
-			|
-			EXTERN func:f SEMI
-			{: parser.cg.declareFunc(); :}
-			|
-			EXTERN definition:d SEMI
-			{: parser.cg.declareVar(); :}
-			|
-			TYPEDEF definition:d2 SEMI
-			{: parser.cg.declareTypedef_var(); :}
-			|
-			TYPEDEF STRUCT LQ struct_body:s RQ ID:i SEMI
-			{: parser.cg.declareTypedef_struct(i); :}
-			|
-			STRUCT 
-			{:
-			parser.cg.structflag = true;
-			:}
-			ID:i LQ struct_body:s RQ SEMI
-			{: 
-			parser.cg.struct.setID(i);
-			parser.cg.declareStruct();
-			:}
-			|
-			DEFINE:d
-			{:
-			parser.cg.define.setExp(d);
-			parser.cg.define.setID("");
-			parser.cg.declareDefine();
-			:}
-			|
-			ConditionKeys
-			|
-			INCLUDE LESS ID:i1 DOT ID:i2 GREATER 
-			{: parser.cg.addDeclaration(new Include(i1+"."+i2)); :}
-			| INCLUDE LESS ID:i GREATER
-			{: parser.cg.addDeclaration(new Include(i)); :}
+	program	::=	  program code_part
+			| code_part
 			;
 
-	ConditionKeys	::= IFDEF ID:i 
-			{:
-			ConditionalBlock cb = new ConditionalBlock();
-			cb.setID(i);
-			if (parser.cg.structflag && !parser.cg.structblock)
-			{
-				cb.inStruct = true;
-				parser.cg.structblock = true;
-			}
-			parser.cg.conditionalBlocks.push(cb);
-			:}   
-			| IFNDEF ID:i
-			{:
-			ConditionalBlock cb = new ConditionalBlock();
-			cb.setID(i);
-			parser.cg.conditionalBlocks.push(cb);
-			:}
-			| ELSE 
-			{:
-			parser.cg.conditionalBlocks.peek().condition = false;
-			:}
-			| ENDIF
-			{:
-			parser.cg.declareConditionalBlock();
-			:}
-			;	
+   
+	code_part ::= 	  pre_process_step
+			| general_declaration SEMI
+			| EXTERN general_declaration SEMI
+			;
+			
+
+	pre_process_step::=	  IF:i {: parser.cg.newConditionalBlock(i,true); :} 
+				| IFDEF:i {: parser.cg.newConditionalBlock(i,true); :}
+				| IFNDEF:i {: parser.cg.newConditionalBlock(i,false); :}
+				| DEFINE:d 
+					{:
+					parser.cg.define.setExp(d);
+					parser.cg.define.setID("");
+					parser.cg.declareDefine();
+					:}
+				| SHARP ELSE {: parser.cg.conditionalBlocks.peek().condition = false; :}
+				| SHARP ENDIF {: parser.cg.declareConditionalBlock(); :}
+				| INCLUDE:i {:System.out.println("include" + i); :} | COMPWORD {: /*DO NOTHING*/ :}
+				;
+
+
+
+	general_declaration::=	  typedef_declaration
+				| struct_declaration
+				| var_declaration {: parser.cg.declareVar(); :} 
+				| function_declaration
+				| general_declaration COMPWORD
+				;
+
+
+	typedef_declaration::=	  TYPEDEF var_declaration:d2 {: parser.cg.declareTypedef_var(); :}
+				| TYPEDEF STRUCT LQ struct_body:s RQ ID:i {: parser.cg.declareTypedef_struct(i, ""); :}
+				| TYPEDEF STRUCT ID:i expression:e {: parser.cg.declareTypedef_struct(i, e); :}
+				;
+
+	struct_declaration::=	  STRUCT ID:i
+					{: 
+					parser.cg.structflag = true;
+					parser.cg.struct.setID(i);
+					:}
+				  LQ struct_body:s RQ 
+					{: parser.cg.declareStruct(); :}
+				| STRUCT ID:i 
+					{: 
+					parser.cg.struct.setID(i);
+					parser.cg.declareStruct();
+					:}
+				| STRUCT ID:i expression:e
+					{: 
+					parser.cg.struct.setID(i);
+					parser.cg.declareStruct();
+					:}
+				;
+	
+	function_declaration::= func:f {: parser.cg.declareFunc(); :}
+				;
+
 
 
 	func	::=	type:e ID:e2 LPAREN 
@@ -135,48 +112,58 @@ precedence left ID;
 			parser.cg.paramsowner = parser.cg.func;
 			:}						
 			params:p RPAREN
+			|
+			COMPWORD:e ID:e2 LPAREN 
 			{: 
-			RESULT = e + " " + e2 + "(" + p + ");"; 
-			:} 
+			parser.cg.func.setReturn_type(e);
+			parser.cg.func.setID(e2);
+			parser.cg.paramsowner = parser.cg.func;
+			:}						
+			params:p RPAREN
 			;
 	
 
-	struct_body	::=	definition SEMI
-			{:
-			if (parser.cg.structblock)
-				parser.cg.addDeclaration(parser.cg.var);
-			else
-				parser.cg.struct.addMember(parser.cg.var);
-		        parser.cg.var = new Variable(); 
-			:}
-			|
-			ConditionKeys
-			|
-			struct_body ConditionKeys
-			|
-			struct_body definition SEMI
-			{:
-			if (parser.cg.structblock)
-				parser.cg.addDeclaration(parser.cg.var);
-			else
-				parser.cg.struct.addMember(parser.cg.var);
-
-		        parser.cg.var = new Variable();  
-			:}
+	struct_body	::=	
+			var_declaration SEMI
+				{:
+				if (parser.cg.structblock)
+					parser.cg.addDeclaration(parser.cg.var);
+				else
+					parser.cg.struct.addMember(parser.cg.var);
+			        parser.cg.var = new Variable();
+				:}
+			| struct_body var_declaration SEMI
+				{:
+				if (parser.cg.structblock)
+					parser.cg.addDeclaration(parser.cg.var);
+				else
+					parser.cg.struct.addMember(parser.cg.var);
+	
+			        parser.cg.var = new Variable();
+				:}
+			| pre_process_step
+			| struct_body pre_process_step
 			;
 	
-	definition ::=	type:i ID:i2
+	var_declaration ::=
+			type:i ID:i2
 			{: 
 			parser.cg.var.setType(i);
 			parser.cg.var.setID(i2);
 			:}
 			|
-			definition LBRACKET RBRACKET
+			COMPWORD:c ID:i
+			{: 
+			parser.cg.var.setType((String) c);
+			parser.cg.var.setID(i);
+			:}
+			|
+			var_declaration LBRACKET RBRACKET
 			{:
 			parser.cg.var.addArray(0);
 			:}
 			| 
-			definition LBRACKET NUMBER:n RBRACKET
+			var_declaration LBRACKET NUMBER:n RBRACKET
 			{:
 			parser.cg.var.addArray(n);
 			:}
@@ -202,30 +189,19 @@ precedence left ID;
 
 	
 
-	params	::=	type: p
-			{: 
-			parser.cg.paramsowner.pushParam(p);
-			:}
+	parameter	::=
+			type:t {:RESULT = t;:}
 			|
-			type:p2 COMMA params:ps
-			{: 
-			parser.cg.paramsowner.pushParam(p2);
-			:}
+			ident_funcpointer:i {:RESULT = i;:}
 			|
-			type:p3 COMMA DOTS
-			{:
-			parser.cg.paramsowner.pushParam(p3);
-			:}
+			COMPWORD:c {:RESULT = c;:}
 			|
-			ident_funcpointer:p4
-			{:
-			parser.cg.paramsowner.pushParam(p4);
-			:}
-			|
-			ident_funcpointer:p5 COMMA params:ps2
-			{: 
-			parser.cg.paramsowner.pushParam(p5);
-			:}
+			parameter:p COMPWORD
+			{: RESULT = p; :}
+			;
+
+	params	::=	parameter:p {: parser.cg.paramsowner.pushParam(p);:}
+			| parameter:p COMMA params:ps {: parser.cg.paramsowner.pushParam(p);:}
 			|
 			;
 
@@ -247,13 +223,14 @@ precedence left ID;
 			:}
 			;
 
+	expression ::=	ID:i {: RESULT = i; :} | COMPWORD:c {: RESULT = c; :} | LPAREN expression:e RPAREN {: RESULT = "("+e+")"; :}
+			| STAR expression:e {: RESULT = "*"+e; :} | AMPERSAND expression:e {: RESULT = "&" + e; :};
 
-
-	c_type ::=	CHAR {: RESULT= "char"; :}| INT {: RESULT= "int"; :}
-			| SINT {: RESULT= "short int"; :}| LINT {: RESULT= "long int"; :} 
+	c_type ::=	CHAR {: RESULT= "char"; :} | INT {: RESULT= "int"; :}
+			| SINT {: RESULT= "short int"; :} | LINT {: RESULT= "long int"; :} 
 			| SHORT {: RESULT="short"; :}
-			| LONG {: RESULT="long"; :} | LLONG {: RESULT= "long long"; :}| LLINT {: RESULT= "long long int"; :}
-			| FLOAT {: RESULT= "float"; :}| DOUBLE {: RESULT= "double"; :}| LDOUBLE {: RESULT= "long double"; :};
+			| LONG {: RESULT="long"; :} | LLONG {: RESULT= "long long"; :} | LLINT {: RESULT= "long long int"; :}
+			| FLOAT {: RESULT= "float"; :} | DOUBLE {: RESULT= "double"; :} | LDOUBLE {: RESULT= "long double"; :};
 			
 	pre_type::=	c_type:c {: RESULT= c; :}| ID:i {: RESULT= i; :}
 			| STRUCT ID:i {: RESULT= "struct " + i; :}
@@ -265,6 +242,7 @@ precedence left ID;
 			| type:t LBRACKET RBRACKET {: RESULT=t + "[]"; :}
 			| type:t LBRACKET NUMBER:n RBRACKET {: RESULT=t + "[" + n + "]"; :}
 			| type:t STAR {: RESULT=t + "*"; :};
+
 
 	
 

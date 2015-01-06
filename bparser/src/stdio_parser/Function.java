@@ -39,11 +39,14 @@ public class Function extends Declaration{
         for (Object o : params)
         {
             if (o instanceof Function)
-                s = s +  ((Function) o).getID() + "(" + ((Function) o).paramsToString() + "), ";
+                s = s +  ((Function) o).getReturn_type() + "(" + ((Function) o).paramsToString() + "), ";
             else
                 s = s + (String) o + ", ";
         }
-        return s;
+        if (s.length() > 2)
+            return s.substring(0,s.length()-2);
+        else
+            return s;
     }
 
 
