@@ -27,24 +27,30 @@ import java_cup.runtime.*;
 %}
 
 SPACE = [ \t\r\f]
+NEWLINE = \n | \u2028 | \u2029 | \u000B | \u000C | \u0085
+IGNORENEWLINE = (\\){NEWLINE}
+SPACING = {SPACE} | {NEWLINE}
 NUM = [0-9]+
 ALPHA = [a-zA-Z_]
 ALPHA_NUM = {ALPHA}|[0-9]|["_"]
 IDENT = {ALPHA}({ALPHA_NUM})*
 
-DEFINE = (#define){SPACE}(.*)
-IF = (#)({SPACE})*(if){SPACE}(.*)
-IFDEF = (#)({SPACE})*(ifdef){SPACE}(.*)
-IFNDEF = (#)({SPACE})*(ifndef){SPACE}(.*)
-UNDEF = (#)({SPACE})*(undef){SPACE}(.*)
-
-COMP = (__){IDENT}
-
+DEFINE = (#)({SPACE})*(define){SPACE}*(({IGNORENEWLINE} | .)*)
+IF = (#)({SPACE})*(if){SPACE}*(({IGNORENEWLINE} | .)*)
+IFDEF = (#)({SPACE})*(ifdef){SPACE}*(({IGNORENEWLINE} | .)*)
+IFNDEF = (#)({SPACE})*(ifndef){SPACE}*(({IGNORENEWLINE} | .)*)
+UNDEF = (#)({SPACE})*(undef){SPACE}*(({IGNORENEWLINE} | .)*)
+INCLUDE = (#)({SPACE})*(include){SPACE}*(({IGNORENEWLINE} | .)*)
 
 
+COMP_IGNOR = (extern){SPACE}{IDENT}({SPACE})*(\*)*({SPACE})*(__)~(;)
+COMP_IGNOR2 = (__attribute__)~(;)
 
-NEWLINE = \n | \u2028 | \u2029 | \u000B | \u000C | \u0085
-SPACING = [ \t\r\f] | {NEWLINE}
+COMP_WORD = (__){IDENT}|(__){IDENT}(["("]){IDENT}([")"])
+
+DOTS = [,]({SPACE})*([.]{3})
+
+
 
 %xstates MULTI_COMMENT, MONO_COMMENT, STRING
 
@@ -84,7 +90,7 @@ SPACING = [ \t\r\f] | {NEWLINE}
 	
 	";"		{ return symbol(sym.SEMI); }
    
-	"..."		{ return symbol(sym.DOTS); }
+	{DOTS}		{ /*DO NOTHING*/ }
 
 
 	"+="		{ return symbol(sym.PLUSEQ); }
@@ -140,8 +146,12 @@ SPACING = [ \t\r\f] | {NEWLINE}
 	{IFNDEF}	{ return symbol(sym.IFNDEF, new String(yytext())); }
 	"else"		{ return symbol(sym.ELSE); }
 	"endif"		{ return symbol(sym.ENDIF); }
+	{UNDEF}		{/*DO NOTHING*/}
+	{COMP_WORD}	{return symbol(sym.COMPWORD, new String(yytext()));}
+	{COMP_IGNOR}	{/*DO NOTHING*/}
+	{COMP_IGNOR2}	{return symbol(sym.SEMI);}
 
-	"include"	{ return symbol(sym.INCLUDE); }
+	{INCLUDE}	{ return symbol(sym.INCLUDE); }
 	"extern"	{ return symbol(sym.EXTERN); }
 	"typedef"	{ return symbol(sym.TYPEDEF); }
 	"struct"	{ return symbol(sym.STRUCT); }

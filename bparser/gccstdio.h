@@ -20,7 +20,7 @@ __BEGIN_DECLS
 #if !defined __FILE_defined && defined __need_FILE
 
 /* Define outside of namespace so the C++ is happy.  */
-////////////////////////////////////////////////////////////struct _IO_FILE;
+struct _IO_FILE;
 
 __BEGIN_NAMESPACE_STD
 /* The opaque type of streams.  This is the definition used elsewhere.  */
@@ -40,7 +40,7 @@ __USING_NAMESPACE_STD(FILE)
 #if !defined ____FILE_defined && defined __need___FILE
 
 /* The opaque type of streams.  This is the definition used elsewhere.  */
-///////////////////////////////////////////typedef struct _IO_FILE __FILE;
+typedef struct _IO_FILE __FILE;
 
 # define ____FILE_defined	1
 #endif /* __FILE not defined.  */
@@ -66,19 +66,19 @@ typedef _G_va_list va_list;
 #ifdef __USE_XOPEN2K8
 # ifndef __off_t_defined
 # ifndef __USE_FILE_OFFSET64
-////////////////////////////////////////typedef __off_t off_t;
+typedef __off_t off_t;
 # else
-////////////////////////////////////////typedef __off64_t off_t;
+typedef __off64_t off_t;
 # endif
 # define __off_t_defined
 # endif
 # if defined __USE_LARGEFILE64 && !defined __off64_t_defined
-/////////////////////////////////////////typedef __off64_t off64_t;
+typedef __off64_t off64_t;
 # define __off64_t_defined
 # endif
 
 # ifndef __ssize_t_defined
-////////////////////////////////////////typedef __ssize_t ssize_t;
+typedef __ssize_t ssize_t;
 # define __ssize_t_defined
 # endif
 #endif
@@ -144,9 +144,9 @@ typedef _G_fpos64_t fpos64_t;
 
 
 /* Standard streams.  */
-////////////////////////////////////extern struct _IO_FILE *stdin;		/* Standard input stream.  */
-/////////////////////////////////////extern struct _IO_FILE *stdout;		/* Standard output stream.  */
-//////////////////////////////////////extern struct _IO_FILE *stderr;		/* Standard error output stream.  */
+extern struct _IO_FILE *stdin;		/* Standard input stream.  */
+extern struct _IO_FILE *stdout;		/* Standard output stream.  */
+extern struct _IO_FILE *stderr;		/* Standard error output stream.  */
 /* C89/C99 say they're macros.  Make them happy.  */
 #define stdin stdin
 #define stdout stdout
@@ -174,7 +174,7 @@ __BEGIN_NAMESPACE_STD
 extern FILE *tmpfile (void) __wur;
 #else
 # ifdef __REDIRECT
-//////////////////////////////////////////////extern FILE *__REDIRECT (tmpfile, (void), tmpfile64) __wur;
+extern FILE *__REDIRECT (tmpfile, (void), tmpfile64) __wur;
 # else
 #  define tmpfile tmpfile64
 # endif
@@ -259,13 +259,13 @@ extern FILE *freopen (const char *__restrict __filename,
 		      FILE *__restrict __stream) __wur;
 #else
 # ifdef __REDIRECT
-/*extern FILE *__REDIRECT (fopen, (const char *__restrict __filename,//////////////////////////////////////////////
+extern FILE *__REDIRECT (fopen, (const char *__restrict __filename,
 				 const char *__restrict __modes), fopen64)
   __wur;
 extern FILE *__REDIRECT (freopen, (const char *__restrict __filename,
 				   const char *__restrict __modes,
 				   FILE *__restrict __stream), freopen64)
-  __wur;*/
+  __wur;
 # else
 #  define fopen fopen64
 #  define freopen freopen64
@@ -362,13 +362,13 @@ __END_NAMESPACE_STD
 #if defined __USE_BSD || defined __USE_ISOC99 || defined __USE_UNIX98
 __BEGIN_NAMESPACE_C99
 /* Maximum chars of output to write in MAXLEN.  */
-/*extern int snprintf (char *__restrict __s, size_t __maxlen,///////////////////////////////////////////////////////
+extern int snprintf (char *__restrict __s, size_t __maxlen,
 		     const char *__restrict __format, ...)
      __THROWNL __attribute__ ((__format__ (__printf__, 3, 4)));
 
 extern int vsnprintf (char *__restrict __s, size_t __maxlen,
 		      const char *__restrict __format, _G_va_list __arg)
-     __THROWNL __attribute__ ((__format__ (__printf__, 3, 0)));*/
+     __THROWNL __attribute__ ((__format__ (__printf__, 3, 0)));
 __END_NAMESPACE_C99
 #endif
 

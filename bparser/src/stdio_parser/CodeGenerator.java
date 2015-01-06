@@ -74,18 +74,40 @@ public class CodeGenerator {
         var = new Variable();
     }
 
-    public void declareTypedef_struct(String id)
+    public void declareTypedef_struct(String id, Object as)
     {
-        Struct sd = new Struct();
-        sd.setID(id);
-        sd.as_typedef = true;
-        this.addDeclaration(sd);
+        Typedef tp = new Typedef();
+        if (as == "") {
+            Struct sd = new Struct();
+            sd.setID(id);
+            tp.setAs(id);
+            tp.setStruct(sd);
+        }
+        else
+        {
+            tp.setID(id);
+            tp.setAs((String) as);
+            tp.asstruct = true;
+        }
+        this.addDeclaration(tp);
     }
 
     public void declareVar()
     {
         this.addDeclaration(var);
         var = new Variable();
+    }
+
+    public void newConditionalBlock(Object id, boolean positive){
+        ConditionalBlock cb = new ConditionalBlock();
+        cb.setID((String) id);
+        cb.positive = positive;
+        if (structflag && !structblock)
+        {
+            cb.inStruct = true;
+            structblock = true;
+        }
+        conditionalBlocks.push(cb);
     }
 
     public void showDeclarations()
