@@ -377,13 +377,12 @@ public class parser extends lr_parser {
 		}
    
         	m.append(" : "+message);
-   
+            cg.error = m.toString();
         	System.err.println(m);
     	}
 	
 	public void report_fatal_error(String message, Object info) {
-	report_error(message, info);
-	System.exit(0);
+        report_error(message,info);
     }
 
 }

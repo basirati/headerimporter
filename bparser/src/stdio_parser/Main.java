@@ -7,7 +7,8 @@ public class Main {
   static public void main(String argv[]) {    
     /* Start the parser */
     try {
-      //parser p = new parser(new Lexer(new FileReader("test2.txt")));
+       // Lexer l = new Lexer(new FileReader("STDIO.H"));
+      //parser p = new parser(l);
       parser p = new parser(new Lexer(new FileReader("gccstdio.h")));
       p.parse();
 
