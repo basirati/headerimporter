@@ -7,6 +7,7 @@ import java.util.Stack;
  * Created by basirati on 8/1/14.
  */
 public class CodeGenerator {
+    public String error = "";
 
     public Function func = new Function();
     public Struct struct = new Struct();
