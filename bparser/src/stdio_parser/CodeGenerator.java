@@ -179,7 +179,7 @@ public class CodeGenerator {
                 } else
                     exp = (String) d.exp;
 
-                System.out.println(d.getID() + "{" + d.getParams() + "}" + "---->>>>  " + exp);
+                System.out.println("id:" + d.getID() + "{" + d.getParams() + "}" + "---->>>>  " + exp);
             }
             if (dd instanceof Include)
                 System.out.println("INCLUDE: " + dd.getID());
