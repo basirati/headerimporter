@@ -6,6 +6,13 @@ import java.util.Stack;
  * Created by basirati on 8/10/14.
  */
 public class Define extends Declaration{
+    public boolean isEmpty()
+    {
+        try{
+            String s = (String) exp;
+            return s.trim().isEmpty();
+        } catch (Exception e){return false;}
+    }
     Object exp;
     Stack<String> params = new Stack<String>();
 
@@ -29,11 +36,19 @@ public class Define extends Declaration{
         String exps = (String) exp;
         if (exps == "")
             return;
-        exps = exps.substring(8);
+        int defineindex = exps.indexOf("define") + 7;
+        exps = exps.substring(defineindex);
         String[] tokens = exps.split("\\s+");
-
+        int index = 0;
         try{
-            String id = tokens[0];
+            for (String s: tokens)
+            {
+                if (s.isEmpty())
+                    index++;
+                else
+                    break;
+            }
+            String id = tokens[index];
             try {
                 if (id.contains("(")) {
                     String arg_part = exps.substring(exps.indexOf("(") + 1, exps.indexOf(")")).trim();
@@ -76,11 +91,14 @@ public class Define extends Declaration{
                     }
                 try {int x = Integer.valueOf(tokens[1]);this.setExp(x);}
                 catch (Exception e){
-                    String body = exps.substring(id.length()+1,exps.length());
-                    this.setExp(body);
+                    try {
+                        String body = exps.substring(id.length() + 1, exps.length());
+                        this.setExp(body);
+                    }catch(Exception e2){this.setExp("");}
                 }
             }
 
         } catch (Exception e) {}
+
     }
 }
