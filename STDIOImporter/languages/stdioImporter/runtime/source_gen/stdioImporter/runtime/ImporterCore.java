@@ -19,6 +19,7 @@ import stdio_parser.Define;
 import stdio_parser.ConditionalBlock;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.Iterator;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 
 public class ImporterCore {
   private Typer typer = new Typer();
@@ -222,20 +223,26 @@ public class ImporterCore {
 
 
 
+
   private void addFunction(Function f) {
     SNode fp = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.FunctionPrototype", null);
     SPropertyOperations.set(fp, "name", f.getID());
     SLinkOperations.setTarget(fp, "type", typer.buildType((String) f.getReturn_type(), module), true);
     int n = 0;
-    for (Object p : f.getParams()) {
+    for (int i = f.getParams().size() - 1; i > -1; i--) {
+      Object p = f.getParams().get(i);
       SNode arg = SConceptOperations.createNewNode("com.mbeddr.core.modules.structure.Argument", null);
       SPropertyOperations.set(arg, "name", "p" + n++);
       if (p instanceof Function) {
         SLinkOperations.setTarget(arg, "type", this.makeFuncPointer(((Function) p)), true);
       } else {
         SLinkOperations.setTarget(arg, "type", typer.buildType(((String) p), module), true);
+        if (SNodeOperations.getConceptDeclaration(SLinkOperations.getTarget(arg, "type", true)) == SNodeOperations.getNode("r:c371cf98-dcc8-4a43-8eb8-8a8096de18b2(com.mbeddr.core.expressions.structure)", "7892328519581699353")) {
+          continue;
+        }
       }
       ListSequence.fromList(SLinkOperations.getTargets(fp, "arguments", true)).addElement(arg);
+
     }
     ListSequence.fromList(SLinkOperations.getTargets(module, "contents", true)).addElement(fp);
     if (DequeSequence.fromDeque(feature_stack).count() > 0) {

@@ -19,10 +19,10 @@ public class VariabilityImporter {
     for (Declaration declare : Sequence.fromIterable(declarations)) {
       if (declare instanceof ConditionalBlock) {
         ConditionalBlock cb = (ConditionalBlock) declare;
-        SNode f = this.checkFeatureAvailability(feature, cb.getID());
+        SNode f = this.checkFeatureAvailability(feature, cb.getNormalizedName());
         if (f == null) {
           f = SConceptOperations.createNewNode("com.mbeddr.cc.var.fm.structure.Feature", null);
-          SPropertyOperations.set(f, "name", cb.getID());
+          SPropertyOperations.set(f, "name", cb.getNormalizedName());
           ListSequence.fromList(SLinkOperations.getTargets(feature, "children", true)).addElement(f);
         }
         this.addToVariability(f, cb.getBlock(true));
@@ -33,6 +33,7 @@ public class VariabilityImporter {
       }
     }
   }
+
 
 
 

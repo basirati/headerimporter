@@ -1,5 +1,6 @@
 package stdio_parser;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -183,6 +184,58 @@ public class CodeGenerator {
             }
             if (dd instanceof Include)
                 System.out.println("INCLUDE: " + dd.getID());
+        }
+    }
+
+    public void removeCPP(String filename, String tempfile) {
+        BufferedReader br = null;
+        try {
+
+            br = new BufferedReader(new FileReader(filename));
+
+
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+            while (line != null) {
+                if (line.contains("extern \"C++\"")) {
+                    String temp = br.readLine();
+                    int x = 0;
+                    if (temp.contains("{")) {
+                        x = 1;
+                        while (x > 0) {
+                            line = br.readLine();
+                            if (line.contains("{"))
+                                x++;
+                            else if (line.contains("}"))
+                                x--;
+                        }
+                        line = br.readLine();
+                        continue;
+                    }
+                    else
+                    {
+                        while (!line.endsWith(";") && !temp.endsWith(";"))
+                            line = br.readLine();
+
+                        line = br.readLine();
+                        continue;
+                    }
+                }
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+            }
+            String everything = sb.toString();
+
+            PrintWriter writer = new PrintWriter(tempfile, "UTF-8");
+            writer.println(everything);
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e2)
+        {
+            e2.printStackTrace();
         }
     }
 }

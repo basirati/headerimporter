@@ -4,7 +4,7 @@ package stdio_parser;
  * Created by basirati on 10/28/14.
  */
 public abstract class Declaration {
-    String ID;
+    protected String ID;
 
     public String getID() {
         return ID;

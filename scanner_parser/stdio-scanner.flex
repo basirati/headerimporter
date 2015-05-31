@@ -42,9 +42,12 @@ IFNDEF = (#)({SPACE})*(ifndef){SPACE}*(({IGNORENEWLINE} | .)*)
 UNDEF = (#)({SPACE})*(undef){SPACE}*(({IGNORENEWLINE} | .)*)
 INCLUDE = (#)({SPACE})*(include){SPACE}*(({IGNORENEWLINE} | .)*)
 
+PRAGMA = (#)({SPACE})*(pragma){SPACE}*(({IGNORENEWLINE} | .)*)
 
 COMP_IGNOR = (extern){SPACE}{IDENT}({SPACE})*(\*)*({SPACE})*(__)~(;)
 COMP_IGNOR2 = (__attribute__)~(;)
+COMP_IGNOR3 = __THROW~(;) | __nonnull~(;)
+
 
 COMP_WORD = (__){IDENT}|(__){IDENT}(["("]){IDENT}([")"])
 
@@ -144,23 +147,27 @@ DOTS = [,]({SPACE})*([.]{3})
 	{IF}		{ return symbol(sym.IF, new String(yytext())); }
 	{IFDEF}		{ return symbol(sym.IFDEF, new String(yytext())); }
 	{IFNDEF}	{ return symbol(sym.IFNDEF, new String(yytext())); }
+	{PRAGMA}	{ /*DO NOTHING*/ }
 	"else"		{ return symbol(sym.ELSE); }
 	"endif"		{ return symbol(sym.ENDIF); }
 	{UNDEF}		{/*DO NOTHING*/}
 	{COMP_WORD}	{return symbol(sym.COMPWORD, new String(yytext()));}
 	{COMP_IGNOR}	{/*DO NOTHING*/}
 	{COMP_IGNOR2}	{return symbol(sym.SEMI);}
+	{COMP_IGNOR3}	{return symbol(sym.SEMI);}
 
 	{INCLUDE}	{ return symbol(sym.INCLUDE); }
 	"extern"	{ return symbol(sym.EXTERN); }
 	"typedef"	{ return symbol(sym.TYPEDEF); }
 	"struct"	{ return symbol(sym.STRUCT); }
+	"union"		{ return symbol(sym.STRUCT); }
+	"enum"		{ return symbol(sym.ENUMM); }
 	"["		{ return symbol(sym.LBRACKET); }
 	"]"		{ return symbol(sym.RBRACKET); }
 	
 	"signed"	{ return symbol(sym.UN_SIGNED, new String(yytext())); }
 	"unsigned"	{ return symbol(sym.UN_SIGNED, new String(yytext())); }
-	"const"		{ return symbol(sym.CONST); }
+	"const"		{ /*DO NOTHING*/ }
 	
 	"char"		{ return symbol(sym.CHAR); }
 	"short"		{ return symbol(sym.SHORT); }

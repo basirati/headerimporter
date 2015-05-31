@@ -12,6 +12,24 @@ public class ConditionalBlock extends Declaration{
     ArrayList<Declaration> true_block = new ArrayList<Declaration>();
     ArrayList<Declaration> false_block = new ArrayList<Declaration>();
 
+
+    @Override
+    public String getID() {
+        return this.getNormalizedName();
+    }
+
+    public String getNormalizedName()
+    {
+        String s = this.ID;
+        s = s.replace("!", "NOT");
+        s = s.replace("&&", "AND");
+        s = s.replace("||", "OR");
+        s = s.replace("&", "BITAND");
+        s = s.replace("|", "BITOR");
+        s = s.replaceAll("^[^a-zA-Z_$]|[^\\w$]", "");
+        return s;
+    }
+
     public ArrayList<Declaration> getBlock(boolean condition)
     {
         if (condition)

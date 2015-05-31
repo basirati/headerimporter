@@ -45,7 +45,7 @@ public class Importer {
 
       // creating Variability support file 
       SNode vs = null;
-      String VSname = "IFDEFVariability";
+      String VSname = SPropertyOperations.getString(module, "name") + "_IFDEFS";
       for (SNode file : ListSequence.fromList(SModelOperations.getRoots(SNodeOperations.getModel(module), "com.mbeddr.cc.var.fm.structure.VariabilitySupport"))) {
         if (SPropertyOperations.getString(file, "name").equals(VSname)) {
           vs = file;
