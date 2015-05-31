@@ -127,7 +127,7 @@ public class ImportConfig_Editor extends DefaultNodeEditor {
   }
 
   private EditorCell createConstant_kxgt6a_e0(EditorContext editorContext, SNode node) {
-    EditorCell_Constant editorCell = new EditorCell_Constant(editorContext, node, "form");
+    EditorCell_Constant editorCell = new EditorCell_Constant(editorContext, node, "from");
     editorCell.setCellId("Constant_kxgt6a_e0");
     editorCell.setDefaultText("");
     return editorCell;

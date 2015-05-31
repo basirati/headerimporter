@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependencies version="2" modelHash="b4bwf5j2w4scnzk381rzpzovqi5qf6s">
+  <common hash="-92rrd9b7hj84pcuxfbis05ys8bkz485">
+    <file name="TypeSizeConfiguration (libs)" />
+  </common>
+  <source id="5165032959505856085" hash="81b26ufl2wx23avhopliv3er5gx7yug" />
+  <source id="5165032959506392894" name="hserver" hash="7797dd4ayqrzu6s60gf9cyfeva20mxx" />
+  <source id="5971066364098912748" name="hclient" hash="-28izkxmvtfvgxko7rmd9bp46rhqvbal" />
+  <source id="7010721898865389706" name="hclient_IFDEFS" hash="6z3j4ff0oinyrwv34e5po80w2nr7wp5" />
+  <source id="7010721898865436028" name="ok" hash="83l1l8mb12275bhwq6tkpokmub03q38" />
+  <source id="7010721898866158464" name="hserver_IFDEFS" hash="6tjgqx0jc02xd0hf7nk747qzdg865yy" />
+</dependencies>
+

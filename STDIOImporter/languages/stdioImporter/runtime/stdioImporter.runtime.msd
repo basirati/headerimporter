@@ -4,12 +4,12 @@
     <modelRoot contentPath="${module}" type="default">
       <sourceRoot location="models" />
     </modelRoot>
-    <modelRoot contentPath="/home/basirati/Desktop/impo/bparser/out/artifacts/bparser_jar" type="java_classes">
-      <sourceRoot location="bparser.jar" />
+    <modelRoot contentPath="${headerimporter.home}/bparser" type="java_classes">
+      <sourceRoot location="out/artifacts/bparser_jar/bparser.jar" />
     </modelRoot>
   </models>
   <stubModelEntries>
-    <stubModelEntry path="/home/basirati/Desktop/impo/bparser/out/artifacts/bparser_jar/bparser.jar" />
+    <stubModelEntry path="${headerimporter.home}/bparser/out/artifacts/bparser_jar/bparser.jar" />
   </stubModelEntries>
   <sourcePath />
   <dependencies>

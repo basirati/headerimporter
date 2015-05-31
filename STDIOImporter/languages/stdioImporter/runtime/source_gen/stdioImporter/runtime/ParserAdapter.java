@@ -10,7 +10,10 @@ import java.io.FileReader;
 public class ParserAdapter {
   public static CodeGenerator Parse(String filename) {
     try {
-      parser p = new parser(new Lexer(new FileReader(filename)));
+      CodeGenerator cg = new CodeGenerator();
+      String tempfile = "temp.h";
+      cg.removeCPP(filename, tempfile);
+      parser p = new parser(new Lexer(new FileReader(tempfile)));
       p.parse();
       return p.cg;
     } catch (Exception e) {

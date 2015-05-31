@@ -4,22 +4,26 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Main {
-  static public void main(String argv[]) {    
-    /* Start the parser */
-    try {
-       // Lexer l = new Lexer(new FileReader("STDIO.H"));
-      //parser p = new parser(l);
-      parser p = new parser(new Lexer(new FileReader("gccstdio.h")));
-      p.parse();
-
-      System.out.println("..............................................");
-      p.cg.showDeclarations();
+  static public void main(String argv[]) {
+      String file = "header.h";
+      String normalized_file = "temp.h";
 
 
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+
+      try {
+
+          parser p = new parser(new Lexer(new FileReader(normalized_file)));
+          p.parse();
+          System.out.println("...................FINISH...........................");
+          p.cg.showDeclarations();
+      } catch (Exception e)
+      {
+          e.printStackTrace();
+      }
+
   }
+
+
 }
 
 

@@ -33,6 +33,8 @@ public class Variable extends Declaration{
     }
 
     public void setType(String type) {
+        if (type == null)
+            return;
         if (type.startsWith("struct"))
         {
             isStruct = true;

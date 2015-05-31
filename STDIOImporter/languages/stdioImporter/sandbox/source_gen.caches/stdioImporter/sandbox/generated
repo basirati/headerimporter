@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies version="2" modelHash="bulsuchxtievqvvbbt2y7g4p3z0ftf6">
+<dependencies version="2" modelHash="e7s5lpzdb6lyayx17ge5cb9z7rk0eku">
   <dep model="r:2ff3ad32-451f-46a7-91af-9ce87f286536(com.mbeddr.core.modules.generator.main.addReturnToClosure@generator)" hash="e7fabo3btro5ngsvchawgrawztg46dn" />
   <dep model="r:5f62df63-885f-42f0-80d6-e13ad6c51489(com.mbeddr.core.modules.gen.generator.template.main@generator)" hash="cwkpph96q1sg7p04q0czknn2b6ts0vd" />
   <dep model="r:7db67fb8-d2c9-4e02-89e5-cbea9152661c(com.mbeddr.core.util.generator.template.main@generator)" hash="-e1z8uaorm9buuthvhfcvo471oxd0une" />
@@ -14,10 +14,10 @@
     <file name="importer.h" />
   </common>
   <source id="1125784125118189173" hash="e3ysrj3xc0c8u4br0l5s54pzdk2lsyw" />
-  <source id="1125784125118190149" name="Test" hash="ajecdy8ijkb5xrfcoc0znbh0juvtbll" />
+  <source id="1125784125118190149" name="Test" hash="-8ejpsp2jel17svejfhwzylshglw3uxq" />
   <source id="1125784125118547263" name="TypeSizeConfiguration (s.sandbox)" hash="cts16ihjrlnbgzt76l00vfh597qv0r3" />
-  <source id="6765740111390663223" name="importer" hash="-dwuc2y5hvq7av4dvzpl1r4gz1ehplcs" />
+  <source id="6765740111390663223" name="importer" hash="-7acjduii7d0lf0e77kab7oinr8zwizo" />
   <source id="8612300272539140742" name="BuildConfiguration (s.sandbox)" hash="dh3em2k2cs0yxiutdzh267ylyds7lkl" />
-  <source id="7598655514275826186" name="IFDEFVariability" hash="czha2nvf0f6kq5wnej3668wtfe9okzd" />
+  <source id="7598655514275826186" name="IFDEFVariability" hash="-3dfjix8pf0dgruq0uwe7lfll74zlzmo" />
 </dependencies>
 

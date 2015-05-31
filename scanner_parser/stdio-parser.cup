@@ -27,12 +27,12 @@ parser code {:
    
 
 
-terminal		IF, SHARP, DEFINE, LBRACKET, RBRACKET, ASSIGN, DOT, DOTS, BAR, BARDOT, GREATER, LESS, GG, LL, PREF, MM, PP, GE, LE, AND, OR, NOTEQUAL, EQUAL, COLON, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ, PERCENT, HAT, QUESTIONMARK, SHORT, LONG, UN_SIGNED, CONST, AMPERSAND, TILDE, CHAR, INT, SINT, LINT, LLONG, LLINT, FLOAT, DOUBLE, LDOUBLE, PLUSEQ, MINUSEQ, STAREQ, DIVIDEQ, PERCENTEQ, LLEQ, GGEQ, AMPERSANDEQ, HATEQ, BAREQ, IFDEF, IFNDEF, ELSE, ENDIF, INCLUDE, COMPWORD;
+terminal		IF, SHARP, DEFINE, LBRACKET, RBRACKET, ASSIGN, DOT, DOTS, BAR, BARDOT, GREATER, LESS, GG, LL, PREF, MM, PP, GE, LE, AND, OR, NOTEQUAL, EQUAL, COLON, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ, PERCENT, HAT, QUESTIONMARK, SHORT, LONG, UN_SIGNED, AMPERSAND, TILDE, CHAR, INT, SINT, LINT, LLONG, LLINT, FLOAT, DOUBLE, LDOUBLE, PLUSEQ, MINUSEQ, STAREQ, DIVIDEQ, PERCENTEQ, LLEQ, GGEQ, AMPERSANDEQ, HATEQ, BAREQ, IFDEF, IFNDEF, ELSE, ENDIF, INCLUDE, COMPWORD, ENUMM;
 
 terminal Integer	NUMBER;
 terminal String		ID;
    
-non terminal Object     pre_process_step, def_body, program, code_part, params, struct_body, func, ident_funcpointer, expression, func_call, args, Ar2, B2, LogicalS, macro_params, def_val, general_declaration, struct_declaration, typedef_declaration, var_declaration, function_declaration, parameter, newtype;
+non terminal Object     pre_process_step, def_body, program, code_part, params, struct_body, func, ident_funcpointer, expression, func_call, args, Ar2, B2, LogicalS, macro_params, def_val, general_declaration, struct_declaration, typedef_declaration, var_declaration, function_declaration, parameter, newtype, enum_declaration, enum_body, 	enum_constant, union_declaration;
 non terminal String	type, pre_type, c_type;
 
 precedence left COMPWORD;
@@ -49,6 +49,7 @@ precedence left ID;
 	code_part ::= 	  pre_process_step
 			| general_declaration SEMI
 			| EXTERN general_declaration SEMI
+			| error
 			;
 			
 
@@ -70,6 +71,7 @@ precedence left ID;
 
 	general_declaration::=	  typedef_declaration
 				| struct_declaration
+				| enum_declaration
 				| var_declaration {: parser.cg.declareVar(); :} 
 				| function_declaration
 				| general_declaration COMPWORD
@@ -79,6 +81,7 @@ precedence left ID;
 	typedef_declaration::=	  TYPEDEF var_declaration:d2 {: parser.cg.declareTypedef_var(); :}
 				| TYPEDEF STRUCT LQ struct_body:s RQ ID:i {: parser.cg.declareTypedef_struct(i, ""); :}
 				| TYPEDEF STRUCT ID:i expression:e {: parser.cg.declareTypedef_struct(i, e); :}
+				| TYPEDEF enum_declaration ID
 				;
 
 	struct_declaration::=	  STRUCT ID:i
@@ -99,7 +102,19 @@ precedence left ID;
 					parser.cg.declareStruct();
 					:}
 				;
-	
+
+	enum_declaration::=	ENUMM ID:i LQ enum_body RQ
+				;
+	enum_constant::=	ID
+				| ID ASSIGN
+				| ID ASSIGN NUMBER
+				;
+
+	enum_body::=		enum_constant
+				| enum_constant COMMA enum_body
+				;
+
+
 	function_declaration::= func:f {: parser.cg.declareFunc(); :}
 				;
 
@@ -166,6 +181,11 @@ precedence left ID;
 			var_declaration LBRACKET NUMBER:n RBRACKET
 			{:
 			parser.cg.var.addArray(n);
+			:}
+			|
+			var_declaration LBRACKET ID RBRACKET
+			{:
+			parser.cg.var.addArray(0);
 			:}
 			|
 			type:i7 LPAREN STAR ID:i8 RPAREN LPAREN
@@ -235,7 +255,7 @@ precedence left ID;
 	pre_type::=	c_type:c {: RESULT= c; :}| ID:i {: RESULT= i; :}
 			| STRUCT ID:i {: RESULT= "struct " + i; :}
 			| UN_SIGNED:u pre_type:p {: RESULT= u + " " + p; :} 
-			| CONST pre_type:p {: RESULT="const " + p; :};
+			;
 			
 
 	type::=		pre_type:p {: RESULT= p; :}
