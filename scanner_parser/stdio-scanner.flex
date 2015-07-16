@@ -26,6 +26,8 @@ import java_cup.runtime.*;
     public StringBuilder tmpString;
 %}
 
+%xstates MULTI_COMMENT, MONO_COMMENT, STRING
+
 SPACE = [ \t\r\f]
 NEWLINE = \n | \u2028 | \u2029 | \u000B | \u000C | \u0085
 IGNORENEWLINE = (\\){NEWLINE}
@@ -34,6 +36,7 @@ NUM = [0-9]+
 ALPHA = [a-zA-Z_]
 ALPHA_NUM = {ALPHA}|[0-9]|["_"]
 IDENT = {ALPHA}({ALPHA_NUM})*
+
 
 DEFINE = (#)({SPACE})*(define){SPACE}*(({IGNORENEWLINE} | .)*)
 IF = (#)({SPACE})*(if){SPACE}*(({IGNORENEWLINE} | .)*)
@@ -53,9 +56,6 @@ COMP_WORD = (__){IDENT}|(__){IDENT}(["("]){IDENT}([")"])
 
 DOTS = [,]({SPACE})*([.]{3})
 
-
-
-%xstates MULTI_COMMENT, MONO_COMMENT, STRING
 
    
 %%

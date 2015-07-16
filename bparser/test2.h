@@ -1,5 +1,3 @@
-#  define NI_IDN_ALLOW_UNASSIGNED 64 /* Don't reject unassigned Unicode
-					code points.  */
 
 int __return;
 int __glibc_reserved[5];

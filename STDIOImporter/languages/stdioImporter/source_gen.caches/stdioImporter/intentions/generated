@@ -1,36 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies version="2" modelHash="6e8qa2k0kyi0db4iv37yjcapep994c0">
-  <dep model="r:00000000-0000-4000-0000-011c895902cd(jetbrains.mps.baseLanguage.generator.java.main@generator)" hash="303xz1b2lyseld0axia86q3lpvucmq6" />
-  <dep model="r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)" hash="-8z73tx2nml9xagbxlfmq60ehji8q3f5" />
-  <dep model="r:00000000-0000-4000-0000-011c89590354(jetbrains.mps.lang.intentions.generator.baseLanguage.template.main@generator)" hash="-5zht81o2cl3uwfxeued3uote7i72b3p" />
-  <dep model="r:56c48711-bf46-4489-b509-90d3acd252dc(stdioImporter.behavior)" hash="-by7ik8wweqdp9bmfq6co8r1jos6tpgf" />
-  <dep model="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" hash="-7bcbwd0eeanjmbse4qqe65jn9wesga4" />
-  <dep model="r:b4d7d620-6723-4aa2-856b-118497e84e9e(jetbrains.mps.baseLanguage.generator.java.strings@generator)" hash="b4ewbuz42qcbg1awca5bacgi0vopxqt" />
-  <dep model="r:f04c1476-2f91-4f59-be13-c8e009abebee(jetbrains.mps.baseLanguageInternal.generator.template.main@generator)" hash="a8elw7fctzg6sg8fe36u9gzu42axhdb" />
-  <dep model="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)" hash="6i4l5tjsa1jr93zttvw0j1efw9nqm1x" />
-  <common hash="-braez1211bji6wy399oea1edpbtj7qm" dependsOnNodes="true">
-    <dep root="4200119016361204925" />
-    <dep root="4200119016361366244" />
-    <dep model="r:00000000-0000-4000-0000-011c895902cd(jetbrains.mps.baseLanguage.generator.java.main@generator)" />
-    <dep model="r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)" />
-    <dep model="r:00000000-0000-4000-0000-011c89590354(jetbrains.mps.lang.intentions.generator.baseLanguage.template.main@generator)" />
-    <dep model="r:b4d7d620-6723-4aa2-856b-118497e84e9e(jetbrains.mps.baseLanguage.generator.java.strings@generator)" />
-    <dep model="r:f04c1476-2f91-4f59-be13-c8e009abebee(jetbrains.mps.baseLanguageInternal.generator.template.main@generator)" />
-    <file name="IntentionsDescriptor.java" />
-  </common>
-  <source id="4200119016361204925" name="ClearImport" hash="1rycqfrow9f2nnapcozi1ibc9on8hq">
-    <dep model="r:00000000-0000-4000-0000-011c895902cd(jetbrains.mps.baseLanguage.generator.java.main@generator)" />
-    <dep model="r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)" />
-    <dep model="r:00000000-0000-4000-0000-011c89590354(jetbrains.mps.lang.intentions.generator.baseLanguage.template.main@generator)" />
-    <dep model="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" />
-    <file name="ClearImport_Intention.java" />
-  </source>
-  <source id="4200119016361366244" name="PerformImport" hash="e1ug1cqm04i798ajurxawajfkeaq1av">
-    <dep model="r:00000000-0000-4000-0000-011c89590354(jetbrains.mps.lang.intentions.generator.baseLanguage.template.main@generator)" />
-    <dep model="r:56c48711-bf46-4489-b509-90d3acd252dc(stdioImporter.behavior)" />
-    <dep model="r:75ecab8a-8931-4140-afc6-4b46398710fc(com.mbeddr.core.modules.structure)" />
-    <dep model="r:f7c4fd39-46a1-4ed5-868e-f31cb019e359(stdioImporter.structure)" />
-    <file name="PerformImport_Intention.java" />
-  </source>
-</dependencies>
+<dependencies version="2" modelHash="-5zuxep9brfufpzvyau6bvyynq17r2gj" />
 

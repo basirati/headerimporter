@@ -12,6 +12,7 @@ public class ParserAdapter {
     try {
       CodeGenerator cg = new CodeGenerator();
       String tempfile = "temp.h";
+      // removing c++ parts from the input file and saving it in a temprorary file 
       cg.removeCPP(filename, tempfile);
       parser p = new parser(new Lexer(new FileReader(tempfile)));
       p.parse();

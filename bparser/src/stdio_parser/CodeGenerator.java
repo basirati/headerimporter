@@ -188,6 +188,8 @@ public class CodeGenerator {
     }
 
     public void removeCPP(String filename, String tempfile) {
+
+
         BufferedReader br = null;
         try {
 
@@ -198,6 +200,7 @@ public class CodeGenerator {
             String line = br.readLine();
 
             while (line != null) {
+
                 if (line.contains("extern \"C++\"")) {
                     String temp = br.readLine();
                     int x = 0;
@@ -221,6 +224,25 @@ public class CodeGenerator {
                         line = br.readLine();
                         continue;
                     }
+                }
+                else if (line.contains("extern \"C\""))
+                {
+                    line = br.readLine();
+                    continue;
+                }
+                else if (line.trim().equals("}"))
+                {
+                    line = br.readLine();
+                    continue;
+                }
+                else if (line.contains("/*"))
+                {
+                    int index = line.indexOf("/*");
+                    String temp = line.substring(0, index);
+                    String cm = line.substring(index);
+                    sb.append(temp);
+                    sb.append(System.lineSeparator());
+                    line = cm;
                 }
                 sb.append(line);
                 sb.append(System.lineSeparator());

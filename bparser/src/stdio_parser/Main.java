@@ -8,8 +8,8 @@ public class Main {
       String file = "header.h";
       String normalized_file = "temp.h";
 
-
-
+      CodeGenerator cg = new CodeGenerator();
+      cg.removeCPP(file, normalized_file);
       try {
 
           parser p = new parser(new Lexer(new FileReader(normalized_file)));
@@ -20,7 +20,6 @@ public class Main {
       {
           e.printStackTrace();
       }
-
   }
 
 

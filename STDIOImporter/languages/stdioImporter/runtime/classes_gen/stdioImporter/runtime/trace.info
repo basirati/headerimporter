@@ -1,753 +1,779 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<debugInfo>
+<debug-info>
+  <concept fqn="jetbrains.mps.baseLanguage.structure.BlockStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.ContinueStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.FieldDeclaration" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.ForStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.ForeachStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.IfStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.Statement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.TryCatchStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.WhileStatement" />
   <root nodeRef="r:0a61a9e7-a709-43f0-abe2-8e147f2ba2c1(stdioImporter.runtime)/3764438981860010834">
-    <nodeInfo nodeId="6091159296686214658" fileName="ParserAdapter.java" startLine="12" startPosition="9" endLine="13" endPosition="45" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="6091159296686221874" fileName="ParserAdapter.java" startLine="13" startPosition="45" endLine="14" endPosition="33" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="6091159296686218806" fileName="ParserAdapter.java" startLine="14" startPosition="33" endLine="15" endPosition="39" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="3764438981860057750" fileName="ParserAdapter.java" startLine="15" startPosition="39" endLine="16" endPosition="65" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="3764438981860187731" fileName="ParserAdapter.java" startLine="16" startPosition="65" endLine="17" endPosition="16" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1125784125119250209" fileName="ParserAdapter.java" startLine="17" startPosition="16" endLine="18" endPosition="18" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="191036071780304070" fileName="ParserAdapter.java" startLine="19" startPosition="27" endLine="20" endPosition="45" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="191036071780316604" fileName="ParserAdapter.java" startLine="21" startPosition="5" endLine="22" endPosition="16" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="3764438981860197241" fileName="ParserAdapter.java" startLine="11" startPosition="54" endLine="21" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.TryCatchStatement" />
-    <nodeInfo nodeId="3764438981860038542" fileName="ParserAdapter.java" startLine="11" startPosition="0" endLine="24" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" propertyString="Parse#(Ljava/lang/String;)Lstdio_parser/CodeGenerator;" />
-    <scopeInfo nodeId="3764438981860197237" fileName="ParserAdapter.java" startLine="19" startPosition="0" endLine="20" endPosition="45">
-      <varInfo nodeId="3764438981860197239" varName="e" />
-    </scopeInfo>
-    <scopeInfo nodeId="191036071780304072" fileName="ParserAdapter.java" startLine="19" startPosition="27" endLine="20" endPosition="45" />
-    <scopeInfo nodeId="3764438981860197242" fileName="ParserAdapter.java" startLine="12" startPosition="9" endLine="18" endPosition="18">
-      <varInfo nodeId="6091159296686214659" varName="cg" />
-      <varInfo nodeId="3764438981860057751" varName="p" />
-      <varInfo nodeId="6091159296686221875" varName="tempfile" />
-    </scopeInfo>
-    <scopeInfo nodeId="3764438981860038545" fileName="ParserAdapter.java" startLine="11" startPosition="54" endLine="22" endPosition="16" />
-    <scopeInfo nodeId="3764438981860038542" fileName="ParserAdapter.java" startLine="11" startPosition="0" endLine="24" endPosition="0">
-      <varInfo nodeId="9102946174996790030" varName="filename" />
-    </scopeInfo>
-    <unitInfo nodeId="3764438981860010834" fileName="ParserAdapter.java" startLine="10" startPosition="0" endLine="25" endPosition="0" unitName="stdioImporter.runtime.ParserAdapter" />
+    <file name="ParserAdapter.java">
+      <node id="6091159296686214658" at="12,9,13,45" concept="8" />
+      <node id="6091159296686221874" at="13,45,14,33" concept="8" />
+      <node id="4447855096663111562" at="14,33,15,83" concept="10" />
+      <node id="6091159296686218806" at="15,83,16,39" concept="2" />
+      <node id="3764438981860057750" at="16,39,17,65" concept="8" />
+      <node id="3764438981860187731" at="17,65,18,16" concept="2" />
+      <node id="1125784125119250209" at="18,16,19,18" concept="9" />
+      <node id="191036071780304070" at="20,27,21,45" concept="2" />
+      <node id="191036071780316604" at="22,5,23,16" concept="9" />
+      <node id="3764438981860197241" at="11,54,22,5" concept="13" />
+      <node id="3764438981860038542" at="11,0,25,0" concept="12" trace="Parse#(Ljava/lang/String;)Lstdio_parser/CodeGenerator;" />
+      <scope id="3764438981860197237" at="20,0,21,45">
+        <var name="e" id="3764438981860197239" />
+      </scope>
+      <scope id="191036071780304072" at="20,27,21,45" />
+      <scope id="3764438981860197242" at="12,9,19,18">
+        <var name="cg" id="6091159296686214659" />
+        <var name="p" id="3764438981860057751" />
+        <var name="tempfile" id="6091159296686221875" />
+      </scope>
+      <scope id="3764438981860038545" at="11,54,23,16" />
+      <scope id="3764438981860038542" at="11,0,25,0">
+        <var name="filename" id="9102946174996790030" />
+      </scope>
+      <unit id="3764438981860010834" at="10,0,26,0" name="stdioImporter.runtime.ParserAdapter" />
+    </file>
   </root>
   <root nodeRef="r:0a61a9e7-a709-43f0-abe2-8e147f2ba2c1(stdioImporter.runtime)/3764438981860208468">
-    <nodeInfo nodeId="233004638653207276" fileName="Importer.java" startLine="19" startPosition="9" endLine="20" endPosition="27" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="233004638653210533" fileName="Importer.java" startLine="21" startPosition="33" endLine="22" endPosition="37" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="233004638653241667" fileName="Importer.java" startLine="23" startPosition="14" endLine="24" endPosition="43" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="233004638653261702" fileName="Importer.java" startLine="25" startPosition="7" endLine="26" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="9109243906979071243" fileName="Importer.java" startLine="26" startPosition="0" endLine="27" endPosition="51" conceptFqName="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
-    <nodeInfo nodeId="1125784125117991527" fileName="Importer.java" startLine="27" startPosition="51" endLine="28" endPosition="55" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="191036071780359397" fileName="Importer.java" startLine="29" startPosition="23" endLine="30" endPosition="21" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="4611530235019572908" fileName="Importer.java" startLine="31" startPosition="7" endLine="32" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="9109243906979066038" fileName="Importer.java" startLine="32" startPosition="0" endLine="33" endPosition="49" conceptFqName="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
-    <nodeInfo nodeId="1272265463430722694" fileName="Importer.java" startLine="33" startPosition="49" endLine="34" endPosition="33" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1272265463430726867" fileName="Importer.java" startLine="36" startPosition="177" endLine="37" endPosition="30" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4611530235019678620" fileName="Importer.java" startLine="40" startPosition="24" endLine="41" endPosition="116" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4611530235019682644" fileName="Importer.java" startLine="41" startPosition="116" endLine="42" endPosition="70" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1272265463430739755" fileName="Importer.java" startLine="42" startPosition="70" endLine="43" endPosition="106" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7004343899539565408" fileName="Importer.java" startLine="44" startPosition="7" endLine="45" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="7598655514274876544" fileName="Importer.java" startLine="45" startPosition="0" endLine="46" endPosition="43" conceptFqName="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
-    <nodeInfo nodeId="7598655514275566977" fileName="Importer.java" startLine="46" startPosition="43" endLine="47" endPosition="22" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="7598655514275231327" fileName="Importer.java" startLine="47" startPosition="22" endLine="48" endPosition="80" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="7598655514275573930" fileName="Importer.java" startLine="50" startPosition="73" endLine="51" endPosition="20" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7598655514275601062" fileName="Importer.java" startLine="54" startPosition="23" endLine="55" endPosition="105" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7598655514275090243" fileName="Importer.java" startLine="55" startPosition="105" endLine="56" endPosition="52" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7598655514275271532" fileName="Importer.java" startLine="56" startPosition="52" endLine="57" endPosition="75" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7598655514274879216" fileName="Importer.java" startLine="58" startPosition="7" endLine="59" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="7598655514275550483" fileName="Importer.java" startLine="59" startPosition="0" endLine="60" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="6846424207480990664" fileName="Importer.java" startLine="60" startPosition="0" endLine="61" endPosition="48" conceptFqName="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
-    <nodeInfo nodeId="6846424207481003601" fileName="Importer.java" startLine="61" startPosition="48" endLine="62" endPosition="64" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="5385999576217083854" fileName="Importer.java" startLine="62" startPosition="64" endLine="63" endPosition="63" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481135680" fileName="Importer.java" startLine="63" startPosition="63" endLine="64" endPosition="53" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7598655514275551678" fileName="Importer.java" startLine="64" startPosition="53" endLine="65" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="7598655514274872663" fileName="Importer.java" startLine="65" startPosition="0" endLine="66" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="6846424207480975406" fileName="Importer.java" startLine="66" startPosition="0" endLine="67" endPosition="51" conceptFqName="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
-    <nodeInfo nodeId="5385999576217196562" fileName="Importer.java" startLine="67" startPosition="51" endLine="68" endPosition="33" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="5385999576217227875" fileName="Importer.java" startLine="70" startPosition="234" endLine="71" endPosition="30" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7747522817699437404" fileName="Importer.java" startLine="74" startPosition="24" endLine="75" endPosition="123" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="7747522817699465132" fileName="Importer.java" startLine="75" startPosition="123" endLine="76" endPosition="59" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7747522817699404768" fileName="Importer.java" startLine="76" startPosition="59" endLine="77" endPosition="99" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207480978284" fileName="Importer.java" startLine="78" startPosition="7" endLine="79" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="9109243906979076040" fileName="Importer.java" startLine="79" startPosition="0" endLine="80" endPosition="42" conceptFqName="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
-    <nodeInfo nodeId="393239732992647709" fileName="Importer.java" startLine="80" startPosition="42" endLine="81" endPosition="45" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4610324712308741732" fileName="Importer.java" startLine="81" startPosition="45" endLine="82" endPosition="21" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="393239732993007432" fileName="Importer.java" startLine="82" startPosition="21" endLine="83" endPosition="52" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7748965338869973324" fileName="Importer.java" startLine="83" startPosition="52" endLine="84" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="7748965338870881608" fileName="Importer.java" startLine="84" startPosition="0" endLine="85" endPosition="41" conceptFqName="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
-    <nodeInfo nodeId="1988191659994091271" fileName="Importer.java" startLine="85" startPosition="41" endLine="86" endPosition="184" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7748965338870721537" fileName="Importer.java" startLine="86" startPosition="184" endLine="87" endPosition="126" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="7748965338870732026" fileName="Importer.java" startLine="87" startPosition="126" endLine="88" endPosition="155" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7748965338870771675" fileName="Importer.java" startLine="88" startPosition="155" endLine="89" endPosition="154" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7748965338870790633" fileName="Importer.java" startLine="89" startPosition="154" endLine="90" endPosition="161" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7748965338870964534" fileName="Importer.java" startLine="90" startPosition="161" endLine="91" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="3586189909560602095" fileName="Importer.java" startLine="91" startPosition="0" endLine="92" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="3764438981860238393" fileName="Importer.java" startLine="93" startPosition="27" endLine="94" endPosition="19" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="3764438981860231123" fileName="Importer.java" startLine="95" startPosition="5" endLine="96" endPosition="16" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="233004638653240493" fileName="Importer.java" startLine="23" startPosition="12" endLine="25" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.BlockStatement" />
-    <nodeInfo nodeId="191036071780347312" fileName="Importer.java" startLine="28" startPosition="55" endLine="31" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="1272265463430714116" fileName="Importer.java" startLine="35" startPosition="111" endLine="38" endPosition="9" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="7598655514275205356" fileName="Importer.java" startLine="49" startPosition="162" endLine="52" endPosition="9" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="5385999576217201790" fileName="Importer.java" startLine="69" startPosition="101" endLine="72" endPosition="9" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="233004638653178436" fileName="Importer.java" startLine="20" startPosition="27" endLine="25" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="1272265463430705648" fileName="Importer.java" startLine="34" startPosition="33" endLine="39" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.ForeachStatement" />
-    <nodeInfo nodeId="1272265463430732901" fileName="Importer.java" startLine="39" startPosition="7" endLine="44" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="7598655514275164596" fileName="Importer.java" startLine="48" startPosition="80" endLine="53" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.ForeachStatement" />
-    <nodeInfo nodeId="7598655514275256644" fileName="Importer.java" startLine="53" startPosition="7" endLine="58" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="5385999576217169195" fileName="Importer.java" startLine="68" startPosition="33" endLine="73" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.ForeachStatement" />
-    <nodeInfo nodeId="5385999576217233807" fileName="Importer.java" startLine="73" startPosition="7" endLine="78" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="3764438981860231306" fileName="Importer.java" startLine="18" startPosition="80" endLine="95" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.TryCatchStatement" />
-    <nodeInfo nodeId="3873900481303775804" fileName="Importer.java" startLine="18" startPosition="0" endLine="98" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" propertyString="doImport#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;Ljava/lang/String;)Z" />
-    <scopeInfo nodeId="233004638653178439" fileName="Importer.java" startLine="21" startPosition="33" endLine="22" endPosition="37" />
-    <scopeInfo nodeId="233004638653240494" fileName="Importer.java" startLine="23" startPosition="14" endLine="24" endPosition="43" />
-    <scopeInfo nodeId="191036071780347315" fileName="Importer.java" startLine="29" startPosition="23" endLine="30" endPosition="21" />
-    <scopeInfo nodeId="1272265463430714117" fileName="Importer.java" startLine="36" startPosition="177" endLine="37" endPosition="30" />
-    <scopeInfo nodeId="7598655514275205357" fileName="Importer.java" startLine="50" startPosition="73" endLine="51" endPosition="20" />
-    <scopeInfo nodeId="5385999576217201791" fileName="Importer.java" startLine="70" startPosition="234" endLine="71" endPosition="30" />
-    <scopeInfo nodeId="3764438981860231309" fileName="Importer.java" startLine="93" startPosition="0" endLine="94" endPosition="19">
-      <varInfo nodeId="3764438981860231311" varName="e" />
-    </scopeInfo>
-    <scopeInfo nodeId="3764438981860231315" fileName="Importer.java" startLine="93" startPosition="27" endLine="94" endPosition="19" />
-    <scopeInfo nodeId="1272265463430705654" fileName="Importer.java" startLine="35" startPosition="111" endLine="38" endPosition="9" />
-    <scopeInfo nodeId="1272265463430732904" fileName="Importer.java" startLine="40" startPosition="24" endLine="43" endPosition="106">
-      <varInfo nodeId="4611530235019678623" varName="header" />
-    </scopeInfo>
-    <scopeInfo nodeId="7598655514275164602" fileName="Importer.java" startLine="49" startPosition="162" endLine="52" endPosition="9" />
-    <scopeInfo nodeId="7598655514275256647" fileName="Importer.java" startLine="54" startPosition="23" endLine="57" endPosition="75" />
-    <scopeInfo nodeId="5385999576217169201" fileName="Importer.java" startLine="69" startPosition="101" endLine="72" endPosition="9" />
-    <scopeInfo nodeId="5385999576217233810" fileName="Importer.java" startLine="74" startPosition="24" endLine="77" endPosition="99">
-      <varInfo nodeId="7747522817699437407" varName="dgc" />
-    </scopeInfo>
-    <scopeInfo nodeId="1272265463430705648" fileName="Importer.java" startLine="34" startPosition="33" endLine="39" endPosition="7">
-      <varInfo nodeId="1272265463430705650" varName="headerfile" />
-    </scopeInfo>
-    <scopeInfo nodeId="7598655514275164596" fileName="Importer.java" startLine="48" startPosition="80" endLine="53" endPosition="7">
-      <varInfo nodeId="7598655514275164598" varName="file" />
-    </scopeInfo>
-    <scopeInfo nodeId="5385999576217169195" fileName="Importer.java" startLine="68" startPosition="33" endLine="73" endPosition="7">
-      <varInfo nodeId="5385999576217169197" varName="file" />
-    </scopeInfo>
-    <scopeInfo nodeId="3764438981860231308" fileName="Importer.java" startLine="19" startPosition="9" endLine="92" endPosition="0">
-      <varInfo nodeId="7598655514275231328" varName="VSname" />
-      <varInfo nodeId="1125784125117991528" varName="cg" />
-      <varInfo nodeId="393239732992647710" varName="core" />
-      <varInfo nodeId="233004638653207277" varName="fileaddr" />
-      <varInfo nodeId="7748965338870721540" varName="fmc" />
-      <varInfo nodeId="1272265463430722697" varName="headercheck" />
-      <varInfo nodeId="5385999576217196565" varName="importcheck" />
-      <varInfo nodeId="6846424207481003602" varName="vimporter" />
-      <varInfo nodeId="7598655514275566980" varName="vs" />
-    </scopeInfo>
-    <scopeInfo nodeId="3764438981860231100" fileName="Importer.java" startLine="18" startPosition="80" endLine="96" endPosition="16" />
-    <scopeInfo nodeId="3873900481303775804" fileName="Importer.java" startLine="18" startPosition="0" endLine="98" endPosition="0">
-      <varInfo nodeId="1125784125117977524" varName="filename" />
-      <varInfo nodeId="233004638652776759" varName="folder" />
-      <varInfo nodeId="1125784125117976017" varName="module" />
-    </scopeInfo>
-    <unitInfo nodeId="3764438981860208468" fileName="Importer.java" startLine="17" startPosition="0" endLine="99" endPosition="0" unitName="stdioImporter.runtime.Importer" />
+    <file name="Importer.java">
+      <node id="233004638653207276" at="20,9,21,27" concept="8" />
+      <node id="233004638653210533" at="22,33,23,37" concept="2" />
+      <node id="233004638653241667" at="24,14,25,43" concept="2" />
+      <node id="233004638653261702" at="26,7,27,0" concept="11" />
+      <node id="9109243906979071243" at="27,0,28,51" concept="10" />
+      <node id="1125784125117991527" at="28,51,29,55" concept="8" />
+      <node id="191036071780359397" at="30,23,31,21" concept="9" />
+      <node id="4611530235019572908" at="32,7,33,0" concept="11" />
+      <node id="9109243906979066038" at="33,0,34,49" concept="10" />
+      <node id="1272265463430722694" at="34,49,35,33" concept="8" />
+      <node id="1272265463430726867" at="37,409,38,30" concept="2" />
+      <node id="4611530235019678620" at="41,24,42,239" concept="8" />
+      <node id="4611530235019682644" at="42,239,43,186" concept="2" />
+      <node id="1272265463430739755" at="43,186,44,224" concept="2" />
+      <node id="7004343899539565408" at="45,7,46,0" concept="11" />
+      <node id="7598655514274876544" at="46,0,47,43" concept="10" />
+      <node id="7598655514275566977" at="47,43,48,22" concept="8" />
+      <node id="7598655514275231327" at="48,22,49,186" concept="8" />
+      <node id="7598655514275573930" at="51,179,52,20" concept="2" />
+      <node id="7598655514275601062" at="55,23,56,228" concept="2" />
+      <node id="7598655514275090243" at="56,228,57,158" concept="2" />
+      <node id="7598655514275271532" at="57,158,58,75" concept="2" />
+      <node id="7598655514274879216" at="59,7,60,0" concept="11" />
+      <node id="7598655514275550483" at="60,0,61,0" concept="11" />
+      <node id="6846424207480990664" at="61,0,62,48" concept="10" />
+      <node id="6846424207481003601" at="62,48,63,64" concept="8" />
+      <node id="5385999576217083854" at="63,64,64,181" concept="2" />
+      <node id="6846424207481135680" at="64,181,65,53" concept="2" />
+      <node id="7598655514275551678" at="65,53,66,0" concept="11" />
+      <node id="7598655514274872663" at="66,0,67,0" concept="11" />
+      <node id="6846424207480975406" at="67,0,68,51" concept="10" />
+      <node id="5385999576217196562" at="68,51,69,33" concept="8" />
+      <node id="5385999576217227875" at="71,446,72,30" concept="2" />
+      <node id="7747522817699437404" at="75,24,76,245" concept="8" />
+      <node id="7747522817699465132" at="76,245,77,171" concept="2" />
+      <node id="7747522817699404768" at="77,171,78,217" concept="2" />
+      <node id="6846424207480978284" at="79,7,80,0" concept="11" />
+      <node id="9109243906979076040" at="80,0,81,42" concept="10" />
+      <node id="393239732992647709" at="81,42,82,45" concept="8" />
+      <node id="4610324712308741732" at="82,45,83,21" concept="2" />
+      <node id="393239732993007432" at="83,21,84,52" concept="2" />
+      <node id="7748965338869973324" at="84,52,85,0" concept="11" />
+      <node id="7748965338870881608" at="85,0,86,41" concept="10" />
+      <node id="1988191659994091271" at="86,41,87,276" concept="2" />
+      <node id="7748965338870721537" at="87,276,88,247" concept="8" />
+      <node id="7748965338870732026" at="88,247,89,384" concept="2" />
+      <node id="7748965338870771675" at="89,384,90,384" concept="2" />
+      <node id="7748965338870790633" at="90,384,91,253" concept="2" />
+      <node id="7748965338870964534" at="91,253,92,0" concept="11" />
+      <node id="3586189909560602095" at="92,0,93,0" concept="11" />
+      <node id="3764438981860238393" at="94,27,95,19" concept="9" />
+      <node id="3764438981860231123" at="96,5,97,16" concept="9" />
+      <node id="233004638653240493" at="24,12,26,7" concept="0" />
+      <node id="191036071780347312" at="29,55,32,7" concept="6" />
+      <node id="1272265463430714116" at="36,229,39,9" concept="6" />
+      <node id="7598655514275205356" at="50,253,53,9" concept="6" />
+      <node id="5385999576217201790" at="70,219,73,9" concept="6" />
+      <node id="233004638653178436" at="21,27,26,7" concept="6" />
+      <node id="1272265463430705648" at="35,33,40,7" concept="5" />
+      <node id="1272265463430732901" at="40,7,45,7" concept="6" />
+      <node id="7598655514275164596" at="49,186,54,7" concept="5" />
+      <node id="7598655514275256644" at="54,7,59,7" concept="6" />
+      <node id="5385999576217169195" at="69,33,74,7" concept="5" />
+      <node id="5385999576217233807" at="74,7,79,7" concept="6" />
+      <node id="3764438981860231306" at="19,80,96,5" concept="13" />
+      <node id="3873900481303775804" at="19,0,99,0" concept="12" trace="doImport#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;Ljava/lang/String;)Z" />
+      <scope id="233004638653178439" at="22,33,23,37" />
+      <scope id="233004638653240494" at="24,14,25,43" />
+      <scope id="191036071780347315" at="30,23,31,21" />
+      <scope id="1272265463430714117" at="37,409,38,30" />
+      <scope id="7598655514275205357" at="51,179,52,20" />
+      <scope id="5385999576217201791" at="71,446,72,30" />
+      <scope id="3764438981860231309" at="94,0,95,19">
+        <var name="e" id="3764438981860231311" />
+      </scope>
+      <scope id="3764438981860231315" at="94,27,95,19" />
+      <scope id="1272265463430705654" at="36,229,39,9" />
+      <scope id="1272265463430732904" at="41,24,44,224">
+        <var name="header" id="4611530235019678623" />
+      </scope>
+      <scope id="7598655514275164602" at="50,253,53,9" />
+      <scope id="7598655514275256647" at="55,23,58,75" />
+      <scope id="5385999576217169201" at="70,219,73,9" />
+      <scope id="5385999576217233810" at="75,24,78,217">
+        <var name="dgc" id="7747522817699437407" />
+      </scope>
+      <scope id="1272265463430705648" at="35,33,40,7">
+        <var name="headerfile" id="1272265463430705650" />
+      </scope>
+      <scope id="7598655514275164596" at="49,186,54,7">
+        <var name="file" id="7598655514275164598" />
+      </scope>
+      <scope id="5385999576217169195" at="69,33,74,7">
+        <var name="file" id="5385999576217169197" />
+      </scope>
+      <scope id="3764438981860231308" at="20,9,93,0">
+        <var name="VSname" id="7598655514275231328" />
+        <var name="cg" id="1125784125117991528" />
+        <var name="core" id="393239732992647710" />
+        <var name="fileaddr" id="233004638653207277" />
+        <var name="fmc" id="7748965338870721540" />
+        <var name="headercheck" id="1272265463430722697" />
+        <var name="importcheck" id="5385999576217196565" />
+        <var name="vimporter" id="6846424207481003602" />
+        <var name="vs" id="7598655514275566980" />
+      </scope>
+      <scope id="3764438981860231100" at="19,80,97,16" />
+      <scope id="3873900481303775804" at="19,0,99,0">
+        <var name="filename" id="1125784125117977524" />
+        <var name="folder" id="233004638652776759" />
+        <var name="module" id="1125784125117976017" />
+      </scope>
+      <unit id="3764438981860208468" at="18,0,100,0" name="stdioImporter.runtime.Importer" />
+    </file>
   </root>
   <root nodeRef="r:0a61a9e7-a709-43f0-abe2-8e147f2ba2c1(stdioImporter.runtime)/393239732992377576">
-    <nodeInfo nodeId="393239732992068217" fileName="ImporterCore.java" startLine="25" startPosition="0" endLine="26" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.FieldDeclaration" propertyString="typer" />
-    <nodeInfo nodeId="393239732992430274" fileName="ImporterCore.java" startLine="26" startPosition="0" endLine="27" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.FieldDeclaration" propertyString="module" />
-    <nodeInfo nodeId="8457321741451300596" fileName="ImporterCore.java" startLine="27" startPosition="0" endLine="28" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.FieldDeclaration" propertyString="conditions" />
-    <nodeInfo nodeId="4610324712308065208" fileName="ImporterCore.java" startLine="28" startPosition="0" endLine="29" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.FieldDeclaration" propertyString="feature_stack" />
-    <nodeInfo nodeId="6974588976626436534" fileName="ImporterCore.java" startLine="29" startPosition="0" endLine="30" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.FieldDeclaration" propertyString="varS" />
-    <nodeInfo nodeId="6846424207481578461" fileName="ImporterCore.java" startLine="30" startPosition="0" endLine="31" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.FieldDeclaration" propertyString="vimporter" />
-    <nodeInfo nodeId="1252252417959831298" fileName="ImporterCore.java" startLine="33" startPosition="45" endLine="34" endPosition="73" conceptFqName="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
-    <nodeInfo nodeId="1252252417959831300" fileName="ImporterCore.java" startLine="34" startPosition="73" endLine="35" endPosition="108" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1252252417959831306" fileName="ImporterCore.java" startLine="35" startPosition="108" endLine="36" endPosition="30" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1252252417959831311" fileName="ImporterCore.java" startLine="36" startPosition="30" endLine="37" endPosition="109" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1252252417959831330" fileName="ImporterCore.java" startLine="39" startPosition="34" endLine="40" endPosition="128" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1252252417959831347" fileName="ImporterCore.java" startLine="41" startPosition="14" endLine="42" endPosition="129" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1252252417959831363" fileName="ImporterCore.java" startLine="44" startPosition="5" endLine="45" endPosition="15" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="1252252417960746940" fileName="ImporterCore.java" startLine="49" startPosition="37" endLine="50" endPosition="54" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="1252252417960770591" fileName="ImporterCore.java" startLine="51" startPosition="12" endLine="52" endPosition="50" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="393239732993000411" fileName="ImporterCore.java" startLine="58" startPosition="85" endLine="59" endPosition="29" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="393239732993005085" fileName="ImporterCore.java" startLine="59" startPosition="29" endLine="60" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="5219591071326245870" fileName="ImporterCore.java" startLine="62" startPosition="34" endLine="63" endPosition="62" conceptFqName="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
-    <nodeInfo nodeId="393239732992689470" fileName="ImporterCore.java" startLine="63" startPosition="62" endLine="64" endPosition="37" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1252252417960486294" fileName="ImporterCore.java" startLine="65" startPosition="42" endLine="66" endPosition="59" conceptFqName="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
-    <nodeInfo nodeId="393239732992698350" fileName="ImporterCore.java" startLine="66" startPosition="59" endLine="67" endPosition="39" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="5219591071326261315" fileName="ImporterCore.java" startLine="68" startPosition="41" endLine="69" endPosition="60" conceptFqName="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
-    <nodeInfo nodeId="393239732992731588" fileName="ImporterCore.java" startLine="69" startPosition="60" endLine="70" endPosition="37" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1252252417960492168" fileName="ImporterCore.java" startLine="71" startPosition="43" endLine="72" endPosition="68" conceptFqName="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
-    <nodeInfo nodeId="393239732992748863" fileName="ImporterCore.java" startLine="72" startPosition="68" endLine="73" endPosition="41" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1252252417960516914" fileName="ImporterCore.java" startLine="74" startPosition="43" endLine="75" endPosition="64" conceptFqName="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
-    <nodeInfo nodeId="393239732992764575" fileName="ImporterCore.java" startLine="75" startPosition="64" endLine="76" endPosition="41" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="393239732993032487" fileName="ImporterCore.java" startLine="77" startPosition="51" endLine="78" endPosition="63" conceptFqName="jetbrains.mps.baseLanguage.structure.SingleLineComment" />
-    <nodeInfo nodeId="393239732993304979" fileName="ImporterCore.java" startLine="78" startPosition="63" endLine="79" endPosition="53" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4610324712308106600" fileName="ImporterCore.java" startLine="79" startPosition="53" endLine="80" endPosition="105" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8457321741451326518" fileName="ImporterCore.java" startLine="80" startPosition="105" endLine="81" endPosition="62" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="393239732993046979" fileName="ImporterCore.java" startLine="81" startPosition="62" endLine="82" endPosition="101" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8457321741451363525" fileName="ImporterCore.java" startLine="82" startPosition="101" endLine="83" endPosition="57" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8457321741451391278" fileName="ImporterCore.java" startLine="83" startPosition="57" endLine="84" endPosition="63" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="5385999576217019139" fileName="ImporterCore.java" startLine="84" startPosition="63" endLine="85" endPosition="101" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8457321741451437112" fileName="ImporterCore.java" startLine="85" startPosition="101" endLine="86" endPosition="57" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4610324712308204368" fileName="ImporterCore.java" startLine="86" startPosition="57" endLine="87" endPosition="60" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="393239732993028747" fileName="ImporterCore.java" startLine="88" startPosition="7" endLine="89" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="1252252417961832277" fileName="ImporterCore.java" startLine="96" startPosition="34" endLine="97" endPosition="15" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1252252417961917438" fileName="ImporterCore.java" startLine="97" startPosition="15" endLine="98" endPosition="40" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="3541554595802377306" fileName="ImporterCore.java" startLine="98" startPosition="40" endLine="99" endPosition="96" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="3541554595802390159" fileName="ImporterCore.java" startLine="99" startPosition="96" endLine="100" endPosition="54" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="3541554595802403381" fileName="ImporterCore.java" startLine="100" startPosition="54" endLine="101" endPosition="55" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1252252417961688000" fileName="ImporterCore.java" startLine="101" startPosition="55" endLine="102" endPosition="92" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="5385999576216799727" fileName="ImporterCore.java" startLine="103" startPosition="63" endLine="104" endPosition="157" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="5385999576216700358" fileName="ImporterCore.java" startLine="105" startPosition="7" endLine="106" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="393239732993082313" fileName="ImporterCore.java" startLine="107" startPosition="49" endLine="108" endPosition="51" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4610324712308360100" fileName="ImporterCore.java" startLine="108" startPosition="51" endLine="109" endPosition="103" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8457321741451459332" fileName="ImporterCore.java" startLine="109" startPosition="103" endLine="110" endPosition="60" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="393239732993231673" fileName="ImporterCore.java" startLine="111" startPosition="122" endLine="112" endPosition="43" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8457321741451495712" fileName="ImporterCore.java" startLine="113" startPosition="7" endLine="114" endPosition="55" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8457321741451516196" fileName="ImporterCore.java" startLine="114" startPosition="55" endLine="115" endPosition="61" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="5385999576217034013" fileName="ImporterCore.java" startLine="116" startPosition="122" endLine="117" endPosition="43" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8457321741451559131" fileName="ImporterCore.java" startLine="118" startPosition="7" endLine="119" endPosition="55" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4610324712308404175" fileName="ImporterCore.java" startLine="119" startPosition="55" endLine="120" endPosition="58" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1252252417960562983" fileName="ImporterCore.java" startLine="126" startPosition="36" endLine="127" endPosition="105" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1252252417961757974" fileName="ImporterCore.java" startLine="127" startPosition="105" endLine="128" endPosition="51" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1252252417960596866" fileName="ImporterCore.java" startLine="128" startPosition="51" endLine="129" endPosition="95" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="5385999576216657016" fileName="ImporterCore.java" startLine="130" startPosition="61" endLine="131" endPosition="146" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1252252417960656134" fileName="ImporterCore.java" startLine="133" startPosition="5" endLine="134" endPosition="83" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1252252417960656134" fileName="ImporterCore.java" startLine="134" startPosition="83" endLine="135" endPosition="26" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1252252417960656134" fileName="ImporterCore.java" startLine="136" startPosition="32" endLine="137" endPosition="32" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="393239732993233965" fileName="ImporterCore.java" startLine="137" startPosition="32" endLine="138" endPosition="42" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4853251298713271418" fileName="ImporterCore.java" startLine="145" startPosition="39" endLine="146" endPosition="97" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4853251298713316266" fileName="ImporterCore.java" startLine="146" startPosition="97" endLine="147" endPosition="54" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4853251298713331149" fileName="ImporterCore.java" startLine="147" startPosition="54" endLine="148" endPosition="91" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4853251298713363159" fileName="ImporterCore.java" startLine="148" startPosition="91" endLine="149" endPosition="97" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="5385999576216696456" fileName="ImporterCore.java" startLine="150" startPosition="61" endLine="151" endPosition="148" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="5385999576216695639" fileName="ImporterCore.java" startLine="152" startPosition="5" endLine="153" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="6846424207481684508" fileName="ImporterCore.java" startLine="153" startPosition="0" endLine="154" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="5219591071326292929" fileName="ImporterCore.java" startLine="160" startPosition="41" endLine="161" endPosition="120" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="5219591071326412490" fileName="ImporterCore.java" startLine="161" startPosition="120" endLine="162" endPosition="57" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="5219591071326634900" fileName="ImporterCore.java" startLine="162" startPosition="57" endLine="163" endPosition="112" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="5219591071326676864" fileName="ImporterCore.java" startLine="163" startPosition="112" endLine="164" endPosition="80" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="5219591071326642351" fileName="ImporterCore.java" startLine="164" startPosition="80" endLine="165" endPosition="57" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="5219591071326769125" fileName="ImporterCore.java" startLine="165" startPosition="57" endLine="166" endPosition="98" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481918167" fileName="ImporterCore.java" startLine="167" startPosition="63" endLine="168" endPosition="149" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481917470" fileName="ImporterCore.java" startLine="169" startPosition="7" endLine="170" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="6026970074662597804" fileName="ImporterCore.java" startLine="172" startPosition="24" endLine="173" endPosition="101" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="6026970074662597810" fileName="ImporterCore.java" startLine="173" startPosition="101" endLine="174" endPosition="58" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6026970074662597818" fileName="ImporterCore.java" startLine="174" startPosition="58" endLine="175" endPosition="105" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6026970074662597835" fileName="ImporterCore.java" startLine="175" startPosition="105" endLine="176" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="6026970074662597836" fileName="ImporterCore.java" startLine="176" startPosition="0" endLine="177" endPosition="101" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481921817" fileName="ImporterCore.java" startLine="178" startPosition="65" endLine="179" endPosition="152" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481920545" fileName="ImporterCore.java" startLine="180" startPosition="9" endLine="181" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="1272265463429826702" fileName="ImporterCore.java" startLine="182" startPosition="47" endLine="183" endPosition="132" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1272265463429939128" fileName="ImporterCore.java" startLine="185" startPosition="28" endLine="186" endPosition="131" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1272265463430500051" fileName="ImporterCore.java" startLine="186" startPosition="131" endLine="187" endPosition="56" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1272265463429876620" fileName="ImporterCore.java" startLine="187" startPosition="56" endLine="188" endPosition="104" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1272265463429956761" fileName="ImporterCore.java" startLine="190" startPosition="9" endLine="191" endPosition="59" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1272265463430324522" fileName="ImporterCore.java" startLine="191" startPosition="59" endLine="192" endPosition="102" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481641692" fileName="ImporterCore.java" startLine="193" startPosition="65" endLine="194" endPosition="153" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8558346717308522555" fileName="ImporterCore.java" startLine="196" startPosition="14" endLine="197" endPosition="117" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="8558346717308843864" fileName="ImporterCore.java" startLine="197" startPosition="117" endLine="198" endPosition="57" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6026970074662309086" fileName="ImporterCore.java" startLine="198" startPosition="57" endLine="199" endPosition="111" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="6026970074662322752" fileName="ImporterCore.java" startLine="199" startPosition="111" endLine="200" endPosition="68" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8558346717308570194" fileName="ImporterCore.java" startLine="200" startPosition="68" endLine="201" endPosition="59" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8558346717308805259" fileName="ImporterCore.java" startLine="201" startPosition="59" endLine="202" endPosition="100" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481924717" fileName="ImporterCore.java" startLine="203" startPosition="65" endLine="204" endPosition="151" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481923992" fileName="ImporterCore.java" startLine="205" startPosition="9" endLine="206" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="1252252417959831229" fileName="ImporterCore.java" startLine="213" startPosition="40" endLine="214" endPosition="118" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1252252417960800206" fileName="ImporterCore.java" startLine="214" startPosition="118" endLine="215" endPosition="52" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1252252417960824755" fileName="ImporterCore.java" startLine="215" startPosition="52" endLine="216" endPosition="66" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1125784125119180254" fileName="ImporterCore.java" startLine="216" startPosition="66" endLine="217" endPosition="96" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481929154" fileName="ImporterCore.java" startLine="218" startPosition="61" endLine="219" endPosition="147" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481928498" fileName="ImporterCore.java" startLine="220" startPosition="5" endLine="221" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="3801081104254345383" fileName="ImporterCore.java" startLine="227" startPosition="40" endLine="228" endPosition="109" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="3801081104254453088" fileName="ImporterCore.java" startLine="228" startPosition="109" endLine="229" endPosition="51" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="3801081104254482672" fileName="ImporterCore.java" startLine="229" startPosition="51" endLine="230" endPosition="102" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4853251298712235919" fileName="ImporterCore.java" startLine="230" startPosition="102" endLine="231" endPosition="14" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="7010721898864820006" fileName="ImporterCore.java" startLine="232" startPosition="57" endLine="233" endPosition="38" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4853251298711651128" fileName="ImporterCore.java" startLine="233" startPosition="38" endLine="234" endPosition="103" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4853251298712241839" fileName="ImporterCore.java" startLine="234" startPosition="103" endLine="235" endPosition="54" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="191036071780964487" fileName="ImporterCore.java" startLine="236" startPosition="34" endLine="237" endPosition="91" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4853251298711818618" fileName="ImporterCore.java" startLine="238" startPosition="14" endLine="239" endPosition="92" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7010721898863733699" fileName="ImporterCore.java" startLine="240" startPosition="229" endLine="241" endPosition="19" conceptFqName="jetbrains.mps.baseLanguage.structure.ContinueStatement" />
-    <nodeInfo nodeId="4853251298711835748" fileName="ImporterCore.java" startLine="243" startPosition="7" endLine="244" endPosition="95" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7010721898864766979" fileName="ImporterCore.java" startLine="244" startPosition="95" endLine="245" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="3801081104254362474" fileName="ImporterCore.java" startLine="246" startPosition="5" endLine="247" endPosition="95" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481934899" fileName="ImporterCore.java" startLine="248" startPosition="61" endLine="249" endPosition="146" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481932848" fileName="ImporterCore.java" startLine="250" startPosition="5" endLine="251" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="1252252417959831345" fileName="ImporterCore.java" startLine="41" startPosition="12" endLine="43" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.BlockStatement" />
-    <nodeInfo nodeId="1252252417959831268" fileName="ImporterCore.java" startLine="51" startPosition="10" endLine="53" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.BlockStatement" />
-    <nodeInfo nodeId="5385999576216700827" fileName="ImporterCore.java" startLine="102" startPosition="92" endLine="105" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="393239732993228256" fileName="ImporterCore.java" startLine="110" startPosition="60" endLine="113" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.ForeachStatement" />
-    <nodeInfo nodeId="5385999576217034004" fileName="ImporterCore.java" startLine="115" startPosition="61" endLine="118" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.ForeachStatement" />
-    <nodeInfo nodeId="5385999576216657014" fileName="ImporterCore.java" startLine="129" startPosition="95" endLine="132" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="5385999576216696454" fileName="ImporterCore.java" startLine="149" startPosition="97" endLine="152" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="6846424207481918165" fileName="ImporterCore.java" startLine="166" startPosition="98" endLine="169" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="6846424207481921815" fileName="ImporterCore.java" startLine="177" startPosition="101" endLine="180" endPosition="9" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="6846424207481636650" fileName="ImporterCore.java" startLine="192" startPosition="102" endLine="195" endPosition="9" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="6846424207481924715" fileName="ImporterCore.java" startLine="202" startPosition="100" endLine="205" endPosition="9" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="6846424207481929152" fileName="ImporterCore.java" startLine="217" startPosition="96" endLine="220" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="7010721898863676170" fileName="ImporterCore.java" startLine="239" startPosition="92" endLine="242" endPosition="9" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="6846424207481934897" fileName="ImporterCore.java" startLine="247" startPosition="95" endLine="250" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="1252252417960656134" fileName="ImporterCore.java" startLine="135" startPosition="26" endLine="139" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.WhileStatement" />
-    <nodeInfo nodeId="1252252417959831328" fileName="ImporterCore.java" startLine="38" startPosition="36" endLine="43" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="1252252417959831240" fileName="ImporterCore.java" startLine="48" startPosition="37" endLine="53" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="1272265463430598877" fileName="ImporterCore.java" startLine="184" startPosition="45" endLine="189" endPosition="11" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="4853251298711711786" fileName="ImporterCore.java" startLine="238" startPosition="12" endLine="243" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.BlockStatement" />
-    <nodeInfo nodeId="1252252417959831325" fileName="ImporterCore.java" startLine="37" startPosition="109" endLine="44" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.ForeachStatement" />
-    <nodeInfo nodeId="1252252417959831227" fileName="ImporterCore.java" startLine="48" startPosition="0" endLine="55" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="makeVar#(Lstdio_parser/Variable;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-    <nodeInfo nodeId="1272265463430486968" fileName="ImporterCore.java" startLine="183" startPosition="132" endLine="190" endPosition="9" conceptFqName="jetbrains.mps.baseLanguage.structure.ForeachStatement" />
-    <nodeInfo nodeId="1252252417960656134" fileName="ImporterCore.java" startLine="132" startPosition="5" endLine="140" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.BlockStatement" />
-    <nodeInfo nodeId="4853251298711701267" fileName="ImporterCore.java" startLine="235" startPosition="54" endLine="243" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="393239732992258060" fileName="ImporterCore.java" startLine="213" startPosition="0" endLine="223" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="addVariable#(Lstdio_parser/Variable;)V" />
-    <nodeInfo nodeId="393239732992026677" fileName="ImporterCore.java" startLine="145" startPosition="0" endLine="156" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="addTypedef#(Lstdio_parser/Typedef;)V" />
-    <nodeInfo nodeId="6026970074662617691" fileName="ImporterCore.java" startLine="196" startPosition="12" endLine="207" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.BlockStatement" />
-    <nodeInfo nodeId="1252252417959831296" fileName="ImporterCore.java" startLine="33" startPosition="0" endLine="47" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="makeFuncPointer#(Lstdio_parser/Function;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-    <nodeInfo nodeId="7010721898864684726" fileName="ImporterCore.java" startLine="231" startPosition="14" endLine="246" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.ForStatement" />
-    <nodeInfo nodeId="393239732991921041" fileName="ImporterCore.java" startLine="126" startPosition="0" endLine="142" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="addStruct#(Lstdio_parser/Struct;)V" />
-    <nodeInfo nodeId="393239732993066429" fileName="ImporterCore.java" startLine="95" startPosition="59" endLine="121" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="393239732992340040" fileName="ImporterCore.java" startLine="227" startPosition="0" endLine="253" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="addFunction#(Lstdio_parser/Function;)V" />
-    <nodeInfo nodeId="393239732992674504" fileName="ImporterCore.java" startLine="61" startPosition="65" endLine="88" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="393239732993120574" fileName="ImporterCore.java" startLine="95" startPosition="0" endLine="123" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="addStructMember#(Lorg/jetbrains/mps/openapi/model/SNode;Lstdio_parser/Declaration;)V" />
-    <nodeInfo nodeId="393239732992661327" fileName="ImporterCore.java" startLine="60" startPosition="0" endLine="90" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.ForeachStatement" />
-    <nodeInfo nodeId="393239732992875064" fileName="ImporterCore.java" startLine="58" startPosition="0" endLine="92" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="addDeclarations#(Ljava/lang/Iterable;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-    <nodeInfo nodeId="6026970074662574378" fileName="ImporterCore.java" startLine="171" startPosition="12" endLine="207" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="5219591071326663127" fileName="ImporterCore.java" startLine="171" startPosition="10" endLine="208" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.BlockStatement" />
-    <nodeInfo nodeId="5219591071326610110" fileName="ImporterCore.java" startLine="159" startPosition="37" endLine="208" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="393239732992113610" fileName="ImporterCore.java" startLine="159" startPosition="0" endLine="210" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="addDefine#(Lstdio_parser/Define;)V" />
-    <scopeInfo nodeId="1252252417959831329" fileName="ImporterCore.java" startLine="39" startPosition="34" endLine="40" endPosition="128" />
-    <scopeInfo nodeId="1252252417959831346" fileName="ImporterCore.java" startLine="41" startPosition="14" endLine="42" endPosition="129" />
-    <scopeInfo nodeId="1252252417959831241" fileName="ImporterCore.java" startLine="49" startPosition="37" endLine="50" endPosition="54" />
-    <scopeInfo nodeId="1252252417959831269" fileName="ImporterCore.java" startLine="51" startPosition="12" endLine="52" endPosition="50" />
-    <scopeInfo nodeId="5385999576216700828" fileName="ImporterCore.java" startLine="103" startPosition="63" endLine="104" endPosition="157" />
-    <scopeInfo nodeId="393239732993228262" fileName="ImporterCore.java" startLine="111" startPosition="122" endLine="112" endPosition="43" />
-    <scopeInfo nodeId="5385999576217034012" fileName="ImporterCore.java" startLine="116" startPosition="122" endLine="117" endPosition="43" />
-    <scopeInfo nodeId="5385999576216657015" fileName="ImporterCore.java" startLine="130" startPosition="61" endLine="131" endPosition="146" />
-    <scopeInfo nodeId="5385999576216696455" fileName="ImporterCore.java" startLine="150" startPosition="61" endLine="151" endPosition="148" />
-    <scopeInfo nodeId="6846424207481918166" fileName="ImporterCore.java" startLine="167" startPosition="63" endLine="168" endPosition="149" />
-    <scopeInfo nodeId="6846424207481921816" fileName="ImporterCore.java" startLine="178" startPosition="65" endLine="179" endPosition="152" />
-    <scopeInfo nodeId="6846424207481636653" fileName="ImporterCore.java" startLine="193" startPosition="65" endLine="194" endPosition="153" />
-    <scopeInfo nodeId="6846424207481924716" fileName="ImporterCore.java" startLine="203" startPosition="65" endLine="204" endPosition="151" />
-    <scopeInfo nodeId="6846424207481929153" fileName="ImporterCore.java" startLine="218" startPosition="61" endLine="219" endPosition="147" />
-    <scopeInfo nodeId="4853251298711815530" fileName="ImporterCore.java" startLine="236" startPosition="34" endLine="237" endPosition="91" />
-    <scopeInfo nodeId="7010721898863676173" fileName="ImporterCore.java" startLine="240" startPosition="229" endLine="241" endPosition="19" />
-    <scopeInfo nodeId="6846424207481934898" fileName="ImporterCore.java" startLine="248" startPosition="61" endLine="249" endPosition="146" />
-    <scopeInfo nodeId="393239732992674507" fileName="ImporterCore.java" startLine="62" startPosition="34" endLine="64" endPosition="37" />
-    <scopeInfo nodeId="393239732992693176" fileName="ImporterCore.java" startLine="65" startPosition="42" endLine="67" endPosition="39" />
-    <scopeInfo nodeId="393239732992701002" fileName="ImporterCore.java" startLine="68" startPosition="41" endLine="70" endPosition="37" />
-    <scopeInfo nodeId="393239732992742755" fileName="ImporterCore.java" startLine="71" startPosition="43" endLine="73" endPosition="41" />
-    <scopeInfo nodeId="393239732992759569" fileName="ImporterCore.java" startLine="74" startPosition="43" endLine="76" endPosition="41" />
-    <scopeInfo nodeId="1252252417960656134" fileName="ImporterCore.java" startLine="136" startPosition="32" endLine="138" endPosition="42" />
-    <scopeInfo nodeId="393239732993228256" fileName="ImporterCore.java" startLine="110" startPosition="60" endLine="113" endPosition="7">
-      <varInfo nodeId="393239732993228258" varName="blockdec" />
-    </scopeInfo>
-    <scopeInfo nodeId="5385999576217034004" fileName="ImporterCore.java" startLine="115" startPosition="61" endLine="118" endPosition="7">
-      <varInfo nodeId="5385999576217034005" varName="blockdec" />
-    </scopeInfo>
-    <scopeInfo nodeId="1272265463430598880" fileName="ImporterCore.java" startLine="185" startPosition="28" endLine="188" endPosition="104">
-      <varInfo nodeId="1272265463429939131" varName="arg" />
-    </scopeInfo>
-    <scopeInfo nodeId="4853251298711711787" fileName="ImporterCore.java" startLine="238" startPosition="14" endLine="242" endPosition="9" />
-    <scopeInfo nodeId="1252252417959831327" fileName="ImporterCore.java" startLine="38" startPosition="36" endLine="43" endPosition="7" />
-    <scopeInfo nodeId="1252252417959831228" fileName="ImporterCore.java" startLine="48" startPosition="37" endLine="53" endPosition="5" />
-    <scopeInfo nodeId="1272265463430486974" fileName="ImporterCore.java" startLine="184" startPosition="45" endLine="189" endPosition="11" />
-    <scopeInfo nodeId="1252252417960656134" fileName="ImporterCore.java" startLine="133" startPosition="5" endLine="139" endPosition="7">
-      <varInfo nodeId="1252252417960656134" varName="dec_it" />
-      <varInfo nodeId="1252252417960656134" varName="dec_var" />
-    </scopeInfo>
-    <scopeInfo nodeId="1252252417959831325" fileName="ImporterCore.java" startLine="37" startPosition="109" endLine="44" endPosition="5">
-      <varInfo nodeId="1252252417959831326" varName="p" />
-    </scopeInfo>
-    <scopeInfo nodeId="1252252417959831227" fileName="ImporterCore.java" startLine="48" startPosition="0" endLine="55" endPosition="0">
-      <varInfo nodeId="1252252417959831294" varName="v" />
-    </scopeInfo>
-    <scopeInfo nodeId="1272265463430486968" fileName="ImporterCore.java" startLine="183" startPosition="132" endLine="190" endPosition="9">
-      <varInfo nodeId="1272265463430486970" varName="param" />
-    </scopeInfo>
-    <scopeInfo nodeId="393239732992258063" fileName="ImporterCore.java" startLine="213" startPosition="40" endLine="221" endPosition="0">
-      <varInfo nodeId="1252252417959831230" varName="gvd" />
-    </scopeInfo>
-    <scopeInfo nodeId="393239732992026680" fileName="ImporterCore.java" startLine="145" startPosition="39" endLine="154" endPosition="0">
-      <varInfo nodeId="4853251298713271421" varName="tdef" />
-    </scopeInfo>
-    <scopeInfo nodeId="6026970074662574381" fileName="ImporterCore.java" startLine="172" startPosition="24" endLine="181" endPosition="0">
-      <varInfo nodeId="6026970074662597805" varName="tdef" />
-    </scopeInfo>
-    <scopeInfo nodeId="393239732993029417" fileName="ImporterCore.java" startLine="77" startPosition="51" endLine="87" endPosition="60">
-      <varInfo nodeId="393239732993304980" varName="cb" />
-    </scopeInfo>
-    <scopeInfo nodeId="393239732993066432" fileName="ImporterCore.java" startLine="96" startPosition="34" endLine="106" endPosition="0">
-      <varInfo nodeId="3541554595802377309" varName="mm" />
-      <varInfo nodeId="1252252417961832280" varName="nt" />
-    </scopeInfo>
-    <scopeInfo nodeId="5219591071326610113" fileName="ImporterCore.java" startLine="160" startPosition="41" endLine="170" endPosition="0">
-      <varInfo nodeId="5219591071326292932" varName="gcd" />
-      <varInfo nodeId="5219591071326634903" varName="val" />
-    </scopeInfo>
-    <scopeInfo nodeId="6026970074662617692" fileName="ImporterCore.java" startLine="196" startPosition="14" endLine="206" endPosition="0">
-      <varInfo nodeId="6026970074662309089" varName="exp" />
-      <varInfo nodeId="8558346717308522558" varName="val" />
-    </scopeInfo>
-    <scopeInfo nodeId="393239732992258060" fileName="ImporterCore.java" startLine="213" startPosition="0" endLine="223" endPosition="0">
-      <varInfo nodeId="393239732992279991" varName="v" />
-    </scopeInfo>
-    <scopeInfo nodeId="393239732992026677" fileName="ImporterCore.java" startLine="145" startPosition="0" endLine="156" endPosition="0">
-      <varInfo nodeId="393239732992033938" varName="td" />
-    </scopeInfo>
-    <scopeInfo nodeId="1252252417959831297" fileName="ImporterCore.java" startLine="33" startPosition="45" endLine="45" endPosition="15">
-      <varInfo nodeId="1252252417959831301" varName="frt" />
-      <varInfo nodeId="1252252417959831307" varName="typer" />
-    </scopeInfo>
-    <scopeInfo nodeId="393239732993082312" fileName="ImporterCore.java" startLine="107" startPosition="49" endLine="120" endPosition="58">
-      <varInfo nodeId="393239732993082314" varName="cb" />
-    </scopeInfo>
-    <scopeInfo nodeId="1272265463429791857" fileName="ImporterCore.java" startLine="182" startPosition="47" endLine="195" endPosition="9">
-      <varInfo nodeId="1272265463429826705" varName="macro" />
-    </scopeInfo>
-    <scopeInfo nodeId="7010721898864684729" fileName="ImporterCore.java" startLine="232" startPosition="57" endLine="245" endPosition="0">
-      <varInfo nodeId="4853251298711651131" varName="arg" />
-      <varInfo nodeId="7010721898864820007" varName="p" />
-    </scopeInfo>
-    <scopeInfo nodeId="1252252417959831296" fileName="ImporterCore.java" startLine="33" startPosition="0" endLine="47" endPosition="0">
-      <varInfo nodeId="1252252417959831367" varName="v" />
-    </scopeInfo>
-    <scopeInfo nodeId="393239732991921044" fileName="ImporterCore.java" startLine="126" startPosition="36" endLine="140" endPosition="5">
-      <varInfo nodeId="1252252417960562986" varName="sd" />
-    </scopeInfo>
-    <scopeInfo nodeId="7010721898864684726" fileName="ImporterCore.java" startLine="231" startPosition="14" endLine="246" endPosition="5">
-      <varInfo nodeId="7010721898864684732" varName="i" />
-    </scopeInfo>
-    <scopeInfo nodeId="393239732991921041" fileName="ImporterCore.java" startLine="126" startPosition="0" endLine="142" endPosition="0">
-      <varInfo nodeId="393239732991932669" varName="s" />
-    </scopeInfo>
-    <scopeInfo nodeId="393239732992340043" fileName="ImporterCore.java" startLine="227" startPosition="40" endLine="251" endPosition="0">
-      <varInfo nodeId="3801081104254345386" varName="fp" />
-      <varInfo nodeId="4853251298712235922" varName="n" />
-    </scopeInfo>
-    <scopeInfo nodeId="393239732993120577" fileName="ImporterCore.java" startLine="95" startPosition="59" endLine="121" endPosition="5" />
-    <scopeInfo nodeId="393239732992340040" fileName="ImporterCore.java" startLine="227" startPosition="0" endLine="253" endPosition="0">
-      <varInfo nodeId="393239732992348740" varName="f" />
-    </scopeInfo>
-    <scopeInfo nodeId="393239732992661333" fileName="ImporterCore.java" startLine="61" startPosition="65" endLine="89" endPosition="0" />
-    <scopeInfo nodeId="393239732993120574" fileName="ImporterCore.java" startLine="95" startPosition="0" endLine="123" endPosition="0">
-      <varInfo nodeId="393239732993140731" varName="dec" />
-      <varInfo nodeId="393239732993132249" varName="sd" />
-    </scopeInfo>
-    <scopeInfo nodeId="393239732992661327" fileName="ImporterCore.java" startLine="60" startPosition="0" endLine="90" endPosition="5">
-      <varInfo nodeId="393239732992661329" varName="dec" />
-    </scopeInfo>
-    <scopeInfo nodeId="393239732992875067" fileName="ImporterCore.java" startLine="58" startPosition="85" endLine="90" endPosition="5" />
-    <scopeInfo nodeId="393239732992875064" fileName="ImporterCore.java" startLine="58" startPosition="0" endLine="92" endPosition="0">
-      <varInfo nodeId="393239732992899184" varName="declarations" />
-      <varInfo nodeId="393239732992992558" varName="moduleNode" />
-    </scopeInfo>
-    <scopeInfo nodeId="5219591071326663128" fileName="ImporterCore.java" startLine="171" startPosition="12" endLine="207" endPosition="7" />
-    <scopeInfo nodeId="393239732992113613" fileName="ImporterCore.java" startLine="159" startPosition="37" endLine="208" endPosition="5" />
-    <scopeInfo nodeId="393239732992113610" fileName="ImporterCore.java" startLine="159" startPosition="0" endLine="210" endPosition="0">
-      <varInfo nodeId="393239732992120831" varName="df" />
-    </scopeInfo>
-    <unitInfo nodeId="393239732992377576" fileName="ImporterCore.java" startLine="24" startPosition="0" endLine="256" endPosition="0" unitName="stdioImporter.runtime.ImporterCore" />
+    <file name="ImporterCore.java">
+      <node id="393239732992068217" at="26,0,27,0" concept="3" trace="typer" />
+      <node id="393239732992430274" at="27,0,28,0" concept="3" trace="module" />
+      <node id="8457321741451300596" at="28,0,29,0" concept="3" trace="conditions" />
+      <node id="4610324712308065208" at="29,0,30,0" concept="3" trace="feature_stack" />
+      <node id="6974588976626436534" at="30,0,31,0" concept="3" trace="varS" />
+      <node id="6846424207481578461" at="31,0,32,0" concept="3" trace="vimporter" />
+      <node id="1252252417959831298" at="33,45,34,73" concept="10" />
+      <node id="1252252417959831300" at="34,73,35,231" concept="8" />
+      <node id="1252252417959831306" at="35,231,36,30" concept="8" />
+      <node id="1252252417959831311" at="36,30,37,226" concept="2" />
+      <node id="1252252417959831330" at="39,34,40,246" concept="2" />
+      <node id="1252252417959831347" at="41,14,42,247" concept="2" />
+      <node id="1252252417959831363" at="44,5,45,15" concept="9" />
+      <node id="1252252417960746940" at="48,37,49,54" concept="9" />
+      <node id="1252252417960770591" at="50,12,51,50" concept="9" />
+      <node id="393239732993000411" at="55,85,56,29" concept="2" />
+      <node id="393239732993005085" at="56,29,57,0" concept="11" />
+      <node id="5219591071326245870" at="59,34,60,62" concept="10" />
+      <node id="393239732992689470" at="60,62,61,37" concept="2" />
+      <node id="1252252417960486294" at="62,42,63,59" concept="10" />
+      <node id="393239732992698350" at="63,59,64,39" concept="2" />
+      <node id="5219591071326261315" at="65,41,66,60" concept="10" />
+      <node id="393239732992731588" at="66,60,67,37" concept="2" />
+      <node id="1252252417960492168" at="68,43,69,68" concept="10" />
+      <node id="393239732992748863" at="69,68,70,41" concept="2" />
+      <node id="1252252417960516914" at="71,43,72,64" concept="10" />
+      <node id="393239732992764575" at="72,64,73,41" concept="2" />
+      <node id="393239732993032487" at="74,51,75,63" concept="10" />
+      <node id="393239732993304979" at="75,63,76,53" concept="8" />
+      <node id="4610324712308106600" at="76,53,77,105" concept="2" />
+      <node id="8457321741451326518" at="77,105,78,62" concept="2" />
+      <node id="393239732993046979" at="78,62,79,101" concept="2" />
+      <node id="8457321741451363525" at="79,101,80,57" concept="2" />
+      <node id="8457321741451391278" at="80,57,81,63" concept="2" />
+      <node id="5385999576217019139" at="81,63,82,101" concept="2" />
+      <node id="8457321741451437112" at="82,101,83,57" concept="2" />
+      <node id="4610324712308204368" at="83,57,84,60" concept="2" />
+      <node id="393239732993028747" at="85,7,86,0" concept="11" />
+      <node id="1252252417961832277" at="91,34,92,15" concept="8" />
+      <node id="1252252417961917438" at="92,15,93,40" concept="2" />
+      <node id="3541554595802377306" at="93,40,94,219" concept="8" />
+      <node id="3541554595802390159" at="94,219,95,169" concept="2" />
+      <node id="3541554595802403381" at="95,169,96,161" concept="2" />
+      <node id="1252252417961688000" at="96,161,97,210" concept="2" />
+      <node id="5385999576216799727" at="98,63,99,157" concept="2" />
+      <node id="5385999576216700358" at="100,7,101,0" concept="11" />
+      <node id="393239732993082313" at="102,49,103,51" concept="8" />
+      <node id="4610324712308360100" at="103,51,104,103" concept="2" />
+      <node id="8457321741451459332" at="104,103,105,60" concept="2" />
+      <node id="393239732993231673" at="106,122,107,43" concept="2" />
+      <node id="8457321741451495712" at="108,7,109,55" concept="2" />
+      <node id="8457321741451516196" at="109,55,110,61" concept="2" />
+      <node id="5385999576217034013" at="111,122,112,43" concept="2" />
+      <node id="8457321741451559131" at="113,7,114,55" concept="2" />
+      <node id="4610324712308404175" at="114,55,115,58" concept="2" />
+      <node id="1252252417960562983" at="119,36,120,228" concept="8" />
+      <node id="1252252417961757974" at="120,228,121,157" concept="2" />
+      <node id="1252252417960596866" at="121,157,122,213" concept="2" />
+      <node id="5385999576216657016" at="123,61,124,146" concept="2" />
+      <node id="1252252417960656134" at="126,5,127,83" concept="8" />
+      <node id="1252252417960656134" at="127,83,128,26" concept="8" />
+      <node id="1252252417960656134" at="129,32,130,32" concept="2" />
+      <node id="393239732993233965" at="130,32,131,42" concept="2" />
+      <node id="4853251298713271418" at="136,39,137,220" concept="8" />
+      <node id="4853251298713316266" at="137,220,138,160" concept="2" />
+      <node id="4853251298713331149" at="138,160,139,208" concept="2" />
+      <node id="4853251298713363159" at="139,208,140,215" concept="2" />
+      <node id="5385999576216696456" at="141,61,142,148" concept="2" />
+      <node id="5385999576216695639" at="143,5,144,0" concept="11" />
+      <node id="6846424207481684508" at="144,0,145,0" concept="11" />
+      <node id="5219591071326292929" at="149,41,150,243" concept="8" />
+      <node id="5219591071326412490" at="150,243,151,163" concept="2" />
+      <node id="5219591071326634900" at="151,163,152,235" concept="8" />
+      <node id="5219591071326676864" at="152,235,153,196" concept="2" />
+      <node id="5219591071326642351" at="153,196,154,174" concept="2" />
+      <node id="5219591071326769125" at="154,174,155,216" concept="2" />
+      <node id="6846424207481918167" at="156,63,157,149" concept="2" />
+      <node id="6846424207481917470" at="158,7,159,0" concept="11" />
+      <node id="6026970074662597804" at="161,24,162,224" concept="8" />
+      <node id="6026970074662597810" at="162,224,163,164" concept="2" />
+      <node id="6026970074662597818" at="163,164,164,222" concept="2" />
+      <node id="6026970074662597835" at="164,222,165,0" concept="11" />
+      <node id="6026970074662597836" at="165,0,166,219" concept="2" />
+      <node id="6846424207481921817" at="167,65,168,152" concept="2" />
+      <node id="6846424207481920545" at="169,9,170,0" concept="11" />
+      <node id="1272265463429826702" at="171,47,172,255" concept="8" />
+      <node id="1272265463429939128" at="174,28,175,254" concept="8" />
+      <node id="1272265463430500051" at="175,254,176,162" concept="2" />
+      <node id="1272265463429876620" at="176,162,177,222" concept="2" />
+      <node id="1272265463429956761" at="179,9,180,165" concept="2" />
+      <node id="1272265463430324522" at="180,165,181,220" concept="2" />
+      <node id="6846424207481641692" at="182,65,183,153" concept="2" />
+      <node id="8558346717308522555" at="185,14,186,240" concept="8" />
+      <node id="8558346717308843864" at="186,240,187,163" concept="2" />
+      <node id="6026970074662309086" at="187,163,188,234" concept="8" />
+      <node id="6026970074662322752" at="188,234,189,184" concept="2" />
+      <node id="8558346717308570194" at="189,184,190,176" concept="2" />
+      <node id="8558346717308805259" at="190,176,191,218" concept="2" />
+      <node id="6846424207481924717" at="192,65,193,151" concept="2" />
+      <node id="6846424207481923992" at="194,9,195,0" concept="11" />
+      <node id="1252252417959831229" at="200,40,201,241" concept="8" />
+      <node id="1252252417960800206" at="201,241,202,158" concept="2" />
+      <node id="1252252417960824755" at="202,158,203,181" concept="2" />
+      <node id="1125784125119180254" at="203,181,204,214" concept="2" />
+      <node id="6846424207481929154" at="205,61,206,147" concept="2" />
+      <node id="6846424207481928498" at="207,5,208,0" concept="11" />
+      <node id="3801081104254345383" at="212,40,213,232" concept="8" />
+      <node id="3801081104254453088" at="213,232,214,157" concept="2" />
+      <node id="3801081104254482672" at="214,157,215,217" concept="2" />
+      <node id="4853251298712235919" at="215,217,216,14" concept="8" />
+      <node id="7010721898864820006" at="217,57,218,38" concept="8" />
+      <node id="4853251298711651128" at="218,38,219,226" concept="8" />
+      <node id="4853251298712241839" at="219,226,220,160" concept="2" />
+      <node id="191036071780964487" at="221,34,222,206" concept="2" />
+      <node id="4853251298711818618" at="223,14,224,207" concept="2" />
+      <node id="7010721898863733699" at="225,344,226,19" concept="1" />
+      <node id="4853251298711835748" at="228,7,229,213" concept="2" />
+      <node id="7010721898864766979" at="229,213,230,0" concept="11" />
+      <node id="3801081104254362474" at="231,5,232,213" concept="2" />
+      <node id="6846424207481934899" at="233,61,234,146" concept="2" />
+      <node id="6846424207481932848" at="235,5,236,0" concept="11" />
+      <node id="1252252417959831345" at="41,12,43,7" concept="0" />
+      <node id="1252252417959831268" at="50,10,52,5" concept="0" />
+      <node id="5385999576216700827" at="97,210,100,7" concept="6" />
+      <node id="393239732993228256" at="105,60,108,7" concept="5" />
+      <node id="5385999576217034004" at="110,61,113,7" concept="5" />
+      <node id="5385999576216657014" at="122,213,125,5" concept="6" />
+      <node id="5385999576216696454" at="140,215,143,5" concept="6" />
+      <node id="6846424207481918165" at="155,216,158,7" concept="6" />
+      <node id="6846424207481921815" at="166,219,169,9" concept="6" />
+      <node id="6846424207481636650" at="181,220,184,9" concept="6" />
+      <node id="6846424207481924715" at="191,218,194,9" concept="6" />
+      <node id="6846424207481929152" at="204,214,207,5" concept="6" />
+      <node id="7010721898863676170" at="224,207,227,9" concept="6" />
+      <node id="6846424207481934897" at="232,213,235,5" concept="6" />
+      <node id="1252252417960656134" at="128,26,132,7" concept="14" />
+      <node id="1252252417959831328" at="38,36,43,7" concept="6" />
+      <node id="1252252417959831240" at="47,37,52,5" concept="6" />
+      <node id="1272265463430598877" at="173,45,178,11" concept="6" />
+      <node id="4853251298711711786" at="223,12,228,7" concept="0" />
+      <node id="1252252417959831325" at="37,226,44,5" concept="5" />
+      <node id="1252252417959831227" at="47,0,54,0" concept="7" trace="makeVar#(Lstdio_parser/Variable;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="1272265463430486968" at="172,255,179,9" concept="5" />
+      <node id="1252252417960656134" at="125,5,133,5" concept="0" />
+      <node id="4853251298711701267" at="220,160,228,7" concept="6" />
+      <node id="393239732992258060" at="200,0,210,0" concept="7" trace="addVariable#(Lstdio_parser/Variable;)V" />
+      <node id="393239732992026677" at="136,0,147,0" concept="7" trace="addTypedef#(Lstdio_parser/Typedef;)V" />
+      <node id="6026970074662617691" at="185,12,196,7" concept="0" />
+      <node id="1252252417959831296" at="33,0,47,0" concept="7" trace="makeFuncPointer#(Lstdio_parser/Function;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="7010721898864684726" at="216,14,231,5" concept="4" />
+      <node id="393239732991921041" at="119,0,135,0" concept="7" trace="addStruct#(Lstdio_parser/Struct;)V" />
+      <node id="393239732993066429" at="90,59,116,5" concept="6" />
+      <node id="393239732992340040" at="212,0,238,0" concept="7" trace="addFunction#(Lstdio_parser/Function;)V" />
+      <node id="393239732992674504" at="58,65,85,7" concept="6" />
+      <node id="393239732993120574" at="90,0,118,0" concept="7" trace="addStructMember#(Lorg/jetbrains/mps/openapi/model/SNode;Lstdio_parser/Declaration;)V" />
+      <node id="393239732992661327" at="57,0,87,5" concept="5" />
+      <node id="393239732992875064" at="55,0,89,0" concept="7" trace="addDeclarations#(Ljava/lang/Iterable;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="6026970074662574378" at="160,12,196,7" concept="6" />
+      <node id="5219591071326663127" at="160,10,197,5" concept="0" />
+      <node id="5219591071326610110" at="148,37,197,5" concept="6" />
+      <node id="393239732992113610" at="148,0,199,0" concept="7" trace="addDefine#(Lstdio_parser/Define;)V" />
+      <scope id="1252252417959831329" at="39,34,40,246" />
+      <scope id="1252252417959831346" at="41,14,42,247" />
+      <scope id="1252252417959831241" at="48,37,49,54" />
+      <scope id="1252252417959831269" at="50,12,51,50" />
+      <scope id="5385999576216700828" at="98,63,99,157" />
+      <scope id="393239732993228262" at="106,122,107,43" />
+      <scope id="5385999576217034012" at="111,122,112,43" />
+      <scope id="5385999576216657015" at="123,61,124,146" />
+      <scope id="5385999576216696455" at="141,61,142,148" />
+      <scope id="6846424207481918166" at="156,63,157,149" />
+      <scope id="6846424207481921816" at="167,65,168,152" />
+      <scope id="6846424207481636653" at="182,65,183,153" />
+      <scope id="6846424207481924716" at="192,65,193,151" />
+      <scope id="6846424207481929153" at="205,61,206,147" />
+      <scope id="4853251298711815530" at="221,34,222,206" />
+      <scope id="7010721898863676173" at="225,344,226,19" />
+      <scope id="6846424207481934898" at="233,61,234,146" />
+      <scope id="393239732992674507" at="59,34,61,37" />
+      <scope id="393239732992693176" at="62,42,64,39" />
+      <scope id="393239732992701002" at="65,41,67,37" />
+      <scope id="393239732992742755" at="68,43,70,41" />
+      <scope id="393239732992759569" at="71,43,73,41" />
+      <scope id="1252252417960656134" at="129,32,131,42" />
+      <scope id="393239732993228256" at="105,60,108,7">
+        <var name="blockdec" id="393239732993228258" />
+      </scope>
+      <scope id="5385999576217034004" at="110,61,113,7">
+        <var name="blockdec" id="5385999576217034005" />
+      </scope>
+      <scope id="1272265463430598880" at="174,28,177,222">
+        <var name="arg" id="1272265463429939131" />
+      </scope>
+      <scope id="4853251298711711787" at="223,14,227,9" />
+      <scope id="1252252417959831327" at="38,36,43,7" />
+      <scope id="1252252417959831228" at="47,37,52,5" />
+      <scope id="1272265463430486974" at="173,45,178,11" />
+      <scope id="1252252417960656134" at="126,5,132,7">
+        <var name="dec_it" id="1252252417960656134" />
+        <var name="dec_var" id="1252252417960656134" />
+      </scope>
+      <scope id="1252252417959831325" at="37,226,44,5">
+        <var name="p" id="1252252417959831326" />
+      </scope>
+      <scope id="1252252417959831227" at="47,0,54,0">
+        <var name="v" id="1252252417959831294" />
+      </scope>
+      <scope id="1272265463430486968" at="172,255,179,9">
+        <var name="param" id="1272265463430486970" />
+      </scope>
+      <scope id="393239732992258063" at="200,40,208,0">
+        <var name="gvd" id="1252252417959831230" />
+      </scope>
+      <scope id="393239732992026680" at="136,39,145,0">
+        <var name="tdef" id="4853251298713271421" />
+      </scope>
+      <scope id="6026970074662574381" at="161,24,170,0">
+        <var name="tdef" id="6026970074662597805" />
+      </scope>
+      <scope id="393239732993029417" at="74,51,84,60">
+        <var name="cb" id="393239732993304980" />
+      </scope>
+      <scope id="393239732993066432" at="91,34,101,0">
+        <var name="mm" id="3541554595802377309" />
+        <var name="nt" id="1252252417961832280" />
+      </scope>
+      <scope id="5219591071326610113" at="149,41,159,0">
+        <var name="gcd" id="5219591071326292932" />
+        <var name="val" id="5219591071326634903" />
+      </scope>
+      <scope id="6026970074662617692" at="185,14,195,0">
+        <var name="exp" id="6026970074662309089" />
+        <var name="val" id="8558346717308522558" />
+      </scope>
+      <scope id="393239732992258060" at="200,0,210,0">
+        <var name="v" id="393239732992279991" />
+      </scope>
+      <scope id="393239732992026677" at="136,0,147,0">
+        <var name="td" id="393239732992033938" />
+      </scope>
+      <scope id="1252252417959831297" at="33,45,45,15">
+        <var name="frt" id="1252252417959831301" />
+        <var name="typer" id="1252252417959831307" />
+      </scope>
+      <scope id="393239732993082312" at="102,49,115,58">
+        <var name="cb" id="393239732993082314" />
+      </scope>
+      <scope id="1272265463429791857" at="171,47,184,9">
+        <var name="macro" id="1272265463429826705" />
+      </scope>
+      <scope id="7010721898864684729" at="217,57,230,0">
+        <var name="arg" id="4853251298711651131" />
+        <var name="p" id="7010721898864820007" />
+      </scope>
+      <scope id="1252252417959831296" at="33,0,47,0">
+        <var name="v" id="1252252417959831367" />
+      </scope>
+      <scope id="393239732991921044" at="119,36,133,5">
+        <var name="sd" id="1252252417960562986" />
+      </scope>
+      <scope id="7010721898864684726" at="216,14,231,5">
+        <var name="i" id="7010721898864684732" />
+      </scope>
+      <scope id="393239732991921041" at="119,0,135,0">
+        <var name="s" id="393239732991932669" />
+      </scope>
+      <scope id="393239732992340043" at="212,40,236,0">
+        <var name="fp" id="3801081104254345386" />
+        <var name="n" id="4853251298712235922" />
+      </scope>
+      <scope id="393239732993120577" at="90,59,116,5" />
+      <scope id="393239732992340040" at="212,0,238,0">
+        <var name="f" id="393239732992348740" />
+      </scope>
+      <scope id="393239732992661333" at="58,65,86,0" />
+      <scope id="393239732993120574" at="90,0,118,0">
+        <var name="dec" id="393239732993140731" />
+        <var name="sd" id="393239732993132249" />
+      </scope>
+      <scope id="393239732992661327" at="57,0,87,5">
+        <var name="dec" id="393239732992661329" />
+      </scope>
+      <scope id="393239732992875067" at="55,85,87,5" />
+      <scope id="393239732992875064" at="55,0,89,0">
+        <var name="declarations" id="393239732992899184" />
+        <var name="moduleNode" id="393239732992992558" />
+      </scope>
+      <scope id="5219591071326663128" at="160,12,196,7" />
+      <scope id="393239732992113613" at="148,37,197,5" />
+      <scope id="393239732992113610" at="148,0,199,0">
+        <var name="df" id="393239732992120831" />
+      </scope>
+      <unit id="393239732992377576" at="25,0,240,0" name="stdioImporter.runtime.ImporterCore" />
+    </file>
   </root>
   <root nodeRef="r:0a61a9e7-a709-43f0-abe2-8e147f2ba2c1(stdioImporter.runtime)/5652833161528197691">
-    <nodeInfo nodeId="1252252417960247533" fileName="Typer.java" startLine="15" startPosition="29" endLine="16" endPosition="52" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1252252417960263879" fileName="Typer.java" startLine="16" startPosition="52" endLine="17" endPosition="61" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1252252417960276287" fileName="Typer.java" startLine="17" startPosition="61" endLine="18" endPosition="71" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="4971377311863693475" fileName="Typer.java" startLine="19" startPosition="5" endLine="20" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="4971377311863701178" fileName="Typer.java" startLine="20" startPosition="0" endLine="21" endPosition="29" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4971377311863708813" fileName="Typer.java" startLine="21" startPosition="29" endLine="22" endPosition="111" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1252252417959964105" fileName="Typer.java" startLine="23" startPosition="5" endLine="24" endPosition="72" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1252252417959964105" fileName="Typer.java" startLine="24" startPosition="72" endLine="25" endPosition="18" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1252252417959964105" fileName="Typer.java" startLine="26" startPosition="30" endLine="27" endPosition="28" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1252252417959999552" fileName="Typer.java" startLine="28" startPosition="72" endLine="29" endPosition="106" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1252252417960002279" fileName="Typer.java" startLine="29" startPosition="106" endLine="30" endPosition="66" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1252252417960007101" fileName="Typer.java" startLine="30" startPosition="66" endLine="31" endPosition="21" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="4971377311864055120" fileName="Typer.java" startLine="34" startPosition="5" endLine="35" endPosition="32" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4971377311864061796" fileName="Typer.java" startLine="35" startPosition="32" endLine="36" endPosition="114" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4971377311864091991" fileName="Typer.java" startLine="37" startPosition="5" endLine="38" endPosition="75" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4971377311864091991" fileName="Typer.java" startLine="38" startPosition="75" endLine="39" endPosition="18" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4971377311864091991" fileName="Typer.java" startLine="40" startPosition="30" endLine="41" endPosition="28" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4971377311864411311" fileName="Typer.java" startLine="42" startPosition="67" endLine="43" endPosition="105" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4971377311864418741" fileName="Typer.java" startLine="43" startPosition="105" endLine="44" endPosition="65" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4971377311864092010" fileName="Typer.java" startLine="44" startPosition="65" endLine="45" endPosition="21" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="4971377311864052779" fileName="Typer.java" startLine="48" startPosition="5" endLine="49" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.Statement" />
-    <nodeInfo nodeId="2771001628963943263" fileName="Typer.java" startLine="50" startPosition="37" endLine="51" endPosition="32" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="4633630247266899818" fileName="Typer.java" startLine="52" startPosition="12" endLine="53" endPosition="99" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4633630247266899824" fileName="Typer.java" startLine="53" startPosition="99" endLine="54" endPosition="50" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4033614093427042326" fileName="Typer.java" startLine="54" startPosition="50" endLine="55" endPosition="106" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4033614093427046282" fileName="Typer.java" startLine="55" startPosition="106" endLine="56" endPosition="144" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4633630247266899832" fileName="Typer.java" startLine="56" startPosition="144" endLine="57" endPosition="60" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4633630247266899844" fileName="Typer.java" startLine="57" startPosition="60" endLine="58" endPosition="99" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4633630247266943754" fileName="Typer.java" startLine="58" startPosition="99" endLine="59" endPosition="102" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4633630247266948917" fileName="Typer.java" startLine="59" startPosition="102" endLine="60" endPosition="61" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4633630247266848706" fileName="Typer.java" startLine="60" startPosition="61" endLine="61" endPosition="17" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="2771001628964385951" fileName="Typer.java" startLine="67" startPosition="56" endLine="68" endPosition="107" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="2771001628964389561" fileName="Typer.java" startLine="68" startPosition="107" endLine="69" endPosition="65" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="2771001628964395396" fileName="Typer.java" startLine="70" startPosition="33" endLine="71" endPosition="25" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="2771001628964404993" fileName="Typer.java" startLine="71" startPosition="25" endLine="72" endPosition="103" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="2771001628964406445" fileName="Typer.java" startLine="72" startPosition="103" endLine="73" endPosition="63" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="3801081104254298255" fileName="Typer.java" startLine="74" startPosition="5" endLine="75" endPosition="17" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="191036071780841207" fileName="Typer.java" startLine="79" startPosition="35" endLine="80" endPosition="31" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="2771001628964341610" fileName="Typer.java" startLine="82" startPosition="33" endLine="83" endPosition="101" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="2771001628964341927" fileName="Typer.java" startLine="84" startPosition="49" endLine="85" endPosition="109" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="8301015252307624968" fileName="Typer.java" startLine="86" startPosition="50" endLine="87" endPosition="110" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="8301015252307496432" fileName="Typer.java" startLine="88" startPosition="45" endLine="89" endPosition="102" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="8301015252307527157" fileName="Typer.java" startLine="90" startPosition="48" endLine="91" endPosition="108" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="8301015252307556841" fileName="Typer.java" startLine="92" startPosition="42" endLine="93" endPosition="103" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="4971377311863068237" fileName="Typer.java" startLine="94" startPosition="41" endLine="95" endPosition="102" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="8301015252307591148" fileName="Typer.java" startLine="96" startPosition="51" endLine="97" endPosition="111" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="2771001628964342562" fileName="Typer.java" startLine="98" startPosition="41" endLine="99" endPosition="102" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="2771001628964343449" fileName="Typer.java" startLine="100" startPosition="50" endLine="101" endPosition="110" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="6128525707415970389" fileName="Typer.java" startLine="102" startPosition="41" endLine="103" endPosition="102" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="6128525707415985387" fileName="Typer.java" startLine="104" startPosition="43" endLine="105" endPosition="103" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="6128525707416001854" fileName="Typer.java" startLine="106" startPosition="44" endLine="107" endPosition="104" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="6128525707416026202" fileName="Typer.java" startLine="108" startPosition="44" endLine="109" endPosition="104" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="6128525707416041065" fileName="Typer.java" startLine="110" startPosition="42" endLine="111" endPosition="103" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="6128525707416057162" fileName="Typer.java" startLine="112" startPosition="43" endLine="113" endPosition="104" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="2771001628964345045" fileName="Typer.java" startLine="114" startPosition="5" endLine="115" endPosition="16" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="8301015252307667386" fileName="Typer.java" startLine="78" startPosition="38" endLine="81" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="1252252417960240188" fileName="Typer.java" startLine="14" startPosition="53" endLine="19" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="1252252417959964609" fileName="Typer.java" startLine="27" startPosition="28" endLine="32" endPosition="9" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="4971377311864091996" fileName="Typer.java" startLine="41" startPosition="28" endLine="46" endPosition="9" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="2771001628964348319" fileName="Typer.java" startLine="69" startPosition="65" endLine="74" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.ForStatement" />
-    <nodeInfo nodeId="1252252417959964105" fileName="Typer.java" startLine="25" startPosition="18" endLine="33" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.WhileStatement" />
-    <nodeInfo nodeId="4971377311864091991" fileName="Typer.java" startLine="39" startPosition="18" endLine="47" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.WhileStatement" />
-    <nodeInfo nodeId="4633630247266847499" fileName="Typer.java" startLine="52" startPosition="10" endLine="62" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.BlockStatement" />
-    <nodeInfo nodeId="3801081104254275070" fileName="Typer.java" startLine="67" startPosition="0" endLine="77" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="makePointerType#(Lorg/jetbrains/mps/openapi/model/SNode;I)Lorg/jetbrains/mps/openapi/model/SNode;" />
-    <nodeInfo nodeId="1252252417959964105" fileName="Typer.java" startLine="22" startPosition="111" endLine="34" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.BlockStatement" />
-    <nodeInfo nodeId="4971377311864091991" fileName="Typer.java" startLine="36" startPosition="114" endLine="48" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.BlockStatement" />
-    <nodeInfo nodeId="4633630247266824450" fileName="Typer.java" startLine="49" startPosition="0" endLine="62" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="2771001628963694843" fileName="Typer.java" startLine="81" startPosition="5" endLine="114" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="2771001628964340253" fileName="Typer.java" startLine="78" startPosition="0" endLine="117" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="mapType#(Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-    <nodeInfo nodeId="2771001628963944622" fileName="Typer.java" startLine="14" startPosition="0" endLine="64" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="buildType#(Ljava/lang/String;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-    <scopeInfo nodeId="4633630247266824453" fileName="Typer.java" startLine="50" startPosition="37" endLine="51" endPosition="32" />
-    <scopeInfo nodeId="8301015252307667389" fileName="Typer.java" startLine="79" startPosition="35" endLine="80" endPosition="31" />
-    <scopeInfo nodeId="2771001628963694844" fileName="Typer.java" startLine="82" startPosition="33" endLine="83" endPosition="101" />
-    <scopeInfo nodeId="2771001628963708403" fileName="Typer.java" startLine="84" startPosition="49" endLine="85" endPosition="109" />
-    <scopeInfo nodeId="8301015252307601746" fileName="Typer.java" startLine="86" startPosition="50" endLine="87" endPosition="110" />
-    <scopeInfo nodeId="8301015252307483008" fileName="Typer.java" startLine="88" startPosition="45" endLine="89" endPosition="102" />
-    <scopeInfo nodeId="8301015252307508561" fileName="Typer.java" startLine="90" startPosition="48" endLine="91" endPosition="108" />
-    <scopeInfo nodeId="8301015252307543783" fileName="Typer.java" startLine="92" startPosition="42" endLine="93" endPosition="103" />
-    <scopeInfo nodeId="4971377311863050625" fileName="Typer.java" startLine="94" startPosition="41" endLine="95" endPosition="102" />
-    <scopeInfo nodeId="8301015252307573660" fileName="Typer.java" startLine="96" startPosition="51" endLine="97" endPosition="111" />
-    <scopeInfo nodeId="2771001628963711174" fileName="Typer.java" startLine="98" startPosition="41" endLine="99" endPosition="102" />
-    <scopeInfo nodeId="2771001628963711495" fileName="Typer.java" startLine="100" startPosition="50" endLine="101" endPosition="110" />
-    <scopeInfo nodeId="6128525707415962561" fileName="Typer.java" startLine="102" startPosition="41" endLine="103" endPosition="102" />
-    <scopeInfo nodeId="6128525707415974257" fileName="Typer.java" startLine="104" startPosition="43" endLine="105" endPosition="103" />
-    <scopeInfo nodeId="6128525707415990671" fileName="Typer.java" startLine="106" startPosition="44" endLine="107" endPosition="104" />
-    <scopeInfo nodeId="6128525707416009151" fileName="Typer.java" startLine="108" startPosition="44" endLine="109" endPosition="104" />
-    <scopeInfo nodeId="6128525707416009294" fileName="Typer.java" startLine="110" startPosition="42" endLine="111" endPosition="103" />
-    <scopeInfo nodeId="6128525707416046416" fileName="Typer.java" startLine="112" startPosition="43" endLine="113" endPosition="104" />
-    <scopeInfo nodeId="1252252417960240191" fileName="Typer.java" startLine="15" startPosition="29" endLine="18" endPosition="71">
-      <varInfo nodeId="1252252417960263882" varName="basetype" />
-      <varInfo nodeId="1252252417960247536" varName="i" />
-    </scopeInfo>
-    <scopeInfo nodeId="1252252417959964610" fileName="Typer.java" startLine="28" startPosition="72" endLine="31" endPosition="21">
-      <varInfo nodeId="1252252417959999555" varName="tdt" />
-    </scopeInfo>
-    <scopeInfo nodeId="4971377311864091997" fileName="Typer.java" startLine="42" startPosition="67" endLine="45" endPosition="21">
-      <varInfo nodeId="4971377311864411314" varName="stt" />
-    </scopeInfo>
-    <scopeInfo nodeId="2771001628964348322" fileName="Typer.java" startLine="70" startPosition="33" endLine="73" endPosition="63">
-      <varInfo nodeId="2771001628964395399" varName="temp" />
-    </scopeInfo>
-    <scopeInfo nodeId="2771001628964348319" fileName="Typer.java" startLine="69" startPosition="65" endLine="74" endPosition="5">
-      <varInfo nodeId="2771001628964348325" varName="i" />
-    </scopeInfo>
-    <scopeInfo nodeId="1252252417959964105" fileName="Typer.java" startLine="26" startPosition="30" endLine="32" endPosition="9" />
-    <scopeInfo nodeId="4971377311864091991" fileName="Typer.java" startLine="40" startPosition="30" endLine="46" endPosition="9" />
-    <scopeInfo nodeId="3801081104254275073" fileName="Typer.java" startLine="67" startPosition="56" endLine="75" endPosition="17">
-      <varInfo nodeId="2771001628964271184" varName="ptype" />
-    </scopeInfo>
-    <scopeInfo nodeId="4633630247266847500" fileName="Typer.java" startLine="52" startPosition="12" endLine="61" endPosition="17">
-      <varInfo nodeId="4033614093427042329" varName="pt" />
-      <varInfo nodeId="4633630247266899819" varName="tdef" />
-      <varInfo nodeId="4633630247266943755" varName="tdt" />
-    </scopeInfo>
-    <scopeInfo nodeId="1252252417959964105" fileName="Typer.java" startLine="23" startPosition="5" endLine="33" endPosition="7">
-      <varInfo nodeId="1252252417959964105" varName="t_it" />
-      <varInfo nodeId="1252252417959964105" varName="t_var" />
-    </scopeInfo>
-    <scopeInfo nodeId="4971377311864091991" fileName="Typer.java" startLine="37" startPosition="5" endLine="47" endPosition="7">
-      <varInfo nodeId="4971377311864091991" varName="t_it" />
-      <varInfo nodeId="4971377311864091991" varName="t_var" />
-    </scopeInfo>
-    <scopeInfo nodeId="3801081104254275070" fileName="Typer.java" startLine="67" startPosition="0" endLine="77" endPosition="0">
-      <varInfo nodeId="3801081104254276093" varName="basetype" />
-      <varInfo nodeId="1252252417960437337" varName="n" />
-    </scopeInfo>
-    <scopeInfo nodeId="2771001628964340256" fileName="Typer.java" startLine="78" startPosition="38" endLine="115" endPosition="16" />
-    <scopeInfo nodeId="2771001628964340253" fileName="Typer.java" startLine="78" startPosition="0" endLine="117" endPosition="0">
-      <varInfo nodeId="2771001628964340504" varName="type" />
-    </scopeInfo>
-    <scopeInfo nodeId="5652833161528287431" fileName="Typer.java" startLine="14" startPosition="53" endLine="62" endPosition="5">
-      <varInfo nodeId="4971377311864055123" varName="structTypes" />
-      <varInfo nodeId="4971377311863701181" varName="typeDefs" />
-    </scopeInfo>
-    <scopeInfo nodeId="2771001628963944622" fileName="Typer.java" startLine="14" startPosition="0" endLine="64" endPosition="0">
-      <varInfo nodeId="5652833161528293406" varName="module" />
-      <varInfo nodeId="5652833161528301139" varName="type" />
-    </scopeInfo>
-    <unitInfo nodeId="5652833161528197691" fileName="Typer.java" startLine="13" startPosition="0" endLine="122" endPosition="0" unitName="stdioImporter.runtime.Typer" />
+    <file name="Typer.java">
+      <node id="1252252417960247533" at="17,29,18,52" concept="8" />
+      <node id="1252252417960263879" at="18,52,19,61" concept="8" />
+      <node id="1252252417960276287" at="19,61,20,71" concept="9" />
+      <node id="4971377311863693475" at="21,5,22,0" concept="11" />
+      <node id="4971377311863701178" at="22,0,23,29" concept="8" />
+      <node id="4971377311863708813" at="23,29,24,229" concept="2" />
+      <node id="1252252417959964105" at="25,5,26,72" concept="8" />
+      <node id="1252252417959964105" at="26,72,27,18" concept="8" />
+      <node id="1252252417959964105" at="28,30,29,28" concept="2" />
+      <node id="1252252417959999552" at="30,178,31,229" concept="8" />
+      <node id="1252252417960002279" at="31,229,32,180" concept="2" />
+      <node id="1252252417960007101" at="32,180,33,21" concept="9" />
+      <node id="4971377311864055120" at="36,5,37,32" concept="8" />
+      <node id="4971377311864061796" at="37,32,38,232" concept="2" />
+      <node id="4971377311864091991" at="39,5,40,75" concept="8" />
+      <node id="4971377311864091991" at="40,75,41,18" concept="8" />
+      <node id="4971377311864091991" at="42,30,43,28" concept="2" />
+      <node id="4971377311864411311" at="44,173,45,228" concept="8" />
+      <node id="4971377311864418741" at="45,228,46,179" concept="2" />
+      <node id="4971377311864092010" at="46,179,47,21" concept="9" />
+      <node id="4971377311864052779" at="50,5,51,0" concept="11" />
+      <node id="2771001628963943263" at="52,37,53,32" concept="9" />
+      <node id="4633630247266899818" at="54,12,55,222" concept="8" />
+      <node id="4633630247266899824" at="55,222,56,156" concept="2" />
+      <node id="4033614093427042326" at="56,156,57,228" concept="8" />
+      <node id="4033614093427046282" at="57,228,58,384" concept="2" />
+      <node id="4633630247266899832" at="58,384,59,177" concept="2" />
+      <node id="4633630247266899844" at="59,177,60,217" concept="2" />
+      <node id="4633630247266943754" at="60,217,61,225" concept="8" />
+      <node id="4633630247266948917" at="61,225,62,175" concept="2" />
+      <node id="4633630247266848706" at="62,175,63,17" concept="9" />
+      <node id="2771001628964385951" at="67,56,68,229" concept="8" />
+      <node id="2771001628964389561" at="68,229,69,182" concept="2" />
+      <node id="2771001628964395396" at="70,33,71,25" concept="8" />
+      <node id="2771001628964404993" at="71,25,72,225" concept="2" />
+      <node id="2771001628964406445" at="72,225,73,180" concept="2" />
+      <node id="3801081104254298255" at="74,5,75,17" concept="9" />
+      <node id="191036071780841207" at="78,35,79,31" concept="2" />
+      <node id="2771001628964341610" at="81,33,82,224" concept="9" />
+      <node id="2771001628964341927" at="83,49,84,232" concept="9" />
+      <node id="8301015252307624968" at="85,50,86,233" concept="9" />
+      <node id="8301015252307496432" at="87,45,88,224" concept="9" />
+      <node id="8301015252307527157" at="89,48,90,231" concept="9" />
+      <node id="8301015252307556841" at="91,42,92,226" concept="9" />
+      <node id="4971377311863068237" at="93,41,94,224" concept="9" />
+      <node id="8301015252307591148" at="95,51,96,233" concept="9" />
+      <node id="2771001628964342562" at="97,41,98,225" concept="9" />
+      <node id="2771001628964343449" at="99,50,100,233" concept="9" />
+      <node id="6128525707415970389" at="101,41,102,225" concept="9" />
+      <node id="6128525707415985387" at="103,43,104,226" concept="9" />
+      <node id="6128525707416001854" at="105,44,106,227" concept="9" />
+      <node id="6128525707416026202" at="107,44,108,227" concept="9" />
+      <node id="6128525707416041065" at="109,42,110,226" concept="9" />
+      <node id="6128525707416057162" at="111,43,112,227" concept="9" />
+      <node id="2771001628964345045" at="113,5,114,16" concept="9" />
+      <node id="8301015252307667386" at="77,38,80,5" concept="6" />
+      <node id="1252252417960240188" at="16,53,21,5" concept="6" />
+      <node id="1252252417959964609" at="29,28,34,9" concept="6" />
+      <node id="4971377311864091996" at="43,28,48,9" concept="6" />
+      <node id="2771001628964348319" at="69,182,74,5" concept="4" />
+      <node id="1252252417959964105" at="27,18,35,7" concept="14" />
+      <node id="4971377311864091991" at="41,18,49,7" concept="14" />
+      <node id="4633630247266847499" at="54,10,64,5" concept="0" />
+      <node id="3801081104254275070" at="67,0,77,0" concept="7" trace="makePointerType#(Lorg/jetbrains/mps/openapi/model/SNode;I)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="1252252417959964105" at="24,229,36,5" concept="0" />
+      <node id="4971377311864091991" at="38,232,50,5" concept="0" />
+      <node id="4633630247266824450" at="51,0,64,5" concept="6" />
+      <node id="2771001628963694843" at="80,5,113,5" concept="6" />
+      <node id="2771001628964340253" at="77,0,116,0" concept="7" trace="mapType#(Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="2771001628963944622" at="16,0,66,0" concept="7" trace="buildType#(Ljava/lang/String;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <scope id="4633630247266824453" at="52,37,53,32" />
+      <scope id="8301015252307667389" at="78,35,79,31" />
+      <scope id="2771001628963694844" at="81,33,82,224" />
+      <scope id="2771001628963708403" at="83,49,84,232" />
+      <scope id="8301015252307601746" at="85,50,86,233" />
+      <scope id="8301015252307483008" at="87,45,88,224" />
+      <scope id="8301015252307508561" at="89,48,90,231" />
+      <scope id="8301015252307543783" at="91,42,92,226" />
+      <scope id="4971377311863050625" at="93,41,94,224" />
+      <scope id="8301015252307573660" at="95,51,96,233" />
+      <scope id="2771001628963711174" at="97,41,98,225" />
+      <scope id="2771001628963711495" at="99,50,100,233" />
+      <scope id="6128525707415962561" at="101,41,102,225" />
+      <scope id="6128525707415974257" at="103,43,104,226" />
+      <scope id="6128525707415990671" at="105,44,106,227" />
+      <scope id="6128525707416009151" at="107,44,108,227" />
+      <scope id="6128525707416009294" at="109,42,110,226" />
+      <scope id="6128525707416046416" at="111,43,112,227" />
+      <scope id="1252252417960240191" at="17,29,20,71">
+        <var name="basetype" id="1252252417960263882" />
+        <var name="i" id="1252252417960247536" />
+      </scope>
+      <scope id="1252252417959964610" at="30,178,33,21">
+        <var name="tdt" id="1252252417959999555" />
+      </scope>
+      <scope id="4971377311864091997" at="44,173,47,21">
+        <var name="stt" id="4971377311864411314" />
+      </scope>
+      <scope id="2771001628964348322" at="70,33,73,180">
+        <var name="temp" id="2771001628964395399" />
+      </scope>
+      <scope id="2771001628964348319" at="69,182,74,5">
+        <var name="i" id="2771001628964348325" />
+      </scope>
+      <scope id="1252252417959964105" at="28,30,34,9" />
+      <scope id="4971377311864091991" at="42,30,48,9" />
+      <scope id="3801081104254275073" at="67,56,75,17">
+        <var name="ptype" id="2771001628964271184" />
+      </scope>
+      <scope id="4633630247266847500" at="54,12,63,17">
+        <var name="pt" id="4033614093427042329" />
+        <var name="tdef" id="4633630247266899819" />
+        <var name="tdt" id="4633630247266943755" />
+      </scope>
+      <scope id="1252252417959964105" at="25,5,35,7">
+        <var name="t_it" id="1252252417959964105" />
+        <var name="t_var" id="1252252417959964105" />
+      </scope>
+      <scope id="4971377311864091991" at="39,5,49,7">
+        <var name="t_it" id="4971377311864091991" />
+        <var name="t_var" id="4971377311864091991" />
+      </scope>
+      <scope id="3801081104254275070" at="67,0,77,0">
+        <var name="basetype" id="3801081104254276093" />
+        <var name="n" id="1252252417960437337" />
+      </scope>
+      <scope id="2771001628964340256" at="77,38,114,16" />
+      <scope id="2771001628964340253" at="77,0,116,0">
+        <var name="type" id="2771001628964340504" />
+      </scope>
+      <scope id="5652833161528287431" at="16,53,64,5">
+        <var name="structTypes" id="4971377311864055123" />
+        <var name="typeDefs" id="4971377311863701181" />
+      </scope>
+      <scope id="2771001628963944622" at="16,0,66,0">
+        <var name="module" id="5652833161528293406" />
+        <var name="type" id="5652833161528301139" />
+      </scope>
+      <unit id="5652833161528197691" at="15,0,120,0" name="stdioImporter.runtime.Typer" />
+    </file>
   </root>
   <root nodeRef="r:0a61a9e7-a709-43f0-abe2-8e147f2ba2c1(stdioImporter.runtime)/6846424207480944188">
-    <nodeInfo nodeId="6846424207481067741" fileName="VariabilityImporter.java" startLine="20" startPosition="48" endLine="21" endPosition="57" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="6846424207480287232" fileName="VariabilityImporter.java" startLine="21" startPosition="57" endLine="22" endPosition="81" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="6846424207481277941" fileName="VariabilityImporter.java" startLine="23" startPosition="24" endLine="24" endPosition="95" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481278341" fileName="VariabilityImporter.java" startLine="24" startPosition="95" endLine="25" endPosition="69" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207480362906" fileName="VariabilityImporter.java" startLine="25" startPosition="69" endLine="26" endPosition="101" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481065137" fileName="VariabilityImporter.java" startLine="27" startPosition="9" endLine="28" endPosition="52" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481071558" fileName="VariabilityImporter.java" startLine="28" startPosition="52" endLine="29" endPosition="53" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481081794" fileName="VariabilityImporter.java" startLine="30" startPosition="45" endLine="31" endPosition="38" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="6846424207481084659" fileName="VariabilityImporter.java" startLine="31" startPosition="38" endLine="32" endPosition="54" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1988191659993415665" fileName="VariabilityImporter.java" startLine="40" startPosition="41" endLine="41" endPosition="109" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1988191659993485068" fileName="VariabilityImporter.java" startLine="41" startPosition="109" endLine="42" endPosition="107" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1988191659993975658" fileName="VariabilityImporter.java" startLine="42" startPosition="107" endLine="43" endPosition="55" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1988191659993486102" fileName="VariabilityImporter.java" startLine="43" startPosition="55" endLine="44" endPosition="59" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1988191659993718786" fileName="VariabilityImporter.java" startLine="45" startPosition="134" endLine="46" endPosition="106" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="1988191659993719553" fileName="VariabilityImporter.java" startLine="46" startPosition="106" endLine="47" endPosition="57" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1988191659993490252" fileName="VariabilityImporter.java" startLine="47" startPosition="57" endLine="48" endPosition="141" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1988191659993740403" fileName="VariabilityImporter.java" startLine="49" startPosition="5" endLine="50" endPosition="91" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481223093" fileName="VariabilityImporter.java" startLine="57" startPosition="66" endLine="58" endPosition="17" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="6846424207481229144" fileName="VariabilityImporter.java" startLine="60" startPosition="5" endLine="61" endPosition="16" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="6846424207481103787" fileName="VariabilityImporter.java" startLine="66" startPosition="77" endLine="67" endPosition="101" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="6846424207481185550" fileName="VariabilityImporter.java" startLine="67" startPosition="101" endLine="68" endPosition="50" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481103966" fileName="VariabilityImporter.java" startLine="68" startPosition="50" endLine="69" endPosition="85" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="6846424207481109314" fileName="VariabilityImporter.java" startLine="69" startPosition="85" endLine="70" endPosition="91" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="1988191659993762448" fileName="VariabilityImporter.java" startLine="70" startPosition="91" endLine="71" endPosition="28" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7747522817699804738" fileName="VariabilityImporter.java" startLine="76" startPosition="85" endLine="77" endPosition="114" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="3867130037704440500" fileName="VariabilityImporter.java" startLine="77" startPosition="114" endLine="78" endPosition="115" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="7004343899539447160" fileName="VariabilityImporter.java" startLine="78" startPosition="115" endLine="79" endPosition="99" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="7004343899539447407" fileName="VariabilityImporter.java" startLine="79" startPosition="99" endLine="80" endPosition="61" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8457321741451071240" fileName="VariabilityImporter.java" startLine="81" startPosition="23" endLine="82" endPosition="116" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="8457321741451071246" fileName="VariabilityImporter.java" startLine="82" startPosition="116" endLine="83" endPosition="65" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8457321741451071252" fileName="VariabilityImporter.java" startLine="83" startPosition="65" endLine="84" endPosition="59" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8457321741451071262" fileName="VariabilityImporter.java" startLine="85" startPosition="12" endLine="86" endPosition="54" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="7747522817699799398" fileName="VariabilityImporter.java" startLine="87" startPosition="5" endLine="88" endPosition="57" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="3867130037704204298" fileName="VariabilityImporter.java" startLine="88" startPosition="57" endLine="89" endPosition="155" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="5385999576216709737" fileName="VariabilityImporter.java" startLine="94" startPosition="94" endLine="95" endPosition="114" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="5385999576216709743" fileName="VariabilityImporter.java" startLine="95" startPosition="114" endLine="96" endPosition="115" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4610324712308251859" fileName="VariabilityImporter.java" startLine="96" startPosition="115" endLine="97" endPosition="99" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4610324712308252122" fileName="VariabilityImporter.java" startLine="97" startPosition="99" endLine="98" endPosition="61" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8457321741451053352" fileName="VariabilityImporter.java" startLine="99" startPosition="23" endLine="100" endPosition="116" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="8457321741451054470" fileName="VariabilityImporter.java" startLine="100" startPosition="116" endLine="101" endPosition="65" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="8457321741451046891" fileName="VariabilityImporter.java" startLine="101" startPosition="65" endLine="102" endPosition="59" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4610324712308318419" fileName="VariabilityImporter.java" startLine="103" startPosition="12" endLine="104" endPosition="54" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="5385999576216709749" fileName="VariabilityImporter.java" startLine="105" startPosition="5" endLine="106" endPosition="57" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="5385999576216709755" fileName="VariabilityImporter.java" startLine="106" startPosition="57" endLine="107" endPosition="155" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4280880010961069281" fileName="VariabilityImporter.java" startLine="114" startPosition="66" endLine="115" endPosition="17" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="4280880010961205989" fileName="VariabilityImporter.java" startLine="117" startPosition="95" endLine="118" endPosition="53" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4280880010961222005" fileName="VariabilityImporter.java" startLine="119" startPosition="33" endLine="120" endPosition="28" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="4280880010961227731" fileName="VariabilityImporter.java" startLine="123" startPosition="5" endLine="124" endPosition="16" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="4280880010960607870" fileName="VariabilityImporter.java" startLine="129" startPosition="56" endLine="130" endPosition="13" conceptFqName="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
-    <nodeInfo nodeId="4280880010960617696" fileName="VariabilityImporter.java" startLine="130" startPosition="13" endLine="131" endPosition="103" conceptFqName="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
-    <nodeInfo nodeId="4280880010961241916" fileName="VariabilityImporter.java" startLine="131" startPosition="103" endLine="132" endPosition="79" conceptFqName="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
-    <nodeInfo nodeId="8457321741451071260" fileName="VariabilityImporter.java" startLine="85" startPosition="10" endLine="87" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.BlockStatement" />
-    <nodeInfo nodeId="8457321741451058854" fileName="VariabilityImporter.java" startLine="103" startPosition="10" endLine="105" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.BlockStatement" />
-    <nodeInfo nodeId="6846424207481212228" fileName="VariabilityImporter.java" startLine="56" startPosition="98" endLine="59" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="4280880010961057443" fileName="VariabilityImporter.java" startLine="113" startPosition="98" endLine="116" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="4280880010961218599" fileName="VariabilityImporter.java" startLine="118" startPosition="53" endLine="121" endPosition="9" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="6846424207481258594" fileName="VariabilityImporter.java" startLine="22" startPosition="81" endLine="27" endPosition="9" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="1988191659993687537" fileName="VariabilityImporter.java" startLine="44" startPosition="59" endLine="49" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.ForeachStatement" />
-    <nodeInfo nodeId="6846424207481209195" fileName="VariabilityImporter.java" startLine="55" startPosition="70" endLine="60" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.ForeachStatement" />
-    <nodeInfo nodeId="4280880010960963893" fileName="VariabilityImporter.java" startLine="129" startPosition="0" endLine="134" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="getFeaturebyName#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-    <nodeInfo nodeId="4280880010961078124" fileName="VariabilityImporter.java" startLine="116" startPosition="7" endLine="122" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="6846424207481098381" fileName="VariabilityImporter.java" startLine="66" startPosition="0" endLine="73" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="addVariabilitys#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Iterable;)V" />
-    <nodeInfo nodeId="8457321741451071238" fileName="VariabilityImporter.java" startLine="80" startPosition="61" endLine="87" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="8457321741451046584" fileName="VariabilityImporter.java" startLine="98" startPosition="61" endLine="105" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="6846424207481203087" fileName="VariabilityImporter.java" startLine="55" startPosition="0" endLine="63" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="checkFeatureAvailability#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-    <nodeInfo nodeId="4280880010961046308" fileName="VariabilityImporter.java" startLine="112" startPosition="57" endLine="123" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.ForeachStatement" />
-    <nodeInfo nodeId="1988191659993387928" fileName="VariabilityImporter.java" startLine="40" startPosition="0" endLine="52" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="addConfigModel#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-    <nodeInfo nodeId="6846424207480900265" fileName="VariabilityImporter.java" startLine="19" startPosition="69" endLine="33" endPosition="7" conceptFqName="jetbrains.mps.baseLanguage.structure.IfStatement" />
-    <nodeInfo nodeId="4280880010961140728" fileName="VariabilityImporter.java" startLine="112" startPosition="0" endLine="126" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="findFeature#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-    <nodeInfo nodeId="6846424207480968348" fileName="VariabilityImporter.java" startLine="76" startPosition="0" endLine="91" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="addPresenceCondition#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Z)V" />
-    <nodeInfo nodeId="5385999576216709733" fileName="VariabilityImporter.java" startLine="94" startPosition="0" endLine="109" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="addPresenceConditionToSMember#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Z)V" />
-    <nodeInfo nodeId="6846424207480280388" fileName="VariabilityImporter.java" startLine="18" startPosition="84" endLine="34" endPosition="5" conceptFqName="jetbrains.mps.baseLanguage.structure.ForeachStatement" />
-    <nodeInfo nodeId="6846424207480953082" fileName="VariabilityImporter.java" startLine="18" startPosition="0" endLine="36" endPosition="0" conceptFqName="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" propertyString="addToVariability#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Iterable;)V" />
-    <scopeInfo nodeId="6846424207481212229" fileName="VariabilityImporter.java" startLine="57" startPosition="66" endLine="58" endPosition="17" />
-    <scopeInfo nodeId="8457321741451071261" fileName="VariabilityImporter.java" startLine="85" startPosition="12" endLine="86" endPosition="54" />
-    <scopeInfo nodeId="8457321741451058855" fileName="VariabilityImporter.java" startLine="103" startPosition="12" endLine="104" endPosition="54" />
-    <scopeInfo nodeId="4280880010961057444" fileName="VariabilityImporter.java" startLine="114" startPosition="66" endLine="115" endPosition="17" />
-    <scopeInfo nodeId="4280880010961218602" fileName="VariabilityImporter.java" startLine="119" startPosition="33" endLine="120" endPosition="28" />
-    <scopeInfo nodeId="6846424207481078397" fileName="VariabilityImporter.java" startLine="30" startPosition="45" endLine="32" endPosition="54">
-      <varInfo nodeId="6846424207481081795" varName="str" />
-    </scopeInfo>
-    <scopeInfo nodeId="6846424207481258597" fileName="VariabilityImporter.java" startLine="23" startPosition="24" endLine="26" endPosition="101" />
-    <scopeInfo nodeId="1988191659993687543" fileName="VariabilityImporter.java" startLine="45" startPosition="134" endLine="48" endPosition="141">
-      <varInfo nodeId="1988191659993718789" varName="sf" />
-    </scopeInfo>
-    <scopeInfo nodeId="6846424207481209198" fileName="VariabilityImporter.java" startLine="56" startPosition="98" endLine="59" endPosition="7" />
-    <scopeInfo nodeId="8457321741451071239" fileName="VariabilityImporter.java" startLine="81" startPosition="23" endLine="84" endPosition="59">
-      <varInfo nodeId="8457321741451071241" varName="notexpr" />
-    </scopeInfo>
-    <scopeInfo nodeId="8457321741451046587" fileName="VariabilityImporter.java" startLine="99" startPosition="23" endLine="102" endPosition="59">
-      <varInfo nodeId="8457321741451053355" varName="notexpr" />
-    </scopeInfo>
-    <scopeInfo nodeId="4280880010960963896" fileName="VariabilityImporter.java" startLine="129" startPosition="56" endLine="132" endPosition="79">
-      <varInfo nodeId="4280880010960607873" varName="fm" />
-    </scopeInfo>
-    <scopeInfo nodeId="4280880010961078127" fileName="VariabilityImporter.java" startLine="117" startPosition="95" endLine="121" endPosition="9">
-      <varInfo nodeId="4280880010961205992" varName="fcandidate" />
-    </scopeInfo>
-    <scopeInfo nodeId="1988191659993687537" fileName="VariabilityImporter.java" startLine="44" startPosition="59" endLine="49" endPosition="5">
-      <varInfo nodeId="1988191659993687539" varName="f" />
-    </scopeInfo>
-    <scopeInfo nodeId="6846424207481209195" fileName="VariabilityImporter.java" startLine="55" startPosition="70" endLine="60" endPosition="5">
-      <varInfo nodeId="6846424207481209196" varName="f" />
-    </scopeInfo>
-    <scopeInfo nodeId="6846424207481098384" fileName="VariabilityImporter.java" startLine="66" startPosition="77" endLine="71" endPosition="28">
-      <varInfo nodeId="6846424207481103790" varName="fm" />
-    </scopeInfo>
-    <scopeInfo nodeId="4280880010960963893" fileName="VariabilityImporter.java" startLine="129" startPosition="0" endLine="134" endPosition="0">
-      <varInfo nodeId="4280880010960968603" varName="name" />
-      <varInfo nodeId="4280880010960966647" varName="vs" />
-    </scopeInfo>
-    <scopeInfo nodeId="6846424207481203090" fileName="VariabilityImporter.java" startLine="55" startPosition="70" endLine="61" endPosition="16" />
-    <scopeInfo nodeId="6846424207481098381" fileName="VariabilityImporter.java" startLine="66" startPosition="0" endLine="73" endPosition="0">
-      <varInfo nodeId="6846424207481102117" varName="declarations" />
-      <varInfo nodeId="6846424207481100505" varName="vs" />
-    </scopeInfo>
-    <scopeInfo nodeId="6846424207481203087" fileName="VariabilityImporter.java" startLine="55" startPosition="0" endLine="63" endPosition="0">
-      <varInfo nodeId="6846424207481207334" varName="feature" />
-      <varInfo nodeId="6846424207481205520" varName="name" />
-    </scopeInfo>
-    <scopeInfo nodeId="6846424207480900268" fileName="VariabilityImporter.java" startLine="20" startPosition="48" endLine="29" endPosition="53">
-      <varInfo nodeId="6846424207481067742" varName="cb" />
-      <varInfo nodeId="6846424207480287235" varName="f" />
-    </scopeInfo>
-    <scopeInfo nodeId="4280880010961046314" fileName="VariabilityImporter.java" startLine="113" startPosition="98" endLine="122" endPosition="7" />
-    <scopeInfo nodeId="1988191659993387931" fileName="VariabilityImporter.java" startLine="40" startPosition="41" endLine="50" endPosition="91">
-      <varInfo nodeId="1988191659993485071" varName="cm" />
-      <varInfo nodeId="1988191659993415668" varName="fm" />
-    </scopeInfo>
-    <scopeInfo nodeId="4280880010961046308" fileName="VariabilityImporter.java" startLine="112" startPosition="57" endLine="123" endPosition="5">
-      <varInfo nodeId="4280880010961046310" varName="f" />
-    </scopeInfo>
-    <scopeInfo nodeId="1988191659993387928" fileName="VariabilityImporter.java" startLine="40" startPosition="0" endLine="52" endPosition="0">
-      <varInfo nodeId="1988191659993402524" varName="vs" />
-    </scopeInfo>
-    <scopeInfo nodeId="4280880010961140731" fileName="VariabilityImporter.java" startLine="112" startPosition="57" endLine="124" endPosition="16" />
-    <scopeInfo nodeId="6974588976626517244" fileName="VariabilityImporter.java" startLine="76" startPosition="85" endLine="89" endPosition="155">
-      <varInfo nodeId="7747522817699804741" varName="fc" />
-      <varInfo nodeId="7004343899539447163" varName="fr" />
-      <varInfo nodeId="3867130037704440503" varName="pc" />
-    </scopeInfo>
-    <scopeInfo nodeId="5385999576216709736" fileName="VariabilityImporter.java" startLine="94" startPosition="94" endLine="107" endPosition="155">
-      <varInfo nodeId="5385999576216709738" varName="fc" />
-      <varInfo nodeId="4610324712308251862" varName="fr" />
-      <varInfo nodeId="5385999576216709744" varName="pc" />
-    </scopeInfo>
-    <scopeInfo nodeId="6846424207480280394" fileName="VariabilityImporter.java" startLine="19" startPosition="69" endLine="33" endPosition="7" />
-    <scopeInfo nodeId="4280880010961140728" fileName="VariabilityImporter.java" startLine="112" startPosition="0" endLine="126" endPosition="0">
-      <varInfo nodeId="4280880010961144693" varName="feature" />
-      <varInfo nodeId="4280880010961202885" varName="name" />
-    </scopeInfo>
-    <scopeInfo nodeId="6846424207480968348" fileName="VariabilityImporter.java" startLine="76" startPosition="0" endLine="91" endPosition="0">
-      <varInfo nodeId="8457321741451074167" varName="condition" />
-      <varInfo nodeId="6974588976626525724" varName="content" />
-      <varInfo nodeId="7004343899539511317" varName="feature" />
-    </scopeInfo>
-    <scopeInfo nodeId="5385999576216709733" fileName="VariabilityImporter.java" startLine="94" startPosition="0" endLine="109" endPosition="0">
-      <varInfo nodeId="8457321741451032873" varName="condition" />
-      <varInfo nodeId="5385999576216709734" varName="content" />
-      <varInfo nodeId="4610324712308249051" varName="feature" />
-    </scopeInfo>
-    <scopeInfo nodeId="6846424207480280388" fileName="VariabilityImporter.java" startLine="18" startPosition="84" endLine="34" endPosition="5">
-      <varInfo nodeId="6846424207480280390" varName="declare" />
-    </scopeInfo>
-    <scopeInfo nodeId="7747522817698894609" fileName="VariabilityImporter.java" startLine="18" startPosition="84" endLine="34" endPosition="5" />
-    <scopeInfo nodeId="6846424207480953082" fileName="VariabilityImporter.java" startLine="18" startPosition="0" endLine="36" endPosition="0">
-      <varInfo nodeId="6846424207480253226" varName="declarations" />
-      <varInfo nodeId="7747522817698901024" varName="feature" />
-    </scopeInfo>
-    <unitInfo nodeId="6846424207480944188" fileName="VariabilityImporter.java" startLine="17" startPosition="0" endLine="138" endPosition="0" unitName="stdioImporter.runtime.VariabilityImporter" />
+    <file name="VariabilityImporter.java">
+      <node id="6846424207481067741" at="22,48,23,57" concept="8" />
+      <node id="6846424207480287232" at="23,57,24,81" concept="8" />
+      <node id="6846424207481277941" at="25,24,26,218" concept="2" />
+      <node id="6846424207481278341" at="26,218,27,175" concept="2" />
+      <node id="6846424207480362906" at="27,175,28,219" concept="2" />
+      <node id="6846424207481065137" at="29,9,30,52" concept="2" />
+      <node id="6846424207481071558" at="30,52,31,53" concept="2" />
+      <node id="6846424207481081794" at="32,45,33,38" concept="8" />
+      <node id="6846424207481084659" at="33,38,34,54" concept="2" />
+      <node id="1988191659993415665" at="40,41,41,227" concept="8" />
+      <node id="1988191659993485068" at="41,227,42,230" concept="8" />
+      <node id="1988191659993975658" at="42,230,43,161" concept="2" />
+      <node id="1988191659993486102" at="43,161,44,173" concept="2" />
+      <node id="1988191659993718786" at="45,369,46,229" concept="8" />
+      <node id="1988191659993719553" at="46,229,47,171" concept="2" />
+      <node id="1988191659993490252" at="47,171,48,376" concept="2" />
+      <node id="1988191659993740403" at="49,5,50,209" concept="2" />
+      <node id="6846424207481223093" at="55,172,56,17" concept="9" />
+      <node id="6846424207481229144" at="58,5,59,16" concept="9" />
+      <node id="6846424207481103787" at="62,77,63,224" concept="8" />
+      <node id="6846424207481185550" at="63,224,64,156" concept="2" />
+      <node id="6846424207481103966" at="64,156,65,202" concept="2" />
+      <node id="6846424207481109314" at="65,202,66,209" concept="2" />
+      <node id="1988191659993762448" at="66,209,67,28" concept="2" />
+      <node id="7747522817699804738" at="70,85,71,236" concept="8" />
+      <node id="3867130037704440500" at="71,236,72,236" concept="8" />
+      <node id="7004343899539447160" at="72,236,73,222" concept="8" />
+      <node id="7004343899539447407" at="73,222,74,175" concept="2" />
+      <node id="8457321741451071240" at="75,23,76,239" concept="8" />
+      <node id="8457321741451071246" at="76,239,77,182" concept="2" />
+      <node id="8457321741451071252" at="77,182,78,175" concept="2" />
+      <node id="8457321741451071262" at="79,12,80,170" concept="2" />
+      <node id="7747522817699799398" at="81,5,82,171" concept="2" />
+      <node id="3867130037704204298" at="82,171,83,249" concept="2" />
+      <node id="5385999576216709737" at="86,94,87,236" concept="8" />
+      <node id="5385999576216709743" at="87,236,88,236" concept="8" />
+      <node id="4610324712308251859" at="88,236,89,222" concept="8" />
+      <node id="4610324712308252122" at="89,222,90,175" concept="2" />
+      <node id="8457321741451053352" at="91,23,92,239" concept="8" />
+      <node id="8457321741451054470" at="92,239,93,182" concept="2" />
+      <node id="8457321741451046891" at="93,182,94,175" concept="2" />
+      <node id="4610324712308318419" at="95,12,96,170" concept="2" />
+      <node id="5385999576216709749" at="97,5,98,171" concept="2" />
+      <node id="5385999576216709755" at="98,171,99,249" concept="2" />
+      <node id="4280880010961069281" at="104,172,105,17" concept="9" />
+      <node id="4280880010961205989" at="107,213,108,53" concept="8" />
+      <node id="4280880010961222005" at="109,33,110,28" concept="9" />
+      <node id="4280880010961227731" at="113,5,114,16" concept="9" />
+      <node id="4280880010960607870" at="117,56,118,13" concept="8" />
+      <node id="4280880010960617696" at="118,13,119,221" concept="2" />
+      <node id="4280880010961241916" at="119,221,120,196" concept="9" />
+      <node id="8457321741451071260" at="79,10,81,5" concept="0" />
+      <node id="8457321741451058854" at="95,10,97,5" concept="0" />
+      <node id="6846424207481212228" at="54,216,57,7" concept="6" />
+      <node id="4280880010961057443" at="103,216,106,7" concept="6" />
+      <node id="4280880010961218599" at="108,53,111,9" concept="6" />
+      <node id="6846424207481258594" at="24,81,29,9" concept="6" />
+      <node id="1988191659993687537" at="44,173,49,5" concept="5" />
+      <node id="6846424207481209195" at="53,70,58,5" concept="5" />
+      <node id="4280880010960963893" at="117,0,122,0" concept="7" trace="getFeaturebyName#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="4280880010961078124" at="106,7,112,7" concept="6" />
+      <node id="6846424207481098381" at="62,0,69,0" concept="7" trace="addVariabilitys#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Iterable;)V" />
+      <node id="8457321741451071238" at="74,175,81,5" concept="6" />
+      <node id="8457321741451046584" at="90,175,97,5" concept="6" />
+      <node id="6846424207481203087" at="53,0,61,0" concept="7" trace="checkFeatureAvailability#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="4280880010961046308" at="102,57,113,5" concept="5" />
+      <node id="1988191659993387928" at="40,0,52,0" concept="7" trace="addConfigModel#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="6846424207480900265" at="21,69,35,7" concept="6" />
+      <node id="4280880010961140728" at="102,0,116,0" concept="7" trace="findFeature#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="6846424207480968348" at="70,0,85,0" concept="7" trace="addPresenceCondition#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Z)V" />
+      <node id="5385999576216709733" at="86,0,101,0" concept="7" trace="addPresenceConditionToSMember#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Z)V" />
+      <node id="6846424207480280388" at="20,84,36,5" concept="5" />
+      <node id="6846424207480953082" at="20,0,38,0" concept="7" trace="addToVariability#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/Iterable;)V" />
+      <scope id="6846424207481212229" at="55,172,56,17" />
+      <scope id="8457321741451071261" at="79,12,80,170" />
+      <scope id="8457321741451058855" at="95,12,96,170" />
+      <scope id="4280880010961057444" at="104,172,105,17" />
+      <scope id="4280880010961218602" at="109,33,110,28" />
+      <scope id="6846424207481078397" at="32,45,34,54">
+        <var name="str" id="6846424207481081795" />
+      </scope>
+      <scope id="6846424207481258597" at="25,24,28,219" />
+      <scope id="1988191659993687543" at="45,369,48,376">
+        <var name="sf" id="1988191659993718789" />
+      </scope>
+      <scope id="6846424207481209198" at="54,216,57,7" />
+      <scope id="8457321741451071239" at="75,23,78,175">
+        <var name="notexpr" id="8457321741451071241" />
+      </scope>
+      <scope id="8457321741451046587" at="91,23,94,175">
+        <var name="notexpr" id="8457321741451053355" />
+      </scope>
+      <scope id="4280880010960963896" at="117,56,120,196">
+        <var name="fm" id="4280880010960607873" />
+      </scope>
+      <scope id="4280880010961078127" at="107,213,111,9">
+        <var name="fcandidate" id="4280880010961205992" />
+      </scope>
+      <scope id="1988191659993687537" at="44,173,49,5">
+        <var name="f" id="1988191659993687539" />
+      </scope>
+      <scope id="6846424207481209195" at="53,70,58,5">
+        <var name="f" id="6846424207481209196" />
+      </scope>
+      <scope id="6846424207481098384" at="62,77,67,28">
+        <var name="fm" id="6846424207481103790" />
+      </scope>
+      <scope id="4280880010960963893" at="117,0,122,0">
+        <var name="name" id="4280880010960968603" />
+        <var name="vs" id="4280880010960966647" />
+      </scope>
+      <scope id="6846424207481203090" at="53,70,59,16" />
+      <scope id="6846424207481098381" at="62,0,69,0">
+        <var name="declarations" id="6846424207481102117" />
+        <var name="vs" id="6846424207481100505" />
+      </scope>
+      <scope id="6846424207481203087" at="53,0,61,0">
+        <var name="feature" id="6846424207481207334" />
+        <var name="name" id="6846424207481205520" />
+      </scope>
+      <scope id="6846424207480900268" at="22,48,31,53">
+        <var name="cb" id="6846424207481067742" />
+        <var name="f" id="6846424207480287235" />
+      </scope>
+      <scope id="4280880010961046314" at="103,216,112,7" />
+      <scope id="1988191659993387931" at="40,41,50,209">
+        <var name="cm" id="1988191659993485071" />
+        <var name="fm" id="1988191659993415668" />
+      </scope>
+      <scope id="4280880010961046308" at="102,57,113,5">
+        <var name="f" id="4280880010961046310" />
+      </scope>
+      <scope id="1988191659993387928" at="40,0,52,0">
+        <var name="vs" id="1988191659993402524" />
+      </scope>
+      <scope id="4280880010961140731" at="102,57,114,16" />
+      <scope id="6974588976626517244" at="70,85,83,249">
+        <var name="fc" id="7747522817699804741" />
+        <var name="fr" id="7004343899539447163" />
+        <var name="pc" id="3867130037704440503" />
+      </scope>
+      <scope id="5385999576216709736" at="86,94,99,249">
+        <var name="fc" id="5385999576216709738" />
+        <var name="fr" id="4610324712308251862" />
+        <var name="pc" id="5385999576216709744" />
+      </scope>
+      <scope id="6846424207480280394" at="21,69,35,7" />
+      <scope id="4280880010961140728" at="102,0,116,0">
+        <var name="feature" id="4280880010961144693" />
+        <var name="name" id="4280880010961202885" />
+      </scope>
+      <scope id="6846424207480968348" at="70,0,85,0">
+        <var name="condition" id="8457321741451074167" />
+        <var name="content" id="6974588976626525724" />
+        <var name="feature" id="7004343899539511317" />
+      </scope>
+      <scope id="5385999576216709733" at="86,0,101,0">
+        <var name="condition" id="8457321741451032873" />
+        <var name="content" id="5385999576216709734" />
+        <var name="feature" id="4610324712308249051" />
+      </scope>
+      <scope id="6846424207480280388" at="20,84,36,5">
+        <var name="declare" id="6846424207480280390" />
+      </scope>
+      <scope id="7747522817698894609" at="20,84,36,5" />
+      <scope id="6846424207480953082" at="20,0,38,0">
+        <var name="declarations" id="6846424207480253226" />
+        <var name="feature" id="7747522817698901024" />
+      </scope>
+      <unit id="6846424207480944188" at="19,0,125,0" name="stdioImporter.runtime.VariabilityImporter" />
+    </file>
   </root>
-</debugInfo>
+</debug-info>
 

@@ -167,6 +167,8 @@ precedence left ID;
 			parser.cg.var.setID(i2);
 			:}
 			|
+			type:t COMPWORD:c
+			|
 			COMPWORD:c ID:i
 			{: 
 			parser.cg.var.setType((String) c);
@@ -183,9 +185,9 @@ precedence left ID;
 			parser.cg.var.addArray(n);
 			:}
 			|
-			var_declaration LBRACKET ID:ni RBRACKET
+			var_declaration LBRACKET ID RBRACKET
 			{:
-			parser.cg.var.addArray(ni);
+			parser.cg.var.addArray(0);
 			:}
 			|
 			type:i7 LPAREN STAR ID:i8 RPAREN LPAREN

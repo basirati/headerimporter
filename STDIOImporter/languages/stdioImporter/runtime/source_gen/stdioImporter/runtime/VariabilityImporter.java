@@ -7,6 +7,8 @@ import stdio_parser.Declaration;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import stdio_parser.ConditionalBlock;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -21,9 +23,9 @@ public class VariabilityImporter {
         ConditionalBlock cb = (ConditionalBlock) declare;
         SNode f = this.checkFeatureAvailability(feature, cb.getNormalizedName());
         if (f == null) {
-          f = SConceptOperations.createNewNode("com.mbeddr.cc.var.fm.structure.Feature", null);
-          SPropertyOperations.set(f, "name", cb.getNormalizedName());
-          ListSequence.fromList(SLinkOperations.getTargets(feature, "children", true)).addElement(f);
+          f = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getConcept(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb292L, "com.mbeddr.cc.var.fm.structure.Feature")));
+          SPropertyOperations.set(f, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), cb.getNormalizedName());
+          ListSequence.fromList(SLinkOperations.getChildren(feature, MetaAdapterFactory.getContainmentLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb292L, 0x5eb8f6e2708cb294L, "children"))).addElement(f);
         }
         this.addToVariability(f, cb.getBlock(true));
         this.addToVariability(f, cb.getBlock(false));
@@ -35,86 +37,74 @@ public class VariabilityImporter {
   }
 
 
-
-
   private void addConfigModel(SNode vs) {
-    SNode fm = (SNode) ListSequence.fromList(SLinkOperations.getTargets(vs, "contents", true)).getElement(0);
-    SNode cm = SConceptOperations.createNewNode("com.mbeddr.cc.var.fm.structure.ConfigurationModel", null);
-    SPropertyOperations.set(cm, "name", "allFeatures");
-    SLinkOperations.setTarget(cm, "configures", fm, false);
-    for (SNode f : ListSequence.fromList(SLinkOperations.getTargets(SLinkOperations.getTarget(fm, "root", true), "children", true))) {
-      SNode sf = SConceptOperations.createNewNode("com.mbeddr.cc.var.fm.structure.SelectedFeature", null);
-      SLinkOperations.setTarget(sf, "feature", f, false);
-      ListSequence.fromList(SLinkOperations.getTargets(SLinkOperations.getTarget(cm, "rootFeature", true), "children", true)).addElement(sf);
+    SNode fm = (SNode) ListSequence.fromList(SLinkOperations.getChildren(vs, MetaAdapterFactory.getContainmentLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708d4ff0L, 0x5eb8f6e2708d4ff1L, "contents"))).getElement(0);
+    SNode cm = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getConcept(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb288L, "com.mbeddr.cc.var.fm.structure.ConfigurationModel")));
+    SPropertyOperations.set(cm, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "allFeatures");
+    SLinkOperations.setTarget(cm, MetaAdapterFactory.getReferenceLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb288L, 0x5eb8f6e2708cb28aL, "configures"), fm);
+    for (SNode f : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(fm, MetaAdapterFactory.getContainmentLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb29aL, 0x5eb8f6e2708cb29bL, "root")), MetaAdapterFactory.getContainmentLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb292L, 0x5eb8f6e2708cb294L, "children")))) {
+      SNode sf = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getConcept(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb28eL, "com.mbeddr.cc.var.fm.structure.SelectedFeature")));
+      SLinkOperations.setTarget(sf, MetaAdapterFactory.getReferenceLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb28eL, 0x5eb8f6e2708cb291L, "feature"), f);
+      ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(cm, MetaAdapterFactory.getContainmentLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb288L, 0x5eb8f6e2708cb289L, "rootFeature")), MetaAdapterFactory.getContainmentLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb28eL, 0x5eb8f6e2708cb28fL, "children"))).addElement(sf);
     }
-    ListSequence.fromList(SLinkOperations.getTargets(vs, "contents", true)).addElement(cm);
+    ListSequence.fromList(SLinkOperations.getChildren(vs, MetaAdapterFactory.getContainmentLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708d4ff0L, 0x5eb8f6e2708d4ff1L, "contents"))).addElement(cm);
   }
 
-
-
   private SNode checkFeatureAvailability(SNode feature, String name) {
-    for (SNode f : ListSequence.fromList(SLinkOperations.getTargets(feature, "children", true))) {
-      if (SPropertyOperations.getString(f, "name").equals(name)) {
+    for (SNode f : ListSequence.fromList(SLinkOperations.getChildren(feature, MetaAdapterFactory.getContainmentLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb292L, 0x5eb8f6e2708cb294L, "children")))) {
+      if (SPropertyOperations.getString(f, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(name)) {
         return f;
       }
     }
     return null;
   }
 
-
-
   public void addVariabilitys(SNode vs, Iterable<Declaration> declarations) {
-    SNode fm = SConceptOperations.createNewNode("com.mbeddr.cc.var.fm.structure.FeatureModel", null);
-    SPropertyOperations.set(fm, "name", "IFDEFS");
-    this.addToVariability(SLinkOperations.getTarget(fm, "root", true), declarations);
-    ListSequence.fromList(SLinkOperations.getTargets(vs, "contents", true)).addElement(fm);
+    SNode fm = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getConcept(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb29aL, "com.mbeddr.cc.var.fm.structure.FeatureModel")));
+    SPropertyOperations.set(fm, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "IFDEFS");
+    this.addToVariability(SLinkOperations.getTarget(fm, MetaAdapterFactory.getContainmentLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb29aL, 0x5eb8f6e2708cb29bL, "root")), declarations);
+    ListSequence.fromList(SLinkOperations.getChildren(vs, MetaAdapterFactory.getContainmentLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708d4ff0L, 0x5eb8f6e2708d4ff1L, "contents"))).addElement(fm);
     this.addConfigModel(vs);
   }
 
-
-
   public void addPresenceCondition(SNode content, SNode feature, boolean condition) {
-    SNode fc = SConceptOperations.createNewNode("com.mbeddr.cc.var.annotations.structure.FeatureCondition", null);
-    SNode pc = SConceptOperations.createNewNode("com.mbeddr.cc.var.annotations.structure.PresenceCondition", null);
-    SNode fr = SConceptOperations.createNewNode("com.mbeddr.cc.var.fm.structure.FeatureRef", null);
-    SLinkOperations.setTarget(fr, "feature", feature, false);
+    SNode fc = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getConcept(0x17fba0eaf154a23L, 0xb0a802b5c1141e75L, 0x24465732fc60006dL, "com.mbeddr.cc.var.annotations.structure.FeatureCondition")));
+    SNode pc = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getConcept(0x17fba0eaf154a23L, 0xb0a802b5c1141e75L, 0x92cd87784510973L, "com.mbeddr.cc.var.annotations.structure.PresenceCondition")));
+    SNode fr = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getConcept(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x6a0e1211f0e3a631L, "com.mbeddr.cc.var.fm.structure.FeatureRef")));
+    SLinkOperations.setTarget(fr, MetaAdapterFactory.getReferenceLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x6a0e1211f0e3a631L, 0x6a0e1211f0e3a632L, "feature"), feature);
     if (!(condition)) {
-      SNode notexpr = SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.NotExpression", null);
-      SLinkOperations.setTarget(notexpr, "expression", fr, true);
-      SLinkOperations.setTarget(fc, "expr", notexpr, true);
+      SNode notexpr = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x352a4cc97cbac907L, "com.mbeddr.core.expressions.structure.NotExpression")));
+      SLinkOperations.setTarget(notexpr, MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x29b5b7c4a3763232L, 0x64ae61a4018a9c50L, "expression"), fr);
+      SLinkOperations.setTarget(fc, MetaAdapterFactory.getContainmentLink(0x17fba0eaf154a23L, 0xb0a802b5c1141e75L, 0x24465732fc60006dL, 0x24465732fc60006eL, "expr"), notexpr);
     } else {
-      SLinkOperations.setTarget(fc, "expr", fr, true);
+      SLinkOperations.setTarget(fc, MetaAdapterFactory.getContainmentLink(0x17fba0eaf154a23L, 0xb0a802b5c1141e75L, 0x24465732fc60006dL, 0x24465732fc60006eL, "expr"), fr);
     }
-    SLinkOperations.setTarget(pc, "condition", fc, true);
-    AttributeOperations.setAttribute(content, new IAttributeDescriptor.NodeAttribute("com.mbeddr.core.base.structure.VisibilityControllingAttribute"), pc);
+    SLinkOperations.setTarget(pc, MetaAdapterFactory.getContainmentLink(0x17fba0eaf154a23L, 0xb0a802b5c1141e75L, 0x92cd87784510973L, 0x92cd877845109b7L, "condition"), fc);
+    AttributeOperations.setAttribute(content, new IAttributeDescriptor.NodeAttribute(MetaAdapterFactory.getConcept(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, 0x52b33753b30b563eL, "com.mbeddr.core.base.structure.VisibilityControllingAttribute")), pc);
   }
-
-
 
   public void addPresenceConditionToSMember(SNode content, SNode feature, boolean condition) {
-    SNode fc = SConceptOperations.createNewNode("com.mbeddr.cc.var.annotations.structure.FeatureCondition", null);
-    SNode pc = SConceptOperations.createNewNode("com.mbeddr.cc.var.annotations.structure.PresenceCondition", null);
-    SNode fr = SConceptOperations.createNewNode("com.mbeddr.cc.var.fm.structure.FeatureRef", null);
-    SLinkOperations.setTarget(fr, "feature", feature, false);
+    SNode fc = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getConcept(0x17fba0eaf154a23L, 0xb0a802b5c1141e75L, 0x24465732fc60006dL, "com.mbeddr.cc.var.annotations.structure.FeatureCondition")));
+    SNode pc = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getConcept(0x17fba0eaf154a23L, 0xb0a802b5c1141e75L, 0x92cd87784510973L, "com.mbeddr.cc.var.annotations.structure.PresenceCondition")));
+    SNode fr = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getConcept(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x6a0e1211f0e3a631L, "com.mbeddr.cc.var.fm.structure.FeatureRef")));
+    SLinkOperations.setTarget(fr, MetaAdapterFactory.getReferenceLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x6a0e1211f0e3a631L, 0x6a0e1211f0e3a632L, "feature"), feature);
     if (!(condition)) {
-      SNode notexpr = SConceptOperations.createNewNode("com.mbeddr.core.expressions.structure.NotExpression", null);
-      SLinkOperations.setTarget(notexpr, "expression", fr, true);
-      SLinkOperations.setTarget(fc, "expr", notexpr, true);
+      SNode notexpr = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getConcept(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x352a4cc97cbac907L, "com.mbeddr.core.expressions.structure.NotExpression")));
+      SLinkOperations.setTarget(notexpr, MetaAdapterFactory.getContainmentLink(0x61c69711ed614850L, 0x81d97714ff227fb0L, 0x29b5b7c4a3763232L, 0x64ae61a4018a9c50L, "expression"), fr);
+      SLinkOperations.setTarget(fc, MetaAdapterFactory.getContainmentLink(0x17fba0eaf154a23L, 0xb0a802b5c1141e75L, 0x24465732fc60006dL, 0x24465732fc60006eL, "expr"), notexpr);
     } else {
-      SLinkOperations.setTarget(fc, "expr", fr, true);
+      SLinkOperations.setTarget(fc, MetaAdapterFactory.getContainmentLink(0x17fba0eaf154a23L, 0xb0a802b5c1141e75L, 0x24465732fc60006dL, 0x24465732fc60006eL, "expr"), fr);
     }
-    SLinkOperations.setTarget(pc, "condition", fc, true);
-    AttributeOperations.setAttribute(content, new IAttributeDescriptor.NodeAttribute("com.mbeddr.core.base.structure.VisibilityControllingAttribute"), pc);
+    SLinkOperations.setTarget(pc, MetaAdapterFactory.getContainmentLink(0x17fba0eaf154a23L, 0xb0a802b5c1141e75L, 0x92cd87784510973L, 0x92cd877845109b7L, "condition"), fc);
+    AttributeOperations.setAttribute(content, new IAttributeDescriptor.NodeAttribute(MetaAdapterFactory.getConcept(0xd4280a54f6df4383L, 0xaa41d1b2bffa7eb1L, 0x52b33753b30b563eL, "com.mbeddr.core.base.structure.VisibilityControllingAttribute")), pc);
   }
 
-
-
   private SNode findFeature(SNode feature, String name) {
-    for (SNode f : ListSequence.fromList(SLinkOperations.getTargets(feature, "children", true))) {
-      if (SPropertyOperations.getString(f, "name").equals(name)) {
+    for (SNode f : ListSequence.fromList(SLinkOperations.getChildren(feature, MetaAdapterFactory.getContainmentLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb292L, 0x5eb8f6e2708cb294L, "children")))) {
+      if (SPropertyOperations.getString(f, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(name)) {
         return f;
       }
-      if (ListSequence.fromList(SLinkOperations.getTargets(f, "children", true)).count() > 0) {
+      if (ListSequence.fromList(SLinkOperations.getChildren(f, MetaAdapterFactory.getContainmentLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb292L, 0x5eb8f6e2708cb294L, "children"))).count() > 0) {
         SNode fcandidate = this.findFeature(f, name);
         if (fcandidate != null) {
           return fcandidate;
@@ -124,14 +114,11 @@ public class VariabilityImporter {
     return null;
   }
 
-
-
   public SNode getFeaturebyName(SNode vs, String name) {
     SNode fm;
-    fm = (SNode) ListSequence.fromList(SLinkOperations.getTargets(vs, "contents", true)).getElement(0);
-    return this.findFeature(SLinkOperations.getTarget(fm, "root", true), name);
+    fm = (SNode) ListSequence.fromList(SLinkOperations.getChildren(vs, MetaAdapterFactory.getContainmentLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708d4ff0L, 0x5eb8f6e2708d4ff1L, "contents"))).getElement(0);
+    return this.findFeature(SLinkOperations.getTarget(fm, MetaAdapterFactory.getContainmentLink(0xe401b44780194ccdL, 0xa72cbfb0230f5782L, 0x5eb8f6e2708cb29aL, 0x5eb8f6e2708cb29bL, "root")), name);
   }
-
 
 
 }
