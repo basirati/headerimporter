@@ -1,0 +1,47 @@
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {2}Scanner}{3}
+\contentsline {subsection}{\numberline {2.1}Installing JFlex Scanner}{3}
+\contentsline {subsection}{\numberline {2.2}The Scanner Structure}{5}
+\contentsline {section}{\numberline {3}Parser}{6}
+\contentsline {subsection}{\numberline {3.1}CUP Parser Installation}{6}
+\contentsline {subsection}{\numberline {3.2}The Parser Structure}{6}
+\contentsline {subsection}{\numberline {3.3}Declaration Classes}{7}
+\contentsline {section}{\numberline {4}MPS Importer Project}{7}
+\contentsline {subsection}{\numberline {4.1}Installing MPS}{7}
+\contentsline {subsection}{\numberline {4.2}The MPS Part Structure}{7}
+\contentsline {section}{\numberline {5}Integrating Scanner, Parser, and MPS Project}{8}
+\contentsline {section}{\numberline {6}Structs and Unions}{8}
+\contentsline {subsection}{\numberline {6.1}Background}{8}
+\contentsline {subsection}{\numberline {6.2}Overview on Importer Implementation}{8}
+\contentsline {subsection}{\numberline {6.3}Parsing Structs and Unions}{8}
+\contentsline {subsection}{\numberline {6.4}Importing Parsed Structs and Unions to mbeddr}{9}
+\contentsline {section}{\numberline {7}Typedefs}{9}
+\contentsline {subsection}{\numberline {7.1}Background}{9}
+\contentsline {subsection}{\numberline {7.2}Overview on Importer Implementation}{9}
+\contentsline {subsection}{\numberline {7.3}Parsing Typedefs}{9}
+\contentsline {subsection}{\numberline {7.4}Importing Parsed Typedefs to mbeddr}{9}
+\contentsline {subsection}{\numberline {7.5}Open Issues}{10}
+\contentsline {section}{\numberline {8}Variable Declarations}{10}
+\contentsline {subsection}{\numberline {8.1}Background}{10}
+\contentsline {subsection}{\numberline {8.2}Overview on Importer Implementation}{10}
+\contentsline {subsection}{\numberline {8.3}Parsing Variables Declarations}{10}
+\contentsline {subsection}{\numberline {8.4}Importing Parsed Variable Declarations to mbeddr}{10}
+\contentsline {section}{\numberline {9}Function Prototypes}{11}
+\contentsline {subsection}{\numberline {9.1}Background}{11}
+\contentsline {subsection}{\numberline {9.2}Overview on Importer Implementation}{11}
+\contentsline {subsection}{\numberline {9.3}Parsing Function Prototypes}{11}
+\contentsline {subsection}{\numberline {9.4}Importing Parsed Function Prototypes to mbeddr}{11}
+\contentsline {subsection}{\numberline {9.5}Open Issues}{11}
+\contentsline {section}{\numberline {10}Constants and Macros}{11}
+\contentsline {subsection}{\numberline {10.1}Background}{11}
+\contentsline {subsection}{\numberline {10.2}Overview on Importer Implementation}{12}
+\contentsline {subsection}{\numberline {10.3}Parsing \#define Directives}{12}
+\contentsline {subsection}{\numberline {10.4}Importing Parsed \#define Directives to mbeddr}{12}
+\contentsline {subsection}{\numberline {10.5}Open Issues}{12}
+\contentsline {section}{\numberline {11}Preprocessor Conditional Directives}{12}
+\contentsline {subsection}{\numberline {11.1}Background}{12}
+\contentsline {subsection}{\numberline {11.2}Overview on Importer Implementation}{12}
+\contentsline {subsection}{\numberline {11.3}Parsing Conditional Directives}{13}
+\contentsline {subsection}{\numberline {11.4}Importing Parsed Conditional Directives to mbeddr}{13}
+\contentsline {subsection}{\numberline {11.5}Open Issues}{14}
+\contentsline {section}{\numberline {12}List of All Open Issues}{15}
