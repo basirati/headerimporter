@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependenciesRoot>
+  <dependency className="stdioImporter.sandbox.Main" file="Main.c" />
+  <dependency className="stdioImporter.sandbox.Main" file="Main.h" />
+  <dependency className="stdioImporter.sandbox.Makefile" file="Makefile" />
+  <dependency className="stdioImporter.sandbox.TypeSizeConfiguration (s.sandbox)" file="TypeSizeConfiguration (s.sandbox)" />
+</dependenciesRoot>
+

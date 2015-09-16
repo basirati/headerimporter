@@ -1,0 +1,292 @@
+import java_cup.runtime.*;
+import java.util.ArrayList;
+
+parser code {:
+	public CodeGenerator cg = new CodeGenerator();
+	public void report_error(String message, Object info) {
+		StringBuilder m = new StringBuilder("Error");
+		if (info instanceof java_cup.runtime.Symbol) {
+			java_cup.runtime.Symbol s = ((java_cup.runtime.Symbol) info);
+			if (s.left >= 0) {                
+				m.append(" in line "+(s.left+1));   
+				if (s.right >= 0)                    
+					m.append(", column "+(s.right+1));
+			}
+		}
+   
+        	m.append(" : "+message);
+   
+        	System.err.println(m);
+    	}
+	
+	public void report_fatal_error(String message, Object info) {
+	report_error(message, info);
+	System.exit(0);
+    }
+:};
+   
+
+
+terminal		IF, SHARP, DEFINE, LBRACKET, RBRACKET, ASSIGN, DOT, DOTS, BAR, BARDOT, GREATER, LESS, GG, LL, PREF, MM, PP, GE, LE, AND, OR, NOTEQUAL, EQUAL, COLON, SEMI, PLUS, MINUS, STAR, DIVIDE, COMMA, LPAREN, RPAREN, EXTERN, TYPEDEF, STRUCT, LQ, RQ, PERCENT, HAT, QUESTIONMARK, SHORT, LONG, UN_SIGNED, AMPERSAND, TILDE, CHAR, INT, SINT, LINT, LLONG, LLINT, FLOAT, DOUBLE, LDOUBLE, PLUSEQ, MINUSEQ, STAREQ, DIVIDEQ, PERCENTEQ, LLEQ, GGEQ, AMPERSANDEQ, HATEQ, BAREQ, IFDEF, IFNDEF, ELSE, ENDIF, INCLUDE, COMPWORD, ENUMM, UNION;
+
+terminal Integer	NUMBER;
+terminal String		ID;
+   
+non terminal Object     pre_process_step, def_body, program, code_part, params, struct_body, func, ident_funcpointer, expression, func_call, args, Ar2, B2, LogicalS, macro_params, def_val, general_declaration, struct_declaration, typedef_declaration, var_declaration, function_declaration, parameter, newtype, enum_declaration, enum_body, 	enum_constant, union_declaration;
+non terminal String	type, pre_type, c_type;
+
+precedence left COMPWORD;
+precedence left STAR, AMPERSAND;
+precedence left LBRACKET, RBRACKET;
+precedence left LPAREN, RPAREN;
+precedence left ID;
+   
+	program	::=	  program code_part
+			| code_part
+			;
+
+   
+	code_part ::= 	  pre_process_step
+			| general_declaration SEMI
+			| EXTERN general_declaration SEMI
+			| error
+			;
+			
+
+	pre_process_step::=	  IF:i {: parser.cg.newConditionalBlock(i,true); :} 
+				| IFDEF:i {: parser.cg.newConditionalBlock(i,true); :}
+				| IFNDEF:i {: parser.cg.newConditionalBlock(i,false); :}
+				| DEFINE:d 
+					{:
+					parser.cg.define.setExp(d);
+					parser.cg.define.setID("");
+					parser.cg.declareDefine();
+					:}
+				| SHARP ELSE {: parser.cg.conditionalBlocks.peek().condition = false; :}
+				| SHARP ENDIF {: parser.cg.declareConditionalBlock(); :}
+				| INCLUDE:i {:System.out.println("include" + i); :} | COMPWORD {: /*DO NOTHING*/ :}
+				;
+
+
+
+	general_declaration::=	  typedef_declaration
+				| struct_declaration
+				| enum_declaration
+				| var_declaration {: parser.cg.declareVar(); :} 
+				| function_declaration
+				| general_declaration COMPWORD
+				;
+
+
+	typedef_declaration::=	  TYPEDEF var_declaration:d2 {: parser.cg.declareTypedef_var(); :}
+				| TYPEDEF STRUCT LQ struct_body:s RQ ID:i {: parser.cg.declareTypedef_struct(i, ""); :}
+				| TYPEDEF STRUCT ID:i expression:e {: parser.cg.declareTypedef_struct(i, e); :}
+				| TYPEDEF enum_declaration ID
+				;
+
+	struct_declaration::=	  STRUCT ID:i
+					{: 
+					parser.cg.structflag = true;
+					parser.cg.struct.setID(i);
+					:}
+				  LQ struct_body:s RQ 
+					{: parser.cg.declareStruct(); :}
+				| STRUCT ID:i 
+					{: 
+					parser.cg.struct.setID(i);
+					parser.cg.declareStruct();
+					:}
+				| STRUCT ID:i expression:e
+					{: 
+					parser.cg.struct.setID(i);
+					parser.cg.declareStruct();
+					:}
+				| UNION ID:i
+					{: 
+					parser.cg.structflag = true;
+					parser.cg.struct.setID(i);
+					parser.cg.struct.setUnion(true);
+					:}
+				  LQ struct_body:s RQ 
+					{: parser.cg.declareStruct(); :}
+				| UNION ID:i 
+					{: 
+					parser.cg.struct.setID(i);
+					parser.cg.struct.setUnion(true);
+					parser.cg.declareStruct();
+					:}
+				| UNION ID:i expression:e
+					{: 
+					parser.cg.struct.setID(i);
+					parser.cg.struct.setUnion(true);
+					parser.cg.declareStruct();
+					:}
+				;
+
+	enum_declaration::=	ENUMM ID:i {:parser.cg.enumm.setID(i); :}
+				LQ enum_body RQ
+				;
+	enum_constant::=	ID:i {: parser.cg.enumm.addMember(i, null); :}
+				| ID:i ASSIGN {: parser.cg.enumm.addMember(i, null); :}
+				| ID:i ASSIGN NUMBER:n {: parser.cg.enumm.addMember(i, n); :}
+				;
+
+	enum_body::=		enum_constant
+				| enum_constant COMMA enum_body
+				;
+
+
+	function_declaration::= func:f {: parser.cg.declareFunc(); :}
+				;
+
+
+
+	func	::=	type:e ID:e2 LPAREN 
+			{: 
+			parser.cg.func.setReturn_type(e);
+			parser.cg.func.setID(e2);
+			parser.cg.paramsowner = parser.cg.func;
+			:}						
+			params:p RPAREN
+			|
+			COMPWORD:e ID:e2 LPAREN 
+			{: 
+			parser.cg.func.setReturn_type(e);
+			parser.cg.func.setID(e2);
+			parser.cg.paramsowner = parser.cg.func;
+			:}						
+			params:p RPAREN
+			;
+	
+
+	struct_body	::=	
+			var_declaration SEMI
+				{:
+				if (parser.cg.structblock)
+					parser.cg.addDeclaration(parser.cg.var);
+				else
+					parser.cg.struct.addMember(parser.cg.var);
+			        parser.cg.var = new Variable();
+				:}
+			| struct_body var_declaration SEMI
+				{:
+				if (parser.cg.structblock)
+					parser.cg.addDeclaration(parser.cg.var);
+				else
+					parser.cg.struct.addMember(parser.cg.var);
+	
+			        parser.cg.var = new Variable();
+				:}
+			| pre_process_step
+			| struct_body pre_process_step
+			;
+	
+	var_declaration ::=
+			type:i ID:i2
+			{: 
+			parser.cg.var.setType(i);
+			parser.cg.var.setID(i2);
+			:}
+			|
+			COMPWORD:c ID:i
+			{: 
+			parser.cg.var.setType((String) c);
+			parser.cg.var.setID(i);
+			:}
+			|
+			var_declaration LBRACKET RBRACKET
+			{:
+			parser.cg.var.addArray(0);
+			:}
+			| 
+			var_declaration LBRACKET NUMBER:n RBRACKET
+			{:
+			parser.cg.var.addArray(n);
+			:}
+			|
+			var_declaration LBRACKET ID RBRACKET
+			{:
+			parser.cg.var.addArray(0);
+			:}
+			|
+			type:i7 LPAREN STAR ID:i8 RPAREN LPAREN
+			{: 
+			parser.cg.var.setType(i7+"*");
+			parser.cg.var.setID(i8);
+			Function funcp = new Function();
+			funcp.setID(i8);
+			funcp.setReturn_type(i7+"*");
+			parser.cg.params_owners.push(parser.cg.paramsowner);
+			parser.cg.paramsowner = funcp;  
+			:}
+			params:ps RPAREN
+			{:
+			Function funcp = parser.cg.paramsowner;
+			funcp.pointer = true;
+			parser.cg.var.setFuncpointer(funcp);
+			parser.cg.paramsowner = parser.cg.params_owners.pop();
+			:}
+			;
+
+	
+
+	parameter	::=
+			type:t {:RESULT = t;:}
+			|
+			ident_funcpointer:i {:RESULT = i;:}
+			|
+			COMPWORD:c {:RESULT = c;:}
+			|
+			parameter:p COMPWORD
+			{: RESULT = p; :}
+			;
+
+	params	::=	parameter:p {: parser.cg.paramsowner.pushParam(p);:}
+			| parameter:p COMMA params:ps {: parser.cg.paramsowner.pushParam(p);:}
+			|
+			;
+
+	ident_funcpointer ::=
+			type:p4 LPAREN STAR RPAREN LPAREN 
+			{:
+			Function funcp = new Function();
+			funcp.pointer = true;
+			funcp.setReturn_type(p4);
+			parser.cg.params_owners.push(parser.cg.paramsowner);
+			parser.cg.paramsowner = funcp;  
+			:}
+			params:ps2 RPAREN
+			{:
+			Function funcp = parser.cg.paramsowner;
+			funcp.pointer = true;
+			parser.cg.paramsowner = parser.cg.params_owners.pop();
+			RESULT = funcp;
+			:}
+			;
+
+	expression ::=	ID:i {: RESULT = i; :} | COMPWORD:c {: RESULT = c; :} | LPAREN expression:e RPAREN {: RESULT = "("+e+")"; :}
+			| STAR expression:e {: RESULT = "*"+e; :} | AMPERSAND expression:e {: RESULT = "&" + e; :};
+
+	c_type ::=	CHAR {: RESULT= "char"; :} | INT {: RESULT= "int"; :}
+			| SINT {: RESULT= "short int"; :} | LINT {: RESULT= "long int"; :} 
+			| SHORT {: RESULT="short"; :}
+			| LONG {: RESULT="long"; :} | LLONG {: RESULT= "long long"; :} | LLINT {: RESULT= "long long int"; :}
+			| FLOAT {: RESULT= "float"; :} | DOUBLE {: RESULT= "double"; :} | LDOUBLE {: RESULT= "long double"; :};
+			
+	pre_type::=	c_type:c {: RESULT= c; :}| ID:i {: RESULT= i; :}
+			| STRUCT ID:i {: RESULT= "struct " + i; :}
+			| UN_SIGNED:u pre_type:p {: RESULT= u + " " + p; :} 
+			;
+			
+
+	type::=		pre_type:p {: RESULT= p; :}
+			| type:t LBRACKET RBRACKET {: RESULT=t + "[]"; :}
+			| type:t LBRACKET NUMBER:n RBRACKET {: RESULT=t + "[" + n + "]"; :}
+			| type:t STAR {: RESULT=t + "*"; :};
+
+
+	
+
+
+
+
