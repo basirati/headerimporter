@@ -1,4 +1,4 @@
-# README #
+# C Header Importer for JetBrains MPS #
 
 .jflex and .cup files are in scanner-parser folder
 
